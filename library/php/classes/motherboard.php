@@ -1,7 +1,6 @@
 <?php
 class main_board
 {
-	protected $_merchantFolder = "/merchant";
 	protected $_merchantID = "1";
 	
 	protected $language_xml = null;
@@ -32,8 +31,6 @@ class main_board
 				$this->_throwUserError();
 			}
 		}
-		
-		define("_INSTALL_FOLDER", $this->_merchantFolder);
 	}
 	
 	

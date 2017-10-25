@@ -152,17 +152,55 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 					<div class="top-item submenu-active">
 						<a href="/">
 							<?= $mb->_translateReturn("info", "full_name") ?>
+							
+							<?php
+							if(count($_full_name_languages) > 1)
+							{
+								?>
+								<span class="lnr lnr-chevron-down"></span>
+								
+								<nav>
+									<div class="top-item-submenu">
+										<ul>
+											<?php
+											foreach($_full_name_languages AS $name => $abbreviation)
+											{
+												?>
+												
+												<li>
+													<a href="<?= str_replace("/"._LANGUAGE_PACK."/", "/".strtolower($abbreviation)."/", "http://". $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) ?>"><?= $name ?></a>
+												</li>
+												
+												<?php
+											}
+											?>
+										</ul>
+									</div>
+								</nav>
+								<?php
+							}
+							?>
+						</a>
+					</div>
+					
+					<div class="top-item submenu-active">
+						<?= _CURRENCY ?> (<?= _CURRENCY_SIGN ?>)
+						
+						<?php
+						if(count($_recognized_currencies) > 1)
+						{
+							?>
 							<span class="lnr lnr-chevron-down"></span>
 							
 							<nav>
 								<div class="top-item-submenu">
 									<ul>
 										<?php
-										foreach($_full_name_languages AS $name => $abbreviation)
+										foreach($_recognized_currencies AS $abbreviation)
 										{
 											?>
 											<li>
-												<a href="<?= str_replace("/"._LANGUAGE_PACK."/", "/".strtolower($abbreviation)."/", "http://". $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) ?>"><?= $name ?></a>
+												<a href="/<?= strtolower(_LANGUAGE_PACK) ?>/currency/<?= $abbreviation ?>/referer<?= $_SERVER['REQUEST_URI'] ?>"><?= $abbreviation ?>&nbsp;(<?= $_currencies_symbols[$abbreviation] ?>)</a>
 											</li>
 											<?php
 										}
@@ -170,29 +208,9 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 									</ul>
 								</div>
 							</nav>
-						</a>
-					</div>
-					
-					<div class="top-item submenu-active">
-						<?= _CURRENCY ?> (<?= _CURRENCY_SIGN ?>)
-						<span class="lnr lnr-chevron-down"></span>
-						
-						<nav>
-							<div class="top-item-submenu">
-								<ul>
-									<?php
-									foreach($_recognized_currencies AS $abbreviation)
-									{
-										?>
-										<li>
-											<a href="/<?= strtolower(_LANGUAGE_PACK) ?>/currency/<?= $abbreviation ?>/referer<?= $_SERVER['REQUEST_URI'] ?>"><?= $abbreviation ?>&nbsp;(<?= $_currencies_symbols[$abbreviation] ?>)</a>
-										</li>
-										<?php
-									}
-									?>
-								</ul>
-							</div>
-						</nav>
+							<?php
+						}
+						?>
 					</div>
 					
 					<div class="top-item text-green open-kayako">
