@@ -1,6 +1,7 @@
 <?php
 if(file_exists(__DIR__ . "/force.php"))
 {
+	print "test";
 	require_once(__DIR__ . "/force.php");
 	exit;
 }
