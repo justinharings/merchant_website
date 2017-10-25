@@ -21,8 +21,8 @@ if(!isset($_SESSION))
 **	PHP exception for the developer.
 */
 
-define("_DEVELOPMENT_ENVIRONMENT", true);
-
+$_actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+define("_DEVELOPMENT_ENVIRONMENT", (strpos($_actual_link, "websites.justin") !== false ? true : false));
 
 
 /*
@@ -127,8 +127,8 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 		<meta name="description" content="<?= $mb->_runFunction("head", "description") ?>" />
 		<meta name="keywords" content="<?= $mb->_runFunction("head", "keywords") ?>" />
 
-		<link type="image/x-icon" rel="icon" href="/library/media/favicon.png" />
-		<link type="image/x-icon" rel="shortcut icon" href="/library/media/favicon.png" />
+		<link type="image/x-icon" rel="icon" href="/library/media/<?= $mb->_translateReturn("images", "favicon") ?>" />
+		<link type="image/x-icon" rel="shortcut icon" href="/library/media/<?= $mb->_translateReturn("images", "favicon") ?>" />
 		
 		<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" href="/library/css/motherboard.minified.css" />
@@ -223,21 +223,27 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 					<div class="top-item">
 						<a href="https://www.instagram.com/<?= $mb->_translateReturn("urls", "instagram") ?>/" target="_blank" class="text-color-instagram">
 							<span class="fa fa-instagram"></span>
-							<?= $mb->_returnTXT("instagram") ?> photo lovers!
+							
+							<?= $mb->_returnTXT("instagram_" . $mb->_translateReturn("urls", "instagram")) ?>
+							photo lovers!
 						</a>
 					</div>
 					
 					<div class="top-item">
 						<a href="https://www.twitter.com/<?= $mb->_translateReturn("urls", "twitter") ?>/" target="_blank" class="text-color-twitter">
 							<span class="fa fa-twitter"></span>
-							<?= $mb->_returnTXT("twitter") ?> dedicated followers!
+							
+							<?= $mb->_returnTXT("twitter_" . $mb->_translateReturn("urls", "twitter")) ?>
+							dedicated followers!
 						</a>
 					</div>
 					
 					<div class="top-item">
 						<a href="https://www.facebook.com/<?= $mb->_translateReturn("urls", "facebook") ?>/" target="_blank" class="text-color-facebook">
 							<span class="fa fa-facebook-square"></span>
-							<?= $mb->_returnTXT("facebook") ?> happy likers!
+							
+							<?= $mb->_returnTXT("facebook_" . $mb->_translateReturn("urls", "facebook")) ?>
+							happy likers!
 						</a>
 					</div>
 				</div>
@@ -262,27 +268,9 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 						<img class="expert" src="/library/media/<?= $mb->_translateReturn("images", "expert") ?>" />
 						
 						<nav>
-							<ul class="header-menu">
-								<li>
-									<a href="/<?= _LANGUAGE_PACK ?>/catalog/bicycles.html"><?= $mb->_translateReturn("main_menu", "bicycles") ?></a>
-								</li>
-								
-								<li>
-									<a href="/<?= _LANGUAGE_PACK ?>/catalog/accessories.html"><?= $mb->_translateReturn("main_menu", "accessories") ?></a>
-								</li>
-								
-								<li>
-									<a href="/<?= _LANGUAGE_PACK ?>/catalog/parts.html"><?= $mb->_translateReturn("main_menu", "parts") ?></a>
-								</li>
-								
-								<li>
-									<a href="/<?= _LANGUAGE_PACK ?>/catalog/sale.html" class="red"><?= $mb->_translateReturn("main_menu", "sale") ?></a>
-								</li>
-								
-								<li>
-									<a href="/<?= _LANGUAGE_PACK ?>/service/service-and-contact.html"><?= $mb->_translateReturn("main_menu", "contact") ?></a>
-								</li>
-							</ul>
+							<?php
+							require_once(__DIR__ . "/library/languages/" . _LANGUAGE_PACK_FILE . ".main_menu");
+							?>
 						</nav>
 						
 						<ul class="header-icons">

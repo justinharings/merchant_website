@@ -5,20 +5,21 @@
 	</info>
 	
 	<html_head>
-	    <default_title>Harings Tweewielers</default_title>
+	    <default_title>Harings Vuurwerk</default_title>
 	    <default_description>Verstand van fietsen sinds 1899, al vier generaties lang! Thuis op het gebied van iedere soort fiets. Wereldwijde verkoop van Nederlandse merken!</default_description>
 	    <default_keywords>fietsenwinkel, online, almelo, tweewielers, batavus, sparta, popal, vogue</default_keywords>
 	</html_head>
 	
 	<images>
-		<logo>haringstweewielers.png</logo>
-		<expert>experts_nl.png</expert>
+		<logo>haringsvuurwerk.png</logo>
+		<expert>experts_vuurwerk.png</expert>
+		<favicon>favicon_haringsvuurwerk.png</favicon>
 	</images>
 	
 	<urls>
-		<facebook>harings2wielers</facebook>
-		<twitter>harings2wielers</twitter>
-		<instagram>harings2wielers</instagram>
+		<facebook>haringsvuurwerk</facebook>
+		<twitter>haringsvuurwerk</twitter>
+		<instagram>haringsvuurwerk</instagram>
 	</urls>
 	
 	<main_menu>

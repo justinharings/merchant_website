@@ -1,7 +1,7 @@
 <?php
 class main_board
 {
-	protected $_merchantID = "1";
+	protected $_merchantID = _MERCHANT_ID;
 	
 	protected $language_xml = null;
 	protected $thirdPartyApps = array();
@@ -16,15 +16,15 @@ class main_board
 	
 	public function __construct()
 	{
-		if(file_exists($_SERVER['DOCUMENT_ROOT'] . "/library/languages/" . strtolower(_LANGUAGE_PACK) . ".xml"))
+		if(file_exists($_SERVER['DOCUMENT_ROOT'] . "/library/languages/" . strtolower(_LANGUAGE_PACK_FILE) . ".xml"))
 		{
-			$this->language_xml = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/library/languages/" . strtolower(_LANGUAGE_PACK) . ".xml");
+			$this->language_xml = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/library/languages/" . strtolower(_LANGUAGE_PACK_FILE) . ".xml");
 		}
 		else
 		{
 			if(defined("_DEVELOPMENT_ENVIRONMENT") && _DEVELOPMENT_ENVIRONMENT == true)
 			{
-				die("Language pack <em>" . strtolower(_LANGUAGE_PACK) . ".xml</em> not found.");
+				die("Language pack <em>" . strtolower(_LANGUAGE_PACK_FILE) . ".xml</em> not found.");
 			}
 			else
 			{
@@ -66,7 +66,7 @@ class main_board
 	{
 		$xml = simplexml_load_string($this->language_xml);
 		
-		print vsprintf(
+		return vsprintf(
 			$xml->$group->$word,
 			$words
 		);
@@ -81,7 +81,7 @@ class main_board
 	
 	public function _returnTXT($file)
 	{
-		return file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/library/txt/" . $file . ".txt");
+		return file_get_contents("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/txt/" . $file . ".txt");
 	}
 	
 	
@@ -94,6 +94,8 @@ class main_board
 	
 	public function _runFunction($className, $function, $values = array())
 	{
+		$_SERVER['REQUEST_URI'] = "php/posts";
+		
 		if(file_exists(__DIR__ . "/" . $className . ".php"))
 		{
 			require_once(__DIR__ . "/" . $className . ".php");

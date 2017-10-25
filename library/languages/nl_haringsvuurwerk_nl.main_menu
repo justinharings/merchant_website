@@ -1,0 +1,21 @@
+<ul class="header-menu">
+	<li>
+		<a href="/<?= _LANGUAGE_PACK ?>/catalog/bicycles.html"><?= $mb->_translateReturn("main_menu", "bicycles") ?></a>
+	</li>
+	
+	<li>
+		<a href="/<?= _LANGUAGE_PACK ?>/catalog/accessories.html"><?= $mb->_translateReturn("main_menu", "accessories") ?></a>
+	</li>
+	
+	<li>
+		<a href="/<?= _LANGUAGE_PACK ?>/catalog/parts.html"><?= $mb->_translateReturn("main_menu", "parts") ?></a>
+	</li>
+	
+	<li>
+		<a href="/<?= _LANGUAGE_PACK ?>/catalog/sale.html" class="red"><?= $mb->_translateReturn("main_menu", "sale") ?></a>
+	</li>
+	
+	<li>
+		<a href="/<?= _LANGUAGE_PACK ?>/service/service-and-contact.html"><?= $mb->_translateReturn("main_menu", "contact") ?></a>
+	</li>
+</ul>

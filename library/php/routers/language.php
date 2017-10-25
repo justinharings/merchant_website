@@ -28,8 +28,10 @@ switch($_actual_link)
 		);
 		
 		$_language_files = array(
-			"NL" => "nl_haringsvuurwerk_com"
+			"NL" => "nl_haringsvuurwerk_nl"
 		);
+		
+		define("_MERCHANT_ID", 3);
 	break;
 	
 	case "https://www.haringstweewielers.com":
@@ -53,6 +55,8 @@ switch($_actual_link)
 			"DE" => "de_haringstweewielers_com",
 			"EN" => "en_haringstweewielers_com"
 		);
+		
+		define("_MERCHANT_ID", 1);
 	break;
 }
 
@@ -147,7 +151,10 @@ else
 		**	for Google to index the right information.
 		*/
 		
-		define("_LANGUAGE_PACK", $_language_files[strtoupper($_GET['language_pack'])]);
+		define("_LANGUAGE_PACK_FILE", $_language_files[strtoupper($_GET['language_pack'])]);
+		$_SESSION['_LANGUAGE_PACK_FILE'] = _LANGUAGE_PACK_FILE;
+		
+		define("_LANGUAGE_PACK", strtolower($_GET['language_pack']));
 		$_SESSION['_LANGUAGE_PACK'] = _LANGUAGE_PACK;
 		
 		
