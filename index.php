@@ -1,4 +1,10 @@
 <?php
+if(file_exists(__DIR__ . "/force.php"))
+{
+	require_once(__DIR__ . "/force.php");
+	exit;
+}
+
 // Start session
 
 if(!isset($_SESSION))
