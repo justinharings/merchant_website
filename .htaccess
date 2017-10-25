@@ -1,0 +1,50 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_URI} !(/$|\.)
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI}\/ [L,R=301]
+
+# Rewrite language packs
+RewriteRule ^([^/]*)/$ /?language_pack=$1 [L]
+
+# Rewrite catalog
+RewriteRule ^([^/]*)/catalog/([^/]*).html$ /?language_pack=$1&module=catalog&page=$2 [L]
+
+# Rewrite catalog > View
+RewriteRule ^([^/]*)/catalog/([^/]*)/([^/]*)/filters/([^/]*)/([^/]*).html$ /?language_pack=$1&module=catalog&page=view&categoryID=$3&name=$5&headCategory=$2&filters=$4 [L]
+
+# Rewrite catalog > Details
+RewriteRule ^([^/]*)/catalog/details/([^/]*)/([^/]*).html$ /?language_pack=$1&module=catalog&page=details&productID=$2 [L]
+RewriteRule ^([^/]*)/catalog/([^/]*)/([^/]*)/details/([^/]*)/([^/]*).html$ /?language_pack=$1&module=catalog&page=details&productID=$4&categoryID=$2 [L]
+
+# Rewrite catalog > Sale
+RewriteRule ^([^/]*)/catalog/sale.html$ /?language_pack=$1&module=sale [L]
+
+# Rewrite catalog > Search
+RewriteRule ^([^/]*)/search/([^/]*)/$ /?language_pack=$1&module=catalog&page=search&string=$2 [L]
+
+# Service pages
+RewriteRule ^([^/]*)/service/([^/]*)$ /?language_pack=$1&module=service&page=service&file=$2 [L]
+
+# System pages
+RewriteRule ^([^/]*)/system/([^/]*).html$ /?language_pack=$1&module=system&page=$2 [L]
+
+# Minify loading
+RewriteRule ^([^/]*)/minify/$ /?language_pack=$1&minify [L]
+
+# Error logs
+RewriteRule ^([^/]*)/errors/([^/]*)\.html$ /modules/errors/$2.php?language_pack=$1 [L]
+
+# Set the currency
+RewriteRule ^([^/]*)/currency/([^/]*)/referer/([^/]*)/$ /?language_pack=$1&currency=$2&referer=$3 [L]
+
+
+<FilesMatch "\.(?i:gif|jpe?g|png|ico|css|js|swf)$">
+
+  <IfModule mod_headers.c>
+    Header set Cache-Control "max-age=172800, public, must-revalidate"
+  </IfModule>
+
+</FilesMatch>
