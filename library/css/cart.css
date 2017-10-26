@@ -1,0 +1,148 @@
+input[type="button"],
+input[type="submit"]
+{
+	padding: 10px;
+	
+	background-color: #f9f9f9;
+	
+	background-color: #d00000;
+	border: 1px solid #ddd;
+	
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-khtml-border-radius: 7px;
+	border-radius: 7px;
+	
+	font-family: 'Raleway', 'Tahoma';
+	font-size: 12px;
+	color: #fff;
+}
+input[type="button"].white,
+input[type="submit"].white
+{
+	background-color: #fff;
+	color: #000;
+}
+input[type="button"].right,
+input[type="submit"].right
+{
+	margin: 0px 0px 0px 5px;
+	float: right;
+}
+
+div.cart-item
+{
+	width: 100%;
+	height: 10px;
+	
+	padding: 20px 0px;
+	margin: 0px 0px 20px 0px;
+	display: table;
+	float: left;
+	
+	border-bottom: 1px solid #e5e5e5;
+}
+
+	div.cart-item table
+	{
+		width: 100%;
+	}
+		
+		div.cart-item table tr td
+		{
+			padding: 0px 10px 0px 0px;
+			
+			font-family: 'Raleway', 'Tahoma';
+			font-size: 14px;
+		}
+		div.cart-item table tr td.padding
+		{
+			padding-left: 20px;
+		}
+		
+			div.cart-item table tr td a:hover,
+			div.cart-item table tr td a:hover span
+			{
+				color: #d00000;
+			}
+		
+			div.cart-item table tr td img
+			{
+				width: 150px;
+				
+				border: 1px solid #eee;
+				border-bottom: 3px solid #eee;
+			}
+			
+			div.cart-item table tr td select
+			{
+				margin: 4px 0px 0px 0px;
+				padding: 5px;
+				float: left;
+				
+				background-color: #fff;
+				border: 1px solid #eee;
+				
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				-khtml-border-radius: 5px;
+				border-radius: 5px;
+				
+				text-align: center;
+			}
+			
+			div.cart-item table tr td span.fa,
+			div.cart-item table tr td small
+			{
+				color: #62615f;
+			}
+			
+			div.cart-item table tr td span.fa.fa-caret-down
+			{
+				margin: 10px 0px 0px 5px;
+				float: left;
+			}
+			
+			div.cart-item table tr td a span
+			{
+				font-size: 20px;	
+			}
+			
+div.totals
+{
+	width: 100%;
+	height: 10px;
+	
+	padding: 20px 0px;
+	display: table;
+	
+	background-color: #f5ecec;
+}
+
+	div.totals table
+	{
+		width: 100%;
+	}
+	
+		div.totals table tr td
+		{
+			font-family: 'Raleway', 'Tahoma';
+			font-size: 14px;
+		}
+		
+		div.totals table tr td hr
+		{
+			width: 65% !important;
+			
+			float: left;
+			
+			background-color: #e0c9c9;
+			color: #e0c9c9;
+		}
+		
+	div.totals input[type="button"]
+	{
+		width: 65% !important;
+		
+		margin: 20px 0px 0px 0px;
+	}
