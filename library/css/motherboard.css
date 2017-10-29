@@ -994,6 +994,10 @@ body div.content
 				
 				margin: 0px 0px 14px 0px;
 				display: table;
+				
+				background-color: #fff;
+				border-bottom: 3px solid;
+				border-color: #eee;
 			}
 			
 				body div.page-content div.tile-row-1 div.tile-1 img,
@@ -1580,8 +1584,6 @@ body div.advertisement
 	
 		div.advertisement div.logo-cloud img
 		{
-			height: 30px;
-			
 			margin: 0px 30px 20px 0px;
 		}
 

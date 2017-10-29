@@ -33,8 +33,11 @@ else
 		</div>
 		
 		<div class="page-content large-margin">
+			<input type="hidden" name="merchantID" id="merchantID" value="<?= $mb->_merchant_id() ?>" />
 			<input type="hidden" name="locationID" id="locationID" value="0" />
 			<input type="hidden" name="paymentID" id="paymentID" value="0" />
+			<input type="hidden" name="shipmentID" id="shipmentID" value="0" />
+			<input type="hidden" name="_website_language_pack" id="_website_language_pack" value="<?= $_GET['language_pack'] ?>" />
 			
 			<div class="checkout-form">
 				<table>
@@ -114,63 +117,109 @@ else
 			
 			<hr/>
 			
-			<ul class="checkout-choices" inputname="locationID">
-				<li id="0" class="first">
-					<div class="choice">
-						<span class="fa fa-check active"></span>
-					</div>
+			<?php
+			if(_MERCHANT_ID == 1)
+			{
+				?>
+				<ul class="checkout-choices" inputname="locationID">
+					<li id="0" class="first">
+						<div class="choice">
+							<span class="fa fa-check active"></span>
+						</div>
+						
+						<div class="data">
+							<strong><?= $mb->_translateReturn("cart", "delivery") ?></strong>&nbsp;
+							<small><?= $mb->_translateReturn("cart", "delivery-eg") ?></small><br/>
+							<br/>
+							<?= $mb->_translateReturn("cart", "delivery-text", _frontend_float($_SESSION['shipment_costs'])) ?>
+						</div>
+					</li>
+			
+					<?php	
+					$locations = $mb->_runFunction("cart", "pickupLocations", array());	
 					
-					<div class="data">
-						<strong><?= $mb->_translateReturn("cart", "delivery") ?></strong>&nbsp;
-						<small><?= $mb->_translateReturn("cart", "delivery-eg") ?></small><br/>
-						<br/>
-						<?= $mb->_translateReturn("cart", "delivery-text", _frontend_float($_SESSION['shipment_costs'])) ?>
-					</div>
-				</li>
-		
-				<?php	
-				$locations = $mb->_runFunction("cart", "pickupLocations", array());	
-				
-				foreach($locations AS $location)
-				{
-					if($location['webshop'] == 1)
+					foreach($locations AS $location)
 					{
+						if($location['webshop'] == 1)
+						{
+							?>
+							<li id="<?= $location['locationID'] ?>">
+								<div class="choice">
+									<span class="fa fa-circle"></span>
+								</div>
+								
+								<div class="data">
+									<strong><?= $mb->_translateReturn("cart", "shop-pickup") ?></strong>&nbsp;
+									<small><?= $mb->_translateReturn("cart", "shop-pickup-eg") ?></small><br/>
+									<br/>
+									<?= $mb->_translateReturn("cart", "shop-pickup-text") ?>
+								</div>
+							</li>
+							<?php
+								
+							continue;
+						}
 						?>
+						
 						<li id="<?= $location['locationID'] ?>">
 							<div class="choice">
 								<span class="fa fa-circle"></span>
 							</div>
 							
 							<div class="data">
-								<strong><?= $mb->_translateReturn("cart", "shop-pickup") ?></strong>&nbsp;
-								<small><?= $mb->_translateReturn("cart", "shop-pickup-eg") ?></small><br/>
+								<strong><?= $mb->_translateReturn("cart", "service-pickup", array($location['name'])) ?></strong>&nbsp;
+								<small><?= $mb->_translateReturn("cart", "service-pickup-eg") ?></small><br/>
 								<br/>
-								<?= $mb->_translateReturn("cart", "shop-pickup-text") ?>
+								<?= $mb->_translateReturn("cart", "service-pickup-text", array($location['name'])) ?>
+							</div>
+						</li>
+						
+						<?php
+					}
+					?>
+				</ul>
+				<?php
+			}
+			else
+			{
+				?>
+				<ul class="checkout-choices" inputname="shipmentID">
+					<?php
+					$shipments = $mb->_runFunction("cart", "shipmentMethods", array());	
+					$num = 0;
+					
+					foreach($shipments AS $shipment)
+					{
+						if	(
+								(
+									$shipment['maximum'] > 0 
+									&& ($shipment['used'] >= $shipment['maximum'])
+								)
+								|| $shipment['free_choice'] == 0
+							)
+						{
+							continue;
+						}
+						
+						?>
+						<li id="<?= $shipment['shipmentID'] ?>" <?= $num == 0 ? 'class="first"' : '' ?>>
+							<div class="choice">
+								<span class="fa fa-<?= $num == 0 ? "check active" : '' ?>"></span>
+							</div>
+							
+							<div class="data">
+								<strong><?= $shipment['name'] ?></strong>
 							</div>
 						</li>
 						<?php
 							
-						continue;
+						$num++;
 					}
 					?>
-					
-					<li id="<?= $location['locationID'] ?>">
-						<div class="choice">
-							<span class="fa fa-circle"></span>
-						</div>
-						
-						<div class="data">
-							<strong><?= $mb->_translateReturn("cart", "service-pickup", array($location['name'])) ?></strong>&nbsp;
-							<small><?= $mb->_translateReturn("cart", "service-pickup-eg") ?></small><br/>
-							<br/>
-							<?= $mb->_translateReturn("cart", "service-pickup-text", array($location['name'])) ?>
-						</div>
-					</li>
-					
-					<?php
-				}
-				?>
-			</ul>
+				</ul>
+				<?php
+			}
+			?>
 			
 			<hr/>
 			

@@ -10,6 +10,9 @@ $(document).ready(
 			{
 				e.preventDefault();
 				
+				var button = $("#book_order");
+				button.attr("text", button.val()).val("One moment please ...");
+				
 				var valid = true;
 				
 				$("input[req]").removeAttr("style");
@@ -38,6 +41,10 @@ $(document).ready(
 				if(valid == true)
 				{
 					$(this).closest("form").submit();
+				}
+				else
+				{
+					button.val(button.attr("text"));
 				}
 			}
 		);

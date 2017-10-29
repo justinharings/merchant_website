@@ -8,15 +8,15 @@
 			switch($product['status'])
 			{
 				case 2:
-					$mb->_translateReturn("stock-text", "sale");
+					print $mb->_translateReturn("stock-text", "sale");
 				break;
 				
 				case 3:
-					$mb->_translateReturn("stock-text", "temp-sold-out");
+					print $mb->_translateReturn("stock-text", "temp-sold-out");
 				break;
 				
 				case 4:
-					$mb->_translateReturn("stock-text", "sold-out");
+					print $mb->_translateReturn("stock-text", "sold-out");
 				break;
 			}
 			?>
@@ -36,7 +36,7 @@
 		<img src="<?= $product['image'] != "" ? $product['image'] : "/library/media/no-image.png" ?>" />
 	</div>
 	
-	<strong><?= $product['name']['nl'] ?></strong>
+	<strong><?= strip_tags($product['name']['nl']) ?></strong>
 	
 	<div class="stars">
 		<?php

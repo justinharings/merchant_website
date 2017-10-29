@@ -42,7 +42,19 @@ function _createStockText($stock, $categoryID, $productID, $language_pack, $stat
 	}
 	else
 	{
-		$stock_type = $mb->_runFunction("catalog", "getStockType", array($categoryID));
+		$stock_type = 0;
+		
+		if($categoryID == 0 && $productID > 0)
+		{
+			$product = $mb->_runFunction("catalog", "loadProduct", array(intval($productID)));
+			$stock_type = $product['stock_type'];
+		}
+		
+		if($stock_type == 0)
+		{
+			$stock_type = $mb->_runFunction("catalog", "getStockType", array($categoryID));
+		}
+		
 		$details = $mb->_runFunction("catalog", "loadProduct", array($productID));
 		
 		$supplier = ($details['externalStock'] > 0 ? 1 : 0);

@@ -47,15 +47,15 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 				switch($details['status'])
 				{
 					case 2:
-						$mb->_translateReturn("stock-text", "sale");
+						print $mb->_translateReturn("stock-text", "sale");
 					break;
 					
 					case 3:
-						$mb->_translateReturn("stock-text", "temp-sold-out");
+						print $mb->_translateReturn("stock-text", "temp-sold-out");
 					break;
 					
 					case 4:
-						$mb->_translateReturn("stock-text", "sold-out");
+						print $mb->_translateReturn("stock-text", "sold-out");
 					break;
 				}
 				?>
@@ -124,19 +124,69 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 	
 		<div class="order-info">
 			<ul>
-				<li><?= $mb->_translateReturn("product-details", "fast-delivery") ?></li>
-				<li><?= $mb->_translateReturn("product-details", "free-pickup") ?></li>
-				<li><?= $mb->_translateReturn("product-details", "real-afterservice") ?></li>
-				<li><?= $mb->_translateReturn("product-details", "daily-price-check") ?></li>
-				<li class="last"><?= $mb->_translateReturn("product-details", "offline-service") ?></li>
+				<?php
+				if($mb->_translateReturn("product-details", "one"))
+				{
+					?>
+					<li class="first"><?= $mb->_translateReturn("product-details", "one") ?></li>
+					<?php
+				}
+				
+				if($mb->_translateReturn("product-details", "two"))
+				{
+					?>
+					<li><?= $mb->_translateReturn("product-details", "two") ?></li>
+					<?php
+				}
+				
+				if($mb->_translateReturn("product-details", "three"))
+				{
+					?>
+					<li><?= $mb->_translateReturn("product-details", "three") ?></li>
+					<?php
+				}
+				
+				if($mb->_translateReturn("product-details", "four"))
+				{
+					?>
+					<li><?= $mb->_translateReturn("product-details", "four") ?></li>
+					<?php
+				}
+				
+				if($mb->_translateReturn("product-details", "five"))
+				{
+					?>
+					<li><?= $mb->_translateReturn("product-details", "five") ?></li>
+					<?php
+				}
+				?>
 			</ul>
 		</div>
 		
 		<div class="order-info eco">
 			<ul>
-				<li><?= $mb->_translateReturn("product-details", "eco-package") ?></li>
-				<li><?= $mb->_translateReturn("product-details", "eco-trash") ?></li>
-				<li class="last"><?= $mb->_translateReturn("product-details", "eco-ship-same") ?></li>
+				<?php
+				if($mb->_translateReturn("product-details", "six"))
+				{
+					?>
+					<li class="first"><?= $mb->_translateReturn("product-details", "six") ?></li>
+					<?php
+				}
+				
+				if($mb->_translateReturn("product-details", "seven"))
+				{
+					?>
+					<li><?= $mb->_translateReturn("product-details", "seven") ?></li>
+					<?php
+				}
+				
+				if($mb->_translateReturn("product-details", "eight"))
+				{
+					?>
+					<li><?= $mb->_translateReturn("product-details", "eight") ?></li>
+					<?php
+				}
+				?>
 			</ul>
 		</div>
 	</div>

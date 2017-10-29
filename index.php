@@ -354,49 +354,23 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 				<?php
 				$logos = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "home_logos"));
 
-				$customer_card = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "customer_card"));
-				$historie = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "historie"));
+				$block1 = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "footer_block_1"));
+				$block2 = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "footer_block_2"));
 				?>
 				
 				<div class="container">
 					<div class="advertisement-blocks">
-						<a href="/<?= _LANGUAGE_PACK ?>/service/mijntweewielers.html">
-							<div class="block first">
-								<div class="split">
-									<img src="<?= $customer_card['image'] ?>" onclick="<?= ($customer_card['url'] ? "document.location.href='" . $customer_card['url'] . "'" : '') ?>" />
-								</div>
-								
-								<div class="split text">
-									<strong>mijn<span>tweewielers</span></strong>
-									<ul>
-										<li><?= $mb->_translateReturn("website_text", "always_free_maintenance") ?></li>
-										<li><?= $mb->_translateReturn("website_text", "save_for_cool_gifts") ?></li>
-										<li><?= $mb->_translateReturn("website_text", "online_maintenance") ?></li>
-										<li><?= $mb->_translateReturn("website_text", "everything_in_one_place") ?></li>
-										<li><?= $mb->_translateReturn("website_text", "just_cool_to_have") ?></li>
-									</ul>
-								</div>
-							</div>
-						</a>
+						<?php
+						if(file_exists(__DIR__ . "/library/adds/block1.php"))
+						{
+							require_once(__DIR__ . "/library/adds/block1.php");
+						}
 						
-						<a href="/<?= _LANGUAGE_PACK ?>/service/company-information.html">
-							<div class="block">
-								<div class="split">
-									<img src="<?= $historie['image'] ?>" onclick="<?= ($historie['url'] ? "document.location.href='" . $historie['url'] . "'" : '') ?>" />
-								</div>
-								
-								<div class="split text">
-									<strong>
-										<span>
-											<?= $mb->_translateReturn("website_text", "history") ?>
-										</span>
-										
-										<?= $mb->_translateReturn("website_text", "since_1899") ?>
-									</strong>
-									<p><?= $mb->_translateReturn("website_text", "history_text") ?></p>
-								</div>
-							</div>
-						</a>
+						if(file_exists(__DIR__ . "/library/adds/block2.php"))
+						{
+							require_once(__DIR__ . "/library/adds/block2.php");
+						}
+						?>
 					</div>
 					
 					<div class="logo-cloud">

@@ -8,6 +8,13 @@ class main_board
 	
 	
 	
+	public function _merchant_id()
+	{
+		return $this->_merchantID;
+	}
+	
+	
+	
 	/*
 	**	Construct the motherboard class. The language pack is
 	**	loaded by the motherboard for quick access and

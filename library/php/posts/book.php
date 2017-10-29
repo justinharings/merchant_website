@@ -83,74 +83,57 @@ if($_customer == 0)
 // array[KEY]['amount']
 
 $_payments = array();
-$num = 0;
-
-$_has_cash = 0;
-
-foreach($_SESSION['payments'] AS $payment)
-{
-	$_payments[$num]['paymentID'] = $payment['paymentID'];
-	$_payments[$num]['amount'] = $payment['amount'];
-	
-	if($payment['cash'])
-	{
-		$_has_cash = 1;
-		
-		if($_SESSION['payed'] > $_SESSION['grand_total'])
-		{
-			$_payments[$num]['amount'] = $_payments[$num]['amount'] - ($_SESSION['payed']-$_SESSION['grand_total']);
-		}
-	}
-	
-	$num++;
-}
-
-if($_has_cash == 0 && ($_SESSION['payed'] > $_SESSION['grand_total']))
-{
-	$cashID = $mb->_runFunction("payment_methods", "loadCashID", array($_SESSION['merchantID']));
-	
-	if($cashID)
-	{
-		$_payments[$num]['paymentID'] = $cashID;
-		$_payments[$num]['amount'] = ($_SESSION['grand_total'] - $_SESSION['payed']);
-	}
-}
+$_payments[0]['paymentID'] = $_POST['paymentID'];
+$_payments[0]['amount'] = 0;
 
 
 
 // STATUS
 // Variable must hold statusID.
-$_status = 1;
+$default_status = $mb->_runFunction("cart", "loadGeneralSettings", array($_POST['merchantID']));
+$_status = $default_status['statusID'];
+
+if(is_array($_status) && count($_status) == 0)
+{
+	exit;
+}
 
 
 
 // SHIPMENT
 // Variable must hold shipmentID.
 
-$shipmentArray = array();
-
-switch($_POST['locationID'])
+if($_POST['merchantID'] == 1)
 {
-	case 0:
-		// Internet bestelling. Verzending berekent in de winkelwagen.
-		$shipment = $_SESSION['shipment_array'];
-		$employeeID = 0;
-	break;
+	$shipmentArray = array();
 	
-	case 3:
-		// Fixed ID, afhalen in de winkel.
-		$shipment = 4;
-		$employeeID = 0;
-	break;
+	switch($_POST['locationID'])
+	{
+		case 0:
+			// Internet bestelling. Verzending berekent in de winkelwagen.
+			$shipment = $_SESSION['shipment_array'];
+			$employeeID = 0;
+		break;
+		
+		case 3:
+			// Fixed ID, afhalen in de winkel.
+			$shipment = 4;
+			$employeeID = 0;
+		break;
+		
+		default:
+			// Fixed ID, afhalen bij een servicepunt.
+			$shipment = 76;
+			$employeeID = 0;
+		break;
+	}
 	
-	default:
-		// Fixed ID, afhalen bij een servicepunt.
-		$shipment = 76;
-		$employeeID = 0;
-	break;
+	$_shipment = $shipment;
 }
-
-$_shipment = $shipment;
+else
+{
+	$_shipment = $_POST['shipmentID'];
+}
 
 
 
@@ -182,6 +165,11 @@ if($shipment == 76)
 $_orderID = (isset($_SESSION['orderID']) ? $_SESSION['orderID'] : 0);
 
 
+
+// SET THE LANGUAGE PACK
+
+$_GET['language_pack'] = $_POST['_website_language_pack'];
+
 /*
 print "<h1>Cart</h1><br/><pre>" . print_r($_cart, true) . "</pre><br/><br/>";
 print "<h1>Customer</h1><br/><pre>".print_r($_customer, true) . "</pre><br/><br/>";
@@ -192,8 +180,7 @@ print "<h1>Employee</h1><br/>".$_employee . "<br/><br/>";
 print "<h1>orderID</h1><br/>".$_orderID . "<br/><br/>";
 */
 
-
-$orderID = $mb->_runFunction("cart", "runOrder", array(1, $_cart, $_customer, $_payments, $_status, $_employee, $_shipment, $_orderID, $invoice_rules));
+$orderID = $mb->_runFunction("cart", "runOrder", array($_POST['merchantID'], $_cart, $_customer, $_payments, $_status, $_employee, $_shipment, $_orderID, $invoice_rules));
 $_SESSION['last_order'] = $orderID;
 
 $_SESSION['cart'] = array();

@@ -119,6 +119,23 @@ class cart extends main_board
 	**
 	*/
 	
+	public function shipmentMethods()
+	{
+		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/database.php");
+		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/motherboard.php");
+		
+		$mb = new motherboard();
+		$return = $mb->_runFunction("shipment_methods", "view", array($this->_merchantID, "", "shipment_methods.name", "0,9999"));
+		
+		return $return;
+	}
+	
+	
+	
+	/*
+	**
+	*/
+	
 	public function defaultStatusID()
 	{
 		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/database.php");
@@ -186,6 +203,19 @@ class cart extends main_board
 		
 		$mb = new motherboard();
 		$return = $mb->_runFunction("orders", "runOrder", $data);
+
+		return $return;
+	}
+	
+	
+	
+	public function loadGeneralSettings($data)
+	{
+		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/database.php");
+		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/motherboard.php");
+		
+		$mb = new motherboard();
+		$return = $mb->_runFunction("pos", "loadGeneralSettings", $data);
 
 		return $return;
 	}
