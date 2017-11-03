@@ -6,6 +6,7 @@ if(!isset($_SESSION))
 	session_start();
 }
 
+define("_DEVELOPMENT_ENVIRONMENT", true);
 define("_LANGUAGE_PACK", "nl");
 
 /*
@@ -90,10 +91,10 @@ $_payments[0]['amount'] = 0;
 
 // STATUS
 // Variable must hold statusID.
-$default_status = $mb->_runFunction("cart", "loadGeneralSettings", array($_POST['merchantID']));
+$default_status = $mb->_runFunction("cart", "defaultStatusID", array($_POST['merchantID']));
 $_status = $default_status['statusID'];
 
-if(is_array($_status) && count($_status) == 0)
+if((is_array($_status) && count($_status) == 0) || !$_status)
 {
 	exit;
 }

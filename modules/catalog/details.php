@@ -119,10 +119,10 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 				
 				if($adviced > 0)
 				{
-					print "<small>" . $_currencies_symbols[$_SESSION['currency']] . " " .$mb->replaceCurrency($adviced, $_SESSION['currency']) . "</small>";
+					print "<small>" . $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($adviced, $_SESSION['currency']), $_SESSION['currency']) . "</small>";
 				}
 				
-				print $_currencies_symbols[$_SESSION['currency']] . " " .$mb->replaceCurrency($price, $_SESSION['currency']);
+				print $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($price, $_SESSION['currency']), $_SESSION['currency']);
 				?>
 			</strong>
 			
@@ -236,11 +236,17 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 				
 			foreach($details['products_properties'] AS $properties)
 			{
+				if($properties['language'] != _LANGUAGE_PACK && $properties['language'] != strtoupper(_LANGUAGE_PACK))
+				{
+					continue;
+				}
 				?>
+				
 				<tr>
 					<td width="150"><?= $properties['key'] ?></td>
 					<td><?= $properties['value'] ?></td>
 				</tr>
+				
 				<?php
 			}
 			?>

@@ -47,6 +47,7 @@ $content = $mb->_runFunction("content", "load", array(_LANGUAGE_PACK, $_GET['fil
 				
 				$articles = "";
 				
+
 				foreach($customerDATA['orders'] AS $key => $order)
 				{
 					$orderDATA = $mb->_runFunction("customercard", "loadOrder", array($order['orderID']));
@@ -108,7 +109,11 @@ $content = $mb->_runFunction("content", "load", array(_LANGUAGE_PACK, $_GET['fil
 							</tr>
 							
 							<tr>
-								<td colspan=\"4\" style=\"padding: 10px; background-color: #ebedf5;\"><strong>Opmerkingen</strong><br/>" . ($workorders['note'] ? $workorders['note'] : "Geen bijzonderheden opgeschreven.") . "</td>
+								<td colspan=\"4\">&nbsp;</td>
+							</tr>
+							
+							<tr>
+								<td colspan=\"4\" style=\"padding: 10px;\" class=\"blue\"><strong>Opmerkingen</strong><br/>" . ($workorders['note'] ? $workorders['note'] : "Geen bijzonderheden opgeschreven.") . "</td>
 							</tr>
 						</table>
 					</div>

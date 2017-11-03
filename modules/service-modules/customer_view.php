@@ -66,7 +66,7 @@
 </div>
 
 <div class="customer-card">
-	<table width="100%">
+	<table width="100%" class="rows">
 		<tr>
 			<td><strong>Omschrijving</strong></td>
 			<td><strong><small>Status</small></strong></td>

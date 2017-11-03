@@ -77,7 +77,7 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 					<td>
 						<small><?= $mb->_translateReturn("cart", "price") ?></small><br/>
 						<?= $_currencies_symbols[$_SESSION['currency']] ?>
-						<?= number_format($mb->replaceCurrency(($item['quantity']*$product['price']), $_SESSION['currency']), 2) ?>
+						<?= _frontend_float($mb->replaceCurrency(($item['quantity']*$product['price']), $_SESSION['currency']), $_SESSION['currency']) ?>
 					</td>
 					
 					<td width="1%">
@@ -142,7 +142,7 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 				
 				<td>
 					<?= $_currencies_symbols[$_SESSION['currency']] ?>
-					<?= number_format($total, 2)?>
+					<?= _frontend_float($total, $_SESSION['currency'])?>
 				</td>
 				
 				<td width="1%">&nbsp;</td>
@@ -161,7 +161,7 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 					
 					<td>
 						<?= $_currencies_symbols[$_SESSION['currency']] ?>
-						<?= number_format($shipment_costs, 2) ?>
+						<?= _frontend_float($shipment_costs, $_SESSION['currency']) ?>
 						<small>(<?= $mb->_translateReturn("cart", "form-optional") ?>)</small>
 					</td>
 					
@@ -192,7 +192,7 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 				<td>
 					<strong>
 						<?= $_currencies_symbols[$_SESSION['currency']] ?>
-						<?= number_format(($total + $shipment_costs), 2) ?>
+						<?= _frontend_float(($total + $shipment_costs), $_SESSION['currency']) ?>
 					</strong>
 				</td>
 				

@@ -136,13 +136,13 @@ class cart extends main_board
 	**
 	*/
 	
-	public function defaultStatusID()
+	public function defaultStatusID($data)
 	{
 		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/database.php");
 		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/motherboard.php");
 		
 		$mb = new motherboard();
-		$return = $mb->_runFunction("pos", "loadGeneralSettings", array($this->_merchantID));
+		$return = $mb->_runFunction("order_statuses", "loadDefaultStatus", array($data[0]));
 		
 		return $return;
 	}

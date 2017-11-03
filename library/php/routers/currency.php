@@ -1,7 +1,7 @@
 <?php
-if(isset($_GET['currency']) && isset($_GET['language_pack']) && isset($_GET['referer']))
+if(isset($_GET['currency']) && isset($_GET['language_pack']))
 {
 	$_SESSION['currency'] = strtoupper($_GET['currency']);
-	header("location: /" . $_GET['referer']);
+	header("location: " . $_SESSION['HTTP_REFERER']);
 }
 ?>

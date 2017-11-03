@@ -136,8 +136,14 @@ if($_GET['filters'] != "none")
 			<?php
 			foreach($category['filters'] AS $value)
 			{
-			?>
-				<strong class="header"><?= strtolower($value['name']) ?></strong>
+				$name = $value['name'];
+				
+				if($value[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+				{
+					$name = $value[strtoupper(_LANGUAGE_PACK) . '_name'];
+				}
+				?>
+				<strong class="header"><?= strtolower($name) ?></strong>
 				
 				<?php
 				$filters = $mb->_runFunction("catalog", "loadFilterValues", array($value['filterID']));

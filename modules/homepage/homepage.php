@@ -37,21 +37,21 @@ $favorites = $mb->_runFunction("catalog", "viewFavorites", array());
 			<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $favorites[0]['productID'] ?>/<?= _createCategoryURL($favorites[0]['name']) ?>.html">
 				<div class="item first">
 					<img src="<?= $favorites[0]['image'] ?>" /><br/>
-					<?= $_currencies_symbols[$_SESSION['currency']] ?>&nbsp;<?= _frontend_float($mb->replaceCurrency($favorites[0]['price'], $_SESSION['currency'])) ?>
+					<?= $_currencies_symbols[$_SESSION['currency']] ?>&nbsp;<?= _frontend_float($mb->replaceCurrency($favorites[0]['price'], $_SESSION['currency']), $_SESSION['currency']) ?>
 				</div>
 			</a>
 			
 			<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $favorites[1]['productID'] ?>/<?= _createCategoryURL($favorites[1]['name']) ?>.html">
 				<div class="item">
 					<img src="<?= $favorites[1]['image'] ?>" /><br/>
-					<?= $_currencies_symbols[$_SESSION['currency']] ?>&nbsp;<?= _frontend_float($mb->replaceCurrency($favorites[1]['price'], $_SESSION['currency'])) ?>
+					<?= $_currencies_symbols[$_SESSION['currency']] ?>&nbsp;<?= _frontend_float($mb->replaceCurrency($favorites[1]['price'], $_SESSION['currency']), $_SESSION['currency']) ?>
 				</div>
 			</a>
 			
 			<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $favorites[2]['productID'] ?>/<?= _createCategoryURL($favorites[2]['name']) ?>.html">
 				<div class="item">
 					<img src="<?= $favorites[2]['image'] ?>" /><br/>
-					<?= $_currencies_symbols[$_SESSION['currency']] ?>&nbsp;<?= _frontend_float($mb->replaceCurrency($favorites[2]['price'], $_SESSION['currency'])) ?>
+					<?= $_currencies_symbols[$_SESSION['currency']] ?>&nbsp;<?= _frontend_float($mb->replaceCurrency($favorites[2]['price'], $_SESSION['currency']), $_SESSION['currency']) ?>
 				</div>
 			</a>
 		</div>

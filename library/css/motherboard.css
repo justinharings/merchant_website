@@ -127,6 +127,67 @@ body
 		margin: 0px 0px 30px 0px;
 	}
 	
+	body img.map-banner
+	{
+		width: 100%;
+		
+		margin-top: 40px;
+	}
+	
+	body div.customer-card
+	{
+		width: 100%;
+		height: 10px;
+		
+		margin: 0px 0px 20px 0px;
+		padding: 20px;
+		display: table;
+		
+		background-color: #eee;
+	}
+	
+		body div.customer-card table.rows tr td
+		{
+			padding: 10px 0px;
+			
+			border-bottom: 1px solid #ddd;
+		}
+		
+		body div.customer-card table tr td.blue
+		{
+			background-color: #ebedf5;
+			border: 1px solid #dde0ed;
+		}
+	
+	body div.lang-item
+	{
+		padding: 10px;
+		
+		margin: 10px 10px 0px 0px;
+		float: left;
+		
+		background-color: #fff;
+		
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-khtml-border-radius: 5px;
+		border-radius: 5px;
+		
+		font-family: 'Raleway', 'Tahoma';	
+		font-size: 13px;
+		
+		cursor: pointer;
+	}
+	
+		body div.lang-item:hover
+		{
+			background-color: #d00000;
+			
+			color: #fff;
+			
+			cursor: pointer;
+		}
+	
 	body p
 	{
 		margin: 0px;
@@ -364,6 +425,14 @@ body div.header
 			
 			margin: 30px 0px 0px 0px;
 			float: left;
+		}
+		
+		body div.header div.header-content img.map
+		{
+			height: 70px;
+			
+			margin: 30px 0px 0px 0px;
+			float: right;
 		}
 		
 		body div.header div.header-content img.expert
@@ -861,6 +930,62 @@ body div.content
 		float: right;
 	}
 	
+		body div.page-content div.inline-form
+		{
+			width: 400px;
+			height: 10px;
+			
+			margin: 0px auto;
+			padding: 20px;
+			display: table;
+			
+			background-color: #fff;
+			border: 1px solid #eee;
+			
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			-khtml-border-radius: 10px;
+			border-radius: 10px;
+		}
+		
+			body div.page-content div.inline-form strong
+			{
+				width: 100%;
+
+				margin: 0px 0px 5px 0px;
+				float: left;
+				
+				font-family: 'Raleway', 'Tahoma';
+				font-size: 14px;
+			}
+			
+			body div.page-content div.inline-form input[type="text"]
+			{
+				width: calc(100% - 20px);
+				
+				margin: 0px 0px 10px 0px;
+				padding: 10px;
+				float: left;
+				
+				background-color: #fff;
+				border: 1px solid #eee;
+				
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				-khtml-border-radius: 5px;
+				border-radius: 5px;
+			}
+			
+			body div.page-content div.inline-form input[type="submit"]
+			{
+				width: 100%;
+				
+				background-color: #d00000;
+				
+				font-size: 14px;
+				color: #fff;
+			}
+	
 		body div.page-content div.checkout-form
 		{
 			width: calc(100% - 40px);
@@ -886,6 +1011,15 @@ body div.content
 			body div.page-content div.checkout-form td
 			{
 				height: 40px;
+			}
+		
+			body div.conditions
+			{
+				margin: 13px 0px 0px 0px;
+				float: left;
+				
+				font-family: 'Raleway', 'Tahoma';
+				font-size: 12px;
 			}
 		
 			body div.page-content div.checkout-form input,

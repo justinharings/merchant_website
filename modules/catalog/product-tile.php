@@ -80,10 +80,10 @@
 		
 		if($adviced > 0)
 		{
-			print "<span class=\"adviced\">" . $_currencies_symbols[$_SESSION['currency']] . " " . $mb->replaceCurrency($adviced, $_SESSION['currency']) . "</span>&nbsp;";
+			print "<span class=\"adviced\">" . $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($adviced, $_SESSION['currency']), $_SESSION['currency']) . "</span>&nbsp;";
 		}
 		
-		print $_currencies_symbols[$_SESSION['currency']] . " " . $mb->replaceCurrency($price, $_SESSION['currency']);
+		print $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($price, $_SESSION['currency']), $_SESSION['currency']);
 		?>
 	</span>
 </div>

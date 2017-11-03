@@ -9,11 +9,11 @@ $_actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTT
 
 switch($_actual_link)
 {
-	case "https://websites.justinharings.nl":
 	case "https://haringsvuurwerk.nl":
 		define("_MERCHANT_ID", 3);
 	break;
 	
+	case "https://websites.justinharings.nl":	
 	case "https://haringstweewielers.com":
 		define("_MERCHANT_ID", 1);
 	break;
@@ -31,8 +31,9 @@ switch($_actual_link)
 $_recognized_languages = array(
 	"nl" => "Nederlands",		// Netherlands
 	"be" => "Belgisch",			// Belgium
-	"de" => "Deutschland",		// Germany
-	"en" => "Great Britain"		// Great Britain
+	"de" => "Deutsch",			// Germany
+	"en" => "English",			// Great Britain
+	"dk" => "Dansk"				// Denmark
 );
 
 $_language_keys = array_keys($_recognized_languages);
@@ -84,6 +85,19 @@ $_default_currency = array(
 	"de" => "EUR",
 	"en" => "GBP",
 );
+
+
+
+/*
+**
+*/
+
+$_recognized_currencies = array();
+
+foreach($_found_languages AS $abbreviation)
+{
+	$_recognized_currencies[] = $_default_currency[strtolower($abbreviation)];
+}
 
 
 
@@ -147,6 +161,7 @@ else
 		if(!isset($_SESSION['currency']))
 		{
 			$_currency = $_default_currency[strtolower($_GET['language_pack'])];
+			$_SESSION['currency'] = $_currency;
 		}
 		else
 		{
