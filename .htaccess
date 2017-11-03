@@ -38,7 +38,7 @@ RewriteRule ^([^/]*)/minify/$ /?language_pack=$1&minify [L]
 RewriteRule ^([^/]*)/errors/([^/]*)\.html$ /modules/errors/$2.php?language_pack=$1 [L]
 
 # Set the currency
-RewriteRule ^([^/]*)/currency/([^/]*)/referer/([^/]*)/$ /?language_pack=$1&currency=$2&referer=$3 [L]
+RewriteRule ^([^/]*)/currency/([^/]*)/$ /?language_pack=$1&currency=$2 [L]
 
 
 <FilesMatch "\.(?i:gif|jpe?g|png|ico|css|js|swf)$">

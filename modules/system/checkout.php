@@ -25,7 +25,15 @@ else
 					foreach($_SESSION['cart'] AS $key => $item)
 					{
 						$product = $mb->_runFunction("catalog", "loadProduct", array($item['productID']));
-						print "<li>" . $product['name'] . "</li>";
+						
+						$name = $product['name'];
+				
+						if($product[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+						{
+							$name = $product[strtoupper(_LANGUAGE_PACK) . '_name'];
+						}
+						
+						print "<li>" . $name . "</li>";
 					}
 					?>
 				</ul>
@@ -76,14 +84,15 @@ else
 					<tr>
 						<td><strong><?= $mb->_translateReturn("cart", "form-country") ?></strong></td>
 						<td>
-							<select name="country" id="country">
+							<select name="country" id="country" req="text">
+								<option value=""></option>
 								<?php
 								$_countries = $mb->_allCountries();
 								
 								foreach($_countries AS $value)
 								{
 									?>
-									<option <?= (isset($_GET['dataID']) && $data['country'] == $value) || (!isset($_GET['dataID']) && $value == "Netherlands") ? "selected=\"selected\"" : "" ?> value="<?= $value ?>"><?= $value ?></option>
+									<option value="<?= $value ?>"><?= $value ?></option>
 									<?php
 								}
 								?>
@@ -234,6 +243,13 @@ else
 					{
 						continue;
 					}
+					
+					$description = $payment['description'];
+					
+					if($payment[strtoupper(_LANGUAGE_PACK) . '_description'] != "")
+					{
+						$description = $payment[strtoupper(_LANGUAGE_PACK) . '_description'];
+					}
 					?>
 					
 					<li id="<?= $payment['paymentID'] ?>" <?= $num == 0 ? "class=\"first\"" : "" ?>>
@@ -243,7 +259,7 @@ else
 						
 						<div class="data">
 							<strong><?= $payment['name'] ?></strong>&nbsp;
-							<small><?= $payment['description'] ?></small>
+							<small><?= $description ?></small>
 						</div>
 					</li>
 					
@@ -255,6 +271,10 @@ else
 		</div>
 		
 		<hr/>
+		
+		<div class="conditions">
+			<?= $mb->_translateReturn("cart", "conditions-check") ?>
+		</div>
 		
 		<input type="submit" name="book_order" id="book_order" value="<?= $mb->_translateReturn("cart", "happy-book-order") ?>" class="right" />
 		<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "return-to-shop") ?>" class="right white" click="/<?= _LANGUAGE_PACK ?>/" />

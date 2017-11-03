@@ -19,8 +19,31 @@ switch($_GET['headCategory'])
 }
 
 $headCategory = $mb->_runFunction("catalog", "loadCatalog", array(intval($headCategory)));
+
+$head_name = $headCategory['name'];
+
+if($headCategory[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+{
+	$head_name = $headCategory[strtoupper(_LANGUAGE_PACK) . '_name'];
+}
+
 $category = $mb->_runFunction("catalog", "loadCatalog", array(intval($_GET['categoryID'])));
+
+$category_name = $category['name'];
+
+if($category[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+{
+	$category_name = $category[strtoupper(_LANGUAGE_PACK) . '_name'];
+}
+
 $parent = $mb->_runFunction("catalog", "loadCatalog", array(intval($category['parentID'])));
+
+$parent_name = $parent['name'];
+
+if($parent[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+{
+	$parent_name = $parent[strtoupper(_LANGUAGE_PACK) . '_name'];
+}
 
 $brands = $mb->_runFunction("catalog", "loadBrandTree", array(intval($_GET['categoryID'])));
 
@@ -56,13 +79,13 @@ if($_GET['filters'] != "none")
 <ul class="breadcrumbs">
 	<li><a href="/<?= _LANGUAGE_PACK ?>/">home</a></li>
 	<li class="spacer">-</li>
-	<li><a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['en_name']) ?>.html"><?= strtolower($headCategory['name']) ?></a></li>
+	<li><a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>.html"><?= strtolower($head_name) ?></a></li>
 	<li class="spacer">-</li>
-	<li><?= strtolower($parent['name']) ?></li>
+	<li><?= strtolower($parent_name) ?></li>
 	<li class="spacer">-</li>
 	<li>
 		<strong>
-			<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['en_name']) ?>/<?= $category['categoryID'] ?>/filters/none/<?= _createCategoryURL($category['en_name']) ?>.html"><?= strtolower($category['name']) ?></a>
+			<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $category['categoryID'] ?>/filters/none/<?= _createCategoryURL($category['EN_name']) ?>.html"><?= strtolower($category_name) ?></a>
 		</strong>
 	</li>
 </ul>
@@ -70,7 +93,7 @@ if($_GET['filters'] != "none")
 <div class="page-menu">
 	<ul>
 		<li>
-			<strong><?= $parent['name'] ?></strong>
+			<strong><?= $parent_name ?></strong>
 			
 			<?php
 			$sub = $mb->_runFunction("catalog", "loadCatalogTree", array($parent['categoryID']));
@@ -82,10 +105,17 @@ if($_GET['filters'] != "none")
 					<?php
 					foreach($sub AS $key => $second)
 					{
+						$name = $second['name'];
+			
+						if($second[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+						{
+							$name = $second[strtoupper(_LANGUAGE_PACK) . '_name'];
+						}
+						
 						?>
 						<li>
-							<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['en_name']) ?>/<?= $second['categoryID'] ?>/filters/none/<?= _createCategoryURL($second['en_name']) ?>.html" class="<?= $second['categoryID'] == $category['categoryID'] ? "active": "" ?>">
-								<?= $second['name'] ?>
+							<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $second['categoryID'] ?>/filters/none/<?= _createCategoryURL($second['EN_name']) ?>.html" class="<?= $second['categoryID'] == $category['categoryID'] ? "active": "" ?>">
+								<?= $name ?>
 							</a>
 						</li>
 						<?php
@@ -102,7 +132,7 @@ if($_GET['filters'] != "none")
 		<strong>filters</strong>
 		<hr/>
 		
-		<form id="filterForm" method="get" action="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['en_name']) ?>/<?= $category['categoryID'] ?>/filters/[[filterData]]/<?= _createCategoryURL($category['en_name']) ?>.html">
+		<form id="filterForm" method="get" action="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $category['categoryID'] ?>/filters/[[filterData]]/<?= _createCategoryURL($category['EN_name']) ?>.html">
 			<?php
 			foreach($category['filters'] AS $value)
 			{

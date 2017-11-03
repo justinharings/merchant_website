@@ -12,7 +12,19 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 		$product = $mb->_runFunction("catalog", "loadProduct", array($item['productID']));
 		$thumb = "";
 		
-		$total += ($item['quantity']*$product['price']);
+		$name = $product['name'];
+
+		if($product[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+		{
+			$name = $product[strtoupper(_LANGUAGE_PACK) . '_name'];
+		}
+		
+		if($product[strtoupper(_LANGUAGE_PACK) . '_price'] > 0)
+		{
+			$product['price'] = $product[strtoupper(_LANGUAGE_PACK) . '_price'];
+		}
+		
+		$total += $mb->replaceCurrency(($item['quantity']*$product['price']), $_SESSION['currency']);
 		
 		$shipment_data[] = $product['shipments'];
 		
@@ -34,7 +46,7 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 						<small><?= $mb->_translateReturn("product-details", "description") ?></small><br/>
 						
 						<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $product['productID'] ?>/<?= _createCategoryURL($product['name']) ?>.html">
-							<?= strip_tags($product['name']) ?>
+							<?= strip_tags($name) ?>
 						</a>
 					</td>
 					
@@ -64,7 +76,8 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 					
 					<td>
 						<small><?= $mb->_translateReturn("cart", "price") ?></small><br/>
-						<?= _frontend_float($item['quantity']*$product['price']) ?>
+						<?= $_currencies_symbols[$_SESSION['currency']] ?>
+						<?= number_format($mb->replaceCurrency(($item['quantity']*$product['price']), $_SESSION['currency']), 2) ?>
 					</td>
 					
 					<td width="1%">
@@ -97,7 +110,12 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 			}
 			else
 			{
-				$shipment_costs += $shipment['price'];
+				if($shipment[strtoupper(_LANGUAGE_PACK) . '_price'] > 0)
+				{
+					$shipment['price'] = $shipment[strtoupper(_LANGUAGE_PACK) . '_price'];
+				}
+				
+				$shipment_costs += $mb->replaceCurrency($shipment['price'], $_SESSION['currency']);
 				$payed[$key] = 1;
 			}
 		}
@@ -123,26 +141,35 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 				</td>
 				
 				<td>
-					<?= _frontend_float($total) ?>
+					<?= $_currencies_symbols[$_SESSION['currency']] ?>
+					<?= number_format($total, 2)?>
 				</td>
 				
 				<td width="1%">&nbsp;</td>
 			</tr>
 			
-			<tr>
-				<td width="66%">&nbsp;</td>
-				
-				<td width="15%">
-					<strong><?= $mb->_translateReturn("cart", "shipment-costs") ?></strong>
-				</td>
-				
-				<td>
-					<?= _frontend_float($shipment_costs) ?>
-					<small>(optioneel)</small>
-				</td>
-				
-				<td width="1%">&nbsp;</td>
-			</tr>
+			<?php
+			if($settings['show_shipment'])
+			{
+				?>
+				<tr>
+					<td width="66%">&nbsp;</td>
+					
+					<td width="15%">
+						<strong><?= $mb->_translateReturn("cart", "shipment-costs") ?></strong>
+					</td>
+					
+					<td>
+						<?= $_currencies_symbols[$_SESSION['currency']] ?>
+						<?= number_format($shipment_costs, 2) ?>
+						<small>(<?= $mb->_translateReturn("cart", "form-optional") ?>)</small>
+					</td>
+					
+					<td width="1%">&nbsp;</td>
+				</tr>
+				<?php
+			}
+			?>
 			
 			<tr>
 				<td width="66%">&nbsp;</td>
@@ -164,23 +191,31 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 				
 				<td>
 					<strong>
-						<?= _frontend_float($total + $shipment_costs) ?>
+						<?= $_currencies_symbols[$_SESSION['currency']] ?>
+						<?= number_format(($total + $shipment_costs), 2) ?>
 					</strong>
 				</td>
 				
 				<td width="1%">&nbsp;</td>
 			</tr>
 			
-			<tr>
-				<td width="66%">&nbsp;</td>
-				<td width="15%">&nbsp;</td>
-				
-				<td>
-					<input type="button" name="continue" id="continue" value="<?= $mb->_translateReturn("cart", "continue") ?>" click="/<?= _LANGUAGE_PACK ?>/system/checkout.html" />
-				</td>
-				
-				<td width="1%">&nbsp;</td>
-			</tr>
+			<?php
+			if($settings['minimum_order_amount'] == 0 || ($total + $shipment_costs) > $settings['minimum_order_amount'])
+			{
+				?>
+				<tr>
+					<td width="66%">&nbsp;</td>
+					<td width="15%">&nbsp;</td>
+					
+					<td>
+						<input type="button" name="continue" id="continue" value="<?= $mb->_translateReturn("cart", "continue") ?>" click="/<?= _LANGUAGE_PACK ?>/system/checkout.html" />
+					</td>
+					
+					<td width="1%">&nbsp;</td>
+				</tr>
+				<?php
+			}
+			?>
 		</table>
 	</div>
 	<?php
@@ -188,6 +223,7 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 else
 {
 	?>
+	<br/>
 	<h2><?= $mb->_translateReturn("cart", "no-items") ?></h2>
 	<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "button-continue-shopping") ?>" click="/<?= _LANGUAGE_PACK ?>/" />
 	<?php

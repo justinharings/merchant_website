@@ -17,4 +17,17 @@ class content extends main_board
 		
 		return $return;
 	}
+	
+	
+	
+	public function settings($data)
+	{
+		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/database.php");
+		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/motherboard.php");
+		
+		$mb = new motherboard();
+		$return = $mb->_runFunction("website", "load", array($this->_merchantID));
+		
+		return $return;
+	}
 }

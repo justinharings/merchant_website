@@ -68,6 +68,22 @@ body
 		margin: 0px auto;
 	}
 	
+	body div.notification
+	{
+		width: calc(100% - 30px);
+		height: 10px;
+		
+		margin: 0px 0px 20px 0px;
+		padding: 15px;
+		display: table;
+		
+		background-color: #d00000;
+		
+		font-family: 'Raleway', 'Tahoma';	
+		font-size: 14px;
+		color: #fff;
+	}
+	
 	body hr
 	{
 		width: 100%;
@@ -113,9 +129,47 @@ body
 	
 	body p
 	{
+		margin: 0px;
+		padding: 0px;
+		
 		font-family: 'Raleway', 'Tahoma';	
 		font-size: 15px;
 	}
+	
+		body p strong
+		{
+			font-size: 16px;
+		}
+	
+		body p a
+		{
+			font-family: 'Raleway', 'Tahoma';	
+			font-size: 15px;
+			color: #d00000;
+		}
+		body p a:hover
+		{
+			text-decoration: underline;
+		}
+	
+		body table
+		{
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		body table tr td
+		{
+			padding: 0px 20px 0px 0px;
+			
+			font-family: 'Raleway', 'Tahoma';	
+			font-size: 15px;
+		}
+		
+			body table tr td strong
+			{
+				font-weight: bold;
+			}
 	
 	body a
 	{

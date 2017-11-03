@@ -75,6 +75,14 @@ $mb->_requireThirdParty("path-converter");
 
 
 /*
+**	Load the website settings
+*/
+
+$settings = $mb->_runFunction("content", "settings", array());
+
+
+
+/*
 **	If requested by the administrator (using the querystring /?minify),
 **	the CSS and javascript files are made smaller in order for the
 **	webshops performance to increase.
@@ -115,6 +123,14 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 	$minifier->add($sourcePath);
 	$minifier->minify($savePath);
 }
+
+
+
+/*
+**	Set the currect url as last one.
+*/
+
+$_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 
 <!DOCTYPE html>
@@ -206,7 +222,7 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 										{
 											?>
 											<li>
-												<a href="/<?= strtolower(_LANGUAGE_PACK) ?>/currency/<?= $abbreviation ?>/referer<?= $_SERVER['REQUEST_URI'] ?>"><?= $abbreviation ?>&nbsp;(<?= $_currencies_symbols[$abbreviation] ?>)</a>
+												<a href="/<?= strtolower(_LANGUAGE_PACK) ?>/currency/<?= $abbreviation ?>/"><?= $abbreviation ?>&nbsp;(<?= $_currencies_symbols[$abbreviation] ?>)</a>
 											</li>
 											<?php
 										}
@@ -325,6 +341,15 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 			<div class="content">
 				<div class="container">
 					<?php
+					if($settings['note_content'])
+					{
+						?>
+						<div class="notification">
+							<?= $settings['note_content'] ?>
+						</div>
+						<?php
+					}
+						
 					if(isset($_GET['module']))
 					{
 						if(file_exists(__DIR__ . "/modules/" . $_GET['module'] . "/" . $_GET['page'] . ".php"))
@@ -352,10 +377,10 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 		<footer>
 			<div class="advertisement">
 				<?php
-				$logos = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "home_logos"));
+				$logos = $mb->_runFunction("banners", "loadMerchantBanner", array("nl", "home_logos"));
 
-				$block1 = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "footer_block_1"));
-				$block2 = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "footer_block_2"));
+				$block1 = $mb->_runFunction("banners", "loadMerchantBanner", array("nl", "footer_block_1"));
+				$block2 = $mb->_runFunction("banners", "loadMerchantBanner", array("nl", "footer_block_2"));
 				?>
 				
 				<div class="container">
@@ -425,7 +450,7 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 						<div class="clear">
 							<a href="/<?= _LANGUAGE_PACK ?>/service/payment-methods.html">
 								<?php
-								$icons = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "payment_icons"));
+								$icons = $mb->_runFunction("banners", "loadMerchantBanner", array("nl", "payment_icons"));
 								
 								foreach($icons AS $icon)
 								{

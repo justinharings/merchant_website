@@ -1,4 +1,4 @@
-<div class="product-container <?= $num == 0 ? "first" : "" ?>" click="/<?= _LANGUAGE_PACK ?>/catalog/<?= (isset($category['categoryID']) ? $category['categoryID'] . "/" . _createCategoryURL($category['en_name']) . "/" : "") ?>details/<?= $product['productID'] ?>/<?= _createCategoryURL($product['name']['nl']) ?>.html">		
+<div class="product-container <?= $num == 0 ? "first" : "" ?>" click="/<?= _LANGUAGE_PACK ?>/catalog/<?= (isset($category['categoryID']) ? $category['categoryID'] . "/" . _createCategoryURL($category['EN_name']) . "/" : "") ?>details/<?= $product['productID'] ?>/<?= _createCategoryURL($product['name']['nl']) ?>.html">		
 	<?php
 	if($product['status'] > 1)
 	{
@@ -36,7 +36,16 @@
 		<img src="<?= $product['image'] != "" ? $product['image'] : "/library/media/no-image.png" ?>" />
 	</div>
 	
-	<strong><?= strip_tags($product['name']['nl']) ?></strong>
+	<?php
+	$name = $product['name']['nl'];
+	
+	if($product['name'][_LANGUAGE_PACK] != "")
+	{
+		$name = $product['name'][_LANGUAGE_PACK];
+	}
+	?>
+	
+	<strong><?= strip_tags($name) ?></strong>
 	
 	<div class="stars">
 		<?php
@@ -59,7 +68,22 @@
 	</div>
 	
 	<span class="price">
-		<?= $product['price_adviced']['nl'] > 0 ? "<span class=\"adviced\">".$product['price_adviced']['nl']."</span>" : "" ?>
-		<?= $product['price']['nl'] ?>
+		<?php
+		$adviced = $product['price_adviced']['nl'];
+		$price = $product['price']['nl'];
+			
+		if($product['price'][strtolower(_LANGUAGE_PACK)] > 0)
+		{
+			$adviced = $product['price_adviced'][strtolower(_LANGUAGE_PACK)];
+			$price = $product['price'][strtolower(_LANGUAGE_PACK)];
+		}
+		
+		if($adviced > 0)
+		{
+			print "<span class=\"adviced\">" . $_currencies_symbols[$_SESSION['currency']] . " " . $mb->replaceCurrency($adviced, $_SESSION['currency']) . "</span>&nbsp;";
+		}
+		
+		print $_currencies_symbols[$_SESSION['currency']] . " " . $mb->replaceCurrency($price, $_SESSION['currency']);
+		?>
 	</span>
 </div>

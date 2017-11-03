@@ -9,7 +9,7 @@
 </ul>
 
 <div class="page-menu">
-	<? require_once($_SERVER['DOCUMENT_ROOT'] . "/modules/service/side_menu.php") ?>
+	<? require_once($_SERVER['DOCUMENT_ROOT'] . "/library/menus/side_menu.php") ?>
 </div>
 
 <div class="page-content">

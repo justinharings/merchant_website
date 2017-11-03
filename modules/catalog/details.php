@@ -69,8 +69,17 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 	
 	<div class="follow-scroll">
 		<div class="cart-info">
+			<?php
+			$name = $details['name'];
+	
+			if($details[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+			{
+				$name = $details[strtoupper(_LANGUAGE_PACK) . '_name'];
+			}
+			?>
+			
 			<?= $details['brand'] ?><br/>
-			<strong class="name"><?= $details['name'] ?></strong>
+			<strong class="name"><?= $name ?></strong>
 			<?= _createStockText($details['stock'], (isset($_GET['categoryID']) ? intval($_GET['categoryID']) : 0), $_GET['productID'], _LANGUAGE_PACK, $details['status']) ?>
 			
 			<?php
@@ -99,14 +108,21 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 			
 			<strong class="price">
 				<?php
-				if($details['price_adviced'] > 0)
+				$adviced = $details['price_adviced'];
+				$price = $details['price'];
+				
+				if($details[strtoupper(_LANGUAGE_PACK) . '_price'] > 0)
 				{
-					?>
-					<small><?= $details['price_adviced'] ?></small>
-					<?php
+					$adviced = $details[strtoupper(_LANGUAGE_PACK) . '_price_adviced'];
+					$price = $details[strtoupper(_LANGUAGE_PACK) . '_price'];
 				}
 				
-				print $details['price'];
+				if($adviced > 0)
+				{
+					print "<small>" . $_currencies_symbols[$_SESSION['currency']] . " " .$mb->replaceCurrency($adviced, $_SESSION['currency']) . "</small>";
+				}
+				
+				print $_currencies_symbols[$_SESSION['currency']] . " " .$mb->replaceCurrency($price, $_SESSION['currency']);
 				?>
 			</strong>
 			
@@ -193,7 +209,14 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 	
 	<div class="description">
 		<strong><?= $mb->_translateReturn("product-details", "description") ?></strong>
-		<?= nl2br($details['description']) ?>
+		<?php
+		if(_LANGUAGE_PACK != "nl")
+		{
+			print "<u>" . $mb->_translateReturn("product-details", "description-only-dutch") . "</u><br/><br/>";
+		}
+		
+		print nl2br($details['description']);
+		?>
 	</div>
 	
 	<div class="specifications">
@@ -258,6 +281,7 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 					</small>
 				</strong><br/>
 				<br/>
+				<span style="color: #d00000;"><?= ucfirst($review['country']) ?></span><br/>
 				<?= $review['description'] ?>
 				<hr/>
 				<?php

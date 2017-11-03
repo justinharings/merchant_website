@@ -9,7 +9,7 @@ else{document.location.href=url}});$("div.images").find("img").on("click",functi
 {history.go(-1);return!1});$(".review-text").on("click",function()
 {$('html, body').animate({scrollTop:$("div.scrollto-reviews").offset().top},2000)});$("div.top-item.submenu-active").mouseenter(function()
 {$(this).find(".lnr-chevron-down").removeClass("lnr-chevron-down").addClass("lnr-chevron-up");$(this).find("div.top-item-submenu").css("display","table")}).mouseleave(function()
-{$(this).find(".lnr-chevron-up").removeClass("lnr-chevron-up").addClass("lnr-chevron-down");$(this).find("div.top-item-submenu").css("display","none")});$("div.open-kayako").on("click",function()
+{$(this).find(".lnr-chevron-up").removeClass("lnr-chevron-up").addClass("lnr-chevron-down");$(this).find("div.top-item-submenu").css("display","none")});$(".open-kayako").on("click",function()
 {if(kayako.visibility()==='minimized')
 {kayako.maximize()}
 else{kayako.minimize()}});$(".open-search").on("click",function()

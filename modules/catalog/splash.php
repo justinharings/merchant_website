@@ -3,7 +3,7 @@
 	<li class="spacer">-</li>
 	<li>
 		<strong>
-			<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= $_GET['page'] ?>.html"><?= strtolower($category['name']) ?></a>
+			<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= $_GET['page'] ?>.html"><?= strtolower($category_name) ?></a>
 		</strong>
 	</li>
 </ul>
@@ -15,9 +15,15 @@
 		{
 			$sub = $mb->_runFunction("catalog", "loadCatalogTree", array($first['categoryID']));
 			
+			$name = $first['name'];
+			
+			if($first[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+			{
+				$name = $first[strtoupper(_LANGUAGE_PACK) . '_name'];
+			}
 			?>
 			<li>
-				<strong><?= $first['name'] ?></strong>
+				<strong><?= $name ?></strong>
 				
 				<?php
 				if($sub)
@@ -27,10 +33,17 @@
 						<?php
 						foreach($sub AS $key => $second)
 						{
+							$name = $second['name'];
+			
+							if($second[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+							{
+								$name = $second[strtoupper(_LANGUAGE_PACK) . '_name'];
+							}
+							
 							?>
 							<li>
-								<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= $_GET['page'] ?>/<?= $second['categoryID'] ?>/filters/none/<?= _createCategoryURL($second['en_name']) ?>.html">
-									<?= $second['name'] ?>
+								<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= $_GET['page'] ?>/<?= $second['categoryID'] ?>/filters/none/<?= _createCategoryURL($second['EN_name']) ?>.html">
+									<?= $name ?>
 								</a>
 							</li>
 							<?php

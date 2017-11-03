@@ -110,7 +110,7 @@ $(document).ready(
 		**	Expand the Kayako chat function.
 		*/
 		
-		$("div.open-kayako").on("click",
+		$(".open-kayako").on("click",
 			function()
 			{
 				if (kayako.visibility() === 'minimized') 
