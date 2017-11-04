@@ -31,6 +31,9 @@ RewriteRule ^([^/]*)/service/([^/]*)$ /?language_pack=$1&module=service&page=ser
 # System pages
 RewriteRule ^([^/]*)/system/([^/]*).html$ /?language_pack=$1&module=system&page=$2 [L]
 
+# System pages > Reviews
+RewriteRule ^([^/]*)/system/review/([^/]*)/review.html$ /?language_pack=$1&module=system&page=review&orderID=$2 [L]
+
 # Minify loading
 RewriteRule ^([^/]*)/minify/$ /?language_pack=$1&minify [L]
 

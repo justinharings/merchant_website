@@ -131,12 +131,12 @@ body
 	{
 		width: 100%;
 		
-		margin-top: 40px;
+		margin-top: 80px;
 	}
 	
 	body div.customer-card
 	{
-		width: 100%;
+		width: calc(100% - 40px);
 		height: 10px;
 		
 		margin: 0px 0px 20px 0px;
@@ -163,7 +163,7 @@ body
 	{
 		padding: 10px;
 		
-		margin: 10px 10px 0px 0px;
+		margin: 20px 10px 0px 0px;
 		float: left;
 		
 		background-color: #fff;
@@ -259,6 +259,135 @@ body
 	{
 		color: #9238c1 !important;
 	}
+	
+	body ul.review
+	{
+		width: 100%;
+		height: 10px;
+		
+		margin: 20px 0px 20px 0px;
+		padding: 0px;
+		display: table;
+	}
+	
+		body ul.review li
+		{
+			width: calc(64% - 40px);
+			
+			margin: 0px;
+			padding: 0px 0px 0px 40px;
+			float: left;
+			
+			list-style-type: none;
+			
+			font-family: 'Raleway', 'Tahoma';	
+			font-size: 15px;
+			text-align: left;
+		}
+		body ul.review li.icon
+		{
+			width: 18%;
+			
+			padding: 0px;
+			
+			text-align: center;
+		}
+		body ul.review li.icon img.faded
+		{
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+			filter: alpha(opacity=50);
+			-moz-opacity: 0.5;
+			-khtml-opacity: 0.5;
+			opacity: 0.5;
+		}
+		body ul.review li.center
+		{
+			height: 165px;
+			line-height: 165px;
+		}
+			body ul.review li.center span
+			{
+				display: inline-block;
+				vertical-align: middle;
+				line-height: normal;
+			}
+		
+			body ul.review li.icon a:hover
+			{
+				color: #d00000;
+			}
+		
+			body ul.review li strong
+			{
+				font-size: 15px;
+			}
+			
+	body div.review-block
+	{
+		width: calc(100% - 40px);
+		height: 10px;
+		
+		margin: 0px 0px 20px 0px;
+		padding: 20px;
+		display: table;
+		float: left;
+		
+		background-color: #fff;
+		border: 1px solid #eee;
+		border-bottom: 3px solid #eee;
+	}
+	
+		body div.review-block img
+		{
+			width: 300px;
+			
+			margin: 0px 0px 0px 35px;
+		}
+		
+		body div.review-block div.review
+		{
+			width: calc(100% - 400px);
+			height: 220px;
+			
+			padding: 40px 0px;
+			float: right;
+			
+			font-family: 'Raleway', 'Tahoma';	
+			font-size: 15px;
+		}
+		
+		body div.review-block div.review select
+		{
+			width: 100px;
+			
+			margin: 5px 0px 0px 0px;
+			padding: 5px;
+			
+			background-color: #fff;
+			border: 1px solid #eee;
+			
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-khtml-border-radius: 5px;
+			border-radius: 5px;
+		}
+		
+		body div.review-block div.review textarea
+		{
+			width: 400px;
+			height: 100px;
+			
+			margin: 5px 0px 0px 0px;
+			padding: 5px;
+			
+			background-color: #fff;
+			border: 1px solid #eee;
+			
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-khtml-border-radius: 5px;
+			border-radius: 5px;
+		}
 
 
 
@@ -1199,10 +1328,11 @@ body div.content
 	body div.page-content div.images
 	{
 		width: 100px;
-		height: 10px;
+		height: 700px;
 		
-		display: table;
 		float: left;
+		
+		overflow: hidden;
 	}
 	
 		body div.page-content div.images img
@@ -1297,7 +1427,7 @@ body div.content
 		{
 			width: 100%;
 			
-			margin: 10px 0px 1px 0px;
+			margin: 10px 0px 5px 0px;
 			float: left;
 			
 			font-size: 17px;
@@ -1416,7 +1546,7 @@ body div.content
 		width: 820px;
 		height: 50px;
 		
-		margin: 40px 0px 0px 0px;
+		margin: 30px 0px 0px 0px;
 		display: table;
 		float: left;
 		

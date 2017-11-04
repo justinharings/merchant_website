@@ -79,9 +79,11 @@ $xml = simplexml_load_string($xml);
 					$xml = simplexml_load_string($xml);
 					?>
 					
-					<div class="lang-item" click="/<?= $abbreviation ?>/">
-						<?= $xml->info->full_name ?>
-					</div>
+					<a href="/<?= $abbreviation ?>/">
+						<div class="lang-item">
+							<?= $xml->info->full_name ?>
+						</div>
+					</a>
 					
 					<?php
 				}

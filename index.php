@@ -23,7 +23,9 @@ if(!isset($_SESSION))
 **	PHP exception for the developer.
 */
 
-define("_DEVELOPMENT_ENVIRONMENT", false);
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+define("_DEVELOPMENT_ENVIRONMENT", (strpos($actual_link, "websites.") !== false ? true : false));
 
 
 

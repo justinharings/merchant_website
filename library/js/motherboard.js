@@ -44,6 +44,23 @@ $(document).ready(
 		**
 		*/
 		
+		$(".scroll-to-reviews").on("click",
+			function()
+			{
+				$('html, body').animate(
+					{
+						scrollTop: ($("h1").first().offset().top - 20)
+					}, 2000
+				);
+			}
+		);
+		
+		
+		
+		/*
+		**
+		*/
+		
 		$("div.images").find("img").on("click",
 			function()
 			{
