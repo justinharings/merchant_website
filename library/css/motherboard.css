@@ -347,9 +347,9 @@ body
 		body div.review-block div.review
 		{
 			width: calc(100% - 400px);
-			height: 220px;
+			height: 260px;
 			
-			padding: 40px 0px;
+			padding: 20px 0px;
 			float: right;
 			
 			font-family: 'Raleway', 'Tahoma';	
@@ -358,7 +358,7 @@ body
 		
 		body div.review-block div.review select
 		{
-			width: 100px;
+			width: 160px;
 			
 			margin: 5px 0px 0px 0px;
 			padding: 5px;
