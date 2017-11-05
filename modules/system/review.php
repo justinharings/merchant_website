@@ -41,6 +41,8 @@
 <?php
 if(!isset($_SESSION['review_done']))
 {
+	$_GET['orderID'] = substr($_GET['orderID'], 4);
+	
 	?>
 	<br/>
 	<hr/>
@@ -75,6 +77,8 @@ if(!isset($_SESSION['review_done']))
 				?>
 				
 				<div class="review">
+					<strong><?= $mb->_translateReturn("product-details", "description") ?>:<br/><?= $article['name'] ?></strong><br/><br/>
+					
 					<?= $mb->_translateReturn("reviews", "review-stars") ?>:<br/>
 					<select name="stars[]" id="stars">
 						<option>1 <?= $mb->_translateReturn("reviews", "review-stars-figure") ?></option>
