@@ -1423,7 +1423,8 @@ body div.content
 					text-decoration: underline;
 				}
 	
-		body div.page-content div.cart-info strong.name
+		body div.page-content div.cart-info strong.name,
+		body div.page-content div.cart-info strong.name > span
 		{
 			width: 100%;
 			

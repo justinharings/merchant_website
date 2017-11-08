@@ -12,7 +12,7 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 	</li>
 </ul>
 
-<div class="page-content full-width">
+<div class="page-content full-width" itemscope itemtype="http://schema.org/Product">
 	<div class="return-page">
 		<span class="fa fa-long-arrow-left"></span>
 		<?= $mb->_translateReturn("others", "previous-page") ?>
@@ -64,7 +64,7 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 		}
 		?>
 		
-		<img src="https://merchant.justinharings.nl/library/media/products/<?= $thumb ?>.png" />
+		<img itemprop="image" src="https://merchant.justinharings.nl/library/media/products/<?= $thumb ?>.png" />
 	</div>
 	
 	<div class="follow-scroll">
@@ -79,13 +79,22 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 			?>
 			
 			<?= $details['brand'] ?><br/>
-			<strong class="name"><?= $name ?></strong>
+			<strong class="name">
+				<span itemprop="name">
+					<?= $name ?>
+				</span>
+			</strong>
 			<?= _createStockText($details['stock'], (isset($_GET['categoryID']) ? intval($_GET['categoryID']) : 0), $_GET['productID'], _LANGUAGE_PACK, $details['status']) ?>
 			
 			<?php
 			if(count($details['review_stars']) > 0)
 			{
 				?>
+				<span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" style="display: none;">
+					<span itemprop="ratingValue"><?= $details['review_stars'] ?></span>
+					<span itemprop="ratingCount"><?= count($details['reviews']) ?></span>
+				</span>
+				
 				<div class="review-holder">
 					<?php
 					for($i = 1; $i <= 5; $i++)
@@ -124,6 +133,43 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 				
 				print $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($price, $_SESSION['currency']), $_SESSION['currency']);
 				?>
+				
+				<span itemprop="offers" itemscope itemtype="http://schema.org/Offer" style="display: none;">
+					<meta itemprop="priceCurrency" content="<?= $_SESSION['currency'] ?>" />
+					<span itemprop="price"><?= $mb->replaceCurrency($price, $_SESSION['currency']) ?></span>
+					<link itemprop="itemCondition" href="http://schema.org/NewCondition" />
+					
+					<?php
+					$stock = "InStock";
+					
+					if($details['stock'] < 1)
+					{
+						if($details['externalStock'] > 0)
+						{
+							$stock = "LimitedAvailability";
+						}
+						else
+						{
+							switch($details['status'])
+							{
+								default:
+									$stock = "LimitedAvailability";
+								break;
+								
+								case 3:
+									$stock = "OutOfStock";
+								break;
+								
+								case 4:
+									$stock = "SoldOut";
+								break;
+							}
+						}
+					}
+					?>
+					
+					<link itemprop="availability" href="http://schema.org/<?= $stock ?>" />
+				</span>
 			</strong>
 			
 			<?php
@@ -214,9 +260,11 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 		{
 			print "<u>" . $mb->_translateReturn("product-details", "description-only-dutch") . "</u><br/><br/>";
 		}
-		
-		print nl2br($details['description']);
 		?>
+		
+		<span itemprop="description">
+			<?= nl2br($details['description']) ?>
+		</span>
 	</div>
 	
 	<div class="specifications">
@@ -228,12 +276,45 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 			{
 				?>
 				<tr>
-					<td width="150"><?= $mb->_translateReturn("product-details", "specifications") ?></td>
-					<td><?= $properties['value'] ?></td>
+					<td width="170"><?= $mb->_translateReturn("product-details", "brand") ?></td>
+					<td><span itemprop="brand"><?= $details['brand'] ?></span></td>
 				</tr>
 				<?php
 			}
-				
+			
+			?>
+			<tr>
+				<td width="170"><?= $mb->_translateReturn("product-details", "article-code") ?></td>
+				<td><?= $details['article_code'] ?></td>
+			</tr>
+			<?php
+			
+			if($details['barcode'] != "")
+			{
+				?>
+				<tr>
+					<td width="170"><?= $mb->_translateReturn("product-details", "ean-code") ?></td>
+					<td><?= $details['barcode'] ?></td>
+				</tr>
+				<?php
+			}
+			
+			if($details['supplier_code'] != "" && $details['barcode'] != $details['supplier_code'])
+			{
+				?>
+				<tr>
+					<td width="170"><?= $mb->_translateReturn("product-details", "supplier-code") ?></td>
+					<td><?= $details['supplier_code'] ?></td>
+				</tr>
+				<?php
+			}
+			
+			?>
+			<tr>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+			<?php
+			
 			foreach($details['products_properties'] AS $properties)
 			{
 				if($properties['language'] != _LANGUAGE_PACK && $properties['language'] != strtoupper(_LANGUAGE_PACK))
@@ -243,7 +324,7 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 				?>
 				
 				<tr>
-					<td width="150"><?= $properties['key'] ?></td>
+					<td width="170"><?= $properties['key'] ?></td>
 					<td><?= $properties['value'] ?></td>
 				</tr>
 				
