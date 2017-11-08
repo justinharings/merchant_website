@@ -257,7 +257,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 							<span class="fa fa-instagram"></span>
 							
 							<?= $mb->_returnTXT("instagram_" . $mb->_translateReturn("urls", "instagram")) ?>
-							photo lovers!
+							<span class="hide-landscape">photo lovers!</span>
 						</a>
 					</div>
 					
@@ -266,7 +266,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 							<span class="fa fa-twitter"></span>
 							
 							<?= $mb->_returnTXT("twitter_" . $mb->_translateReturn("urls", "twitter")) ?>
-							dedicated followers!
+							<span class="hide-landscape">dedicated followers!</span>
 						</a>
 					</div>
 					
@@ -275,7 +275,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 							<span class="fa fa-facebook-square"></span>
 							
 							<?= $mb->_returnTXT("facebook_" . $mb->_translateReturn("urls", "facebook")) ?>
-							happy likers!
+							<span class="hide-landscape">happy likers!</span>
 						</a>
 					</div>
 				</div>
@@ -423,7 +423,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			
 			<div class="footer">
 				<div class="container">
-					<div class="block">
+					<div class="block hide-portrait">
 						<strong><?= $mb->_translateReturn("footer", "follow_us") ?></strong>
 						
 						<div class="clear">

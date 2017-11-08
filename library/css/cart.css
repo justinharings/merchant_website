@@ -55,6 +55,30 @@ div.cart-item
 			font-family: 'Raleway', 'Tahoma';
 			font-size: 14px;
 		}
+		div.cart-item table tr td.first
+		{
+			width: 15%;
+		}
+		div.cart-item table tr td.second
+		{
+			width: 25%;
+		}
+		div.cart-item table tr td.third
+		{
+			width: 25%;
+		}
+		div.cart-item table tr td.fourth
+		{
+			width: 16%;
+		}
+		div.cart-item table tr td.fifth
+		{
+			
+		}
+		div.cart-item table tr td.sixth
+		{
+			width: 1%;
+		}
 		div.cart-item table tr td.padding
 		{
 			padding-left: 20px;

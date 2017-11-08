@@ -40,9 +40,9 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 		<div class="cart-item">
 			<table>
 				<tr>
-					<td width="15%"><img src="<?= $thumb != "" ? $thumb : "/library/media/no-image.png" ?>" /></td>
+					<td class="first"><img src="<?= $thumb != "" ? $thumb : "/library/media/no-image.png" ?>" /></td>
 					
-					<td width="25%">
+					<td class="second">
 						<small><?= $mb->_translateReturn("product-details", "description") ?></small><br/>
 						
 						<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $product['productID'] ?>/<?= _createCategoryURL($product['name']) ?>.html">
@@ -50,12 +50,12 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 						</a>
 					</td>
 					
-					<td width="25%">
+					<td class="third">
 						<small><?= $mb->_translateReturn("cart", "stock-status") ?></small><br/>
 						<?= _createStockText($product['stock'], 0, $product['productID'], _LANGUAGE_PACK) ?>
 					</td>
 					
-					<td width="16%" class="padding">
+					<td class="padding fourth">
 						<small><?= $mb->_translateReturn("cart", "stock-quantity") ?></small><br/>
 						<form method="post" action="/library/php/posts/cart_quantity.php">
 							<input type="hidden" name="key" id="key" value="<?= $key ?>" />
@@ -74,13 +74,13 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 						<span class="fa fa-caret-down"></span>
 					</td>
 					
-					<td>
+					<td class="fifth">
 						<small><?= $mb->_translateReturn("cart", "price") ?></small><br/>
 						<?= $_currencies_symbols[$_SESSION['currency']] ?>
 						<?= _frontend_float($mb->replaceCurrency(($item['quantity']*$product['price']), $_SESSION['currency']), $_SESSION['currency']) ?>
 					</td>
 					
-					<td width="1%">
+					<td class="sixth">
 						<a href="/library/php/posts/cart_delete.php?key=<?= $key ?>">
 							<span class="fa fa-times"></span>
 						</a>

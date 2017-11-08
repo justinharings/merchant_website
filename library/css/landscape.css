@@ -1,0 +1,120 @@
+@media only screen 
+	and (min-width : 768px) 
+	and (max-width : 1250px)
+{
+	.hide-landscape
+	{
+		display: none;
+	}
+	
+	body div.container
+	{
+		width: 1000px !important;
+	}
+	
+	body div.header div.header-content img.expert
+	{
+		height: 50px !important;
+		
+		margin-top: 40px !important;
+	}
+	
+	body div.header div.header-content ul.header-menu
+	{
+		left: 350px !important;
+	}
+	
+	body div.header div.header-content ul.header-menu
+	{
+		top: 50px !important;
+	}
+	
+	body div.header div.header-content ul.header-menu li
+	{
+		margin: 0px 25px 0px 0px !important;
+		
+		font-size: 18px !important;
+	}
+	
+	div.advertisement div.advertisement-blocks div.block div.split
+	{
+		width: 40% !important;
+	}
+	div.advertisement div.advertisement-blocks div.block div.split.text
+	{
+		width: calc(60% - 40px) !important;
+	}
+	
+	div.advertisement div.advertisement-blocks div.block div.split ul li
+	{
+		font-size: 15px !important; 
+	}
+	
+	div.advertisement div.advertisement-blocks div.block div.split img
+	{
+		margin: 45px 0px 0px 0px !important;
+	}
+	
+	div.advertisement div.logo-cloud img
+	{
+		height: 25px !important;
+	}
+	
+	body div.page-content div.product-container
+	{
+		width: calc(33% - 24px) !important;
+	}
+	
+	body div.page-content div.product-container div.img-holder
+	{
+		width: 218px !important;
+		height: 218px !important;
+	}
+	
+	body div.page-content div.images
+	{
+		height: 500px !important;
+	}
+	
+	body div.page-content div.image
+	{
+		width: 500px !important;
+	}
+	
+	body div.page-content div.description,
+	body div.page-content div.specifications,
+	body div.page-content div.reviews
+	{
+		width: 620px !important;
+	}
+	
+	div.cart-item table tr td.first
+	{
+		display: none;
+	}
+	div.cart-item table tr td.second
+	{
+		width: 30% !important;
+	}
+	div.cart-item table tr td.third
+	{
+		width: 35% !important;
+	}
+	div.cart-item table tr td.fourth
+	{
+		width: 16%;
+	}
+	div.cart-item table tr td.fifth
+	{
+		
+	}
+	div.cart-item table tr td.sixth
+	{
+		width: 1%;
+	}
+	
+	div.homepage div.line-4 div.item
+	{
+		height: 350px !important;
+	}
+}

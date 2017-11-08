@@ -1,0 +1,144 @@
+@media only screen 
+	and (min-width : 750px) 
+	and (max-width : 1050px)
+{
+	.hide-landscape,
+	.hide-portrait
+	{
+		display: none !important;
+	}
+	
+	body div.container
+	{
+		width: 800px !important;
+	}
+	
+	body div.header,
+	body div.header div.header-content
+	{
+		height: 90px !important;
+	}
+	
+	body div.header div.header-content img.logo
+	{
+		height: 50px !important;
+	}
+	
+	body div.header div.header-content img.expert
+	{
+		display: none !important;
+	}
+	
+	body div.header div.header-content ul.header-menu
+	{
+		left: 190px !important;
+	}
+	
+	body div.header div.header-content ul.header-menu
+	{
+		top: 50px !important;
+	}
+	
+	body div.header div.header-content ul.header-menu li
+	{
+		margin: 0px 20px 0px 0px !important;
+		
+		font-size: 18px !important;
+	}
+	
+	div.advertisement div.advertisement-blocks div.block div.split
+	{
+		width: 0% !important;
+	}
+	div.advertisement div.advertisement-blocks div.block div.split.text
+	{
+		width: calc(100% - 40px) !important;
+	}
+	div.advertisement div.advertisement-blocks div.block div.split.text.no-li
+	{
+		line-height: 25px;
+	}
+	
+	div.advertisement div.advertisement-blocks div.block div.split ul
+	{
+		margin-left: 20px !important;
+	}
+	
+	div.advertisement div.advertisement-blocks div.block div.split ul li
+	{
+		font-size: 18px !important; 
+	}
+	
+	div.advertisement div.advertisement-blocks div.block div.split img
+	{
+		display: none;
+	}
+	
+	div.advertisement div.logo-cloud img
+	{
+		height: 25px !important;
+	}
+	
+	body div.page-content div.product-container
+	{
+		width: calc(50% - 30px) !important;
+	}
+	
+	body div.page-content div.product-container div.img-holder
+	{
+		width: 225px !important;
+		height: 225px !important;
+	}
+	
+	body div.page-content div.images
+	{
+		height: 300px !important;
+	}
+	
+	body div.page-content div.image
+	{
+		width: 300px !important;
+	}
+	
+	body div.page-content div.description,
+	body div.page-content div.specifications,
+	body div.page-content div.reviews
+	{
+		width: 420px !important;
+	}
+	
+	div.cart-item table tr td.first
+	{
+		display: none;
+	}
+	div.cart-item table tr td.second
+	{
+		width: 30% !important;
+	}
+	div.cart-item table tr td.third
+	{
+		width: 35% !important;
+	}
+	div.cart-item table tr td.fourth
+	{
+		width: 16%;
+	}
+	div.cart-item table tr td.fifth
+	{
+		
+	}
+	div.cart-item table tr td.sixth
+	{
+		width: 1%;
+	}
+	
+	div.homepage div.line-4 div.item
+	{
+		height: 290px !important;
+	}
+	
+	div.footer-menu div.menu-block ul li
+	{
+		font-size: 11px !important;
+	}
+}
