@@ -257,16 +257,16 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 							<span class="fa fa-instagram"></span>
 							
 							<?= $mb->_returnTXT("instagram_" . $mb->_translateReturn("urls", "instagram")) ?>
-							<span class="hide-landscape">photo lovers!</span>
+							<span class="hide-portrait">photo lovers!</span>
 						</a>
 					</div>
 					
 					<div class="top-item">
 						<a href="https://www.twitter.com/<?= $mb->_translateReturn("urls", "twitter") ?>/" target="_blank" class="text-color-twitter">
-							<span class="fa fa-twitter"></span>
+							<span class="fa fa-portrait"></span>
 							
 							<?= $mb->_returnTXT("twitter_" . $mb->_translateReturn("urls", "twitter")) ?>
-							<span class="hide-landscape">dedicated followers!</span>
+							<span class="hide-portrait">dedicated followers!</span>
 						</a>
 					</div>
 					
