@@ -78,7 +78,7 @@ class catalog extends main_board
 		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/motherboard.php");
 		
 		$mb = new motherboard();
-		$return = $mb->_runFunction("categories", "front_filterValues", array($data[0]));
+		$return = $mb->_runFunction("categories", "front_filterValues", array($data[0], _LANGUAGE_PACK));
 		
 		return $return;
 	}
