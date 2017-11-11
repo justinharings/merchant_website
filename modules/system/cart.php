@@ -3,6 +3,16 @@
 <hr/>
 
 <?php
+if(isset($_GET['error']))
+{
+	?>
+	<div class="error">
+		<strong><?= $mb->_translateReturn("cart", "payment-error-title") ?></strong><br/>
+		<?= $mb->_translateReturn("cart", "payment-error-text", array(ucfirst($_GET['error']))) ?>
+	</div>
+	<?php
+}
+	
 if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 {
 	$total = 0;

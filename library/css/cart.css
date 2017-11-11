@@ -1,3 +1,29 @@
+div.error
+{
+	width: calc(100% - 40px);
+	height: 10px;
+	
+	margin: 0px 0px 10px 0px;
+	padding: 20px;
+	display: table;
+	
+	background-color: #f2cbcb;
+	border: 1px solid #e7b0b0;
+	
+	font-family: 'Raleway', 'Tahoma';
+	font-size: 14px;
+}
+
+	div.error strong
+	{
+		width: 100%;
+		
+		margin: 0px 0px 10px 0px;
+		float: left;
+		
+		font-size: 16px;
+	}
+
 input[type="button"],
 input[type="submit"]
 {
