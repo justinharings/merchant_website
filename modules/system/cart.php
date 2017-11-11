@@ -98,7 +98,7 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 	
 	foreach($shipment_data AS $key => $shipment)
 	{
-		if($shipment['combine'] == 1 && count($shipment_data > 1))
+		if($shipment['combine'] == 1 && count($shipment_data) > 1)
 		{
 			unset($shipment_data[$key]);
 		}

@@ -147,6 +147,15 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		<meta name="description" content="<?= $mb->_runFunction("head", "description") ?>" />
 		<meta name="keywords" content="<?= $mb->_runFunction("head", "keywords") ?>" />
 
+		<?php
+		foreach($_found_languages AS $abbreviation)
+		{
+			?>
+			<link rel="alternate" hreflang="<?= $abbreviation ?>" href="<?= str_replace("/"._LANGUAGE_PACK."/", "/".$abbreviation."/", $_SESSION['HTTP_REFERER']) ?>">
+			<?php
+		}
+		?>
+
 		<link type="image/x-icon" rel="icon" href="/library/media/<?= $mb->_translateReturn("images", "favicon") ?>" />
 		<link type="image/x-icon" rel="shortcut icon" href="/library/media/<?= $mb->_translateReturn("images", "favicon") ?>" />
 		
