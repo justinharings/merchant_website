@@ -10,11 +10,13 @@ $_actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTT
 switch($_actual_link)
 {
 	case "https://haringsvuurwerk.nl":
+	case "https://www.haringsvuurwerk.nl":
 		define("_MERCHANT_ID", 3);
 	break;
 	
 	case "https://websites.justinharings.nl":	
 	case "https://haringstweewielers.com":
+	case "https://www.haringstweewielers.com":
 		define("_MERCHANT_ID", 1);
 	break;
 }
