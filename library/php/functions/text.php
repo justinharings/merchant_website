@@ -33,11 +33,11 @@ function _createStockText($stock, $categoryID, $productID, $language_pack, $stat
 	{
 		if($status == 3)
 		{
-			$mb->_translateReturn("stock-text", "text-temp-sold-out");
+			return $mb->_translateReturn("stock-text", "text-temp-sold-out");
 		}
 		else
 		{
-			$mb->_translateReturn("stock-text", "text-sold-out");
+			return $mb->_translateReturn("stock-text", "text-sold-out");
 		}
 	}
 	else
