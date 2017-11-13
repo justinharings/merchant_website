@@ -234,14 +234,17 @@ else
 			
 			<ul class="checkout-choices" inputname="paymentID">
 				<?php	
-				$payments = $mb->_runFunction("cart", "paymentMethods", array());	
+				$payments = $mb->_runFunction("cart", "paymentMethods", array());
 				$num = 0;
 				
 				foreach($payments AS $payment)
 				{
-	 				if($payment['webshop'] == 0 || ($payment['maximum_amount'] > 0 && ($_SESSION['grand_total'] > $payment['maximum_amount'])))
+					//if(_DEVELOPMENT_ENVIRONMENT == true && strtolower($payment['name']) != "afterpay")
 					{
-						continue;
+		 				if($payment['webshop'] == 0 || ($payment['maximum_amount'] > 0 && ($_SESSION['grand_total'] > $payment['maximum_amount'])))
+						{
+							continue;
+						}
 					}
 					
 					$description = $payment['description'];
@@ -259,7 +262,18 @@ else
 						
 						<div class="data">
 							<strong><?= $payment['name'] ?></strong>&nbsp;
-							<small><?= $description ?></small>
+							<small>
+								<?= $description ?>
+								
+								<?php
+								if(strpos("afterpay", strtolower($payment['name'])) !== false)
+								{
+									?>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#187;&nbsp;<span click="https://www.afterpay.nl/nl/algemeen/betalen-met-afterpay/betalingsvoorwaarden"><?= ucfirst($mb->_translateReturn("footer_menu", "terms_and_conditions")) ?> Afterpay</span>
+									<?php
+								}
+								?>
+							</small>
 						</div>
 					</li>
 					
@@ -273,7 +287,7 @@ else
 		<hr/>
 		
 		<div class="conditions">
-			<?= $mb->_translateReturn("cart", "conditions-check") ?>
+			<a href="/<?= _LANGUAGE_PACK ?>/service/terms-and-conditions.html"><?= $mb->_translateReturn("cart", "conditions-check") ?></a>
 		</div>
 		
 		<input type="submit" name="book_order" id="book_order" value="<?= $mb->_translateReturn("cart", "happy-book-order") ?>" class="right" />

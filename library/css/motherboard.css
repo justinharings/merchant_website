@@ -1251,6 +1251,18 @@ body div.content
 					font-family: 'Raleway', 'Tahoma';
 					font-size: 14px;
 				}
+				
+					body div.page-content ul.checkout-choices li div.data small span
+					{
+						margin: 0px;
+						padding: 0px;
+						
+						font-size: inherit;
+						color: #d00000;
+						text-decoration: underline;
+						
+						cursor: pointer;
+					}
 	
 		body div.page-content div.return-page
 		{
