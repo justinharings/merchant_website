@@ -1558,6 +1558,34 @@ body div.content
 				margin: 0px;
 			}
 	
+	body div.page-content div.video-tile
+	{
+		width: 100px;
+		height: 65px;
+		
+		margin: 0px 5px 0px 0px;
+		float: left;
+		display: table;
+		
+		background-color: #000;
+		
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-khtml-border-radius: 10px;
+		border-radius: 10px;
+		
+		text-align: center;
+	}
+	
+		body div.page-content div.video-tile span
+		{
+			display: table-cell;
+			vertical-align: middle;
+			
+			font-size: 40px;
+			color: #ccc;
+		}
+	
 	body div.page-content div.description,
 	body div.page-content div.specifications,
 	body div.page-content div.reviews
