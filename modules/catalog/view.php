@@ -249,5 +249,15 @@ if($_GET['filters'] != "none")
 		
 		$num++;
 	}
+	
+	if($num == 0)
+	{
+		?>
+		<div class="no-results">
+			<span class="fa fa-frown-o"></span>
+			<?= $mb->_translateReturn("others", "view-no-results") ?>
+		</div>
+		<?php
+	}
 	?>
 </div>

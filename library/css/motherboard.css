@@ -1656,6 +1656,26 @@ body div.content
 					
 					font-weight: bold;
 				}
+		
+	body div.page-content div.no-results
+	{
+		width: 300px;
+		height: 300px;
+		
+		margin: 40px auto 0px auto;
+		
+		font-family: 'Raleway', 'Tahoma';
+		font-size: 25px;
+		text-align: center;
+	}
+	
+		body div.page-content div.no-results span
+		{
+			width: 100%;
+			
+			font-size: 200px;
+			color: #ccc;
+		}
 				
 	body div.page-content div.product-container
 	{

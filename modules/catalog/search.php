@@ -20,69 +20,38 @@ $string = str_replace("-", " ", $string);
 </div>
 
 <div class="page-content">
-	<h1><?= $mb->_translateReturn("website_text", "search_results", array($string)) ?></h1>
-	
 	<?php
 	$products = $mb->_runFunction("catalog", "loadProducts", array(0, $string));
 	$num = 0;
 	
-	foreach($products AS $key => $product)
+	if(count($products) > 0)
 	{
-		$product['name'] = unserialize($product['name']);
-		$product['price'] = unserialize($product['price']);
-		$product['price_adviced'] = unserialize($product['price_adviced']);
-		$product['filters'] = unserialize($product['filters']);
-		
-		$show = true;
-		$approved = array();
-		$had = 0;
-		
-		if(count($selected) > 0)
+		foreach($products AS $key => $product)
 		{
-			if(count($product['filters']) == 0)
+			$product['name'] = unserialize($product['name']);
+			$product['price'] = unserialize($product['price']);
+			$product['price_adviced'] = unserialize($product['price_adviced']);
+			$product['filters'] = unserialize($product['filters']);
+			
+			require(__DIR__ . "/product-tile.php");
+			
+			if($num == 2)
 			{
-				$show = false;
+				$num = 0;
 			}
 			
-			foreach($product['filters'] AS $filterID => $value)
-			{
-				if(isset($selected[$filterID]))
-				{
-					if(in_array($value[strtoupper(_LANGUAGE_PACK)], $selected[$filterID]))
-					{
-						$approved[] = "yes";
-					}
-					else if(!in_array($value[strtoupper(_LANGUAGE_PACK)], $selected[$filterID]))
-					{
-						$approved[] = "no";
-					}
-				}
-				
-				$had++;
-			}
-			
-			if	(
-					(in_array("no", $approved) || !in_array("yes", $approved))
-					|| $had < count($selected)
-				)
-			{
-				$show = false;
-			}
+			$num++;
 		}
-		
-		if($show == false)
-		{
-			continue;
-		}
-		
-		require(__DIR__ . "/product-tile.php");
-			
-		if($num == 2)
-		{
-			$num = 0;
-		}
-		
-		$num++;
+	}
+	
+	if($num == 0)
+	{
+		?>
+		<div class="no-results">
+			<span class="fa fa-frown-o"></span>
+			<?= $mb->_translateReturn("others", "view-no-results") ?>
+		</div>
+		<?php
 	}
 	?>
 </div>
