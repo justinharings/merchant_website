@@ -13,12 +13,12 @@ if(isset($_GET['error']))
 		<?php
 		if(isset($_SESSION['afterpay-error']))
 		{
-			print "<br/><br/>Afterpay error:<br/>";
+			print "<br/><br/><strong>Afterpay foutmelding:</strong><br/>";
 			
 			switch($_SESSION['afterpay-error'])
 			{
-				case 1:
-					print "Op dit moment is het helaas niet mogelijk om je bestelling achteraf te betalen met AfterPay. Dit kan verschillende redenen hebben. Voor meer informatie kun je contact opnemen met de klantenservice van AfterPay. Kijk voor de contactgegevens en antwoorden op veelgestelde vragen op  https://www.afterpay.nl/nl/consumenten/vraag-en-antwoord/. We adviseren je om je bestelling met een andere betaalmethode af te ronden.";
+				case 3:
+					print "Op dit moment is het helaas niet mogelijk om je bestelling achteraf te betalen met AfterPay. Dit kan verschillende redenen hebben. Voor meer informatie kun je contact opnemen met de klantenservice van AfterPay. Kijk voor de contactgegevens en antwoorden op veelgestelde vragen op <a href=\"https://www.afterpay.nl/nl/consumenten/vraag-en-antwoord/\" target=\"_blank\">https://www.afterpay.nl/nl/consumenten/vraag-en-antwoord/</a>. We adviseren je om je bestelling met een andere betaalmethode af te ronden.";
 				break;
 				
 				default:

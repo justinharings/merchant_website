@@ -8,7 +8,7 @@ if(isset($_GET['orderID']) && isset($_SESSION['_LANGUAGE_PACK']))
 {
 	$redirect = "checkout.html";
 	
-	if(isset($_GET['error']) && strpos($_GET['error'], "afterpay" !== false)
+	if(isset($_GET['error']) && strpos($_GET['error'], "afterpay") !== false)
 	{
 		if(!isset($_SESSION['afterpay-suffix']))
 		{
