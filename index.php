@@ -14,6 +14,11 @@ if(!isset($_SESSION))
 	session_start();
 }
 
+foreach($_SESSION AS $key => $session)
+{
+	//unset($_SESSION[$key]);
+}
+
 
 
 /*

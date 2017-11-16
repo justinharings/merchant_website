@@ -60,7 +60,7 @@ foreach($_SESSION['cart'] AS $cart)
 // CUSTOMER
 // Variable must hold customerID.
 
-$_customer = (isset($_SESSION['customer']) ? $_SESSION['customer'] : 0);
+$_customer = 0;
 
 if($_customer == 0)
 {
@@ -74,6 +74,8 @@ if($_customer == 0)
 	$_customer['phone'] = $_POST['phone'];
 	$_customer['mobile_phone'] = $_POST['mobile_phone'];
 	$_customer['email_address'] = $_POST['email_adres'];
+	
+	$_SESSION['customer'] = $_customer;
 }
 
 
@@ -86,6 +88,8 @@ if($_customer == 0)
 $_payments = array();
 $_payments[0]['paymentID'] = $_POST['paymentID'];
 $_payments[0]['amount'] = 0;
+
+$_SESSION['payment'] = $_POST['paymentID'];
 
 
 
@@ -116,24 +120,26 @@ if($_POST['merchantID'] == 1)
 			$employeeID = 0;
 		break;
 		
+		default:
 		case 3:
 			// Fixed ID, afhalen in de winkel.
 			$shipment = 4;
 			$employeeID = 0;
 		break;
 		
-		default:
-			// Fixed ID, afhalen bij een servicepunt.
+		case 15:
 			$shipment = 76;
 			$employeeID = 0;
 		break;
 	}
 	
 	$_shipment = $shipment;
+	$_SESSION['shipment'] = $_POST['locationID'];
 }
 else
 {
 	$_shipment = $_POST['shipmentID'];
+	$_SESSION['shipment'] = $_shipment;
 }
 
 
@@ -165,6 +171,11 @@ if($shipment == 76)
 
 $_orderID = (isset($_SESSION['orderID']) ? $_SESSION['orderID'] : 0);
 
+if(isset($_SESSION['afterpay-suffix']))
+{
+	$_orderID = $_orderID . "-" . $_SESSION['afterpay-suffix']
+}
+
 
 
 // SET THE LANGUAGE PACK
@@ -181,8 +192,9 @@ print "<h1>Employee</h1><br/>".$_employee . "<br/><br/>";
 print "<h1>orderID</h1><br/>".$_orderID . "<br/><br/>";
 */
 
+
 $orderID = $mb->_runFunction("cart", "runOrder", array($_POST['merchantID'], $_cart, $_customer, $_payments, $_status, $_employee, $_shipment, $_orderID, $invoice_rules));
-$_SESSION['last_order'] = $orderID;
+$_SESSION['orderID'] = $orderID;
 
 $_SESSION['cart'] = array();
 

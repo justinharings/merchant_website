@@ -51,13 +51,13 @@ else
 				<table>
 					<tr>
 						<td width="175"><strong><?= $mb->_translateReturn("cart", "form-name") ?></strong></td>
-						<td><input type="text" name="name" id="name" value="" req="text" /></td>
+						<td><input type="text" name="name" id="name" value="<?= isset($_SESSION['customer']) ? $_SESSION['customer']['name'] : "" ?>" req="text" /></td>
 					</tr>
 					
 					<tr>
 						<td><strong><?= $mb->_translateReturn("cart", "form-company") ?></strong></td>
 						<td>
-							<input type="text" name="company" id="company" value="" />
+							<input type="text" name="company" id="company" value="<?= isset($_SESSION['customer']) ? $_SESSION['customer']['company'] : "" ?>" />
 							<small><?= $mb->_translateReturn("cart", "form-optional") ?></small>
 						</td>
 					</tr>
@@ -68,17 +68,17 @@ else
 					
 					<tr>
 						<td><strong><?= $mb->_translateReturn("cart", "form-address") ?></strong></td>
-						<td><input type="text" name="address" id="address" value="" req="text" /></td>
+						<td><input type="text" name="address" id="address" value="<?= isset($_SESSION['customer']) ? $_SESSION['customer']['address'] : "" ?>" req="text" /></td>
 					</tr>
 					
 					<tr>
 						<td><strong><?= $mb->_translateReturn("cart", "form-zipcode") ?></strong></td>
-						<td><input type="text" name="zipcode" id="zipcode" value="" req="text" class="small" /></td>
+						<td><input type="text" name="zipcode" id="zipcode" value="<?= isset($_SESSION['customer']) ? $_SESSION['customer']['zip_code'] : "" ?>" req="text" class="small" /></td>
 					</tr>
 					
 					<tr>
 						<td><strong><?= $mb->_translateReturn("cart", "form-city") ?></strong></td>
-						<td><input type="text" name="city" id="city" value="" req="text" /></td>
+						<td><input type="text" name="city" id="city" value="<?= isset($_SESSION['customer']) ? $_SESSION['customer']['city'] : "" ?>" req="text" /></td>
 					</tr>
 					
 					<tr>
@@ -92,7 +92,7 @@ else
 								foreach($_countries AS $value)
 								{
 									?>
-									<option value="<?= $value ?>"><?= $value ?></option>
+									<option <?= isset($_SESSION['customer']) && $_SESSION['customer']['country'] == $value ? "selected=\"selected\"" : "" ?> value="<?= $value ?>"><?= $value ?></option>
 									<?php
 								}
 								?>
@@ -107,19 +107,19 @@ else
 					<tr>
 						<td><strong><?= $mb->_translateReturn("cart", "form-phone") ?></strong></td>
 						<td>
-							<input type="text" name="phone" id="phone" value="" />
+							<input type="text" name="phone" id="phone" value="<?= isset($_SESSION['customer']) ? $_SESSION['customer']['phone'] : "" ?>" />
 							<small><?= $mb->_translateReturn("cart", "form-optional") ?></small>
 						</td>
 					</tr>
 					
 					<tr>
 						<td><strong><?= $mb->_translateReturn("cart", "form-mobile") ?></strong></td>
-						<td><input type="text" name="mobile_phone" id="mobile_phone" value="" req="text" /></td>
+						<td><input type="text" name="mobile_phone" id="mobile_phone" value="<?= isset($_SESSION['customer']) ? $_SESSION['customer']['mobile_phone'] : "" ?>" req="text" /></td>
 					</tr>
 					
 					<tr>
 						<td><strong><?= $mb->_translateReturn("cart", "form-email") ?></strong></td>
-						<td><input type="text" name="email_adres" id="email_adres" value="" req="email" /></td>
+						<td><input type="text" name="email_adres" id="email_adres" value="<?= isset($_SESSION['customer']) ? $_SESSION['customer']['email_address'] : "" ?>" req="email" /></td>
 					</tr>
 				</table>
 			</div>
@@ -133,7 +133,7 @@ else
 				<ul class="checkout-choices" inputname="locationID">
 					<li id="0" class="first">
 						<div class="choice">
-							<span class="fa fa-check active"></span>
+							<span class="fa <?= !isset($_SESSION['shipment']) || $_SESSION['shipment'] == 0 ? "fa-check active" : "fa-circle" ?>"></span>
 						</div>
 						
 						<div class="data">
@@ -154,7 +154,7 @@ else
 							?>
 							<li id="<?= $location['locationID'] ?>">
 								<div class="choice">
-									<span class="fa fa-circle"></span>
+									<span class="fa <?= isset($_SESSION['shipment']) && $_SESSION['shipment'] == $location['locationID'] ? "fa-check active" : "fa-circle" ?>"></span>
 								</div>
 								
 								<div class="data">
@@ -172,7 +172,7 @@ else
 						
 						<li id="<?= $location['locationID'] ?>">
 							<div class="choice">
-								<span class="fa fa-circle"></span>
+								<span class="fa <?= isset($_SESSION['shipment']) && $_SESSION['shipment'] == $location['locationID'] ? "fa-check active" : "fa-circle" ?>"></span>
 							</div>
 							
 							<div class="data">
@@ -211,9 +211,9 @@ else
 						}
 						
 						?>
-						<li id="<?= $shipment['shipmentID'] ?>" <?= $num == 0 ? 'class="first"' : '' ?>>
+						<li id="<?= $shipment['shipmentID'] ?>" <?= (!isset($_SESSION['shipment']) && $num == 0) ? 'class="first"' : '' ?>>
 							<div class="choice">
-								<span class="fa fa-<?= $num == 0 ? "check active" : '' ?>"></span>
+								<span class="fa fa-<?= (!isset($_SESSION['shipment']) && $num == 0) || (isset($_SESSION['shipment']) && $shipment['shipmentID'] == $_SESSION['shipment']) ? "check active" : "circle" ?>"></span>
 							</div>
 							
 							<div class="data">
@@ -239,12 +239,9 @@ else
 				
 				foreach($payments AS $payment)
 				{
-					//if(_DEVELOPMENT_ENVIRONMENT == true && strtolower($payment['name']) != "afterpay")
+	 				if($payment['webshop'] == 0 || ($payment['maximum_amount'] > 0 && ($_SESSION['grand_total'] > $payment['maximum_amount'])))
 					{
-		 				if($payment['webshop'] == 0 || ($payment['maximum_amount'] > 0 && ($_SESSION['grand_total'] > $payment['maximum_amount'])))
-						{
-							continue;
-						}
+						continue;
 					}
 					
 					$description = $payment['description'];
@@ -257,7 +254,7 @@ else
 					
 					<li id="<?= $payment['paymentID'] ?>" <?= $num == 0 ? "class=\"first\"" : "" ?>>
 						<div class="choice">
-							<span class="fa fa-<?= $num == 0 ? "check active" : "circle" ?>"></span>
+							<span class="fa fa-<?= (!isset($_SESSION['payment']) && $num == 0) || (isset($_SESSION['payment']) && $_SESSION['payment'] == $payment['paymentID']) ? "check active" : "circle" ?>"></span>
 						</div>
 						
 						<div class="data">

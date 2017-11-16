@@ -13,8 +13,6 @@
 </div>
 
 <div class="page-content">
-	<h1><?= $mb->_translateReturn("website_text", "sale_results"); ?></h1>
-	
 	<?php
 	$products = $mb->_runFunction("catalog", "loadProducts", array(0, ""));
 	$num = 0;

@@ -15,7 +15,11 @@ class head extends main_board
 		switch($_GET['module'])
 		{
 			case "catalog":
-				if(!isset($_GET['productID']))
+				if(!isset($_GET['productID']) && $_GET['page'] == "sale")
+				{
+					$title = $this->_translateReturn("main_menu", "sale") . " - " . $title;
+				}
+				else if(!isset($_GET['productID']))
 				{
 					$categoryID = (isset($_GET['categoryID']) ? $_GET['categoryID'] : 0);
 					
