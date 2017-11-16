@@ -8,7 +8,7 @@ if(isset($_GET['orderID']) && isset($_SESSION['_LANGUAGE_PACK']))
 {
 	$redirect = "checkout.html";
 	
-	if(isset($_GET['error']) && $_GET['error'] == "afterpay")
+	if(isset($_GET['error']) && strpos($_GET['error'], "afterpay" !== false)
 	{
 		if(!isset($_SESSION['afterpay-suffix']))
 		{
@@ -16,6 +16,16 @@ if(isset($_GET['orderID']) && isset($_SESSION['_LANGUAGE_PACK']))
 		}
 		
 		$_SESSION['afterpay-suffix'] = $_SESSION['afterpay-suffix'] + 1;
+		
+		$expl = explode("afterpay", $_GET['error']);
+		$error = $expl[1];
+		
+		unset($_SESSION['afterpay-error']);
+		
+		if($error != "")
+		{
+			$_SESSION['afterpay-error'] = $error;
+		}
 		
 		$redirect = "error/afterpay/cart.html";
 	}

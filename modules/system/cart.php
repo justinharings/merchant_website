@@ -9,6 +9,24 @@ if(isset($_GET['error']))
 	<div class="error">
 		<strong><?= $mb->_translateReturn("cart", "payment-error-title") ?></strong><br/>
 		<?= $mb->_translateReturn("cart", "payment-error-text", array(ucfirst($_GET['error']))) ?>
+		
+		<?php
+		if(isset($_SESSION['afterpay-error']))
+		{
+			print "<br/><br/>Afterpay error:<br/>";
+			
+			switch($_SESSION['afterpay-error'])
+			{
+				case 1:
+					print "Op dit moment is het helaas niet mogelijk om je bestelling achteraf te betalen met AfterPay. Dit kan verschillende redenen hebben. Voor meer informatie kun je contact opnemen met de klantenservice van AfterPay. Kijk voor de contactgegevens en antwoorden op veelgestelde vragen op  https://www.afterpay.nl/nl/consumenten/vraag-en-antwoord/. We adviseren je om je bestelling met een andere betaalmethode af te ronden.";
+				break;
+				
+				default:
+					print "Onjuist ingevoerde persoonlijke gegevens. Controleer uw gegevens op juistheid en probeer het opnieuw.";
+				break;
+			}
+		}
+		?>
 	</div>
 	<?php
 }

@@ -173,7 +173,7 @@ $_orderID = (isset($_SESSION['orderID']) ? $_SESSION['orderID'] : 0);
 
 if(isset($_SESSION['afterpay-suffix']))
 {
-	$_orderID = $_orderID . "-" . $_SESSION['afterpay-suffix']
+	$_orderID = $_orderID . "-" . $_SESSION['afterpay-suffix'];
 }
 
 
