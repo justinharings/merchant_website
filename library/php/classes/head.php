@@ -19,6 +19,11 @@ class head extends main_board
 				{
 					$title = $this->_translateReturn("main_menu", "sale") . " - " . $title;
 				}
+				else if(!isset($_GET['productID']) && $_GET['page'] == "search")
+				{
+					$content = $this->_translateReturn("website_text", "search_results", array($_GET['string']));
+					$title = $content . " - " . $title;
+				}
 				else if(!isset($_GET['productID']))
 				{
 					$categoryID = (isset($_GET['categoryID']) ? $_GET['categoryID'] : 0);

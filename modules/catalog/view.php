@@ -213,13 +213,20 @@ if($_GET['filters'] != "none")
 			{
 				if(isset($selected[$filterID]))
 				{
-					if(in_array($value[strtoupper(_LANGUAGE_PACK)], $selected[$filterID]))
+					if($filterID == 0 && in_array($value['NL'], $selected[$filterID]))
 					{
 						$approved[] = "yes";
 					}
-					else if(!in_array($value[strtoupper(_LANGUAGE_PACK)], $selected[$filterID]))
+					else
 					{
-						$approved[] = "no";
+						if(in_array($value[strtoupper(_LANGUAGE_PACK)], $selected[$filterID]))
+						{
+							$approved[] = "yes";
+						}
+						else if(!in_array($value[strtoupper(_LANGUAGE_PACK)], $selected[$filterID]))
+						{
+							$approved[] = "no";
+						}
 					}
 				}
 				

@@ -253,22 +253,29 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 		</div>
 	</div>
 	
-	<div class="description">
-		<strong>Video's</strong>
-		
-		<?php
-		foreach($details['videos'] AS $video)
-		{
-			?>
-			<a href="<?= $video['url'] ?>" target="_blank">
-				<div class="video-tile">
-					<span class="fa fa-youtube-play"></span>
-				</div>
-			</a>
-			<?php
-		}
+	<?php
+	if(count($details['videos']) > 0)
+	{
 		?>
-	</div>
+		<div class="description">
+			<strong>Video's</strong>
+			
+			<?php
+			foreach($details['videos'] AS $video)
+			{
+				?>
+				<a href="<?= $video['url'] ?>" target="_blank">
+					<div class="video-tile">
+						<span class="fa fa-youtube-play"></span>
+					</div>
+				</a>
+				<?php
+			}
+			?>
+		</div>
+		<?php
+	}
+	?>
 	
 	<div class="description">
 		<strong><?= $mb->_translateReturn("product-details", "description") ?></strong>

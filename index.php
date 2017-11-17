@@ -277,7 +277,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 					
 					<div class="top-item">
 						<a href="https://www.twitter.com/<?= $mb->_translateReturn("urls", "twitter") ?>/" target="_blank" class="text-color-twitter">
-							<span class="fa fa-portrait"></span>
+							<span class="fa fa-twitter"></span>
 							
 							<?= $mb->_returnTXT("twitter_" . $mb->_translateReturn("urls", "twitter")) ?>
 							<span class="hide-portrait">dedicated followers!</span>
