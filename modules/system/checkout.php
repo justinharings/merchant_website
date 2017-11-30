@@ -263,10 +263,10 @@ else
 								<?= $description ?>
 								
 								<?php
-								if(strpos("afterpay", strtolower($payment['name'])) !== false)
+								if($payment['agreements'] != "")
 								{
 									?>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#187;&nbsp;<span click="https://www.afterpay.nl/nl/algemeen/betalen-met-afterpay/betalingsvoorwaarden"><?= ucfirst($mb->_translateReturn("footer_menu", "terms_and_conditions")) ?> Afterpay</span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#187;&nbsp;<span click="<?= $payment['agreements'] ?>"><?= ucfirst($mb->_translateReturn("footer_menu", "terms_and_conditions")) ?> <?= ucfirst($payment['name']) ?></span>
 									<?php
 								}
 								?>
@@ -275,6 +275,28 @@ else
 					</li>
 					
 					<?php
+					if	(
+							$payment['required_dob'] == 1
+							// || ADD MORE HERE
+						)
+					{
+						?>
+						<li class="extra-field extra-<?= $payment['paymentID'] ?>">
+							<?php
+							if($payment['required_dob'] == 1)
+							{
+								?>
+								<?= $mb->_translateReturn("cart", "dob") ?>:<br/>
+								<input type="text" name="dob" id="dob" value="" class="date-mask-field" />
+								<?php
+							}
+							
+							// ADD MORE HERE
+							?>
+						</li>
+						<?php
+					}
+						
 					$num++;
 				}
 				?>

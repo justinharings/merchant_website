@@ -122,7 +122,7 @@ $(document).ready(
 		**
 		*/
 		
-		$("ul.checkout-choices").find("li").on("click",
+		$("ul.checkout-choices").find("li:not(.extra-field)").on("click",
 			function()
 			{
 				var input = $(this).closest("ul").attr("inputname");
@@ -131,6 +131,9 @@ $(document).ready(
 				
 				$(this).closest("ul").find("div.choice").find("span").removeClass("fa-check active").addClass("fa-circle");
 				$(this).find("div.choice").find("span").removeClass("fa-circle").addClass("fa-check active");
+
+				$(this).closest("ul").find("li.extra-field").removeClass("active").find("input").removeAttr("req");
+				$(this).closest("ul").find("li.extra-field.extra-" + $(this).attr("id")).addClass("active").find("input").attr("req", "text");
 			}
 		);
 		

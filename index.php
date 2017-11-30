@@ -129,6 +129,14 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 	$minifier = new Minify\JS();
 	$minifier->add($sourcePath);
 	$minifier->minify($savePath);
+	
+	
+	$sourcePath = $_SERVER['DOCUMENT_ROOT'] . '/library/js/datemask.js';
+	$savePath = $_SERVER['DOCUMENT_ROOT'] . '/library/js/datemask.minified.js';
+	
+	$minifier = new Minify\JS();
+	$minifier->add($sourcePath);
+	$minifier->minify($savePath);
 }
 
 

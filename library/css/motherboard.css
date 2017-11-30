@@ -1157,11 +1157,12 @@ body div.content
 			}
 		
 			body div.page-content div.checkout-form input,
-			body div.page-content div.checkout-form select
+			body div.page-content div.checkout-form select,
+			body div.page-content li.extra-field input
 			{
 				width: 200px;
 				
-				margin: 0px 5px 0px 0px;
+				margin: 5px 5px 0px 0px;
 				padding: 8px;
 
 				background-color: #fff;
@@ -1175,6 +1176,12 @@ body div.content
 				font-family: 'Raleway', 'Tahoma';
 				font-size: 12px;
 			}
+			
+			body div.page-content li.extra-field input
+			{
+				width: 100px;
+			}
+			
 			body div.page-content div.checkout-form input.small
 			{
 				width: 100px;
@@ -1219,6 +1226,22 @@ body div.content
 			body div.page-content ul.checkout-choices li.first
 			{
 				border-top: none;
+			}
+			body div.page-content ul.checkout-choices li.extra-field
+			{
+				padding: 10px 20px 10px 50px;
+				
+				font-family: 'Raleway', 'Tahoma';
+				font-size: 14px;
+				color: #ccc;
+				
+				background-color: #f0f0f0;
+			}
+			body div.page-content ul.checkout-choices li.extra-field.active
+			{
+				color: #000;
+				
+				background-color: #fff;
 			}
 			
 				body div.page-content ul.checkout-choices li div.choice

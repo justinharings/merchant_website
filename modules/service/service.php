@@ -1,4 +1,9 @@
 <?php
+if(strpos($_GET['file'], "success") !== false)
+{
+	unset($_SESSION['cart']);
+}
+
 $content = $mb->_runFunction("content", "load", array(_LANGUAGE_PACK, $_GET['file']));
 ?>
 

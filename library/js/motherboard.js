@@ -15,6 +15,13 @@ $(document).ready(
 			}
 		);
 		
+		$.getScript("/library/js/datemask.minified.js", 
+			function()
+			{
+				console.log("Date mask file loaded.");
+			}
+		);
+		
 		
 		
 		/*
