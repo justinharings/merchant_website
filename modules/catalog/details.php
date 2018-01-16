@@ -275,21 +275,26 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 		</div>
 		<?php
 	}
-	?>
 	
-	<div class="description">
-		<strong><?= $mb->_translateReturn("product-details", "description") ?></strong>
-		<?php
-		if(_LANGUAGE_PACK != "nl")
-		{
-			print "<u>" . $mb->_translateReturn("product-details", "description-only-dutch") . "</u><br/><br/>";
-		}
+	if($details['description'] != "")
+	{
 		?>
-		
-		<span itemprop="description">
-			<?= nl2br($details['description']) ?>
-		</span>
-	</div>
+		<div class="description">
+			<strong><?= $mb->_translateReturn("product-details", "description") ?></strong>
+			<?php
+			if(_LANGUAGE_PACK != "nl")
+			{
+				print "<u>" . $mb->_translateReturn("product-details", "description-only-dutch") . "</u><br/><br/>";
+			}
+			?>
+			
+			<span itemprop="description">
+				<?= nl2br($details['description']) ?>
+			</span>
+		</div>
+		<?php
+	}
+	?>
 	
 	<div class="specifications">
 		<strong><?= $mb->_translateReturn("product-details", "specifications") ?></strong>
