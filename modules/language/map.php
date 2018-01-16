@@ -88,7 +88,7 @@ $xml = simplexml_load_string($xml);
 					<?php
 				}
 				
-				if($banner != "")
+				if($banner != "" && count($banner) > 0)
 				{
 					?>
 					<img class="map-banner" src="<?= $banner['image'] ?>" />
