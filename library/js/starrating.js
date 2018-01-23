@@ -9,7 +9,7 @@ $(function() {
 			allowEmpty: false,
 			onSelect: function(value, text, event) 
 			{
-		    	$("select.starrating").val(value);
+		    	$(this).val(value);
 		  	}
 		}
 	);
