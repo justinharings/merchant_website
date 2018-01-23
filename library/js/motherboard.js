@@ -22,6 +22,13 @@ $(document).ready(
 			}
 		);
 		
+		$.getScript("/library/js/starrating.minified.js", 
+			function()
+			{
+				console.log("Star rating file loaded.");
+			}
+		);
+		
 		
 		
 		/*

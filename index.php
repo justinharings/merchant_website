@@ -137,6 +137,13 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 	$minifier = new Minify\JS();
 	$minifier->add($sourcePath);
 	$minifier->minify($savePath);
+	
+	$sourcePath = $_SERVER['DOCUMENT_ROOT'] . '/library/js/starrating.js';
+	$savePath = $_SERVER['DOCUMENT_ROOT'] . '/library/js/starrating.minified.js';
+	
+	$minifier = new Minify\JS();
+	$minifier->add($sourcePath);
+	$minifier->minify($savePath);
 }
 
 

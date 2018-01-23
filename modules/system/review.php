@@ -62,9 +62,11 @@ if(!isset($_SESSION['review_done']))
 			<div class="review-block">
 				<input type="hidden" name="productID[]" id="productID" value="<?= $article['productID'] ?>" />
 				<?php
+				$nm = 0;
+					
 				foreach($article['images'] AS $media)
 				{
-					if(!$media['thumb'])
+					if(!$media['thumb'] || $nm > 0)
 					{
 						continue;
 					}
@@ -73,6 +75,8 @@ if(!isset($_SESSION['review_done']))
 					<img src="https://merchant.justinharings.nl/library/media/products/<?= $media['productMediaID'] ?>.png" />
 					
 					<?php
+						
+					$nm++;
 				}
 				?>
 				
@@ -80,13 +84,13 @@ if(!isset($_SESSION['review_done']))
 					<strong><?= $mb->_translateReturn("product-details", "description") ?>:<br/><?= $article['name'] ?></strong><br/><br/>
 					
 					<?= $mb->_translateReturn("reviews", "review-stars") ?>:<br/>
-					<select name="stars[]" id="stars">
-						<option>1 <?= $mb->_translateReturn("reviews", "review-stars-figure") ?></option>
-						<option>2 <?= $mb->_translateReturn("reviews", "review-stars-figure") ?></option>
-						<option>3 <?= $mb->_translateReturn("reviews", "review-stars-figure") ?></option>
-						<option>4 <?= $mb->_translateReturn("reviews", "review-stars-figure") ?></option>
-						<option selected="selected">5 <?= $mb->_translateReturn("reviews", "review-stars-figure") ?></option>
-					</select><br/>
+					<select name="stars[]" id="stars" class="starrating" autocomplete="off">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5" selected="selected">5</option>
+					</select>
 					<br/>
 					<?= $mb->_translateReturn("reviews", "review-description") ?>:<br/>
 					<textarea name="description[]" id="description"></textarea>
