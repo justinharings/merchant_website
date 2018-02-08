@@ -35,6 +35,20 @@ $(document).ready(
 		**
 		*/
 		
+		$("div.language-overlay").on("click",
+			function()
+			{
+				$(this).fadeOut("fast");
+				$("div.language-arrow").fadeOut("fast");
+			}
+		);
+		
+		
+		
+		/*
+		**
+		*/
+		
 		$("*[click]").on("click",
 			function()
 			{

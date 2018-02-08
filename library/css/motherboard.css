@@ -1,4 +1,4 @@
-/*
+f/*
 **	@import external CSS files. Such as fonts,
 **	jQuery library and icon packs. Minifier
 **	is keeping these URL's as they are.
@@ -62,6 +62,38 @@ body
 {
 	background-color: #f9f9f9;
 }
+
+	body div.language-overlay
+	{
+		position: fixed;
+		top: 41px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		z-index: 999;
+		
+		background-color: #000;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+		filter: alpha(opacity=85);
+		-moz-opacity: 0.85;
+		-khtml-opacity: 0.85;
+		opacity: 0.85;
+	}
+	
+	body div.language-arrow
+	{
+		width: 200px;
+		
+		position: absolute;
+		top: 60px;
+		left: 200px;
+		z-index: 999;
+	}
+	
+		body div.language-arrow img
+		{
+			width: 100%;
+		}
 
 	body div.container
 	{

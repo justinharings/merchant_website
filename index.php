@@ -42,6 +42,7 @@ define("_DEVELOPMENT_ENVIRONMENT", (strpos($actual_link, "websites.") !== false 
 
 require_once(__DIR__ . "/library/php/routers/currency.php");
 require_once(__DIR__ . "/library/php/routers/language.php");
+require_once(__DIR__ . "/library/php/routers/countries.php");
 
 
 
@@ -278,6 +279,21 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						<span class="lnr lnr-bubble large"></span>
 						<?= $mb->_translateReturn("others", "chat_online") ?>
 					</div>
+					
+					<?php
+					if(strtoupper($_country_code) != strtoupper(_LANGUAGE_PACK) && !isset($_SESSION['country_selection']))
+					{
+						$_SESSION['country_selection'] = true;
+						?>
+						
+						<div class="language-overlay"></div>
+						<div class="language-arrow">
+							<img src="/library/media/language_choice.png" />
+						</div>
+						
+						<?php
+					}
+					?>
 				</div>
 				
 				<div class="top-right">
