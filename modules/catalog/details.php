@@ -1,5 +1,12 @@
 <?php
 $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['productID'])));
+
+$name = $details['name'];
+
+if($details[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+{
+	$name = $details[strtoupper(_LANGUAGE_PACK) . '_name'];
+}
 ?>
 
 <ul class="breadcrumbs">
@@ -7,7 +14,7 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 	<li class="spacer">-</li>	
 	<li>
 		<strong>
-			<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $details['productID'] ?>/<?= _createCategoryURL($details['name']) ?>.html"><?= strtolower($details['name']) ?></a>
+			<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $details['productID'] ?>/<?= _createCategoryURL($details['name']) ?>.html"><?= strtolower($name) ?></a>
 		</strong>
 	</li>
 </ul>
@@ -69,15 +76,6 @@ $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['produ
 	
 	<div class="follow-scroll">
 		<div class="cart-info">
-			<?php
-			$name = $details['name'];
-	
-			if($details[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
-			{
-				$name = $details[strtoupper(_LANGUAGE_PACK) . '_name'];
-			}
-			?>
-			
 			<?= $details['brand'] ?><br/>
 			<strong class="name">
 				<span itemprop="name">
