@@ -47,11 +47,6 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 			$name = $product[strtoupper(_LANGUAGE_PACK) . '_name'];
 		}
 		
-		if($product[strtoupper(_LANGUAGE_PACK) . '_price'] > 0)
-		{
-			$product['price'] = $product[strtoupper(_LANGUAGE_PACK) . '_price'];
-		}
-		
 		$total += $mb->replaceCurrency(($item['quantity']*$product['price']), $_SESSION['currency']);
 		
 		$shipment_data[] = $product['shipments'];
@@ -155,12 +150,14 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 	}
 	
 	$_SESSION['shipment_costs'] = $shipment_costs;
+	
 	$_SESSION['grand_total'] = ($total + $shipment_costs);
 	$_SESSION['shipment_array'] = $shipmentArray;
 	?>
 	
 	<div class="totals">
 		<table>
+			<!--
 			<tr>
 				<td width="66%">&nbsp;</td>
 				
@@ -175,8 +172,10 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 				
 				<td width="1%">&nbsp;</td>
 			</tr>
+			-->
 			
 			<?php
+			/*
 			if($settings['show_shipment'])
 			{
 				?>
@@ -197,8 +196,10 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 				</tr>
 				<?php
 			}
+			*/
 			?>
 			
+			<!--
 			<tr>
 				<td width="66%">&nbsp;</td>
 				<td width="15%">&nbsp;</td>
@@ -209,6 +210,7 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 				
 				<td width="1%">&nbsp;</td>
 			</tr>
+			-->
 			
 			<tr>
 				<td width="66%">&nbsp;</td>
@@ -220,40 +222,37 @@ if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 				<td>
 					<strong>
 						<?= $_currencies_symbols[$_SESSION['currency']] ?>
-						<?= _frontend_float(($total + $shipment_costs), $_SESSION['currency']) ?>
+						<?= _frontend_float($total, $_SESSION['currency']) ?>
 					</strong>
 				</td>
 				
 				<td width="1%">&nbsp;</td>
 			</tr>
-			
-			<?php
-			if($settings['minimum_order_amount'] == 0 || ($total + $shipment_costs) > $settings['minimum_order_amount'])
-			{
-				?>
-				<tr>
-					<td width="66%">&nbsp;</td>
-					<td width="15%">&nbsp;</td>
-					
-					<td>
-						<input type="button" name="continue" id="continue" value="<?= $mb->_translateReturn("cart", "continue") ?>" click="/<?= _LANGUAGE_PACK ?>/system/checkout.html" />
-					</td>
-					
-					<td width="1%">&nbsp;</td>
-				</tr>
-				<?php
-			}
-			?>
 		</table>
 	</div>
+	
+	<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "button-continue-shopping") ?>" class="white" click="/<?= _LANGUAGE_PACK ?>/" />
+	
 	<?php
+	if($settings['minimum_order_amount'] == 0 || $total > $settings['minimum_order_amount'])
+	{
+		?>
+		<input type="button" name="continue" id="continue" value="<?= $mb->_translateReturn("cart", "continue") ?>" class="right" click="/<?= _LANGUAGE_PACK ?>/system/checkout.html" />
+		<?php
+	}
+	else
+	{
+		?>
+		<input type="button" disabled="disabled" name="disabled" id="disabled" value="<?= $mb->_translateReturn("cart", "failed-grand-total") ?>" class="disabled right" />
+		<?php
+	}
 }
 else
 {
 	?>
 	<br/>
 	<h2><?= $mb->_translateReturn("cart", "no-items") ?></h2>
-	<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "button-continue-shopping") ?>" click="/<?= _LANGUAGE_PACK ?>/" />
+	<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "button-continue-shopping") ?>" class="white" click="/<?= _LANGUAGE_PACK ?>/" />
 	<?php
 }
 ?>

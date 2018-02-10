@@ -118,12 +118,6 @@ if($details[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
 				$adviced = $details['price_adviced'];
 				$price = $details['price'];
 				
-				if($details[strtoupper(_LANGUAGE_PACK) . '_price'] > 0)
-				{
-					$adviced = $details[strtoupper(_LANGUAGE_PACK) . '_price_adviced'];
-					$price = $details[strtoupper(_LANGUAGE_PACK) . '_price'];
-				}
-				
 				if($adviced > 0)
 				{
 					print "<small>" . $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($adviced, $_SESSION['currency']), $_SESSION['currency']) . "</small>";

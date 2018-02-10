@@ -72,12 +72,6 @@
 			<?php
 			$adviced = $product['price_adviced']['nl'];
 			$price = $product['price']['nl'];
-				
-			if($product['price'][strtolower(_LANGUAGE_PACK)] > 0)
-			{
-				$adviced = $product['price_adviced'][strtolower(_LANGUAGE_PACK)];
-				$price = $product['price'][strtolower(_LANGUAGE_PACK)];
-			}
 			
 			if($adviced > 0)
 			{
