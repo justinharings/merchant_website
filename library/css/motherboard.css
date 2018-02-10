@@ -1262,6 +1262,8 @@ body div.content
 			}
 			body div.page-content ul.checkout-choices li.extra-field
 			{
+				width: calc(100% - 70px);
+				
 				padding: 10px 20px 10px 50px;
 				
 				font-family: 'Raleway', 'Tahoma';

@@ -147,6 +147,8 @@ else
 							<br/>
 							
 							<?php
+							print $mb->_translateReturn("cart", "delivery-text") . "<br/><br/>";
+								
 							foreach($_SESSION['shipment_array'] AS $shipment)
 							{
 								$shipment_data = $mb->_runFunction("cart", "loadShipment", array($shipment));
@@ -166,9 +168,6 @@ else
 								$total_ship += $price;
 							}
 							?>
-							<br/>
-							<?= $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($total_ship, $_SESSION['currency']), $_SESSION['currency']) ?>
-							<?= $mb->_translateReturn("cart", "price") ?>
 						</div>
 					</li>
 			
@@ -205,9 +204,9 @@ else
 							
 							<div class="data">
 								<strong><?= $mb->_translateReturn("cart", "service-pickup", array($location['name'])) ?></strong>&nbsp;
-								<small><?= $mb->_translateReturn("cart", "service-pickup-eg") ?></small><br/>
+								<small><?= $mb->_translateReturn("cart", "service-pickup-eg-" . strtolower($location['name'])) ?></small><br/>
 								<br/>
-								<?= $mb->_translateReturn("cart", "service-pickup-text", array($location['name'])) ?>
+								<?= $mb->_translateReturn("cart", "service-pickup-text-" . strtolower($location['name']), array($location['name'])) ?>
 							</div>
 						</li>
 						
