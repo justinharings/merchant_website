@@ -131,6 +131,11 @@ else
 			{
 				?>
 				<ul class="checkout-choices" inputname="locationID">
+					<!--
+					'Bij mij laten bezorgen' optie.
+						> Toont alle verzendopties die verplicht zijn inclusief de bijbehorende prijzen.
+					-->
+					
 					<li id="0" class="first">
 						<div class="choice">
 							<span class="fa <?= !isset($_SESSION['shipment']) || $_SESSION['shipment'] == 0 ? "fa-check active" : "fa-circle" ?>"></span>
@@ -140,7 +145,30 @@ else
 							<strong><?= $mb->_translateReturn("cart", "delivery") ?></strong>&nbsp;
 							<small><?= $mb->_translateReturn("cart", "delivery-eg") ?></small><br/>
 							<br/>
-							<?= $mb->_translateReturn("cart", "delivery-text", _frontend_float($_SESSION['shipment_costs'])) ?>
+							
+							<?php
+							foreach($_SESSION['shipment_array'] AS $shipment)
+							{
+								$shipment_data = $mb->_runFunction("cart", "loadShipment", array($shipment));
+								
+								$name = $shipment_data['name'];
+								$price = $shipment_data['price'];
+								
+								if($shipment_data[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+								{
+									$name = $shipment_data[strtoupper(_LANGUAGE_PACK) . '_name'];
+									$price = $shipment_data[strtoupper(_LANGUAGE_PACK) . '_price'];
+								}
+								
+								print $_currencies_symbols[$_SESSION['currency']];
+								print " <strong>" . _frontend_float($mb->replaceCurrency($price, $_SESSION['currency']), $_SESSION['currency']) . "</strong> - " . $name . "<br/>";
+								
+								$total_ship += $price;
+							}
+							?>
+							<br/>
+							<?= $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($total_ship, $_SESSION['currency']), $_SESSION['currency']) ?>
+							<?= $mb->_translateReturn("cart", "price") ?>
 						</div>
 					</li>
 			
