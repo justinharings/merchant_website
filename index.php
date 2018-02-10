@@ -29,7 +29,7 @@ foreach($_SESSION AS $key => $session)
 */
 
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
+//$actual_link = "websites.";
 define("_DEVELOPMENT_ENVIRONMENT", (strpos($actual_link, "websites.") !== false ? true : false));
 
 
@@ -196,10 +196,35 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		----	of the webpage. Including the content.
 		--->
 		
+		<?php
+		if(strtoupper($_country_code) != strtoupper(_LANGUAGE_PACK) && !isset($_SESSION['country_selection']))
+		{
+			?>
+			
+			<div class="language-overlay"></div>
+			
+			<?php
+		}
+		?>
+		
 		<div class="top">
 			<div class="container">
 				<div class="top-left">
 					<div class="top-item submenu-active">
+						<?php
+						if(strtoupper($_country_code) != strtoupper(_LANGUAGE_PACK) && !isset($_SESSION['country_selection']))
+						{
+							$_SESSION['country_selection'] = true;
+							?>
+							
+							<div class="language-arrow">
+								<img src="/library/media/language_choice.png" />
+							</div>
+							
+							<?php
+						}
+						?>
+						
 						<a href="/">
 							<?= $mb->_translateReturn("info", "full_name") ?>
 							
@@ -279,21 +304,6 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						<span class="lnr lnr-bubble large"></span>
 						<?= $mb->_translateReturn("others", "chat_online") ?>
 					</div>
-					
-					<?php
-					if(strtoupper($_country_code) != strtoupper(_LANGUAGE_PACK) && !isset($_SESSION['country_selection']))
-					{
-						$_SESSION['country_selection'] = true;
-						?>
-						
-						<div class="language-overlay"></div>
-						<div class="language-arrow">
-							<img src="/library/media/language_choice.png" />
-						</div>
-						
-						<?php
-					}
-					?>
 				</div>
 				
 				<div class="top-right">
