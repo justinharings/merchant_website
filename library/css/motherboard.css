@@ -1278,6 +1278,12 @@ body div.content
 				
 				background-color: #fff;
 			}
+			body div.page-content ul.checkout-choices li.extra-field.red
+			{
+				color: #000;
+				
+				background-color: #f5ecec;
+			}
 			
 				body div.page-content ul.checkout-choices li div.choice
 				{

@@ -5,6 +5,41 @@ $(document).ready(
 		**
 		*/
 		
+		$(".export-fee").hide();
+		
+		$("select#country").on("change",
+			function()
+			{
+				$(".export-fee").hide();
+				
+				if($(this).val() != "Netherlands")
+				{
+					var country = $(this).val();
+					country = country.replace(" ", "_");
+					
+					if($("input.fee_" + country).length > 0)
+					{
+						var fee = $("input.fee_" + country).val();
+						$(".export-fee").show();
+						$(".export-fee").find(".amount").html(fee);
+					}
+					else if($("input.fee_Overige_landen").length > 0)
+					{
+						var fee = $("input.fee_Overige_landen").val();
+						$(".export-fee").show();
+						$(".export-fee").find(".amount").html(fee);
+					}
+				}
+			}
+		);
+		
+		$("select#country").trigger("change");
+		
+		
+		/*
+		**
+		*/
+		
 		$("form#book").find("input[type='submit']").on("click",
 			function(e)
 			{

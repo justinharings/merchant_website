@@ -131,6 +131,11 @@ if($_POST['merchantID'] == 1)
 			$shipment = 76;
 			$employeeID = 0;
 		break;
+		
+		case 18:
+			$shipment = 111;
+			$employeeID = 0;
+		break;
 	}
 	
 	$_shipment = $shipment;
@@ -194,9 +199,12 @@ print "<h1>orderID</h1><br/>".$_orderID . "<br/><br/>";
 
 
 $orderID = $mb->_runFunction("cart", "runOrder", array($_POST['merchantID'], $_cart, $_customer, $_payments, $_status, $_employee, $_shipment, $_orderID, $invoice_rules));
-$_SESSION['orderID'] = $orderID;
+//$_SESSION['orderID'] = $orderID;
 
 $_SESSION['cart'] = array();
+unset($_SESSION['customer']);
+unset($_SESSION['shipment']);
+unset($_SESSION['payment']);
 
 header("location: /" . $_SESSION['_LANGUAGE_PACK'] . "/service/success.html");
 ?>

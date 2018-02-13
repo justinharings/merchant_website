@@ -149,6 +149,8 @@ else
 							<?php
 							print $mb->_translateReturn("cart", "delivery-text") . "<br/><br/>";
 								
+							$fees = array();
+								
 							foreach($_SESSION['shipment_array'] AS $shipment)
 							{
 								$shipment_data = $mb->_runFunction("cart", "loadShipment", array($shipment));
@@ -156,19 +158,35 @@ else
 								$name = $shipment_data['name'];
 								$price = $shipment_data['price'];
 								
-								if($shipment_data[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
-								{
-									$name = $shipment_data[strtoupper(_LANGUAGE_PACK) . '_name'];
-									$price = $shipment_data[strtoupper(_LANGUAGE_PACK) . '_price'];
-								}
-								
 								print $_currencies_symbols[$_SESSION['currency']];
 								print " <strong>" . _frontend_float($mb->replaceCurrency($price, $_SESSION['currency']), $_SESSION['currency']) . "</strong> - " . $name . "<br/>";
 								
+								foreach($shipment_data['fees'] AS $fValue)
+								{
+									$fValue['country'] = str_replace(" ", "_", $fValue['country']);
+									
+									if(!isset($fees[$fValue['country']]))
+									{
+										$fees[$fValue['country']] = array();
+									}
+									
+									$fees[$fValue['country']] = floatval($fees[$fValue['country']]) + floatval($fValue['fee']);
+								}
+								
 								$total_ship += $price;
+							}
+							
+							foreach($fees AS $country => $fee)
+							{
+								print '<input type="hidden" name="fee_' . $country . '" id="fee_' . $country . '" value="' . $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($fee, $_SESSION['currency']), $_SESSION['currency']) . '" class="fee_' . $country . '" />';
 							}
 							?>
 						</div>
+					</li>
+			
+					<li class="extra-field red export-fee">
+						<strong><?= $mb->_translateReturn("cart", "export-fee") ?></strong><br/>
+						<?= $mb->_translateReturn("cart", "export-fee-text") ?> <strong><span class="amount"></span></strong>.
 					</li>
 			
 					<?php	
