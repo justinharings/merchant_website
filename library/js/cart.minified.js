@@ -4,7 +4,9 @@ $(document).ready(function($)
 {var country=$(this).val();country=country.replace(" ","_");if($("input.fee_"+country).length>0)
 {var fee=$("input.fee_"+country).val();$(".export-fee").show();$(".export-fee").find(".amount").html(fee)}
 else if($("input.fee_Overige_landen").length>0)
-{var fee=$("input.fee_Overige_landen").val();$(".export-fee").show();$(".export-fee").find(".amount").html(fee)}}});$("select#country").trigger("change");$("form#book").find("input[type='submit']").on("click",function(e)
+{var fee=$("input.fee_Overige_landen").val();$(".export-fee").show();$(".export-fee").find(".amount").html(fee)}}});if($("select#country").val()!="")
+{$("select#country").trigger("change")}
+$("form#book").find("input[type='submit']").on("click",function(e)
 {e.preventDefault();var button=$("#book_order");button.attr("text",button.val()).val("One moment please ...");var valid=!0;$("input[req]").removeAttr("style");$("input[req]").each(function()
 {if($(this).val()=="")
 {$(this).css("border-color","#d00000");valid=!1}

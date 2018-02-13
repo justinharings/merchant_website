@@ -33,7 +33,10 @@ $(document).ready(
 			}
 		);
 		
-		$("select#country").trigger("change");
+		if($("select#country").val() != "")
+		{
+			$("select#country").trigger("change");
+		}
 		
 		
 		/*
