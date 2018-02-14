@@ -89,6 +89,13 @@ $mb->_requireThirdParty("path-converter");
 $settings = $mb->_runFunction("content", "settings", array());
 
 
+/*
+**
+*/
+
+$mb->_runFunction("visitor", "logVisit", array());
+
+
 
 /*
 **	If requested by the administrator (using the querystring /?minify),
