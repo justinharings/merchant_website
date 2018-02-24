@@ -176,6 +176,36 @@ if($details[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
 			?>
 		</div>
 	
+		<div class="call-me">
+			<?= $mb->_translateReturn("product-details", "call-me") ?>
+			
+			<?php
+			if(!isset($_SESSION['callback']))
+			{
+				?>
+				<form id="callback" method="post" action="/library/php/posts/callback.php">
+					<input type="text" name="phone_number" id="phone_number" value="" autocomplete="off" />
+					
+					<input type="hidden" name="productID" id="productID" value="<?= $details['productID'] ?>" />
+					<input type="hidden" name="returnURL" id="returnURL" value="<?= $actual_link ?>" />
+					
+					<div class="button" onclick="$('form#callback').submit();">
+						<?= $mb->_translateReturn("product-details", "call-me-button") ?>
+					</div>
+				</form>
+				<?php
+			}
+			else
+			{
+				?>
+				<div class="button disabled">
+					<?= $mb->_translateReturn("product-details", "call-me-done") ?>
+				</div>
+				<?php
+			}
+			?>
+		</div>	
+	
 		<div class="order-info">
 			<ul>
 				<?php

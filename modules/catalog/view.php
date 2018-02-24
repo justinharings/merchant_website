@@ -147,7 +147,7 @@ if($_GET['filters'] != "none")
 				
 				<?php
 				$filters = $mb->_runFunction("catalog", "loadFilterValues", array($value['filterID']));
-					
+				
 				foreach($filters AS $filter)
 				{
 					?>

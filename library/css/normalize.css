@@ -20,6 +20,12 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
+input:focus,
+select:focus
+{
+	outline: none;
+}
+
 /**
  * Remove default margin.
  */

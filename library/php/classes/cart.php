@@ -235,5 +235,28 @@ class cart extends main_board
 
 		return $return;
 	}
+	
+	
+	
+	/*
+	**
+	*/
+	
+	public function callBack($data)
+	{
+		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/database.php");
+		require_once("/var/www/vhosts/justinharings.nl/merchant.justinharings.nl/library/php/classes/motherboard.php");
+		
+		$mb = new motherboard();
+		
+		$query = sprintf(
+			"	INSERT INTO		assistent_callback
+				SET				assistent_callback.productID = %d,
+								assistent_callback.number = '%s'",
+			$data[0],
+			$data[1]
+		);
+		$mb->query($query);
+	}
 }
 ?>
