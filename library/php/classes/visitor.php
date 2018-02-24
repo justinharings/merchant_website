@@ -23,7 +23,7 @@ class visitor extends main_board
 		}
 		
 		$mb = new motherboard();
-		$mb->_runFunction("visitors", "log_visitor", array($this->_merchantID, $ip, $actual_link));
+		$mb->_runFunction("visitors", "log_visitor", array($this->_merchantID, $ip, $actual_link, $_SERVER['HTTP_USER_AGENT']));
 	}
 }	
 ?>
