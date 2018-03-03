@@ -12,6 +12,9 @@ RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI}\/ [L,R=301]
 # Rewrite language packs
 RewriteRule ^([^/]*)/$ /?language_pack=$1 [L]
 
+# Rewrite paylink
+RewriteRule ^paylink/([^/]*)/$ /?paylink=$1 [L]
+
 # Rewrite catalog
 RewriteRule ^([^/]*)/catalog/([^/]*).html$ /?language_pack=$1&module=catalog&page=$2 [L]
 

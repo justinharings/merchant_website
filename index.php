@@ -40,6 +40,7 @@ define("_DEVELOPMENT_ENVIRONMENT", (strpos($actual_link, "websites.") !== false 
 **	some settings before redirecting.
 */
 
+require_once(__DIR__ . "/library/php/routers/paylink.php");
 require_once(__DIR__ . "/library/php/routers/currency.php");
 require_once(__DIR__ . "/library/php/routers/language.php");
 require_once(__DIR__ . "/library/php/routers/countries.php");

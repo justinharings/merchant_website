@@ -35,7 +35,8 @@ $_recognized_languages = array(
 	"be" => "Belgisch",			// Belgium
 	"de" => "Deutsch",			// Germany
 	"en" => "English",			// Great Britain
-	"dk" => "Dansk"				// Denmark
+	"dk" => "Dansk",			// Denmark,
+	"it" => "Italiano"			// Denmark
 );
 
 $_language_keys = array_keys($_recognized_languages);
@@ -86,6 +87,7 @@ $_default_currency = array(
 	"be" => "EUR",
 	"de" => "EUR",
 	"en" => "GBP",
+	"it" => "EUR",
 );
 
 
