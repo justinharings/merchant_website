@@ -1957,6 +1957,30 @@ body div.content
 			font-size: 13px;
 			text-decoration: line-through;
 		}
+		
+		body div.page-content div.product-container span.stock
+		{
+			width: 100%;
+			
+			margin: 5px 0px;
+			float: left;
+			
+			font-family: 'Raleway', 'Tahoma';
+			font-size: 12px;
+			text-align: center;
+		}
+		body div.page-content div.product-container span.stock.green
+		{
+			color: #42a565;
+		}
+		body div.page-content div.product-container span.stock.orange
+		{
+			color: #bda33b;
+		}
+		body div.page-content div.product-container span.stock.red
+		{
+			color: #d00000;
+		}
 
 
 

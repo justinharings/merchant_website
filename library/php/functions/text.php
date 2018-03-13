@@ -21,9 +21,18 @@ function _createCategoryURL($name)
 	return $name;
 }
 
-function _createStockText($stock, $categoryID, $productID, $language_pack, $status)
+function _createStockText($stock, $categoryID, $productID, $language_pack, $status, $short = false)
 {
 	define("_LANGUAGE_PACK", $language_pack);
+	
+	if($short == true)
+	{
+		$short = "-short";
+	}
+	else
+	{
+		$short = "";
+	}
 	
 	require_once($_SERVER['DOCUMENT_ROOT'] . "/library/php/classes/motherboard.php");
 	
@@ -33,11 +42,11 @@ function _createStockText($stock, $categoryID, $productID, $language_pack, $stat
 	{
 		if($status == 3)
 		{
-			return $mb->_translateReturn("stock-text", "text-temp-sold-out");
+			return $mb->_translateReturn("stock-text", "text-temp-sold-out" . $short);
 		}
 		else
 		{
-			return $mb->_translateReturn("stock-text", "text-sold-out");
+			return $mb->_translateReturn("stock-text", "text-sold-out" . $short);
 		}
 	}
 	else
@@ -66,11 +75,11 @@ function _createStockText($stock, $categoryID, $productID, $language_pack, $stat
 				// Actuele voorraad
 				if($stock > 0)
 				{
-					return $mb->_translateReturn("stock-text", "actual-stock", array($stock));
+					return $mb->_translateReturn("stock-text", "actual-stock" . $short, array($stock));
 				}
 				else
 				{
-					return $mb->_translateReturn("stock-text", "actual-stock-empty");
+					return $mb->_translateReturn("stock-text", "actual-stock-empty" . $short);
 				}
 			break;
 			
@@ -78,15 +87,15 @@ function _createStockText($stock, $categoryID, $productID, $language_pack, $stat
 				// Actuele voorraad + leverancier
 				if($stock > 0)
 				{
-					return $mb->_translateReturn("stock-text", "actual-stock", array($stock));
+					return $mb->_translateReturn("stock-text", "actual-stock" . $short, array($stock));
 				}
 				else if($supplier > 0)
 				{
-					return $mb->_translateReturn("stock-text", "stock-supplier", array($delivery));
+					return $mb->_translateReturn("stock-text", "stock-supplier" . $short, array($delivery));
 				}
 				else
 				{
-					return $mb->_translateReturn("stock-text", "actual-stock-empty");
+					return $mb->_translateReturn("stock-text", "actual-stock-empty" . $short);
 				}
 			break;
 			
@@ -94,11 +103,11 @@ function _createStockText($stock, $categoryID, $productID, $language_pack, $stat
 				// Stoplicht
 				if($stock > 0)
 				{
-					return $mb->_translateReturn("stock-text", "RG-stock-G");
+					return $mb->_translateReturn("stock-text", "RG-stock-G" . $short);
 				}
 				else
 				{
-					return $mb->_translateReturn("stock-text", "RG-stock-R");
+					return $mb->_translateReturn("stock-text", "RG-stock-R" . $short);
 				}
 			break;
 			
@@ -106,15 +115,15 @@ function _createStockText($stock, $categoryID, $productID, $language_pack, $stat
 				// Stoplicht + leverancier
 				if($stock > 0)
 				{
-					return $mb->_translateReturn("stock-text", "RG-stock-G");
+					return $mb->_translateReturn("stock-text", "RG-stock-G" . $short);
 				}
 				else if($supplier > 0)
 				{
-					return $mb->_translateReturn("stock-text", "stock-supplier", array($delivery));
+					return $mb->_translateReturn("stock-text", "stock-supplier" . $short, array($delivery));
 				}
 				else
 				{
-					return $mb->_translateReturn("stock-text", "RG-stock-R");
+					return $mb->_translateReturn("stock-text", "RG-stock-R" . $short);
 				}
 			break;
 			
@@ -122,11 +131,11 @@ function _createStockText($stock, $categoryID, $productID, $language_pack, $stat
 				// Altijd (beperkte) voorraad
 				if($stock > 0)
 				{
-					return $mb->_translateReturn("stock-text", "in-stock");
+					return $mb->_translateReturn("stock-text", "in-stock" . $short);
 				}
 				else
 				{
-					return $mb->_translateReturn("stock-text", "limited-stock-contact");
+					return $mb->_translateReturn("stock-text", "limited-stock-contact" . $short);
 				}
 			break;
 			
@@ -134,21 +143,21 @@ function _createStockText($stock, $categoryID, $productID, $language_pack, $stat
 				// Altijd (beperkte) voorraad + leverancier
 				if($stock > 0)
 				{
-					return $mb->_translateReturn("stock-text", "in-stock");
+					return $mb->_translateReturn("stock-text", "in-stock" . $short);
 				}
 				else if($supplier > 0)
 				{
-					return $mb->_translateReturn("stock-text", "stock-supplier", array($delivery));
+					return $mb->_translateReturn("stock-text", "stock-supplier" . $short, array($delivery));
 				}
 				else
 				{
-					return $mb->_translateReturn("stock-text", "limited-stock-contact");
+					return $mb->_translateReturn("stock-text", "limited-stock-contact" . $short);
 				}
 			break;
 			
 			case 7:
 				// Altijd op voorrad
-				return $mb->_translateReturn("stock-text", "in-stock");
+				return $mb->_translateReturn("stock-text", "in-stock" . $short);
 			break;
 		}
 	}

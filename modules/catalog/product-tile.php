@@ -81,5 +81,9 @@
 			print $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($price, $_SESSION['currency']), $_SESSION['currency']);
 			?>
 		</span>
+		
+		<span class="stock <?= ($product['stock'] > 0 ? "green" : ($product['status'] > 2 ? "red" : "orange")) ?>">
+			<?= _createStockText($product['stock'], (isset($_GET['categoryID']) ? intval($_GET['categoryID']) : 0), $product['productID'], _LANGUAGE_PACK, $product['status'], true) ?>
+		</span>
 	</div>
 </a>
