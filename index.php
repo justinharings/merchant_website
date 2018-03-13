@@ -157,6 +157,15 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 
 
 
+$open = false;
+
+if(date("G") > 9 && date("G") < 18)
+{
+	$open = true;
+}
+
+
+
 /*
 **	Set the currect url as last one.
 */
@@ -191,7 +200,14 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" href="/library/css/motherboard.minified.css" />
 
-		<script>(function(d,a){function c(){var b=d.createElement("script");b.async=!0;b.type="text/javascript";b.src=a._settings.messengerUrl;b.crossOrigin="anonymous";var c=d.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}window.kayako=a;a.readyQueue=[];a.newEmbedCode=!0;a.ready=function(b){a.readyQueue.push(b)};a._settings={apiUrl:"https://harings-tweewielers.kayako.com/api/v1",teamName:"Harings Tweewielers",homeTitles:[{"locale":"en-us","translation":"Hello! 👋"}],homeSubtitles:[{"locale":"en-us","translation":"Stel gerust uw vragen via de chat! We beantwoorden alle vragen zo snel mogelijk. Ontvangt u niet direct een reactie? Laat dan uw e-mail adres achter. We komen zo snel mogelijk terug op uw vraag! You're not Dutch? Well let me translate... Ask anything you want. If you're not receiving a reply on short notice, please leave your e-mail address and we get back to you ASAP!"}],messengerUrl:"https://harings-tweewielers.kayakocdn.com/messenger",realtimeUrl:"wss://kre.kayako.net/socket",widgets:{presence:{enabled:false},twitter:{enabled:false,twitterHandle:"738160281235292160"},articles:{enabled:false,sectionId:1}},styles:{primaryColor:"#d00000",homeBackground:"#FF3B30",homePattern:"https://assets.kayako.com/messenger/pattern-9.svg",homeTextColor:"#FFFFFF"}};window.attachEvent?window.attachEvent("onload",c):window.addEventListener("load",c,!1)})(document,window.kayako||{});</script>
+		<?php
+		if($open)
+		{
+			?>
+			<script>(function(d,a){function c(){var b=d.createElement("script");b.async=!0;b.type="text/javascript";b.src=a._settings.messengerUrl;b.crossOrigin="anonymous";var c=d.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}window.kayako=a;a.readyQueue=[];a.newEmbedCode=!0;a.ready=function(b){a.readyQueue.push(b)};a._settings={apiUrl:"https://harings-tweewielers.kayako.com/api/v1",teamName:"Harings Tweewielers",homeTitles:[{"locale":"en-us","translation":"Hello! 👋"}],homeSubtitles:[{"locale":"en-us","translation":"Stel gerust uw vragen via de chat! We beantwoorden alle vragen zo snel mogelijk. Ontvangt u niet direct een reactie? Laat dan uw e-mail adres achter. We komen zo snel mogelijk terug op uw vraag! You're not Dutch? Well let me translate... Ask anything you want. If you're not receiving a reply on short notice, please leave your e-mail address and we get back to you ASAP!"}],messengerUrl:"https://harings-tweewielers.kayakocdn.com/messenger",realtimeUrl:"wss://kre.kayako.net/socket",widgets:{presence:{enabled:false},twitter:{enabled:false,twitterHandle:"738160281235292160"},articles:{enabled:false,sectionId:1}},styles:{primaryColor:"#d00000",homeBackground:"#FF3B30",homePattern:"https://assets.kayako.com/messenger/pattern-9.svg",homeTextColor:"#FFFFFF"}};window.attachEvent?window.attachEvent("onload",c):window.addEventListener("load",c,!1)})(document,window.kayako||{});</script>
+			<?php
+		}
+		?>
 
 		<script type="text/javascript" src="//code.jquery.com/jquery-latest.js"></script>
 		<script type="text/javascript" src="/library/js/motherboard.minified.js"></script>
@@ -308,9 +324,9 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						?>
 					</div>
 					
-					<div class="top-item text-green open-kayako">
+					<div class="top-item text-<?= $open ? "green open-kayako" : "" ?>">
 						<span class="lnr lnr-bubble large"></span>
-						<?= $mb->_translateReturn("others", "chat_online") ?>
+						<?= $open ? $mb->_translateReturn("others", "chat_online") : $mb->_translateReturn("others", "chat_offline") ?>
 					</div>
 				</div>
 				

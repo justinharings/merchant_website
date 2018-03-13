@@ -13,14 +13,14 @@ $favorites = $mb->_runFunction("catalog", "viewFavorites", array());
 
 <div class="homepage">
 	<div class="line-1">
-		<img src="<?= $banner_large['image'] ?>" click="<?= $banner_large['url'] ?>" />
+		<img src="<?= $banner_large['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_large['url'] ?>" />
 	</div>
 	
 	<div class="line-2">
-		<img src="<?= $banner_small_1['image'] ?>" click="<?= $banner_small_1['url'] ?>" />
-		<img src="<?= $banner_small_2['image'] ?>" click="<?= $banner_small_2['url'] ?>" />
-		<img src="<?= $banner_small_3['image'] ?>" click="<?= $banner_small_3['url'] ?>" />
-		<img src="<?= $banner_small_4['image'] ?>" click="<?= $banner_small_4['url'] ?>" />
+		<img src="<?= $banner_small_1['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_1['url'] ?>" />
+		<img src="<?= $banner_small_2['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_2['url'] ?>" />
+		<img src="<?= $banner_small_3['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_3['url'] ?>" />
+		<img src="<?= $banner_small_4['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_4['url'] ?>" />
 	</div>
 	
 	<div class="line-3">

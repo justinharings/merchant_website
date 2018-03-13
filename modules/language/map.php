@@ -58,6 +58,29 @@ $xml = simplexml_load_string($xml);
 	</head>
 
 	<body>
+		<div class="map-background"></div>
+		
+		<div class="map-block">
+			Select your language
+			
+			<p>We're shipping Dutch quality bicycles to every country in the world. Select your language to start browsing our catalog.</p>
+			
+			<select name="language" onchange="if (this.value) window.location.href=this.value">
+				<option value=""></option>
+				<?php
+				foreach($_found_languages AS $abbreviation)
+				{
+					$xml = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/library/languages/" . strtolower($abbreviation) . ".xml");
+					$xml = simplexml_load_string($xml);
+					?>
+					<option value="/<?= $abbreviation ?>/"><?= $xml->info->full_name ?></option>
+					<?php
+				}
+				?>
+			</select>
+		</div>
+		
+		<!--
 		<div class="header">
 			<div class="container">
 				<div class="header-content">
@@ -97,5 +120,6 @@ $xml = simplexml_load_string($xml);
 				?>
 			</div>
 		</div>
+		-->
 	</body>
 </html>	
