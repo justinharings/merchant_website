@@ -1557,13 +1557,11 @@ body div.content
 		{
 			margin: 10px 0px 0px 0px;
 			
-			background-color: #ddd;
-			
-			color: #000;
+			background-color: #2b529a;
 		}
 		body div.page-content div.call-me div.button.disabled
 		{
-			color: #999;
+			color: #5b7dbc;
 		}
 		
 		body div.page-content div.cart-info div.button:hover
@@ -1574,14 +1572,14 @@ body div.content
 		}
 		body div.page-content div.call-me div.button.disabled:hover
 		{
-			background-color: #ddd;	
+			background-color: #2b529a;
 			
-			cursor: default;
+			color: #5b7dbc;
 		}
 		
 		body div.page-content div.call-me div.button:hover
 		{
-			background-color: #ccc;
+			background-color: #1c4288;
 			
 			cursor: pointer;
 		}
@@ -1614,13 +1612,14 @@ body div.content
 		display: table;
 		float: right;
 		
-		background-color: #f9f9f9;
+		background-color: #5d89d8;
 		border: 1px solid #eee;
 		border-top: none;
 		border-bottom: 3px solid #eee;
 		
 		font-family: 'Raleway', 'Tahoma';
 		font-size: 14px;
+		color: #fff;
 	}
 		
 	body div.page-content div.order-info

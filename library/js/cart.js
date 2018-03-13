@@ -1,3 +1,17 @@
+function submitCallme()
+{
+	$("#phone_number").removeAttr("style");
+	
+	if($("#phone_number").val() != "")
+	{
+		$('form#callback').submit();
+	}
+	else
+	{
+		$("#phone_number").css("background-color", "#f5ecec").css("border-color", "#d00000");
+	}
+}
+
 $(document).ready(
 	function($)
 	{

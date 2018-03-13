@@ -189,7 +189,7 @@ if($details[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
 					<input type="hidden" name="productID" id="productID" value="<?= $details['productID'] ?>" />
 					<input type="hidden" name="returnURL" id="returnURL" value="<?= $actual_link ?>" />
 					
-					<div class="button" onclick="$('form#callback').submit();">
+					<div class="button" onclick="submitCallme();">
 						<?= $mb->_translateReturn("product-details", "call-me-button") ?>
 					</div>
 				</form>
