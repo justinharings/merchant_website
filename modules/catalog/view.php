@@ -81,8 +81,6 @@ if($_GET['filters'] != "none")
 	<li class="spacer">-</li>
 	<li><a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>.html"><?= strtolower($head_name) ?></a></li>
 	<li class="spacer">-</li>
-	<li><?= strtolower($parent_name) ?></li>
-	<li class="spacer">-</li>
 	<li>
 		<strong>
 			<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $category['categoryID'] ?>/filters/none/<?= _createCategoryURL($category['EN_name']) ?>.html"><?= strtolower($category_name) ?></a>
@@ -268,3 +266,31 @@ if($_GET['filters'] != "none")
 	}
 	?>
 </div>
+
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement":
+		[
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"item":
+				{
+					"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>.html",
+					"name": "<?= ucfirst($headCategory[(_LANGUAGE_PACK != "nl" ? strtoupper(_LANGUAGE_PACK) . "_" : "") . 'name']) ?>"
+				}
+			},
+			{
+				"@type": "ListItem",
+				"position": 3,
+				"item":
+				{
+					"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $category['categoryID'] ?>/filters/none/<?= _createCategoryURL($category['EN_name']) ?>.html",
+					"name": "<?= ucfirst($category_name) ?>"
+				}
+			}
+		]
+	}
+</script>

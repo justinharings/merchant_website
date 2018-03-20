@@ -20,3 +20,22 @@ $banner_tile_1_4 = $mb->_runFunction("banners", "loadMerchantBanner", array(_LAN
 
 require_once(__DIR__ . "/splash.php");
 ?>
+
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement":
+		[
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"item":
+				{
+					"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/catalog/parts.html",
+					"name": "<?= ucfirst($category_name) ?>"
+				}
+			}
+		]
+	}
+</script>

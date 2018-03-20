@@ -133,3 +133,31 @@ $content = $mb->_runFunction("content", "load", array(_LANGUAGE_PACK, $_GET['fil
 		?>
 	</p>
 </div>
+
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement":
+		[
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"item":
+				{
+					"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/",
+					"name": "Home"
+				}
+			},
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"item":
+				{
+					"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/service/<?= $content['seo_url'] ?>",
+					"name": "<?= ucfirst($content['name']) ?>"
+				}
+			}
+		]
+	}
+</script>

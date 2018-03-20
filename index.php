@@ -178,6 +178,8 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	<head>
 		<title><?= $mb->_runFunction("head", "title") ?></title>
 		
+		<meta name="google-site-verification" content="<?= $mb->_translateReturn("html_head", "google-site-verification") ?>" />
+		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="Content-Language" content="<?= _LANGUAGE_PACK ?>" />
 		
@@ -188,8 +190,12 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		<?php
 		foreach($_found_languages AS $abbreviation)
 		{
+			if($abbreviation == _LANGUAGE_PACK)
+			{
+				continue;
+			}
 			?>
-			<link rel="alternate" hreflang="<?= $abbreviation ?>" href="<?= str_replace("/"._LANGUAGE_PACK."/", "/".$abbreviation."/", $_SESSION['HTTP_REFERER']) ?>">
+			<link rel="alternate" hreflang="<?= strtolower($abbreviation) ?>" href="<?= str_replace("/"._LANGUAGE_PACK."/", "/".$abbreviation."/", $_SESSION['HTTP_REFERER']) ?>">
 			<?php
 		}
 		?>
@@ -525,7 +531,6 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						
 						<div class="clear">
 							<a href="/<?= _LANGUAGE_PACK ?>/service/customer-service.html">
-								<span class="fa fa-whatsapp"></span>
 								<span class="fa fa-envelope-o"></span>
 								<span class="fa fa-comments-o"></span>
 								<span class="fa fa-phone"></span>
@@ -590,7 +595,60 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		
 			  ga('create', 'UA-100999595-1', 'auto');
 			  ga('send', 'pageview');
+		</script>
 		
+		<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+				"@type": "BreadcrumbList",
+				"itemListElement":
+				[
+					{
+						"@type": "ListItem",
+						"position": 1,
+						"item":
+						{
+							"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/",
+							"name": "Home"
+						}
+					}
+				]
+			}
+			
+			{
+				"@context": "http://schema.org",
+				"@type": "WebSite",
+				"url": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/",
+				"potentialAction": 
+				{
+					"@type": "SearchAction",
+					"target": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/search/{search_term_string}/",
+					"query-input": "required name=string"
+				}
+			}
+			
+			{
+				"@context": "http://schema.org",
+				"@type": "Organization",
+				"name": "<?= $mb->_translateReturn("html_head", "default_title") ?>",
+				"url": "http://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/",
+				"logo": "http://www.haringstweewielers.com/library/media/<?= $mb->_translateReturn("images", "logo") ?>",
+				"contactPoint": 
+				[
+					{
+						"@type": "ContactPoint",
+						"telephone": "+31546816232",
+						"contactType": "customer service"
+					}
+				],
+				"sameAs": 
+				[
+					"http://www.facebook.com/harings2wielers",
+					"http://instagram.com/harings2wielers",
+					"http://twitter.com/harings2wielers"
+				]
+			}
+
 		</script>
 	</body>
 </html>

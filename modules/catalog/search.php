@@ -55,3 +55,22 @@ $string = str_replace("-", " ", $string);
 	}
 	?>
 </div>
+
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement":
+		[
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"item":
+				{
+					"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/search/<?= $_GET['string'] ?>/",
+					"name": "<?= $mb->_translateReturn("website_text", "search_results", array($string)) ?>"
+				}
+			}
+		]
+	}
+</script>

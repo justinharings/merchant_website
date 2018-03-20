@@ -59,7 +59,7 @@ class head extends main_board
 						$category_name = $category[strtoupper(_LANGUAGE_PACK) . '_name'];
 					}
 					
-					$title = $category_name . " - " . $title;
+					$title = "Catalogus: " . $category_name . " | " . $title;
 				}
 				else
 				{
@@ -72,7 +72,29 @@ class head extends main_board
 						$name = $details[strtoupper(_LANGUAGE_PACK) . '_name'];
 					}
 					
-					$title = strip_tags($name) . " - " . $title;
+					$codes = "";
+					
+					if($details['barcode'] != "")
+					{
+						$codes .= $details['barcode'];
+					}
+					
+					if($details['supplier_code'] != "")
+					{
+						if($codes != "")
+						{
+							$codes .= " ";
+						}
+						
+						$codes .= $details['supplier_code'];
+					}
+					
+					if($codes != "")
+					{
+						$codes = " | " . $codes;
+					}
+					
+					$title = strip_tags($name) . $codes . " | " . $title;
 				}
 			break;
 			
@@ -96,7 +118,105 @@ class head extends main_board
 	public function description()
 	{
 		$xml = simplexml_load_string($this->language_xml);
-		print $xml->html_head->default_description;
+		
+		$return = "";
+		
+		switch($_GET['module'])
+		{
+			case "catalog":
+				if(!isset($_GET['productID']) && $_GET['page'] == "sale")
+				{
+					$return = $xml->html_head->product_description_sale;
+				}
+				else if(!isset($_GET['productID']) && $_GET['page'] == "search")
+				{
+					$return = sprintf(
+							$xml->html_head->product_description_search,
+						$_GET['string']
+					);
+				}
+				else if(!isset($_GET['productID']))
+				{
+					$categoryID = (isset($_GET['categoryID']) ? $_GET['categoryID'] : 0);
+					
+					if($categoryID == 0)
+					{
+						switch($_GET['page'])
+						{
+							case "bicycles":
+								$categoryID = 1;
+							break;
+							
+							case "accessories":
+								$categoryID = 4;
+							break;
+							
+							case "parts":
+								$categoryID = 44;
+							break;
+							
+							case "webshop":
+								$categoryID = 68;
+							break;
+						}
+					}
+				
+					$category = $this->_runFunction("catalog", "loadCatalog", array($categoryID));
+					
+					$category_name = $category['name'];
+					
+					if($category[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+					{
+						$category_name = $category[strtoupper(_LANGUAGE_PACK) . '_name'];
+					}
+					
+					if(isset($_GET['categoryID']))
+					{
+						$return = sprintf(
+								$xml->html_head->product_description_category,
+							strtolower($category_name)
+						);
+					}
+					else
+					{
+						$return = sprintf(
+								$xml->html_head->product_description_headcategory,
+							strtolower($category_name)
+						);
+					}
+				}
+				else
+				{
+					$details = $this->_runFunction("catalog", "loadProduct", array(intval($_GET['productID'])));
+					
+					if($details['brand'] != "")
+					{
+						$return = sprintf(
+								$xml->html_head->product_description_brand,
+							$details['brand']
+						);
+						
+						$return .= " " ;
+					}
+					
+					$return .= $details['description'];
+				}
+			break;
+			
+			case "service":
+				$content = $this->_runFunction("content", "load", array(_LANGUAGE_PACK, $_GET['file']));
+				$return = $content['seo_description'];
+			break;
+		}
+		
+		if($return == "")
+		{
+			print $xml->html_head->default_description;
+		}
+		else
+		{
+			print substr($return, 0, 297) . (strlen($return) > 300 ? "..." : "");
+		}
 	}
 
 

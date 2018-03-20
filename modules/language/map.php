@@ -38,7 +38,9 @@ $xml = simplexml_load_string($xml);
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Please select your language to continue</title>
+		<title>Please select your language to continue ...</title>
+		
+		<meta name="google-site-verification" content="B39UOVeOwQd0ZBlZrfm-NSmb10n3XQUM6wEGC647JH0" />
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="Content-Language" content="en" />

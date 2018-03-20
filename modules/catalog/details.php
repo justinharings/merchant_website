@@ -7,14 +7,65 @@ if($details[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
 {
 	$name = $details[strtoupper(_LANGUAGE_PACK) . '_name'];
 }
+
+$breadcrumb = "";
+
+if(isset($_GET['categoryID']))
+{
+	$category = $mb->_runFunction("catalog", "loadCatalog", array(intval($_GET['categoryID'])));
+	$headCategory = $mb->_runFunction("catalog", "loadCatalog", array(intval($category['parentID'])));
+	$headCategory = $mb->_runFunction("catalog", "loadCatalog", array(intval($headCategory['parentID'])));
+}
 ?>
 
 <ul class="breadcrumbs">
 	<li><a href="/<?= _LANGUAGE_PACK ?>/">home</a></li>
-	<li class="spacer">-</li>	
+	
+	<?php
+	if(isset($_GET['categoryID']))
+	{
+		?>
+		<li class="spacer">-</li>
+		
+		<li>
+			<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>.html">
+				<?= strtolower($headCategory[(_LANGUAGE_PACK != "nl" ? strtoupper(_LANGUAGE_PACK) . "_" : "") . 'name']) ?>
+			</a>
+		</li>
+		<?php
+	}
+	?>
+	
+	<li class="spacer">-</li>
+	<li>
+		<?php
+		if(isset($_GET['categoryID']))
+		{
+			?>
+			<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $_GET['categoryID'] ?>/filters/none/<?= _createCategoryURL($category['EN_name']) ?>.html">
+				<?= strtolower($category[(_LANGUAGE_PACK != "nl" ? strtoupper(_LANGUAGE_PACK) . "_" : "") . 'name']) ?>
+			</a>
+			<?php
+		}
+		else
+		{
+			print "zoekresultaten";
+		}
+		?>
+	</li>
+	<li class="spacer">-</li>
 	<li>
 		<strong>
-			<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $details['productID'] ?>/<?= _createCategoryURL($details['name']) ?>.html"><?= strtolower($name) ?></a>
+			<?php
+			$extra_breadcrumb = "";
+				
+			if(isset($_GET['categoryID']))
+			{
+				$extra_breadcrumb = $_GET['categoryID'] . "/" . _createCategoryURL($category['EN_name']) . "/";
+			}
+			?>
+			
+			<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= $extra_breadcrumb ?>details/<?= $details['productID'] ?>/<?= _createCategoryURL($details['name']) ?>.html"><?= strtolower($name) ?></a>
 		</strong>
 	</li>
 </ul>
@@ -89,8 +140,10 @@ if($details[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
 			{
 				?>
 				<span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" style="display: none;">
-					<span itemprop="ratingValue"><?= $details['review_stars'] ?></span>
-					<span itemprop="ratingCount"><?= count($details['reviews']) ?></span>
+					<meta itemprop="worstRating" content="1">
+					<span itemprop="ratingValue"><?= ($details['review_stars']/2) ?></span>
+					<meta itemprop="bestRating" content="5">
+					<span itemprop="reviewCount"><?= count($details['reviews']) ?></span>
 				</span>
 				
 				<div class="review-holder">
@@ -402,26 +455,37 @@ if($details[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
 			
 			foreach($details['reviews'] AS $key => $review)
 			{
-				for($i = 1; $i <= 5; $i++)
-				{
-					?>
-					<span class="fa review-star fa-<?= $review['stars'] >= $i ? "circle" : "circle-thin" ?>"></span>
-					<?php
-				}
 				?>
-				
-				<strong class="header">
-					<?= $review['name'] ?>
+				<div itemprop="review" itemscope itemtype="http://schema.org/Review">
+					<?php
+					for($i = 1; $i <= 5; $i++)
+					{
+						?>
+						<span class="fa review-star fa-<?= $review['stars'] >= $i ? "circle" : "circle-thin" ?>"></span>
+						<?php
+					}
+					?>
 					
-					<small>
-						<?= $review['date_added'] ?>
-						<?= $mb->_translateReturn("product-details", "oclock") ?>
-					</small>
-				</strong><br/>
-				<br/>
-				<span style="color: #d00000;"><?= ucfirst($review['country']) ?></span><br/>
-				<?= $review['description'] ?>
-				<hr/>
+					<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" style="display: none;">
+						<meta itemprop="worstRating" content="1">
+						<meta itemprop="ratingValue" content="<?= $review['stars'] ?>">
+						<meta itemprop="bestRating" content="5">
+					</div>
+					
+					<strong class="header">
+						<span itemprop="author"><?= $review['name'] ?></span>
+						
+						<small>
+							<meta itemprop="datePublished" content="<?= $review['date_added_raw'] ?>">
+							<?= $review['date_added'] ?>
+							<?= $mb->_translateReturn("product-details", "oclock") ?>
+						</small>
+					</strong><br/>
+					<br/>
+					<span style="color: #d00000;"><?= ucfirst($review['country']) ?></span><br/>
+						<span itemprop="description"><?= $review['description'] ?></span>
+					<hr/>
+				</div>
 				<?php
 			}
 			?>
@@ -430,3 +494,61 @@ if($details[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
 	}
 	?>
 </div>
+
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement":
+		[
+			<?php
+			if(isset($_GET['categoryID']))
+			{
+				?>
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"item":
+					{
+						"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>.html",
+						"name": "<?= strtolower($headCategory[(_LANGUAGE_PACK != "nl" ? strtoupper(_LANGUAGE_PACK) . "_" : "") . 'name']) ?>"
+					}
+				},
+				{
+					"@type": "ListItem",
+					"position": 3,
+					"item":
+					{
+						"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $_GET['categoryID'] ?>/filters/none/<?= _createCategoryURL($category['EN_name']) ?>.html",
+						"name": "<?= strtolower($category[(_LANGUAGE_PACK != "nl" ? strtoupper(_LANGUAGE_PACK) . "_" : "") . 'name']) ?>"
+					}
+				},
+				{
+					"@type": "ListItem",
+					"position": 4,
+					"item":
+					{
+						"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/catalog/<?= $extra_breadcrumb ?>details/<?= $details['productID'] ?>/<?= _createCategoryURL($details['name']) ?>.html",
+						"name": "<?= strtolower($name) ?>"
+					}
+				}
+				<?php
+			}
+			else
+			{
+				?>
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"item":
+					{
+						"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/catalog/<?= $extra_breadcrumb ?>details/<?= $details['productID'] ?>/<?= _createCategoryURL($details['name']) ?>.html",
+						"name": "<?= strtolower($name) ?>"
+					}
+				}
+				<?php
+			}
+			?>
+		]
+	}
+</script>
