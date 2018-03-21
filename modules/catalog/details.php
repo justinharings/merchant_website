@@ -296,6 +296,13 @@ if(isset($_GET['categoryID']))
 					<li><?= $mb->_translateReturn("product-details", "five") ?></li>
 					<?php
 				}
+				
+				if($mb->_translateReturn("product-details", "six"))
+				{
+					?>
+					<li><?= $mb->_translateReturn("product-details", "six") ?></li>
+					<?php
+				}
 				?>
 			</ul>
 		</div>
@@ -303,17 +310,10 @@ if(isset($_GET['categoryID']))
 		<div class="order-info eco">
 			<ul>
 				<?php
-				if($mb->_translateReturn("product-details", "six"))
-				{
-					?>
-					<li class="first"><?= $mb->_translateReturn("product-details", "six") ?></li>
-					<?php
-				}
-				
 				if($mb->_translateReturn("product-details", "seven"))
 				{
 					?>
-					<li><?= $mb->_translateReturn("product-details", "seven") ?></li>
+					<li class="first"><?= $mb->_translateReturn("product-details", "seven") ?></li>
 					<?php
 				}
 				
@@ -321,6 +321,13 @@ if(isset($_GET['categoryID']))
 				{
 					?>
 					<li><?= $mb->_translateReturn("product-details", "eight") ?></li>
+					<?php
+				}
+				
+				if($mb->_translateReturn("product-details", "nine"))
+				{
+					?>
+					<li><?= $mb->_translateReturn("product-details", "nine") ?></li>
 					<?php
 				}
 				?>
