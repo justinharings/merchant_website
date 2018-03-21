@@ -1,4 +1,3 @@
 User-agent: *    
 Disallow: /library/
 Disallow: /modules/
-Sitemap: http://www.haringstweewielers.com/sitemap.xml

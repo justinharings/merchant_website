@@ -1,4 +1,4 @@
-<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= (isset($category['categoryID']) ? $category['categoryID'] . "/" . _createCategoryURL($category['EN_name']) . "/" : "") ?>details/<?= $product['productID'] ?>/<?= _createCategoryURL($product['name']['nl']) ?>.html">
+<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= (isset($category['categoryID']) ? $category['categoryID'] . "/" . _createCategoryURL($category[(_LANGUAGE_PACK != "nl" ? strtoupper(_LANGUAGE_PACK) . "_" : "") . 'name']) . "/" : "") ?>details/<?= $product['productID'] ?>/<?= _createCategoryURL($product['name'][strtolower(_LANGUAGE_PACK)]) ?>.html">
 	<div class="product-container <?= $num == 0 ? "first" : "" ?>">		
 		<?php
 		if($product['status'] > 1)
