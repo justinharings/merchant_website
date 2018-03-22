@@ -63,6 +63,13 @@ body
 	background-color: #f9f9f9;
 }
 
+	body div.paylink
+	{
+		width: 80%;
+		
+		margin: 0px auto;
+	}
+	
 	body div.map-background
 	{
 		position: fixed;
@@ -629,7 +636,8 @@ body div.header
 		border-bottom: 1px solid #e5e5e5;
 	}
 	
-		body div.header div.header-content img.logo
+		body div.header div.header-content img.logo,
+		body div.paylink img.logo
 		{
 			height: 60px;
 			
@@ -645,7 +653,8 @@ body div.header
 			float: right;
 		}
 		
-		body div.header div.header-content img.expert
+		body div.header div.header-content img.expert,
+		body div.paylink img.expert
 		{
 			height: 60px;
 			
