@@ -1,5 +1,6 @@
+/* Tablet: Landscape */
 @media only screen 
-	and (min-width : 768px) 
+	and (min-width : 1040px) 
 	and (max-width : 1250px)
 {
 	.hide-landscape
@@ -50,6 +51,17 @@
 		font-size: 15px !important; 
 	}
 	
+	body div.page-content div.tile-row-1 div.tile-2,
+	body div.page-content div.tile-row-1 div.tile-3
+	{
+		margin: 0px 0px 10px 0px !important;
+	}
+	
+	body div.page-content div.follow-scroll
+	{
+		width: 300px !important;
+	}
+	
 	div.advertisement div.advertisement-blocks div.block div.split img
 	{
 		margin: 45px 0px 0px 0px !important;
@@ -62,7 +74,7 @@
 	
 	body div.page-content div.product-container
 	{
-		width: calc(33% - 24px) !important;
+		width: calc(50% - 28px) !important;
 	}
 	
 	body div.page-content div.product-container div.img-holder
@@ -71,14 +83,14 @@
 		height: 218px !important;
 	}
 	
-	body div.page-content div.images
-	{
-		height: 500px !important;
-	}
-	
 	body div.page-content div.image
 	{
-		width: 500px !important;
+		width: 550px !important;
+	}
+	
+	body div.page-content div.images
+	{
+		height: 550px !important;
 	}
 	
 	body div.page-content div.description,
@@ -94,11 +106,11 @@
 	}
 	div.cart-item table tr td.second
 	{
-		width: 30% !important;
+		width: 40% !important;
 	}
 	div.cart-item table tr td.third
 	{
-		width: 35% !important;
+		width: 25% !important;
 	}
 	div.cart-item table tr td.fourth
 	{

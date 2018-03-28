@@ -153,6 +153,13 @@ if(isset($_GET['minify']) || _DEVELOPMENT_ENVIRONMENT)
 	$minifier = new Minify\JS();
 	$minifier->add($sourcePath);
 	$minifier->minify($savePath);
+	
+	$sourcePath = $_SERVER['DOCUMENT_ROOT'] . '/library/js/mobile.js';
+	$savePath = $_SERVER['DOCUMENT_ROOT'] . '/library/js/mobile.minified.js';
+	
+	$minifier = new Minify\JS();
+	$minifier->add($sourcePath);
+	$minifier->minify($savePath);
 }
 
 
@@ -186,7 +193,8 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		<meta name="robots" content="index, follow" />
 		<meta name="description" content="<?= $mb->_runFunction("head", "description") ?>" />
 		<meta name="keywords" content="<?= $mb->_runFunction("head", "keywords") ?>" />
-
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+		
 		<?php
 		foreach($_found_languages AS $abbreviation)
 		{
@@ -330,7 +338,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						?>
 					</div>
 					
-					<div class="top-item text-<?= $open ? "green open-kayako" : "" ?>">
+					<div class="hide-mobile top-item text-<?= $open ? "green open-kayako" : "" ?>">
 						<span class="lnr lnr-bubble large"></span>
 						<?= $open ? $mb->_translateReturn("others", "chat_online") : $mb->_translateReturn("others", "chat_offline") ?>
 					</div>
@@ -342,16 +350,16 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 							<span class="fa fa-instagram"></span>
 							
 							<?= $mb->_returnTXT("instagram_" . $mb->_translateReturn("urls", "instagram")) ?>
-							<span class="hide-portrait">photo lovers!</span>
+							<span class="hide-landscape">photo lovers!</span>
 						</a>
 					</div>
 					
-					<div class="top-item">
+					<div class="hide-mobile top-item">
 						<a href="https://www.twitter.com/<?= $mb->_translateReturn("urls", "twitter") ?>/" target="_blank" class="text-color-twitter">
 							<span class="fa fa-twitter"></span>
 							
 							<?= $mb->_returnTXT("twitter_" . $mb->_translateReturn("urls", "twitter")) ?>
-							<span class="hide-portrait">dedicated followers!</span>
+							<span class="hide-landscape">dedicated followers!</span>
 						</a>
 					</div>
 					
@@ -378,11 +386,13 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			<div class="header">
 				<div class="container">
 					<div class="header-content">
-						<a href="/<?= _LANGUAGE_PACK ?>/">
-							<img class="logo" src="/library/media/<?= $mb->_translateReturn("images", "logo") ?>" />
-						</a>
-						
-						<img class="expert" src="/library/media/<?= $mb->_translateReturn("images", "expert") ?>" />
+						<div class="logos">
+							<a class="logo" href="/<?= _LANGUAGE_PACK ?>/">
+								<img class="logo" src="/library/media/<?= $mb->_translateReturn("images", "logo") ?>" />
+							</a>
+							
+							<img class="expert" src="/library/media/<?= $mb->_translateReturn("images", "expert") ?>" />
+						</div>
 						
 						<nav>
 							<?php
@@ -425,6 +435,14 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 										<input type="text" name="search" id="search" value="" autocomplete="off" />
 									</form>
 								</div>
+							</li>
+							
+							<li class="show-mobile">
+								<span class="lnr lnr-phone-handset" lang="<?= _LANGUAGE_PACK ?>"></span>
+							</li>
+							
+							<li class="show-mobile">
+								<span class="lnr lnr-map-marker" lang="<?= _LANGUAGE_PACK ?>"></span>
 							</li>
 						</ul>
 					</div>
@@ -650,5 +668,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			}
 
 		</script>
+		
+		<input type="hidden" name="mobile" id="mobile" value="0" />
 	</body>
 </html>

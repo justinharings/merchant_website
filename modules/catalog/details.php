@@ -490,7 +490,7 @@ if(isset($_GET['categoryID']))
 					</strong><br/>
 					<br/>
 					<span style="color: #d00000;"><?= ucfirst($review['country']) ?></span><br/>
-						<span itemprop="description"><?= $review['description'] ?></span>
+					<span class="review-description" itemprop="description"><?= $review['description'] ?></span>
 					<hr/>
 				</div>
 				<?php

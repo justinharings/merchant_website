@@ -1,258 +1,204 @@
-<h1><?= $mb->_translateReturn("cart", "shoppingcart") ?></h1>
-
-<hr/>
-
-<?php
-if(isset($_GET['error']))
-{
-	?>
-	<div class="error">
-		<strong><?= $mb->_translateReturn("cart", "payment-error-title") ?></strong><br/>
-		<?= $mb->_translateReturn("cart", "payment-error-text", array(ucfirst($_GET['error']))) ?>
-		
-		<?php
-		if(isset($_SESSION['afterpay-error']))
-		{
-			print "<br/><br/><strong>Afterpay foutmelding:</strong><br/>";
-			
-			switch($_SESSION['afterpay-error'])
-			{
-				case 3:
-					print "Op dit moment is het helaas niet mogelijk om je bestelling achteraf te betalen met AfterPay. Dit kan verschillende redenen hebben. Voor meer informatie kun je contact opnemen met de klantenservice van AfterPay. Kijk voor de contactgegevens en antwoorden op veelgestelde vragen op <a href=\"https://www.afterpay.nl/nl/consumenten/vraag-en-antwoord/\" target=\"_blank\">https://www.afterpay.nl/nl/consumenten/vraag-en-antwoord/</a>. We adviseren je om je bestelling met een andere betaalmethode af te ronden.";
-				break;
-				
-				default:
-					print "Onjuist ingevoerde persoonlijke gegevens. Controleer uw gegevens op juistheid en probeer het opnieuw.";
-				break;
-			}
-		}
-		?>
-	</div>
+<div class="container-mobile">
+	<h1><?= $mb->_translateReturn("cart", "shoppingcart") ?></h1>
+	
+	<hr/>
+	
 	<?php
-}
-	
-if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
-{
-	$total = 0;
-	
-	foreach($_SESSION['cart'] AS $key => $item)
+	if(isset($_GET['error']))
 	{
-		$product = $mb->_runFunction("catalog", "loadProduct", array($item['productID']));
-		$thumb = "";
-		
-		$name = $product['name'];
-
-		if($product[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
-		{
-			$name = $product[strtoupper(_LANGUAGE_PACK) . '_name'];
-		}
-		
-		$total += $mb->replaceCurrency(($item['quantity']*$product['price']), $_SESSION['currency']);
-		
-		$shipment_data[] = $product['shipments'];
-		
-		foreach($product['images'] AS $media)
-		{
-			if($media['thumb'])
-			{
-				$thumb = "https://merchant.justinharings.nl/library/media/products/" . $media['productMediaID'] . ".png";
-			}
-		}
 		?>
-		
-		<div class="cart-item">
-			<table>
-				<tr>
-					<td class="first"><img src="<?= $thumb != "" ? $thumb : "/library/media/no-image.png" ?>" /></td>
+		<div class="error">
+			<strong><?= $mb->_translateReturn("cart", "payment-error-title") ?></strong><br/>
+			<?= $mb->_translateReturn("cart", "payment-error-text", array(ucfirst($_GET['error']))) ?>
+			
+			<?php
+			if(isset($_SESSION['afterpay-error']))
+			{
+				print "<br/><br/><strong>Afterpay foutmelding:</strong><br/>";
+				
+				switch($_SESSION['afterpay-error'])
+				{
+					case 3:
+						print "Op dit moment is het helaas niet mogelijk om je bestelling achteraf te betalen met AfterPay. Dit kan verschillende redenen hebben. Voor meer informatie kun je contact opnemen met de klantenservice van AfterPay. Kijk voor de contactgegevens en antwoorden op veelgestelde vragen op <a href=\"https://www.afterpay.nl/nl/consumenten/vraag-en-antwoord/\" target=\"_blank\">https://www.afterpay.nl/nl/consumenten/vraag-en-antwoord/</a>. We adviseren je om je bestelling met een andere betaalmethode af te ronden.";
+					break;
 					
-					<td class="second">
-						<small><?= $mb->_translateReturn("product-details", "description") ?></small><br/>
-						
-						<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $product['productID'] ?>/<?= _createCategoryURL($product['name']) ?>.html">
-							<?= strip_tags($name) ?>
-						</a>
-					</td>
-					
-					<td class="third">
-						<small><?= $mb->_translateReturn("cart", "stock-status") ?></small><br/>
-						<?= _createStockText($product['stock'], 0, $product['productID'], _LANGUAGE_PACK) ?>
-					</td>
-					
-					<td class="padding fourth">
-						<small><?= $mb->_translateReturn("cart", "stock-quantity") ?></small><br/>
-						<form method="post" action="/library/php/posts/cart_quantity.php">
-							<input type="hidden" name="key" id="key" value="<?= $key ?>" />
-							
-							<select name="quantity" id="quantity">
-								<?php
-								for($i = 1; $i < 20; $i++)
-								{
-									?>
-									<option <?= $i == $item['quantity'] ? "selected=\"selected\"" : "" ?> value="<?= $i ?>"><?= $i ?></option>
-									<?php
-								}
-								?>
-							</select>
-						</form>
-						<span class="fa fa-caret-down"></span>
-					</td>
-					
-					<td class="fifth">
-						<small><?= $mb->_translateReturn("cart", "price") ?></small><br/>
-						<?= $_currencies_symbols[$_SESSION['currency']] ?>
-						<?= _frontend_float($mb->replaceCurrency(($item['quantity']*$product['price']), $_SESSION['currency']), $_SESSION['currency']) ?>
-					</td>
-					
-					<td class="sixth">
-						<a href="/library/php/posts/cart_delete.php?key=<?= $key ?>">
-							<span class="fa fa-times"></span>
-						</a>
-					</td>
-				</tr>
-			</table>
+					default:
+						print "Onjuist ingevoerde persoonlijke gegevens. Controleer uw gegevens op juistheid en probeer het opnieuw.";
+					break;
+				}
+			}
+			?>
 		</div>
-		
 		<?php
 	}
-	
-	$shipment_costs = 0;
-	$payed = array();
-	$shipmentArray = array();
-	
-	foreach($shipment_data AS $key => $shipment)
+		
+	if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 	{
-		if($shipment['combine'] == 1 && count($shipment_data) > 1)
+		$total = 0;
+		
+		foreach($_SESSION['cart'] AS $key => $item)
 		{
-			unset($shipment_data[$key]);
+			$product = $mb->_runFunction("catalog", "loadProduct", array($item['productID']));
+			$thumb = "";
+			
+			$name = $product['name'];
+	
+			if($product[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+			{
+				$name = $product[strtoupper(_LANGUAGE_PACK) . '_name'];
+			}
+			
+			$total += $mb->replaceCurrency(($item['quantity']*$product['price']), $_SESSION['currency']);
+			
+			$shipment_data[] = $product['shipments'];
+			
+			foreach($product['images'] AS $media)
+			{
+				if($media['thumb'])
+				{
+					$thumb = "https://merchant.justinharings.nl/library/media/products/" . $media['productMediaID'] . ".png";
+				}
+			}
+			?>
+			
+			<div class="cart-item">
+				<table>
+					<tr>
+						<td class="first"><img src="<?= $thumb != "" ? $thumb : "/library/media/no-image.png" ?>" /></td>
+						
+						<td class="second hide-mobile">
+							<small><?= $mb->_translateReturn("product-details", "description") ?></small><br/>
+							
+							<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $product['productID'] ?>/<?= _createCategoryURL($product['name']) ?>.html">
+								<?= strip_tags($name) ?>
+							</a>
+						</td>
+						
+						<td class="third hide-mobile">
+							<small><?= $mb->_translateReturn("cart", "stock-status") ?></small><br/>
+							<?= _createStockText($product['stock'], 0, $product['productID'], _LANGUAGE_PACK) ?>
+						</td>
+						
+						<td class="padding fourth">
+							<small><?= $mb->_translateReturn("cart", "stock-quantity") ?></small><br/>
+							<form method="post" action="/library/php/posts/cart_quantity.php">
+								<input type="hidden" name="key" id="key" value="<?= $key ?>" />
+								
+								<select name="quantity" id="quantity">
+									<?php
+									for($i = 1; $i < 20; $i++)
+									{
+										?>
+										<option <?= $i == $item['quantity'] ? "selected=\"selected\"" : "" ?> value="<?= $i ?>"><?= $i ?></option>
+										<?php
+									}
+									?>
+								</select>
+							</form>
+							<span class="fa fa-caret-down"></span>
+						</td>
+						
+						<td class="fifth hide-mobile">
+							<small><?= $mb->_translateReturn("cart", "price") ?></small><br/>
+							<?= $_currencies_symbols[$_SESSION['currency']] ?>
+							<?= _frontend_float($mb->replaceCurrency(($item['quantity']*$product['price']), $_SESSION['currency']), $_SESSION['currency']) ?>
+						</td>
+						
+						<td class="sixth">
+							<a href="/library/php/posts/cart_delete.php?key=<?= $key ?>">
+								<span class="fa fa-times"></span>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<?php
 		}
-		else
+		
+		$shipment_costs = 0;
+		$payed = array();
+		$shipmentArray = array();
+		
+		foreach($shipment_data AS $key => $shipment)
 		{
-			if($shipment['pay_once'] == 1 && isset($payed[$key]))
+			if($shipment['combine'] == 1 && count($shipment_data) > 1)
 			{
 				unset($shipment_data[$key]);
 			}
 			else
 			{
-				if($shipment[strtoupper(_LANGUAGE_PACK) . '_price'] > 0)
+				if($shipment['pay_once'] == 1 && isset($payed[$key]))
 				{
-					$shipment['price'] = $shipment[strtoupper(_LANGUAGE_PACK) . '_price'];
+					unset($shipment_data[$key]);
 				}
-				
-				$shipment_costs += $mb->replaceCurrency($shipment['price'], $_SESSION['currency']);
-				$payed[$key] = 1;
+				else
+				{
+					if($shipment[strtoupper(_LANGUAGE_PACK) . '_price'] > 0)
+					{
+						$shipment['price'] = $shipment[strtoupper(_LANGUAGE_PACK) . '_price'];
+					}
+					
+					$shipment_costs += $mb->replaceCurrency($shipment['price'], $_SESSION['currency']);
+					$payed[$key] = 1;
+				}
 			}
 		}
-	}
-	
-	foreach($shipment_data AS $key => $shipment)
-	{
-		$shipmentArray[] = $shipment['shipmentID'];
-	}
-	
-	$_SESSION['shipment_costs'] = $shipment_costs;
-	
-	$_SESSION['grand_total'] = ($total + $shipment_costs);
-	$_SESSION['shipment_array'] = $shipmentArray;
-	?>
-	
-	<div class="totals">
-		<table>
-			<!--
-			<tr>
-				<td width="66%">&nbsp;</td>
-				
-				<td width="15%">
-					<strong><?= $mb->_translateReturn("cart", "sub-total") ?></strong>
-				</td>
-				
-				<td>
-					<?= $_currencies_symbols[$_SESSION['currency']] ?>
-					<?= _frontend_float($total, $_SESSION['currency'])?>
-				</td>
-				
-				<td width="1%">&nbsp;</td>
-			</tr>
-			-->
-			
-			<?php
-			/*
-			if($settings['show_shipment'])
-			{
-				?>
+		
+		foreach($shipment_data AS $key => $shipment)
+		{
+			$shipmentArray[] = $shipment['shipmentID'];
+		}
+		
+		$_SESSION['shipment_costs'] = $shipment_costs;
+		
+		$_SESSION['grand_total'] = ($total + $shipment_costs);
+		$_SESSION['shipment_array'] = $shipmentArray;
+		?>
+		
+		<div class="totals">
+			<table>
 				<tr>
 					<td width="66%">&nbsp;</td>
 					
 					<td width="15%">
-						<strong><?= $mb->_translateReturn("cart", "shipment-costs") ?></strong>
+						<strong><?= $mb->_translateReturn("cart", "grand-total") ?></strong>
 					</td>
 					
 					<td>
-						<?= $_currencies_symbols[$_SESSION['currency']] ?>
-						<?= _frontend_float($shipment_costs, $_SESSION['currency']) ?>
-						<small>(<?= $mb->_translateReturn("cart", "form-optional") ?>)</small>
+						<strong>
+							<?= $_currencies_symbols[$_SESSION['currency']] ?>&nbsp;<?= _frontend_float($total, $_SESSION['currency']) ?>
+						</strong>
 					</td>
 					
 					<td width="1%">&nbsp;</td>
 				</tr>
-				<?php
-			}
-			*/
-			?>
-			
-			<!--
-			<tr>
-				<td width="66%">&nbsp;</td>
-				<td width="15%">&nbsp;</td>
-				
-				<td>
-					<hr/>
-				</td>
-				
-				<td width="1%">&nbsp;</td>
-			</tr>
-			-->
-			
-			<tr>
-				<td width="66%">&nbsp;</td>
-				
-				<td width="15%">
-					<strong><?= $mb->_translateReturn("cart", "grand-total") ?></strong>
-				</td>
-				
-				<td>
-					<strong>
-						<?= $_currencies_symbols[$_SESSION['currency']] ?>
-						<?= _frontend_float($total, $_SESSION['currency']) ?>
-					</strong>
-				</td>
-				
-				<td width="1%">&nbsp;</td>
-			</tr>
-		</table>
-	</div>
-	
-	<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "button-continue-shopping") ?>" class="white" click="/<?= _LANGUAGE_PACK ?>/" />
-	
-	<?php
-	if($settings['minimum_order_amount'] == 0 || $total > $settings['minimum_order_amount'])
-	{
-		?>
-		<input type="button" name="continue" id="continue" value="<?= $mb->_translateReturn("cart", "continue") ?>" class="right" click="/<?= _LANGUAGE_PACK ?>/system/checkout.html" />
+			</table>
+		</div>
+		
+		<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "button-continue-shopping") ?>" class="white" click="/<?= _LANGUAGE_PACK ?>/" />
+		
 		<?php
+		if($settings['minimum_order_amount'] == 0 || $total > $settings['minimum_order_amount'])
+		{
+			?>
+			<input type="button" name="continue" id="continue" value="<?= $mb->_translateReturn("cart", "continue") ?>" class="right" click="/<?= _LANGUAGE_PACK ?>/system/checkout.html" />
+			<?php
+		}
+		else
+		{
+			?>
+			<input type="button" disabled="disabled" name="disabled" id="disabled" value="<?= $mb->_translateReturn("cart", "failed-grand-total") ?>" class="disabled right" />
+			<?php
+		}
 	}
 	else
 	{
 		?>
-		<input type="button" disabled="disabled" name="disabled" id="disabled" value="<?= $mb->_translateReturn("cart", "failed-grand-total") ?>" class="disabled right" />
+		<br/>
+		<h2><?= $mb->_translateReturn("cart", "no-items") ?></h2>
+		<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "button-continue-shopping") ?>" class="white" click="/<?= _LANGUAGE_PACK ?>/" />
 		<?php
 	}
-}
-else
-{
 	?>
-	<br/>
-	<h2><?= $mb->_translateReturn("cart", "no-items") ?></h2>
-	<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "button-continue-shopping") ?>" class="white" click="/<?= _LANGUAGE_PACK ?>/" />
-	<?php
-}
-?>
+</div>

@@ -43,16 +43,19 @@ $mb = new main_board();
 $_cart = array();
 $num = 0;
 
-foreach($_SESSION['cart'] AS $cart)
+if(!isset($_POST['paylink']))
 {
-	$product = $mb->_runFunction("catalog", "loadProduct", array($cart['productID']));
-	
-	$_cart[$num]['productID'] = $cart['productID'];
-	$_cart[$num]['price'] = $product['price'];
-	$_cart[$num]['name'] = $product['name'];
-	$_cart[$num]['quantity'] = $cart['quantity'];
-	
-	$num++;
+	foreach($_SESSION['cart'] AS $cart)
+	{
+		$product = $mb->_runFunction("catalog", "loadProduct", array($cart['productID']));
+		
+		$_cart[$num]['productID'] = $cart['productID'];
+		$_cart[$num]['price'] = $product['price'];
+		$_cart[$num]['name'] = $product['name'];
+		$_cart[$num]['quantity'] = $cart['quantity'];
+		
+		$num++;
+	}
 }
 
 
@@ -85,9 +88,11 @@ if($_customer == 0)
 // array[KEY]['paymentID']
 // array[KEY]['amount']
 
+$num = 0;
+
 $_payments = array();
-$_payments[0]['paymentID'] = $_POST['paymentID'];
-$_payments[0]['amount'] = 0;
+$_payments[$num]['paymentID'] = $_POST['paymentID'];
+$_payments[$num]['amount'] = 0;
 
 $_SESSION['payment'] = $_POST['paymentID'];
 
@@ -151,7 +156,7 @@ if(!isset($_POST['paylink']))
 }
 else
 {
-	$_shipment = array();
+	$_shipment = 0;
 	$employeeID = 0;
 }
 

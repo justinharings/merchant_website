@@ -45,6 +45,7 @@ $xml = simplexml_load_string($xml);
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="Content-Language" content="en" />
 		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 		<meta name="robots" content="index, follow" />
 		<meta name="description" content="We're the largest online retailer for quality Dutch bicycles in Europe. Please choose your language to continue!" />
 		<meta name="keywords" content="duch, bicycles, europe, language" />
@@ -67,7 +68,7 @@ $xml = simplexml_load_string($xml);
 			
 			<p>We're shipping Dutch quality bicycles to every country in the world. Select your language to start browsing our catalog.</p>
 			
-			<select name="language" onchange="if (this.value) window.location.href=this.value">
+			<select name="language" onchange="if (this.value) window.location.href=this.value" style="background-color: #fff;">
 				<option value=""></option>
 				<?php
 				foreach($_found_languages AS $abbreviation)

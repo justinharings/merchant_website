@@ -89,7 +89,7 @@ if($_GET['filters'] != "none")
 </ul>
 
 <div class="page-menu">
-	<ul>
+	<ul class="head catalog">
 		<li>
 			<strong><?= $parent_name ?></strong>
 			
@@ -130,57 +130,63 @@ if($_GET['filters'] != "none")
 		<strong>filters</strong>
 		<hr/>
 		
-		<form id="filterForm" method="get" action="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $category['categoryID'] ?>/filters/[[filterData]]/<?= _createCategoryURL($category['EN_name']) ?>.html">
-			<?php
-			foreach($category['filters'] AS $value)
-			{
-				$name = $value['name'];
-				
-				if($value[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+		<div class="filterForm">
+			<form id="filterForm" method="get" action="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $category['categoryID'] ?>/filters/[[filterData]]/<?= _createCategoryURL($category['EN_name']) ?>.html">
+				<?php
+				foreach($category['filters'] AS $value)
 				{
-					$name = $value[strtoupper(_LANGUAGE_PACK) . '_name'];
+					$name = $value['name'];
+					
+					if($value[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+					{
+						$name = $value[strtoupper(_LANGUAGE_PACK) . '_name'];
+					}
+					?>
+					<strong class="header"><?= strtolower($name) ?></strong>
+					
+					<?php
+					$filters = $mb->_runFunction("catalog", "loadFilterValues", array($value['filterID']));
+					
+					foreach($filters AS $filter)
+					{
+						?>
+						<div class="option">
+							<div class="input-holder">
+								<input <?= isset($selected[$value['filterID']]) && in_array($filter, $selected[$value['filterID']]) ? "checked=\"checked\"" : "" ?> type="<?= $value['multiple_choice'] ? "checkbox" : "radio" ?>" name="<?= $value['filterID'] ?>[]" id="<?= $value['filterID'] ?>_<?= $filter ?>" value="<?= $filter['value'] ?>" data-url="F--<?= base64_encode($value['filterID']) ?>V--<?= base64_encode($filter) ?>" />
+							</div>
+							
+							<label for="<?= $value['filterID'] ?>_<?= $filter ?>"><?= $filter ?></label>
+						</div>
+						<?php
+					}
+					?>
+					<hr/>
+					<?php
 				}
 				?>
-				<strong class="header"><?= strtolower($name) ?></strong>
 				
-				<?php
-				$filters = $mb->_runFunction("catalog", "loadFilterValues", array($value['filterID']));
-				
-				foreach($filters AS $filter)
+				<strong class="header">merken</strong>
+	
+				<?php			
+				foreach($brands AS $key => $brand)
 				{
 					?>
 					<div class="option">
 						<div class="input-holder">
-							<input <?= isset($selected[$value['filterID']]) && in_array($filter, $selected[$value['filterID']]) ? "checked=\"checked\"" : "" ?> type="<?= $value['multiple_choice'] ? "checkbox" : "radio" ?>" name="<?= $value['filterID'] ?>[]" id="<?= $value['filterID'] ?>_<?= $filter ?>" value="<?= $filter['value'] ?>" data-url="F--<?= base64_encode($value['filterID']) ?>V--<?= base64_encode($filter) ?>" />
+							<input <?= isset($selected[0]) && in_array($brand['name'], $selected[0]) ? "checked=\"checked\"" : "" ?> type="checkbox" name="0[]" id="0_<?= $brand['name'] ?>" value="<?= $brand['name'] ?>" data-url="F--<?= base64_encode(0) ?>V--<?= base64_encode($brand['name']) ?>" />
 						</div>
 						
-						<label for="<?= $value['filterID'] ?>_<?= $filter ?>"><?= $filter ?></label>
+						<label for="0_<?= $brand['name'] ?>"><?= $brand['name'] ?></label>
 					</div>
 					<?php
 				}
 				?>
-				<hr/>
-				<?php
-			}
-			?>
-			
-			<strong class="header">merken</strong>
-
-			<?php			
-			foreach($brands AS $key => $brand)
-			{
-				?>
-				<div class="option">
-					<div class="input-holder">
-						<input <?= isset($selected[0]) && in_array($brand['name'], $selected[0]) ? "checked=\"checked\"" : "" ?> type="checkbox" name="0[]" id="0_<?= $brand['name'] ?>" value="<?= $brand['name'] ?>" data-url="F--<?= base64_encode(0) ?>V--<?= base64_encode($brand['name']) ?>" />
-					</div>
-					
-					<label for="0_<?= $brand['name'] ?>"><?= $brand['name'] ?></label>
-				</div>
-				<?php
-			}
-			?>	
-		</form>
+				
+				<hr class="show-mobile" />
+				
+				<input type="button" name="post_filter" id="post_filter" value="start filter" class="show-mobile" />
+			</form>
+		</div>
 	</div>
 </div>
 

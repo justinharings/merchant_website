@@ -9,7 +9,7 @@
 </ul>
 
 <div class="page-menu">
-	<ul>
+	<ul class="head catalog">
 		<?php
 		foreach($first_tree AS $key => $first)
 		{

@@ -3,7 +3,8 @@ $(document).ready(function()
 {console.log("Homepage file loaded.")});$.getScript("/library/js/cart.minified.js",function()
 {console.log("Cart file loaded.")});$.getScript("/library/js/datemask.minified.js",function()
 {console.log("Date mask file loaded.")});$.getScript("/library/js/starrating.minified.js",function()
-{console.log("Star rating file loaded.")});$("div.language-overlay").on("click",function()
+{console.log("Star rating file loaded.")});$.getScript("/library/js/mobile.minified.js",function()
+{console.log("Mobile loaded.")});$("div.language-overlay").on("click",function()
 {$(this).fadeOut("fast");$("div.language-arrow").fadeOut("fast")});$("*[click]").on("click",function()
 {var url=$(this).attr("click");var search="http";if(url.indexOf(search)!==-1)
 {window.open(url)}
@@ -18,12 +19,17 @@ else{document.location.href=url}});$(".scroll-to-reviews").on("click",function()
 {kayako.maximize()}
 else{kayako.minimize()}});$(".open-search").on("click",function()
 {$("div.cart-notification").fadeOut("fast");$("div.search-field").fadeIn("fast").css("display","table").find("input").focus()});$("form#filterForm").find("input").on("click",function()
-{var filterValue="";$("form#filterForm").find("input:checked").each(function()
-{filterValue+=$(this).attr("data-url")});if(filterValue=="")
-{filterValue="none"}
-var action=$(this).closest("form").attr("action");action=action.replace("[[filterData]]",filterValue);window.location.href=action});(function($)
+{if($(window).width()>830)
+{postFilter()}});$("#post_filter").on("click",function()
+{if($(window).width()<=830)
+{postFilter()}});(function($)
+{if($(window).width()>830)
 {var element=$('.follow-scroll');if(element.length>0)
 {var originalY=element.offset().top;var topMargin=20;element.css('position','relative');var max=$("div.advertisement-blocks").offset().top;max=max-element.height()-$("div.advertisement-blocks").height()-78;$(window).on('scroll',function(event)
 {var scrollTop=$(window).scrollTop();var scrollToPx=(scrollTop-originalY+topMargin);if(scrollToPx>max)
 {scrollToPx=max}
-element.stop(!1,!1).animate({top:scrollTop<originalY?0:scrollToPx},300)})}})(jQuery)})
+element.stop(!1,!1).animate({top:scrollTop<originalY?0:scrollToPx},300)})}}})(jQuery)});function postFilter()
+{var filterValue="";$("form#filterForm").find("input:checked").each(function()
+{filterValue+=$(this).attr("data-url")});if(filterValue=="")
+{filterValue="none"}
+var action=$("form#filterForm").attr("action");action=action.replace("[[filterData]]",filterValue);window.location.href=action}

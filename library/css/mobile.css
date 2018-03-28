@@ -1,0 +1,547 @@
+/* Too small for the website */
+@media only screen 
+	and (min-width : 1px) 
+	and (max-width : 280px)
+{
+	body
+	{
+		display: none;
+	}
+}
+
+/* Mobile */
+@media only screen 
+	and (min-width : 280px) 
+	and (max-width : 830px)
+{
+	.hide-landscape,
+	.hide-portrait,
+	.hide-mobile
+	{
+		display: none !important;
+	}
+	
+	.show-mobile
+	{
+		display: block !important;
+	}
+	
+	body div.map-block
+	{
+		left: 50% !important;
+		
+		margin: 0px 0px 0px -150px !important;
+	}
+	
+	div.container-mobile
+	{
+		width: 90%;
+		
+		margin: 0px auto;
+	}
+	
+	body div.content ul.breadcrumbs
+	{
+		display: none !important;
+	}
+	
+	body div.container
+	{
+		width: 100% !important;
+	}
+	
+	body div.top-left
+	{
+		margin: 0px 0px 0px 10px;
+	}
+	
+	body div.top-right
+	{
+		margin: 0px 10px 0px 0px;
+	}
+	
+	div.header
+	{
+		display: table;
+	}
+	
+	div.header-content
+	{
+		display: table;
+	}
+	
+	div.main-header-menu,
+	div.sub-header-menu
+	{
+		width: 90%;
+		
+		margin: 20px auto;
+		padding: 10px 0px;
+		
+		position: relative;
+		
+		background-color: #fff;
+		border: 1px solid #eee;
+		
+		font-family: 'Raleway', 'Tahoma';
+		font-size: 16px;
+		text-transform: uppercase;
+		text-align: center;
+	}
+	
+	div.main-header-menu
+	{
+		margin: 20px auto 5px auto !important;
+	}
+	
+	div.sub-header-menu
+	{
+		margin: 0px auto !important;
+		
+		text-align: center;
+	}
+	div.sub-header-menu.filter
+	{
+		margin: 5px auto 0px auto !important;
+	}
+	
+	div.sub-header-menu span.fa
+	{
+		position: absolute;
+		top: 13px;
+		right: 10px;
+		
+		color: #bbb;
+	}
+	
+	div.sub-header-menu ul.head,
+	div.sub-header-menu div.filterForm
+	{
+		position: absolute;
+		top: 31px !important;
+		right: 0px !important;
+		left: 0px !important;
+		z-index: 999 !important;
+		
+		padding: 10px 0px !important;
+		display: none;
+		
+		background-color: #fff;
+		border: 1px solid #eee;
+	}
+	
+	div.sub-header-menu div.filterForm
+	{
+		top: 41px !important;
+	}
+	
+	div.sub-header-menu div.filterForm input[type='button']
+	{
+		width: calc(100% - 20px) !important;
+		
+		margin: 10px 10px 0px 10px;
+		float: left;
+	}
+	
+	div.sub-header-menu ul
+	{
+		width: 100%;
+		
+		margin: 10px 0px;
+		padding: 0px;
+	}
+	
+	div.sub-header-menu ul li
+	{
+		width: 100%;
+		
+		text-align: center;
+		
+		list-style-type: none;
+	}
+	
+	div.sub-header-menu ul li ul li
+	{
+		padding: 2px 0px;
+	}
+	
+	div.sub-header-menu ul li strong
+	{
+		width: 100%;
+		
+		margin: 10px 0px !important;
+		float: left;
+	}
+	
+	div.sub-header-menu strong.header
+	{
+		width: 100% !important;
+		
+		margin: 10px 0px !important;
+		float: left !important;
+	}
+	
+	div.sub-header-menu hr
+	{
+		width: 100% !important;
+		
+		margin: 20px 0px 0px 0px !important;
+		float: left  !important;
+	}
+	
+	div.sub-header-menu div.option
+	{
+		width: calc(100% - 25px) !important;
+		
+		margin: 0px 0px 0px 25px;
+		float: left;
+	}
+	
+	div.sub-header-menu div.option div.input-holder,
+	div.sub-header-menu div.option label
+	{
+		float: left;
+	}
+	
+	div.sub-header-menu div.option label
+	{
+		margin: 0px 0px 0px 10px;
+	}
+	
+	body div.homepage div.line-1,
+	body div.homepage div.line-3
+	{
+		display: none !important;
+	}
+	
+	body div.homepage div.line-2
+	{
+		width: 90% !important;
+		
+		margin: 0px auto;
+	}
+	
+	body div.homepage div.line-2 img
+	{
+		width: 100%;
+		
+		float: left;
+	}
+	
+	body div.advertisement
+	{
+		display: none !important;
+	}
+	
+	body div.homepage div.line-4
+	{
+		width: 90% !important;
+		
+		margin: 20px auto 0px auto;
+	}
+	
+	body div.homepage div.line-4 div.title
+	{
+		font-size: 15px !important;
+	}
+	
+	body div.homepage div.line-4 div.item
+	{
+		width: 100% !important;
+		
+		border: none !important;
+		border-top: 1px solid #eee !important;
+	}
+	
+	body div.footer
+	{
+		display: table !important;
+	}
+	
+	body div.footer div.container
+	{
+		display: table !important;
+	}
+	
+	body div.footer div.container div.block
+	{
+		display: none;
+	}
+	
+	body div.footer div.container div.block.last
+	{
+		width: 100%;
+		
+		display: table !important;
+		
+		text-align: center;
+	}
+	
+	body div.footer div.container div.block.last strong
+	{
+		text-align: center;
+	}
+	
+	
+	body div.footer-menu div.container div.menu-block,
+	body div.footer-menu div.container div.menu-block ul,
+	body div.footer-menu div.container div.menu-block ul,
+	body div.footer-menu div.container div.menu-block ul li
+	{
+		width: 100% !important;
+	}
+	
+	body div.footer-menu div.container div.menu-block ul li,
+	body div.footer-menu div.container div.menu-block strong
+	{
+		text-align: center;
+	}
+	
+	body div.footer-menu div.container div.menu-block strong
+	{
+		margin: 25px 0px 5px 0px !important;
+	}
+	body div.footer-menu div.container div.menu-block strong.first
+	{
+		margin: 0px 0px 5px 0px !important;
+	}
+	
+	body div.footer-menu div.container div.menu-block img
+	{
+		display: none;
+	}
+	
+	
+	body a.logo
+	{
+		width: 85% !important;
+		height: auto !important;
+		
+		margin: 0px auto;
+		display: table;
+	}
+	
+	body img.logo
+	{
+		width: 100% !important;
+		height: auto !important;
+	}
+	
+	body img.expert
+	{
+		display: none !important;
+	}
+	
+	ul.header-menu
+	{
+		top: 41px !important;
+		right: 0px !important;
+		left: 0px !important;
+		z-index: 999;
+		
+		padding: 10px 0px !important;
+		
+		background-color: #fff;
+		border: 1px solid #eee;
+	}
+	
+	ul.header-menu li
+	{
+		width: 100%;
+		
+		margin: 5px 0px !important;
+	}
+	
+	ul.header-icons
+	{
+		width: 100%;
+		
+		margin: 20px 0px 15px 0px !important;
+	}
+	
+	ul.header-icons li
+	{
+		width: 25% !important;
+		
+		margin: 0px !important;
+		float: left !important;
+		
+		text-align: center;
+	}
+	
+	ul.header-icons li span
+	{
+		margin: 0px !important;
+		padding: 0px !important;
+	}
+	
+	div.cart-count
+	{
+		display: none;
+	}
+	
+	div.page-content
+	{
+		width: calc(100% - 40px) !important;
+		
+		padding: 0px 20px;
+	}
+	
+	div.search-field
+	{
+		right: -150px !important;
+	}
+	
+	div.search-field span.fa
+	{
+		right: 190px !important;
+	}
+	
+	div.tile-row-1 div.tile-1,
+	div.tile-row-1 div.tile-2,
+	div.tile-row-1 div.tile-3
+	{
+		width: 100% !important;
+	}
+	
+	div.tile-row-1 div.tile-4
+	{
+		display: none !important;
+	}
+	
+	body div.page-content div.images
+	{
+		width: 100% !important;
+		height: 100px !important;
+		
+		display: table;
+		
+		background-color: #fff;
+	}
+	
+	body div.page-content div.images img
+	{
+		width: calc(33% - 10px) !important;
+		
+		margin: 5px !important;
+	}
+	
+	body div.page-content div.image
+	{
+		width: calc(100% - 0px) !important;
+		
+		margin: 10px 0px 0px 0px !important;
+	}
+	
+	div.follow-scroll
+	{
+		width: 100% !important;
+		
+		margin-top: 5px !important;
+	}
+	
+	div.description,
+	div.specifications,
+	div.reviews
+	{
+		width: 100% !important;
+		
+		margin: 40px 0px 20px 0px !important;
+	}
+	
+	div.reviews hr,
+	div.reviews strong:first-child img
+	{
+		display: none;
+	}
+	
+	span.review-description
+	{
+		margin-bottom: 20px !important;
+		float: left;
+	}
+	
+	div.cart-notification
+	{
+		right: -245px !important;
+	}
+	
+	div.cart-notification span.fa
+	{
+		right: 283px !important;
+	}
+	
+	div.page-content.large-margin
+	{
+		margin: 0px !important;
+	}
+	
+	div.page-content.no-mobile-padding
+	{
+		width: 100% !important;
+		
+		padding: 0px !important;
+	}
+	
+	div.container-mobile h1,
+	div.container-mobile h2
+	{
+		width: 100% !important;
+		
+		text-align: center !important;
+	}
+	
+	div.container-mobile h2
+	{
+		margin-top: 5px !important;
+		
+		font-size: 12px !important;
+	}
+	
+	div.checkout-form table
+	{
+		width: 100% !important;
+	}
+	
+	div.checkout-form table tr td,
+	div.checkout-form table tr td input,
+	div.checkout-form table tr td select
+	{
+		width: 100% !important;
+		
+		margin: 0px !important;
+	}
+	
+	div.checkout-form table tr td strong.placeholder
+	{
+		width: 100%;
+		
+		margin: 10px 0px 5px 0px;
+		float: left;
+		
+		font-size: 13px;
+	}
+	
+	li div.data strong:first-child,
+	li div.data small:first-child
+	{
+		width: 100% !important;
+		
+		float: left;
+	}
+	
+	#book_order
+	{
+		width: 100% !important;
+		
+		margin-top: 10px !important;
+	}
+	
+	#book_order,
+	.mobile-return
+	{
+		width: 100% !important;
+		
+		margin-top: 10px !important;
+	}
+}

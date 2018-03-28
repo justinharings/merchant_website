@@ -1,6 +1,7 @@
+/* Tablet: portrait */
 @media only screen 
-	and (min-width : 750px) 
-	and (max-width : 1050px)
+	and (min-width : 830px) 
+	and (max-width : 1040px)
 {
 	.hide-landscape,
 	.hide-portrait
@@ -74,6 +75,17 @@
 		display: none;
 	}
 	
+	body div.page-content div.follow-scroll
+	{
+		width: 280px !important;
+	}
+	
+	body div.page-content div.tile-row-1 div.tile-2,
+	body div.page-content div.tile-row-1 div.tile-3
+	{
+		margin: 0px 0px 6px 0px !important;
+	}
+	
 	div.advertisement div.logo-cloud img
 	{
 		height: 25px !important;
@@ -92,12 +104,12 @@
 	
 	body div.page-content div.images
 	{
-		height: 300px !important;
+		height: 370px !important;
 	}
 	
 	body div.page-content div.image
 	{
-		width: 300px !important;
+		width: 370px !important;
 	}
 	
 	body div.page-content div.description,

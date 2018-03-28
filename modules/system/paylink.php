@@ -58,7 +58,11 @@ $_SESSION['orderID'] = $orderData['orderID'];
 						
 						foreach($payments AS $payment)
 						{
-			 				if($payment['webshop'] == 0 || $payment['paylink'] == 1 || ($payment['maximum_amount'] > 0 && ($_SESSION['grand_total'] > $payment['maximum_amount'])))
+			 				if	(
+			 						$payment['webshop'] == 0
+			 						|| $payment['agreements'] != ""
+			 						|| $payment['module'] == ""
+			 						|| ($payment['maximum_amount'] > 0 && ($_SESSION['grand_total'] > $payment['maximum_amount'])))
 							{
 								continue;
 							}
