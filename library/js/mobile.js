@@ -9,6 +9,13 @@ $(document).ready(
 		);
 		
 		$(window).trigger("resize");
+		
+		setTimeout(
+			function()
+			{
+				$(".mobile-load").css("visibility", "hidden");
+			}, 200
+		);
 	}
 );
 

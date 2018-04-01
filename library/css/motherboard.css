@@ -69,6 +69,40 @@ body
 	background-color: #f9f9f9;
 }
 
+	body div.mobile-load-overlay
+	{
+		position: fixed;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		z-index: 999;
+		
+		background-color: #f1f1f1;
+	}
+	
+	body div.mobile-load-icon
+	{
+		width: 100px;
+		height: 100px;
+		
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 999;
+		
+		margin: -50px 0px 0px -50px;
+		
+		font-family: 'raleway', 'tahoma';
+		font-size: 20px;
+		text-align: center;
+	}
+	
+		body div.mobile-load-icon span
+		{
+			font-size: 100px;
+		}
+
 	body div.paylink
 	{
 		width: 80%;
@@ -97,7 +131,7 @@ body
 		position: absolute;
 		top: 50px;
 		left: 50px;
-		z-index: 999;
+		z-index: 990;
 		
 		font-family: 'Raleway','Tahoma';
 		font-size: 30px;
@@ -128,7 +162,7 @@ body
 		right: 0px;
 		bottom: 0px;
 		left: 0px;
-		z-index: 999;
+		z-index: 990;
 		
 		background-color: #000;
 		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
@@ -145,7 +179,7 @@ body
 		position: absolute;
 		top: 60px;
 		left: 100px;
-		z-index: 999;
+		z-index: 990;
 	}
 	
 		body div.language-arrow img
@@ -582,7 +616,7 @@ body div.top
 				position: absolute;
 				top: 41px;
 				left: 0px;
-				z-index: 999;
+				z-index: 990;
 				
 				padding: 5px 10px 10px 10px;
 				display: none;
@@ -810,7 +844,7 @@ body div.header
 					position: absolute;
 					top: 40px;
 					right: 0px;
-					z-index: 999;
+					z-index: 990;
 					
 					padding: 10px;
 					display: none;
@@ -1508,7 +1542,7 @@ body div.content
 			position: absolute;
 			top: 0px;
 			left: 0px;
-			z-index: 999;
+			z-index: 990;
 			
 			padding: 7px 15px;
 			display: table;
@@ -1932,7 +1966,7 @@ body div.content
 			right: 0px;
 			bottom: 0px;
 			left: 0px;
-			z-index: 990;
+			z-index: 985;
 			
 			background: #999; /* for non-css3 browsers */
 			
@@ -1948,7 +1982,7 @@ body div.content
 			position: absolute;
 			top: 0px;
 			left: 0px;
-			z-index: 990;
+			z-index: 985;
 			
 			padding: 7px 15px;
 			display: table;

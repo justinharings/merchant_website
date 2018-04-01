@@ -121,7 +121,7 @@
 		top: 31px !important;
 		right: 0px !important;
 		left: 0px !important;
-		z-index: 999 !important;
+		z-index: 990 !important;
 		
 		padding: 10px 0px !important;
 		display: none;
@@ -337,7 +337,7 @@
 		top: 41px !important;
 		right: 0px !important;
 		left: 0px !important;
-		z-index: 999;
+		z-index: 990;
 		
 		padding: 10px 0px !important;
 		

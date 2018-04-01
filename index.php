@@ -229,6 +229,12 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 	<body>
 		
+		<div class="mobile-load mobile-load-overlay show-mobile"></div>
+		<div class="mobile-load mobile-load-icon show-mobile">
+			<span class="lnr lnr-laptop-phone"></span>
+			loading ...
+		</div>
+		
 		<!--
 		----	Top DIV, the the bar at the top
 		----	of the webpage. Including the content.

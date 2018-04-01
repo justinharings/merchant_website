@@ -1,6 +1,7 @@
 $(document).ready(function($)
 {$(window).resize(function()
-{_mobile()});$(window).trigger("resize")});function _mobile()
+{_mobile()});$(window).trigger("resize");setTimeout(function()
+{$(".mobile-load").css("visibility","hidden")},200)});function _mobile()
 {if($(window).width()>830&&$("input#mobile").val()==1)
 {$("body").hide();document.location.href=document.location.href}
 else if($(window).width()<=830&&$("input#mobile").val()==0)
