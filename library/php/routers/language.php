@@ -14,10 +14,20 @@ switch($_actual_link)
 		define("_MERCHANT_ID", 3);
 	break;
 	
-	case "https://websites.justinharings.nl":	
 	case "https://haringstweewielers.com":
 	case "https://www.haringstweewielers.com":
 		define("_MERCHANT_ID", 1);
+	break;
+	
+	case "https://kingmade.nl":
+	case "https://www.kingmade.nl":
+		define("_MERCHANT_ID", 5);
+	break;
+	
+	case "https://websites.justinharings.nl":	
+	case "https://nieuwstraatalmelo.nl":
+	case "https://www.nieuwstraatalmelo.nl":
+		define("_MERCHANT_ID", 14);
 	break;
 }
 

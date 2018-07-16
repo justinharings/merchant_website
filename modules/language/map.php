@@ -5,7 +5,8 @@ define("_LANGUAGE_PACK", "nl");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/library/php/classes/motherboard.php");
 
 $mb = new main_board();
-$banner = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "map"));
+$background = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "language_background"));
+$background = $background['image'];
 
 $_found_languages = array();
 
@@ -61,12 +62,12 @@ $xml = simplexml_load_string($xml);
 	</head>
 
 	<body>
-		<div class="map-background"></div>
+		<div class="map-background" style="background-image: url('<?= $background ?>?rand=<?= rand(0,99999) ?>')"></div>
 		
 		<div class="map-block">
-			Select your language
+			<?= $mb->_translateReturn("language_page", "title") ?>
 			
-			<p>We're shipping Dutch quality bicycles to every country in the world. Select your language to start browsing our catalog.</p>
+			<p><?= $mb->_translateReturn("language_page", "text") ?></p>
 			
 			<select name="language" onchange="if (this.value) window.location.href=this.value" style="background-color: #fff;">
 				<option value=""></option>
@@ -82,47 +83,5 @@ $xml = simplexml_load_string($xml);
 				?>
 			</select>
 		</div>
-		
-		<!--
-		<div class="header">
-			<div class="container">
-				<div class="header-content">
-					<img class="logo" src="/library/media/map.png" />
-					<img class="expert" src="/library/media/map_expert.png" />
-					<img class="map" src="/library/media/map_world.png" />
-				</div>
-			</div>
-		</div>
-		
-		<div class="content">
-			<div class="container">
-				<p class="map">Please select your preferred language to continue...</p>
-				
-				<?php
-				foreach($_found_languages AS $abbreviation)
-				{
-					$xml = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/library/languages/" . strtolower($abbreviation) . ".xml");
-					$xml = simplexml_load_string($xml);
-					?>
-					
-					<a href="/<?= $abbreviation ?>/">
-						<div class="lang-item">
-							<?= $xml->info->full_name ?>
-						</div>
-					</a>
-					
-					<?php
-				}
-				
-				if($banner != "" && count($banner) > 0)
-				{
-					?>
-					<img class="map-banner" src="<?= $banner['image'] ?>" />
-					<?php
-				}
-				?>
-			</div>
-		</div>
-		-->
 	</body>
 </html>	

@@ -1,7 +1,7 @@
 <?php
 $banner_large = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "home_large"));
 
-$banner_fietsned = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "home_extra"));
+$banner_extra = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "home_extra"));
 
 $banner_small_1 = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "home_small_1"));
 $banner_small_2 = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "home_small_2"));
@@ -12,23 +12,43 @@ $favorites = $mb->_runFunction("catalog", "viewFavorites", array());
 ?>
 
 <div class="homepage">
-	<div class="line-1">
-		<img src="<?= $banner_large['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_large['url'] ?>" />
-	</div>
-	
-	<div class="line-2">
-		<img src="<?= $banner_small_1['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_1['url'] ?>" />
-		<img src="<?= $banner_small_2['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_2['url'] ?>" />
-		<img src="<?= $banner_small_3['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_3['url'] ?>" />
-		<img src="<?= $banner_small_4['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_4['url'] ?>" />
-	</div>
-	
-	<div class="line-3">
-		<img src="<?= $banner_fietsned['image'] ?>" click="<?= $banner_fietsned['url'] ?>" />
-	</div>
-	
 	<?php
-	if($favorites[0]['name'])
+	if($banner_large['image'] != "")
+	{
+		?>
+		<div class="line-1">
+			<img src="<?= $banner_large['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_large['url'] ?>" />
+		</div>
+		<?php
+	}
+	
+	if	(
+			$banner_small_1['image'] != ""
+			&& $banner_small_2['image'] != ""
+			&& $banner_small_3['image'] != ""
+			&& $banner_small_4['image'] != ""
+		)
+	{
+		?>
+		<div class="line-2">
+			<img src="<?= $banner_small_1['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_1['url'] ?>" />
+			<img src="<?= $banner_small_2['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_2['url'] ?>" />
+			<img src="<?= $banner_small_3['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_3['url'] ?>" />
+			<img src="<?= $banner_small_4['image'] ?>?rand=<?= rand(0,99999) ?>" click="<?= $banner_small_4['url'] ?>" />
+		</div>
+		<?php
+	}
+	
+	if($banner_extra['image'] != "")
+	{
+		?>
+		<div class="line-3">
+			<img src="<?= $banner_extra['image'] ?>" click="<?= $banner_extra['url'] ?>" />
+		</div>
+		<?php
+	}
+	
+	if($favorites[0]['name'] != "")
 	{
 		?>
 		<div class="line-4">

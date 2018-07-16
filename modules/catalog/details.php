@@ -16,6 +16,11 @@ if(isset($_GET['categoryID']))
 	$headCategory = $mb->_runFunction("catalog", "loadCatalog", array(intval($category['parentID'])));
 	$headCategory = $mb->_runFunction("catalog", "loadCatalog", array(intval($headCategory['parentID'])));
 }
+
+if($details['deleted'] == 1)
+{
+	$details['status'] = 4;
+}
 ?>
 
 <ul class="breadcrumbs">

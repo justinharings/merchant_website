@@ -11,7 +11,7 @@ else if($("input.fee_Overige_landen").length>0)
 {var fee=$("input.fee_Overige_landen").val();$(".export-fee").show();$(".export-fee").find(".amount").html(fee)}}});if($("select#country").val()!="")
 {$("select#country").trigger("change")}
 $("form#book").find("input[type='submit']").on("click",function(e)
-{e.preventDefault();var button=$("#book_order");button.attr("text",button.val()).val("One moment please ...");var valid=!0;$("input[req]").removeAttr("style");$("input[req]").each(function()
+{e.preventDefault();var button=$("#book_order");button.attr("text",button.val()).val("One moment please ...");var valid=!0;$("input[req], select[req]").removeAttr("style");$("input[req], select[req]").each(function()
 {if($(this).val()=="")
 {$(this).css("border-color","#d00000");valid=!1}
 else if($(this).attr("req")=="email")

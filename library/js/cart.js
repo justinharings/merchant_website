@@ -67,9 +67,9 @@ $(document).ready(
 				
 				var valid = true;
 				
-				$("input[req]").removeAttr("style");
+				$("input[req], select[req]").removeAttr("style");
 				
-				$("input[req]").each(
+				$("input[req], select[req]").each(
 					function()
 					{
 						if($(this).val() == "")
