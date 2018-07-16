@@ -10,7 +10,7 @@ $background = $background['image'];
 
 $_found_languages = array();
 
-if($handle = opendir($_SERVER['DOCUMENT_ROOT'] . '/library/languages/')) 
+if($handle = opendir($_SERVER['DOCUMENT_ROOT'] . '/database/' . _DATABASE_FOLDER . '/library/languages/')) 
 {
     while(false !== ($entry = readdir($handle))) 
     {
@@ -32,7 +32,7 @@ if($handle = opendir($_SERVER['DOCUMENT_ROOT'] . '/library/languages/'))
 
 asort($_found_languages);
 
-$xml = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/library/languages/" . strtolower($_found_languages[0]) . ".xml");
+$xml = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/database/" . _DATABASE_FOLDER . "/library/languages/" . strtolower($_found_languages[0]) . ".xml");
 $xml = simplexml_load_string($xml);
 ?>
 
@@ -74,7 +74,7 @@ $xml = simplexml_load_string($xml);
 				<?php
 				foreach($_found_languages AS $abbreviation)
 				{
-					$xml = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/library/languages/" . strtolower($abbreviation) . ".xml");
+					$xml = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/database/" . _DATABASE_FOLDER . "/library/languages/" . strtolower($abbreviation) . ".xml");
 					$xml = simplexml_load_string($xml);
 					?>
 					<option value="/<?= $abbreviation ?>/"><?= $xml->info->full_name ?></option>

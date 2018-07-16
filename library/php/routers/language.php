@@ -6,30 +6,37 @@
 */
 
 $_actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+$_actual_link = str_replace("www.", "", $_actual_link);
 
 switch($_actual_link)
 {
+	// Harings Vuurwerk
 	case "https://haringsvuurwerk.nl":
-	case "https://www.haringsvuurwerk.nl":
+		$_actual_link = "https://haringsvuurwerk.nl";
 		define("_MERCHANT_ID", 3);
 	break;
 	
+	// Harings Tweewielers
+	case "https://websites.justinharings.nl":
 	case "https://haringstweewielers.com":
-	case "https://www.haringstweewielers.com":
+		$_actual_link = "https://haringstweewielers.com";
 		define("_MERCHANT_ID", 1);
 	break;
 	
+	// Kingmade
 	case "https://kingmade.nl":
-	case "https://www.kingmade.nl":
+		$_actual_link = "https://kingmade.nl";
 		define("_MERCHANT_ID", 5);
 	break;
 	
-	case "https://websites.justinharings.nl":	
-	case "https://nieuwstraatalmelo.nl":
-	case "https://www.nieuwstraatalmelo.nl":
-		define("_MERCHANT_ID", 14);
+	// Decomarkt
+	case "https://decomarkt.nl":
+		$_actual_link = "https://decomarkt.nl";
+		define("_MERCHANT_ID", 13);
 	break;
 }
+
+define("_DATABASE_FOLDER", str_replace("https://", "", $_actual_link));
 
 
 
@@ -46,7 +53,7 @@ $_recognized_languages = array(
 	"de" => "Deutsch",			// Germany
 	"en" => "English",			// Great Britain
 	"dk" => "Dansk",			// Denmark,
-	"it" => "Italiano"			// Denmark
+	"it" => "Italiano"			// Italiaans
 );
 
 $_language_keys = array_keys($_recognized_languages);
@@ -62,7 +69,7 @@ $_language_keys = array_keys($_recognized_languages);
 
 $_found_languages = array();
 
-if($handle = opendir($_SERVER['DOCUMENT_ROOT'] . '/library/languages/')) 
+if($handle = opendir($_SERVER['DOCUMENT_ROOT'] . '/database/' . _DATABASE_FOLDER . '/library/languages/')) 
 {
     while(false !== ($entry = readdir($handle))) 
     {

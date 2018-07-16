@@ -208,8 +208,8 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		}
 		?>
 
-		<link type="image/x-icon" rel="icon" href="/library/media/<?= $mb->_translateReturn("images", "favicon") ?>" />
-		<link type="image/x-icon" rel="shortcut icon" href="/library/media/<?= $mb->_translateReturn("images", "favicon") ?>" />
+		<link type="image/x-icon" rel="icon" href="/database/<?= _DATABASE_FOLDER ?>/library/media/<?= $mb->_translateReturn("images", "favicon") ?>" />
+		<link type="image/x-icon" rel="shortcut icon" href="/database/<?= _DATABASE_FOLDER ?>/library/media/<?= $mb->_translateReturn("images", "favicon") ?>" />
 		
 		<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" href="/library/css/motherboard.minified.css?vers=<?= filemtime(str_replace(" ", "-", $_SERVER['DOCUMENT_ROOT'] . "/library/css/motherboard.minified.css")) ?>" />
@@ -439,17 +439,17 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 					<div class="header-content">
 						<div class="logos">
 							<a class="logo" href="/<?= _LANGUAGE_PACK ?>/">
-								<img class="logo" src="/library/media/<?= $mb->_translateReturn("images", "logo") ?>" />
+								<img class="logo" src="/database/<?= _DATABASE_FOLDER ?>/library/media/<?= $mb->_translateReturn("images", "logo") ?>" />
 							</a>
 							
-							<img class="expert" src="/library/media/<?= $mb->_translateReturn("images", "expert") ?>" />
+							<img class="expert" src="/database/<?= _DATABASE_FOLDER ?>/library/media/<?= $mb->_translateReturn("images", "expert") ?>" />
 						</div>
 						
 						<nav>
 							<?php
-							if(file_exists(__DIR__ . "/library/menus/main_menu.php"))
+							if(file_exists(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/menus/main_menu.php"))
 							{
-								require_once(__DIR__ . "/library/menus/main_menu.php");
+								require_once(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/menus/main_menu.php");
 							}
 							?>
 						</nav>
@@ -550,14 +550,14 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 				<div class="container">
 					<div class="advertisement-blocks">
 						<?php
-						if(file_exists(__DIR__ . "/library/adds/block1.php"))
+						if(file_exists(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/adds/block1.php"))
 						{
-							require_once(__DIR__ . "/library/adds/block1.php");
+							require_once(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/adds/block1.php");
 						}
 						
-						if(file_exists(__DIR__ . "/library/adds/block2.php"))
+						if(file_exists(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/adds/block2.php"))
 						{
-							require_once(__DIR__ . "/library/adds/block2.php");
+							require_once(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/adds/block2.php");
 						}
 						?>
 					</div>
@@ -668,15 +668,15 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			<div class="footer-menu">
 				<div class="container">
 					<?php
-					if(file_exists(__DIR__ . "/library/menus/footer_menu.php"))
+					if(file_exists(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/menus/footer_menu.php"))
 					{
-						require_once(__DIR__ . "/library/menus/footer_menu.php");
+						require_once(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/menus/footer_menu.php");
 					}
 					?>
 					
 					<div class="menu-block">
 						<a href="/<?= _LANGUAGE_PACK ?>/">
-							<img class="logo" src="/library/media/<?= $mb->_translateReturn("images", "logo") ?>" />
+							<img class="logo" src="/database/<?= _DATABASE_FOLDER ?>/library/media/<?= $mb->_translateReturn("images", "logo") ?>" />
 						</a>
 					</div>
 				</div>

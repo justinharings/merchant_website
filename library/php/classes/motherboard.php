@@ -23,15 +23,17 @@ class main_board
 	
 	public function __construct()
 	{
-		if(file_exists($_SERVER['DOCUMENT_ROOT'] . "/library/languages/" . strtolower(_LANGUAGE_PACK) . ".xml"))
+		$folder = $_SERVER['DOCUMENT_ROOT'] . "/database/" . _DATABASE_FOLDER . "/library/languages/" . strtolower(_LANGUAGE_PACK) . ".xml";
+		
+		if(file_exists($folder))
 		{
-			$this->language_xml = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/library/languages/" . strtolower(_LANGUAGE_PACK) . ".xml");
+			$this->language_xml = file_get_contents($folder);
 		}
 		else
 		{
 			if(defined("_DEVELOPMENT_ENVIRONMENT") && _DEVELOPMENT_ENVIRONMENT == true)
 			{
-				die("Language pack <em>" . strtolower(_LANGUAGE_PACK) . ".xml</em> not found.");
+				die("Language pack <em>" . strtolower(_LANGUAGE_PACK) . ".xml</em> not found in:<br/>" . $folder);
 			}
 			else
 			{
