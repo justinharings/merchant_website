@@ -29,7 +29,7 @@ foreach($_SESSION AS $key => $session)
 */
 
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-//$actual_link = "websites.";
+$clean_url = "http://$_SERVER[HTTP_HOST]";
 define("_DEVELOPMENT_ENVIRONMENT", (strpos($actual_link, "websites.") !== false ? true : false));
 
 
@@ -212,19 +212,31 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		<link type="image/x-icon" rel="shortcut icon" href="/library/media/<?= $mb->_translateReturn("images", "favicon") ?>" />
 		
 		<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
-		<link rel="stylesheet" type="text/css" href="/library/css/motherboard.minified.css" />
+		<link rel="stylesheet" type="text/css" href="/library/css/motherboard.minified.css?vers=<?= filemtime(str_replace(" ", "-", $_SERVER['DOCUMENT_ROOT'] . "/library/css/motherboard.minified.css")) ?>" />
 
 		<?php
-		if($open)
+		if($open && $mb->_translateReturn("urls", "kayako") != "")
 		{
 			?>
-			<script>(function(d,a){function c(){var b=d.createElement("script");b.async=!0;b.type="text/javascript";b.src=a._settings.messengerUrl;b.crossOrigin="anonymous";var c=d.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}window.kayako=a;a.readyQueue=[];a.newEmbedCode=!0;a.ready=function(b){a.readyQueue.push(b)};a._settings={apiUrl:"https://harings-tweewielers.kayako.com/api/v1",teamName:"Harings Tweewielers",homeTitles:[{"locale":"en-us","translation":"Hello! 👋"}],homeSubtitles:[{"locale":"en-us","translation":"Stel gerust uw vragen via de chat! We beantwoorden alle vragen zo snel mogelijk. Ontvangt u niet direct een reactie? Laat dan uw e-mail adres achter. We komen zo snel mogelijk terug op uw vraag! You're not Dutch? Well let me translate... Ask anything you want. If you're not receiving a reply on short notice, please leave your e-mail address and we get back to you ASAP!"}],messengerUrl:"https://harings-tweewielers.kayakocdn.com/messenger",realtimeUrl:"wss://kre.kayako.net/socket",widgets:{presence:{enabled:false},twitter:{enabled:false,twitterHandle:"738160281235292160"},articles:{enabled:false,sectionId:1}},styles:{primaryColor:"#d00000",homeBackground:"#FF3B30",homePattern:"https://assets.kayako.com/messenger/pattern-9.svg",homeTextColor:"#FFFFFF"}};window.attachEvent?window.attachEvent("onload",c):window.addEventListener("load",c,!1)})(document,window.kayako||{});</script>
+			<script>(function(d,a){function c(){var b=d.createElement("script");b.async=!0;b.type="text/javascript";b.src=a._settings.messengerUrl;b.crossOrigin="anonymous";var c=d.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}window.kayako=a;a.readyQueue=[];a.newEmbedCode=!0;a.ready=function(b){a.readyQueue.push(b)};a._settings={apiUrl:"https://<?= $mb->_translateReturn("urls", "kayako") ?>.kayako.com/api/v1",teamName:"<?= $mb->_translateReturn("urls", "kayako-name") ?>",homeTitles:[{"locale":"en-us","translation":"<?= $mb->_translateReturn("urls", "kayako-title") ?>"}],homeSubtitles:[{"locale":"en-us","translation":"<?= $mb->_translateReturn("urls", "kayako-description") ?>"}],messengerUrl:"https://<?= $mb->_translateReturn("urls", "kayako") ?>.kayakocdn.com/messenger",realtimeUrl:"wss://kre.kayako.net/socket",widgets:{presence:{enabled:false},twitter:{enabled:false,twitterHandle:"738160281235292160"},articles:{enabled:false,sectionId:1}},styles:{primaryColor:"#d00000",homeBackground:"#FF3B30",homePattern:"https://assets.kayako.com/messenger/pattern-9.svg",homeTextColor:"#FFFFFF"}};window.attachEvent?window.attachEvent("onload",c):window.addEventListener("load",c,!1)})(document,window.kayako||{});</script>
 			<?php
 		}
 		?>
 
 		<script type="text/javascript" src="//code.jquery.com/jquery-latest.js"></script>
-		<script type="text/javascript" src="/library/js/motherboard.minified.js"></script>
+		<script type="text/javascript" src="/library/js/motherboard.minified.js?vers=<?= filemtime(str_replace(" ", "-", $_SERVER['DOCUMENT_ROOT'] . "/library/js/motherboard.minified.js")) ?>"></script>
+		
+		<style type="text/css">
+			p a
+			{
+				color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;
+			}
+			
+			div.page-menu a:hover
+			{
+				color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -251,7 +263,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		}
 		?>
 		
-		<div class="top">
+		<div class="top" style="border-top: 2px solid <?= $mb->_translateReturn("colors", "main_color") ?> !important;">
 			<div class="container">
 				<div class="top-left">
 					<div class="top-item submenu-active">
@@ -344,39 +356,72 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						?>
 					</div>
 					
-					<div class="hide-mobile top-item text-<?= $open ? "green open-kayako" : "" ?>">
-						<span class="lnr lnr-bubble large"></span>
-						<?= $open ? $mb->_translateReturn("others", "chat_online") : $mb->_translateReturn("others", "chat_offline") ?>
-					</div>
+					<?php
+					if($mb->_translateReturn("urls", "kayako") != "")
+					{
+						?>
+						<div class="hide-mobile top-item text-<?= $open ? "green open-kayako" : "" ?>">
+							<span class="lnr lnr-bubble large"></span>
+							<?= $open ? $mb->_translateReturn("others", "chat_online") : $mb->_translateReturn("others", "chat_offline") ?>
+						</div>
+						<?php
+					}
+					?>
 				</div>
 				
 				<div class="top-right">
-					<div class="top-item">
-						<a href="https://www.instagram.com/<?= $mb->_translateReturn("urls", "instagram") ?>/" target="_blank" class="text-color-instagram">
-							<span class="fa fa-instagram"></span>
-							
-							<?= $mb->_returnTXT("instagram_" . $mb->_translateReturn("urls", "instagram")) ?>
-							<span class="hide-landscape">photo lovers!</span>
-						</a>
-					</div>
+					<?php
+					if	(
+							$mb->_translateReturn("urls", "instagram") != ""
+							&& intval($mb->_returnTXT("instagram_" . $mb->_translateReturn("urls", "instagram"))) > 0
+						)
+					{
+						?>
+						<div class="top-item">
+							<a href="https://www.instagram.com/<?= $mb->_translateReturn("urls", "instagram") ?>/" target="_blank" class="text-color-instagram">
+								<span class="fa fa-instagram"></span>
+								
+								<?= $mb->_returnTXT("instagram_" . $mb->_translateReturn("urls", "instagram")) ?>
+								<span class="hide-landscape">photo lovers!</span>
+							</a>
+						</div>              
+						<?php
+					}
 					
-					<div class="hide-mobile top-item">
-						<a href="https://www.twitter.com/<?= $mb->_translateReturn("urls", "twitter") ?>/" target="_blank" class="text-color-twitter">
-							<span class="fa fa-twitter"></span>
-							
-							<?= $mb->_returnTXT("twitter_" . $mb->_translateReturn("urls", "twitter")) ?>
-							<span class="hide-landscape">dedicated followers!</span>
-						</a>
-					</div>
+					if	(
+							$mb->_translateReturn("urls", "twitter") != ""
+							&& intval($mb->_returnTXT("twitter_" . $mb->_translateReturn("urls", "twitter"))) > 0
+						)
+					{
+						?>
+						<div class="hide-mobile top-item">
+							<a href="https://www.twitter.com/<?= $mb->_translateReturn("urls", "twitter") ?>/" target="_blank" class="text-color-twitter">
+								<span class="fa fa-twitter"></span>
+								
+								<?= $mb->_returnTXT("twitter_" . $mb->_translateReturn("urls", "twitter")) ?>
+								<span class="hide-landscape">dedicated followers!</span>
+							</a>
+						</div>
+					<?php
+					}
 					
-					<div class="top-item">
-						<a href="https://www.facebook.com/<?= $mb->_translateReturn("urls", "facebook") ?>/" target="_blank" class="text-color-facebook">
-							<span class="fa fa-facebook-square"></span>
-							
-							<?= $mb->_returnTXT("facebook_" . $mb->_translateReturn("urls", "facebook")) ?>
-							<span class="hide-landscape">happy likers!</span>
-						</a>
-					</div>
+					if	(
+							$mb->_translateReturn("urls", "facebook") != ""
+							&& intval($mb->_returnTXT("facebook_" . $mb->_translateReturn("urls", "facebook"))) > 0
+						)
+					{
+						?>
+						<div class="top-item">
+							<a href="https://www.facebook.com/<?= $mb->_translateReturn("urls", "facebook") ?>/" target="_blank" class="text-color-facebook">
+								<span class="fa fa-facebook-square"></span>
+								
+								<?= $mb->_returnTXT("facebook_" . $mb->_translateReturn("urls", "facebook")) ?>
+								<span class="hide-landscape">happy likers!</span>
+							</a>
+						</div>
+						<?php
+					}
+					?>
 				</div>
 			</div>
 		</div>
@@ -412,7 +457,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						<ul class="header-icons">
 							<li>
 								<span class="lnr lnr-cart" click="/<?= _LANGUAGE_PACK ?>/system/cart.html"></span>
-								<div class="cart-count" click="/<?= _LANGUAGE_PACK ?>/system/cart.html"><?= $mb->_runFunction("cart", "countCartItems") ?></div>
+								<div class="cart-count" style="background-color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;" click="/<?= _LANGUAGE_PACK ?>/system/cart.html"><?= $mb->_runFunction("cart", "countCartItems") ?></div>
 								
 								<div class="cart-notification">
 									<span class="fa fa-caret-up"></span>
@@ -432,7 +477,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 							<li>
 								<span class="lnr lnr-magnifier open-search"></span>
 								
-								<div class="search-field">
+								<div class="search-field" style="background-color: <?= $mb->_translateReturn("colors", "secundary_color") ?> !important;">
 									<span class="fa fa-caret-up"></span>
 									
 									<strong><?= $mb->_translateReturn("website_text", "search") ?></strong>
@@ -530,23 +575,50 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 				</div>
 			</div>
 			
-			<div class="footer">
+			<div class="footer" style="background-color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;">
 				<div class="container">
 					<div class="block hide-portrait">
 						<strong><?= $mb->_translateReturn("footer", "follow_us") ?></strong>
 						
 						<div class="clear">
-							<a href="https://www.facebook.com/<?= $mb->_translateReturn("urls", "facebook") ?>/" target="_blank">
-								<span class="fa fa-facebook-official"></span>
-							</a>
+							<?php
+							if($mb->_translateReturn("urls", "facebook") != "")
+							{
+								?>
+								<a href="https://www.facebook.com/<?= $mb->_translateReturn("urls", "facebook") ?>/" target="_blank">
+									<span class="fa fa-facebook-official"></span>
+								</a>
+								<?php
+							}
 							
-							<a href="https://www.twitter.com/<?= $mb->_translateReturn("urls", "twitter") ?>/" target="_blank">
-								<span class="fa fa-twitter"></span>
-							</a>
+							if($mb->_translateReturn("urls", "twitter"))
+							{
+								?>
+								<a href="https://www.twitter.com/<?= $mb->_translateReturn("urls", "twitter") ?>/" target="_blank">
+									<span class="fa fa-twitter"></span>
+								</a>
+								<?php
+							}
 							
-							<a href="https://www.instagram.com/<?= $mb->_translateReturn("urls", "instagram") ?>/" target="_blank">
-								<span class="fa fa-instagram"></span>
-							</a>
+							if($mb->_translateReturn("urls", "instagram"))
+							{
+								?>
+								<a href="https://www.instagram.com/<?= $mb->_translateReturn("urls", "instagram") ?>/" target="_blank">
+									<span class="fa fa-instagram"></span>
+								</a>
+								<?php
+							}
+							
+							if	(
+									$mb->_translateReturn("urls", "twitter") == ""
+									&& $mb->_translateReturn("urls", "twitter") ==""
+								)
+							{
+								?>
+								<span class="fb-username">/<?= $mb->_translateReturn("urls", "facebook") ?></span>
+								<?php
+							}
+							?>
 						</div>
 					</div>
 					
@@ -554,7 +626,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						<strong><?= $mb->_translateReturn("footer", "customer_service") ?></strong>
 						
 						<div class="clear">
-							<a href="/<?= _LANGUAGE_PACK ?>/service/customer-service.html">
+							<a href="/<?= _LANGUAGE_PACK . $mb->_translateReturn("footer", "customer_service_url") ?>">
 								<span class="fa fa-envelope-o"></span>
 								<span class="fa fa-comments-o"></span>
 								<span class="fa fa-phone"></span>
@@ -566,7 +638,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						<strong><?= $mb->_translateReturn("footer", "easy_payment") ?></strong>
 						
 						<div class="clear">
-							<a href="/<?= _LANGUAGE_PACK ?>/service/payment-methods.html">
+							<a href="/<?= _LANGUAGE_PACK . $mb->_translateReturn("footer", "easy_payment_url") ?>">
 								<?php
 								$icons = $mb->_runFunction("banners", "loadMerchantBanner", array("nl", "payment_icons"));
 								
@@ -632,7 +704,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						"position": 1,
 						"item":
 						{
-							"@id": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/",
+							"@id": "<?= $clean_url .  "/" . _LANGUAGE_PACK ?>/",
 							"name": "Home"
 						}
 					}
@@ -642,11 +714,11 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			{
 				"@context": "http://schema.org",
 				"@type": "WebSite",
-				"url": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/",
+				"url": "<?= $clean_url .  "/" . _LANGUAGE_PACK ?>/",
 				"potentialAction": 
 				{
 					"@type": "SearchAction",
-					"target": "https://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/search/{search_term_string}/",
+					"target": "<?= $clean_url .  "/" . _LANGUAGE_PACK ?>/search/{search_term_string}/",
 					"query-input": "required name=string"
 				}
 			}
@@ -655,21 +727,40 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 				"@context": "http://schema.org",
 				"@type": "Organization",
 				"name": "<?= $mb->_translateReturn("html_head", "default_title") ?>",
-				"url": "http://www.haringstweewielers.com/<?= _LANGUAGE_PACK ?>/",
-				"logo": "http://www.haringstweewielers.com/library/media/<?= $mb->_translateReturn("images", "logo") ?>",
+				"url": "<?= $clean_url .  "/" . _LANGUAGE_PACK ?>/",
+				"logo": "<?= $clean_url ?>/library/media/<?= $mb->_translateReturn("images", "logo") ?>",
 				"contactPoint": 
 				[
 					{
 						"@type": "ContactPoint",
-						"telephone": "+31546816232",
+						"telephone": "<?= $mb->_translateReturn("html_head", "phone") ?>",
 						"contactType": "customer service"
 					}
 				],
 				"sameAs": 
 				[
-					"http://www.facebook.com/harings2wielers",
-					"http://instagram.com/harings2wielers",
-					"http://twitter.com/harings2wielers"
+					<?php
+					if($mb->_translateReturn("urls", "facebook") != "")
+					{
+						?>
+						"http://www.facebook.com/<?= $mb->_translateReturn("urls", "facebook") ?>",
+						<?
+					}
+					
+					if($mb->_translateReturn("urls", "instagram") != "")
+					{
+						?>
+						"http://www.instagram.com/<?= $mb->_translateReturn("urls", "instagram") ?>",
+						<?
+					}
+					
+					if($mb->_translateReturn("urls", "twitter") != "")
+					{
+						?>
+						"http://www.twitter.com/<?= $mb->_translateReturn("urls", "twitter") ?>",
+						<?
+					}
+					?>
 				]
 			}
 
