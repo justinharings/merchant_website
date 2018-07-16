@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language_pack>
+	<info>
+		<full_name>Nederlands</full_name>
+	</info>
+	
+	<reviews>
+		<review-company>Bedrijf beoordelen</review-company>
+		<review-products>Producten beoordelen</review-products>
+		<review-thank-you>Heel erg bedankt!</review-thank-you>
+		
+		<review-title>Helpt u ons met uw mening?</review-title>
+		<review-text>Alvast bedankt voor het nemen van deze moeite! Uw beoordeling is zeer belangrijk voor ons. U kunt hier links kiezen of u een beoordeling over ons bedrijf wilt schrijven of over de door u gekocht(e) product(en). Wanneer u wat extra tijd heeft is het natuurlijk helemaal geweldig wanneer u ze allebei kunt doen!</review-text>
+		
+		<review-url>https://www.google.nl/search?q=harings+tweewielers&amp;oq=harings+tweewielers&amp;aqs=chrome..69i57j69i60l2j0l3.6319j0j9&amp;sourceid=chrome&amp;ie=UTF-8#lrd=0x47b8062ed4437673:0xebcab36259b997,3,,</review-url>
+	
+		<review-products-title>Beoordeel hieronder uw producten</review-products-title>
+		<review-stars-figure>ster(ren)</review-stars-figure>
+		<review-stars>Beoordeling</review-stars>
+		<review-description>Omschrijving</review-description>
+		
+		<add-reviews>ik ben klaar, voeg ze maar toe!</add-reviews>
+	</reviews>
+	
+	<html_head>
+	    <default_title>Harings Tweewielers</default_title>
+	    <default_description>Verstand van fietsen sinds 1899, al vier generaties lang! Thuis op het gebied van iedere soort fiets. Wereldwijde verkoop van Nederlandse merken!</default_description>
+	    <default_keywords>fietsenwinkel, online, almelo, tweewielers, batavus, sparta, popal, vogue</default_keywords>
+	    
+	    <phone>+31546816232</phone>
+	    
+	    <product_description_brand>Dit product van %s is bij ons voordelig te krijgen!</product_description_brand>
+	    <product_description_sale>We hebben altijd koopjes voor jou om op te jagen! Bekijk onze sale pagina en wees er snel bij, want op is écht op!</product_description_sale>
+	    <product_description_search>Dit zijn de zoekresultaten voor '%s'. We laten je hier onder zien wat wij voor jou hebben gevonden! Kijk ook eens rechtstreeks in ons assortiment via de menubalk!</product_description_search>
+	    <product_description_category>Bekijk alle producten uit de categorie %s. Op een specifieke zoektocht? Gebruik dan onze uitgebreide filters om het overzicht met resultaten te verkleinen.</product_description_category>
+	    <product_description_headcategory>Blader door onze complete catalogus met %s en ontdek hoe ontzettend groot ons aanbod is! Kies uit de subcategorieën in het menu om de producten te bekijken.</product_description_headcategory>
+	    
+	    <google-site-verification>B39UOVeOwQd0ZBlZrfm-NSmb10n3XQUM6wEGC647JH0</google-site-verification>
+	</html_head>
+	
+	<language_page>
+		<title>Select your language</title>
+		<text>We're shipping Dutch quality bicycles to every country in the world. Select your language to start browsing our catalog.</text>
+	</language_page>
+	
+	<colors>
+		<main_color>#d00000</main_color>
+		<secundary_color>#f5ecec</secundary_color>
+	</colors>
+	
+	<images>
+		<logo>haringstweewielers.png</logo>
+		<expert>experts_nl.png</expert>
+		<favicon>favicon.png</favicon>
+	</images>
+	
+	<urls>
+		<facebook>harings2wielers</facebook>
+		<twitter>harings2wielers</twitter>
+		<instagram>harings2wielers</instagram>
+		
+		<kayako></kayako>
+		<kayako-name>Harings Tweewielers</kayako-name>
+		<kayako-title>Hello! 👋</kayako-title>
+		<kayako-description>Stel gerust uw vragen via de chat! We beantwoorden alle vragen zo snel mogelijk. Ontvangt u niet direct een reactie? Laat dan uw e-mail adres achter. We komen zo snel mogelijk terug op uw vraag! You're not Dutch? Well let me translate... Ask anything you want. If you're not receiving a reply on short notice, please leave your e-mail address and we get back to you ASAP!</kayako-description>
+	</urls>
+	
+	<main_menu>
+		<item_1>Fietsen</item_1>
+		<item_1_url>/catalog/bicycles.html</item_1_url>
+		<item_1_colored>0</item_1_colored>
+		
+		<item_2>Accessoires</item_2>
+		<item_2_url>/catalog/accessories.html</item_2_url>
+		<item_2_colored>0</item_2_colored>
+		
+		<item_3>Onderdelen</item_3>
+		<item_3_url>/catalog/parts.html</item_3_url>
+		<item_3_colored>0</item_3_colored>
+		
+		<item_4>Opruiming!</item_4>
+		<item_4_url>/catalog/sale.html</item_4_url>
+		<item_4_colored>1</item_4_colored>
+		
+		<item_5>Contact</item_5>
+		<item_5_url>/service/service-and-contact.html</item_5_url>
+		<item_5_colored>0</item_5_colored>
+	</main_menu>
+	
+	<others>
+		<chat_online>Stel je vraag, we helpen graag!</chat_online>
+		<chat_offline>Onze chat is nu offline.</chat_offline>
+		<previous-page>vorige pagina</previous-page>
+		<view-no-results>geen resultaten</view-no-results>
+	</others>
+	
+	<homepage>
+		<most_valued_products>Meest gewaardeerde producten</most_valued_products>
+	</homepage>
+	
+	<website_text>
+		<mijn_tweewielers_1>mijn</mijn_tweewielers_1>
+		<mijn_tweewielers_2>tweewielers</mijn_tweewielers_2>
+		
+		<always_free_maintenance>Altijd gratis onderhoud</always_free_maintenance>
+		<save_for_cool_gifts>Sparen voor leuke cadeaus</save_for_cool_gifts>
+		<online_maintenance>Onderhoudshistorie online</online_maintenance>
+		<everything_in_one_place>Alle aankopen op één plek</everything_in_one_place>
+		<just_cool_to_have>Gewoon gaaf om te hebben!</just_cool_to_have>
+		
+		<history>historie</history>
+		<since_1899>sinds 1899</since_1899>
+		<history_text>Al meer dan 100 jaar ervaring op het gebied van fietsen! Wij zijn de oudste fietsenwinkel van Nederland, al vier generaties lang. Benieuwd naar onze rijke geschiedenis?</history_text>
+		
+		<sale_results>Artikelen in de opruiming!</sale_results>
+		
+		<search>doorzoek de webwinkel</search>
+		<stop_search>stoppen met zoeken</stop_search>
+		<search_results>zoekresultaten voor %s</search_results>
+		<no_search_results>Geen resultaten voor %s ...</no_search_results>
+	</website_text>
+	
+	<footer>
+		<follow_us>volg ons</follow_us>
+		<customer_service>klantenservice</customer_service>
+		<easy_payment>makkelijk betalen</easy_payment>
+		<search_shop>zoeken in onze webwinkel</search_shop>
+	</footer>
+	
+	<footer_menu>
+		<footer-1>service</footer-1>
+		
+		<footer-1-1>klantenservice</footer-1-1>
+		<footer-1-1-url>/service/customer-service.html</footer-1-1-url>
+		
+		<footer-1-2>service en contact</footer-1-2>
+		<footer-1-2-url>/service/service-and-contact.html</footer-1-2-url>
+		
+		<footer-1-3>bezorgen en afhalen</footer-1-3>
+		<footer-1-3-url>/service/delivery-and-pickup.html</footer-1-3-url>
+		
+		<footer-1-4>afhaal- en servicepunten</footer-1-4>
+		<footer-1-4-url>/service/pickup-locations.html</footer-1-4-url>
+		
+		<footer-1-5>onze matentabel</footer-1-5>
+		<footer-1-5-url>/service/size-chart.html</footer-1-5-url>
+		
+		<footer-1-6>betalingsmethoden</footer-1-6>
+		<footer-1-6-url>/service/payment-methods.html</footer-1-6-url>
+		
+		<footer-1-7>reparaties en onderhoud</footer-1-7>
+		<footer-1-7-url>/service/repair-service.html</footer-1-7-url>
+		
+		<footer-1-8></footer-1-8>
+		<footer-1-8-url></footer-1-8-url>
+		
+		<footer-2>bedrijf</footer-2>
+		
+		<footer-2-1>bedrijfsinformatie</footer-2-1>
+		<footer-2-1-url>/service/company-information.html</footer-2-1-url>
+		
+		<footer-2-2>openingstijden</footer-2-2>
+		<footer-2-2-url>/service/opening-hours.html</footer-2-2-url>
+		
+		<footer-2-3>werken bij Harings</footer-2-3>
+		<footer-2-3-url>/service/job-offers.html</footer-2-3-url>
+		
+		<footer-3>deze website</footer-3>
+		
+		<footer-3-1>website disclaimer</footer-3-1>
+		<footer-3-1-url>/service/website-disclaimer.html</footer-3-1-url>
+		
+		<footer-3-2>algemene voorwaarden</footer-3-2>
+		<footer-3-2-url>/service/terms-and-conditions.html</footer-3-2-url>
+		
+		<footer-3-3>privacy statement</footer-3-3>
+		<footer-3-3-url>/service/privacy-statement.html</footer-3-3-url>
+	</footer_menu>
+	
+	<stock-text>
+		<stock-supplier>Artikel op voorraad bij de leverancier. Levertijd van %s dag(en).</stock-supplier>
+		<stock-supplier-short>Snel leverbaar</stock-supplier-short>
+		
+		<actual-stock>Nog %s op voorraad.</actual-stock>
+		<actual-stock-short>Nog %s op voorraad</actual-stock-short>
+		<actual-stock-empty>Geen voorraad.</actual-stock-empty>
+		<actual-stock-empty-short>Geen voorraad</actual-stock-empty-short>
+		
+		<RG-stock-R>Geen voorraad.</RG-stock-R>
+		<RG-stock-R-short>Geen voorraad</RG-stock-R-short>
+		<RG-stock-G>Op voorraad.</RG-stock-G>
+		<RG-stock-G-short>Op voorraad</RG-stock-G-short>
+		
+		<in-stock>Op voorraad.</in-stock>
+		<in-stock-short>Op voorraad</in-stock-short>
+		<limited-stock-contact>Beperkte voorraad. We raden u aan om contact met ons op te nemen.</limited-stock-contact>
+		<limited-stock-contact-short>Beperkte voorraad</limited-stock-contact-short>
+		
+		<text-temp-sold-out>Dit product is tijdelijk uitverkocht. Vraag ons gerust te helpen zoeken naar een alternatief.</text-temp-sold-out>
+		<text-temp-sold-out-short>Tijdelijk uitverkocht</text-temp-sold-out-short>
+		<text-sold-out>Dit product is uitverkocht. Vraag ons gerust te helpen zoeken naar een alternatief.</text-sold-out>
+		<text-sold-out-short>Uitverkocht</text-sold-out-short>
+		
+		<sale>uitverkoop</sale>
+		<temp-sold-out>tijdelijk uitverkocht</temp-sold-out>
+		<sold-out>uitverkocht</sold-out>
+	</stock-text>
+	
+	<cart>
+		<add-cart-button>in winkelmandje</add-cart-button>
+		<added-cart>toegevoegd aan winkelwagen</added-cart>
+		<button-goto-cart>naar de winkelwagen</button-goto-cart>
+		<button-continue-shopping>verder winkelen</button-continue-shopping>
+		
+		<conditions-check>let op, u gaat automatisch akkoord met de algemene voorwaarden.</conditions-check>
+		
+		<shoppingcart>Uw winkelmandje</shoppingcart>
+		<no-items>Er staan geen artikelen in het winkelmandje</no-items>
+		
+		<your-order>Dit is je bestelling</your-order>
+		<your-order-eg>Vul je gegevens in en verstuur, klaar met één simpele pagina</your-order-eg>
+		<articles>artikel(en)</articles>
+		<edit>aanpassen</edit>
+		
+		<delivery>Bij mij laten bezorgen</delivery>
+		<delivery-eg>binnen twee werkdagen in huis</delivery-eg>
+		<delivery-text>Onze fietsen vanaf 22 inch worden bezorgd door een koerier gespecialiseerd in fietsvervoer. Kleinere fietsen en pakketten met PostNL. De totale berekening van uw verzendkosten is als volgt:</delivery-text>
+		
+		<shop-pickup>Afhalen in de winkel te Almelo</shop-pickup>
+		<shop-pickup-eg>Mogelijk binnen een uur na bestelling</shop-pickup-eg>
+		<shop-pickup-text>Je bestelling zal direct worden verzameld en ligt een uur later al klaar in onze winkel te Almelo. Op het moment dat er één of meerdere producten niet op voorraad zijn nemen we contact met u op.</shop-pickup-text>
+		
+		<service-pickup>Afhaalpunt %s</service-pickup>
+
+		<!-- Heerde -->
+		<service-pickup-eg-heerde>Vanaf aankomende maandag</service-pickup-eg-heerde>
+		<service-pickup-text-heerde>Onze afhaal- en servicepunten worden eenmaal per week voorzien van de geplaatste orders. Bij afhaalpunt Heerde is dit iedere maandagavond. Dit betekent dat u vanaf aankomende maandagavond uw bestelling kunt afhalen. Andere dagen in de week is deze locatie niet geopend. De kosten voor het afhalen bij een afhaalpunt zijn 5 euro per bestelling.</service-pickup-text-heerde>
+		
+		<!-- Arnhem -->
+		<service-pickup-eg-arnhem>Vanaf aankomende dinsdag</service-pickup-eg-arnhem>
+		<service-pickup-text-arnhem>Onze afhaal- en servicepunten worden eenmaal per week voorzien van de geplaatste orders. Bij afhaalpunt Arnhem is dit iedere dinsdagavond. Dit betekent dat u vanaf aankomende dinsdagavond uw bestelling kunt afhalen. Andere dagen in de week is deze locatie niet geopend. De kosten voor het afhalen bij een afhaalpunt zijn 5 euro per bestelling.</service-pickup-text-arnhem>
+		
+		<export-fee>Export toeslag</export-fee>
+		<export-fee-text>U besteld uw product(en) buiten Nederland. Omdat het transport veel groter moet rekenen wij een toeslag voor het nauwkeuriger verpakken van uw bestelling. Daarnaast rekent het postkantoor een extra toeslag voor verzending naar het buitenland. De totale toeslag voor deze bestelling bedraagt</export-fee-text>
+		
+		<stock-status>Voorraadstatus</stock-status>
+		<stock-quantity>Aantal</stock-quantity>
+		<price>totaal</price>
+		<sub-total>Subtotaal</sub-total>
+		<grand-total>Totaalbedrag</grand-total>
+		<shipment-costs>Verzendkosten</shipment-costs>
+		
+		<continue>bestellen</continue>
+		<continue-payment>doorgaan met betaling</continue-payment>
+		<failed-grand-total>te laag totaalbedrag</failed-grand-total>
+		<happy-book-order>ik ben tevreden, boek mijn bestelling!</happy-book-order>
+		<return-to-shop>terug naar de webwinkel</return-to-shop>
+		
+		<form-name>Volledige naam</form-name>
+		<form-company>Bedrijfsnaam</form-company>
+		<form-optional>optioneel</form-optional>
+		<form-address>Straat en huisnummer</form-address>
+		<form-zipcode>Postcode</form-zipcode>
+		<form-city>Woonplaats</form-city>
+		<form-country>Land</form-country>
+		<form-phone>Telefoonnummer</form-phone>
+		<form-mobile>Mobiel nummer</form-mobile>
+		<form-email>E-mail adres</form-email>
+		<dob>Geboortedatum</dob>
+		
+		<payment-error-title>Uw betaling is niet geaccepteerd</payment-error-title>
+		<payment-error-text>Er is een fout opgetreden binnen %s en derhalve is uw betaling niet geaccepteerd. De eventuele foutmelding van de payment provider verschijnt hier onder. Komt u er niet uit? Neemt u dan contact met ons op. Onze excuses voor het ongemak.</payment-error-text>
+	</cart>
+	
+	<product-details>
+		<call-me>Heeft u vragen over dit product? Zodra er een medewerker beschikbaar is (binnen openingstijden) bellen wij u terug met persoonlijk advies. Laat uw telefoonnummer achter!</call-me>
+		<call-me-button>telefoonnummer achterlaten</call-me-button>
+		<call-me-done>verzoek ingediend</call-me-done>
+		
+		<one>Voor 17:00 uur besteld, binnen 2 werkdagen in huis! Alle fietsen voor 95%% afgemonteerd.</one>
+		<two>Geen afleverkosten, prijs is prijs. Wij houden het transparant en eerlijk. Er komen (eventueel) alleen verzendkosten bij.</two>
+		<three>Familiebedrijf sinds 1899. Persoonlijke en échte afterservice met een glimlach.</three>
+		<four>Dagelijks vergelijken we alle prijzen met die van onze concurent. Altijd de scherpste prijs!</four>
+		<five>Afhaallocaties in Arnhem, Heerde en natuurlijk in onze winkel te Almelo. Afhalen is gratis!</five>
+		<six>Wij doen niet aan dozen schuiven. Afgemonteerd en afgesteld door de vakman!</six>
+		
+		<seven>Voor verzending hergebruiken we de verpakking van onze leveranciers. Zo besparen we flink wat bomen.</seven>
+		<eight>Het overige karton wordt opgehaald door een recycle bedrijf. De verpakking van uw fiets ligt straks misschien wel in uw printer.</eight>
+		<nine>We verzenden alles in één keer en niet in losse verzendingen. Dat betekent minder uitlaatgassen, dus beter voor het milieu.</nine>
+		
+		<description>Extra informatie</description>
+		<specifications>Specificaties</specifications>
+		<reviews>Reviews</reviews>
+		<brand>merk</brand>
+		<article-code>Artikelcode</article-code>
+		<ean-code>EAN Code</ean-code>
+		<supplier-code>Artikelcode leverancier</supplier-code>
+		
+		<description-only-dutch></description-only-dutch>
+		
+		<average>Gemiddelde</average>
+		<oclock>uur</oclock>
+	</product-details>
+</language_pack>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language_pack>
+	<info>
+		<full_name>Deutsch</full_name>
+	</info>
+	
+	<reviews>
+		<review-company>Beurteilen Sie unsere Firma</review-company>
+		<review-products>Überprüfen Sie Ihre Einkäufe</review-products>
+		<review-thank-you>Vielen Dank!</review-thank-you>
+		
+		<review-title>Teilen Sie uns Ihre Meinung mit</review-title>
+		<review-text>Vielen Dank im Voraus für Ihre Zeit und Mühe! Ihre Rezension ist uns sehr wichtig. Mit den Schaltflächen auf der linken Seite können Sie wählen, ob Sie eine Rezension über unser Unternehmen oder von ihrem Ankauf schreiben möchten.</review-text>
+		
+		<review-url>https://www.google.nl/search?q=harings+tweewielers&amp;oq=harings+tweewielers&amp;aqs=chrome..69i57j69i60l2j0l3.6319j0j9&amp;sourceid=chrome&amp;ie=UTF-8#lrd=0x47b8062ed4437673:0xebcab36259b997,3,,</review-url>
+		
+		<review-products-title>Prüfen Sie Ihre Einkäufe, siehe unten</review-products-title>
+		<review-stars-figure>star(s)</review-stars-figure>
+		<review-stars>Ihre Bewertung</review-stars>
+		<review-description>Beschreibung</review-description>
+		
+		<add-reviews>Ich bin fertig, hinzufügen!</add-reviews>
+	</reviews>
+	
+	<html_head>
+	    <default_title>Harings Fahrräder</default_title>
+	    <default_description>Seit 1899, 4 Generationen, spezialisiert in garantiert alle Sorten Fahrrädern. Weltweiter Verkauf in holländischen Markenfahrrädern.</default_description>
+	    <default_keywords>fahrräder, Niederländer, online, batavus, sparta</default_keywords>
+	    
+	    <product_description_brand>Dieses Produkt von %s ist in unserem Webshop erhältlich!</product_description_brand>
+	    <product_description_sale>Wir haben immer ein Schnäppchen für dich, um zu jagen! Besuchen Sie unsere Verkaufsseite und bestellen Sie schnell, denn weg ist wirklich weg!</product_description_sale>
+	    <product_description_search>Dies sind die Suchergebnisse für '%s'. Im Folgenden finden Sie alles, was wir gefunden haben! Außerdem können Sie alle Kategorien über das Menü anzeigen!</product_description_search>
+	    <product_description_category>Sehen Sie sich alle Produkte aus der Kategorie %s an. Auf einer bestimmten Suche? Nutzen Sie unsere Filter, um die Ergebnisliste einzuschränken!</product_description_category>
+	    <product_description_headcategory>Durchsuchen Sie unseren gesamten Katalog mit %s und entdecken Sie, wie groß unsere Sammlung ist! Wählen Sie eine Unterkategorie im Menü, um die Produkte anzuzeigen.</product_description_headcategory>
+	    
+	    <google-site-verification>B39UOVeOwQd0ZBlZrfm-NSmb10n3XQUM6wEGC647JH0</google-site-verification>
+	</html_head>
+	
+	<images>
+		<logo>haringsfahrrader.png</logo>
+		<expert>experts_de.png</expert>
+		<favicon>favicon.png</favicon>
+	</images>
+	
+	<urls>
+		<facebook>harings2wielers</facebook>
+		<twitter>harings2wielers</twitter>
+		<instagram>harings2wielers</instagram>
+		
+		<kayako></kayako>
+		<kayako-name>Harings Tweewielers</kayako-name>
+		<kayako-title>Hello! 👋</kayako-title>
+		<kayako-description>Stel gerust uw vragen via de chat! We beantwoorden alle vragen zo snel mogelijk. Ontvangt u niet direct een reactie? Laat dan uw e-mail adres achter. We komen zo snel mogelijk terug op uw vraag! You're not Dutch? Well let me translate... Ask anything you want. If you're not receiving a reply on short notice, please leave your e-mail address and we get back to you ASAP!</kayako-description>
+	</urls>
+	
+	<main_menu>
+		<item_1>Fahrräder</item_1>
+		<item_1_url>/catalog/bicycles.html</item_1_url>
+		<item_1_colored>0</item_1_colored>
+		
+		<item_2>Zubehör</item_2>
+		<item_2_url>/catalog/accessories.html</item_2_url>
+		<item_2_colored>0</item_2_colored>
+		
+		<item_3>Ersatzteile</item_3>
+		<item_3_url>/catalog/parts.html</item_3_url>
+		<item_3_colored>0</item_3_colored>
+		
+		<item_4>Im ausverkauf</item_4>
+		<item_4_url>/catalog/sale.html</item_4_url>
+		<item_4_colored>1</item_4_colored>
+		
+		<item_5>Kontakt</item_5>
+		<item_5_url>/service/service-and-contact.html</item_5_url>
+		<item_5_colored>0</item_5_colored>
+	</main_menu>
+	
+	<others>
+		<chat_online>Fragen Sie uns, wir helfen Ihnen gerne weiter!</chat_online>
+		<chat_offline>Unser Chat ist derzeit offline.</chat_offline>
+		<previous-page>vorherige seite</previous-page>
+		<view-no-results>keine ergebnisse</view-no-results>
+	</others>
+	
+	<homepage>
+		<most_valued_products>Meist geschätzte Produkte</most_valued_products>
+	</homepage>
+	
+	<website_text>
+		<mijn_tweewielers_1>meine</mijn_tweewielers_1>
+		<mijn_tweewielers_2>fahrräder</mijn_tweewielers_2>
+		
+		<always_free_maintenance>Immer kostenlose Wartung</always_free_maintenance>
+		<save_for_cool_gifts>Sparen Sie für Geschenke</save_for_cool_gifts>
+		<online_maintenance>Online Wartungsberichte</online_maintenance>
+		<everything_in_one_place>Alle Ihre Rechnungen an einer Stelle</everything_in_one_place>
+		<just_cool_to_have>Einfach cool zu haben!</just_cool_to_have>
+		
+		<history>geschichte</history>
+		<since_1899>seit 1899</since_1899>
+		<history_text>Mehr als 100 Jahre Erfahrung mit Fahrrädern! Wir sind der älteste Fahrradgeschäft in Holland, wir sind seit vier Generationen hier! Neugierig auf unsere reiche Geschichte?</history_text>
+		
+		<sale_results>Artikel im ausverkauf!</sale_results>
+		
+		<search>Durchsuche den Webshop</search>
+		<stop_search>stop suche</stop_search>
+		<search_results>Suchergebnisse für %s</search_results>
+		<no_search_results>Keine Ergebnisse für %s ...</no_search_results>
+	</website_text>
+	
+	<footer>
+		<follow_us>follow us</follow_us>
+		<customer_service>kundendienst</customer_service>
+		<easy_payment>einfache zahlung</easy_payment>
+		<search_shop>suchen im Webshop</search_shop>
+	</footer>
+	
+	<footer_menu>
+		<footer-1>dienst</footer-1>
+		
+		<footer-1-1>kundendienst</footer-1-1>
+		<footer-1-1-url>/service/customer-service.html</footer-1-1-url>
+		
+		<footer-1-2>dienst und kontakt</footer-1-2>
+		<footer-1-2-url>/service/service-and-contact.html</footer-1-2-url>
+		
+		<footer-1-3>lieferung und abholung</footer-1-3>
+		<footer-1-3-url>/service/delivery-and-pickup.html</footer-1-3-url>
+		
+		<footer-1-4>abhol- und servicepunkte</footer-1-4>
+		<footer-1-4-url>/service/pickup-locations.html</footer-1-4-url>
+		
+		<footer-1-5>unsere größentabelle</footer-1-5>
+		<footer-1-5-url>/service/size-chart.html</footer-1-5-url>
+		
+		<footer-1-6>zahlungsarten</footer-1-6>
+		<footer-1-6-url>/service/payment-methods.html</footer-1-6-url>
+		
+		<footer-1-7>reparaturen und wartung</footer-1-7>
+		<footer-1-7-url>/service/repair-service.html</footer-1-7-url>
+		
+		<footer-1-8></footer-1-8>
+		<footer-1-8-url></footer-1-8-url>
+		
+		<footer-2>firmen</footer-2>
+		
+		<footer-2-1>firmeninformation</footer-2-1>
+		<footer-2-1-url>/service/company-information.html</footer-2-1-url>
+		
+		<footer-2-2>öffnungszeiten</footer-2-2>
+		<footer-2-2-url>/service/opening-hours.html</footer-2-2-url>
+		
+		<footer-2-3>offene stellen @ Harings</footer-2-3>
+		<footer-2-3-url>/service/job-offers.html</footer-2-3-url>
+		
+		<footer-2-4></footer-2-4>
+		<footer-2-4-url></footer-2-4-url>
+		
+		<footer-3>diese internetseite</footer-3>
+		
+		<footer-3-1>website disclaimer</footer-3-1>
+		<footer-3-1-url>/service/website-disclaimer.html</footer-3-1-url>
+		
+		<footer-3-2>allgemeine bedingungen</footer-3-2>
+		<footer-3-2-url>/service/terms-and-conditions.html</footer-3-2-url>
+		
+		<footer-3-3>privacy statement</footer-3-3>
+		<footer-3-3-url>/service/privacy-statement.html</footer-3-3-url>
+		
+		<footer-3-4></footer-3-4>
+		<footer-3-4-url></footer-3-4-url>
+	</footer_menu>
+	
+	<stock-text>
+		<stock-supplier>Auf Vorrat beim Lieferant. Innerhalb %s Tagen geliefert (nicht an Sonn- und Feiertagen).</stock-supplier>
+		<stock-supplier-short>Schnell verfügbar</stock-supplier-short>
+		
+		<actual-stock>Noch %s auf Lager.</actual-stock>
+		<actual-stock-short>Noch %s auf Lager</actual-stock-short>
+		<actual-stock-empty>Ausverkauft.</actual-stock-empty>
+		<actual-stock-empty-short>Ausverkauft</actual-stock-empty-short>
+		
+		<RG-stock-R>Ausverkauft.</RG-stock-R>
+		<RG-stock-R-short>Ausverkauft</RG-stock-R-short>
+		<RG-stock-G>Ausreichend Vorrat.</RG-stock-G>
+		<RG-stock-G-short>Ausreichend Vorrat</RG-stock-G-short>
+		
+		<in-stock>Ausreichend Vorrat.</in-stock>
+		<in-stock-short>Ausreichend Vorrat</in-stock-short>
+		<limited-stock-contact>Beschränkter Vorrat. Nemen Sie Kontakt mit uns auf.</limited-stock-contact>
+		<limited-stock-contact-short>Beschränkter Vorrat</limited-stock-contact-short>
+		
+		<text-temp-sold-out>Dieser Artikel ist zur Zeit nicht lieferbar. Für die Lieferzeit nemen Sie Kontakt mit uns auf.</text-temp-sold-out>
+		<text-temp-sold-out-short>Zur Zeit nicht lieferbar</text-temp-sold-out-short>
+		<text-sold-out>Dieser Artikel ist ausverkauft. Nemen Sie für ein Alternatief Kontakt mit uns auf.</text-sold-out>
+		<text-sold-out-short>Ausverkauft</text-sold-out-short>
+		
+		<sale>ausverkauf</sale>
+		<temp-sold-out>vorübergehend ausverkauft</temp-sold-out>
+		<sold-out>ausverkauft</sold-out>
+	</stock-text>
+	
+	<cart>
+		<add-cart-button>in Einkaufswagen</add-cart-button>
+		<added-cart>zufügen in Einkaufswagen</added-cart>
+		<button-goto-cart>zum Einkaufswagen</button-goto-cart>
+		<button-continue-shopping>weiter  mit einkaufen</button-continue-shopping>
+		
+		<conditions-check>Seien Sie sich bewusst, dass Sie automatisch unsere Allgemeinen Geschäftsbedingungen akzeptieren.</conditions-check>
+		
+		<shoppingcart>Einkaufswagen</shoppingcart>
+		<no-items>Es befinden sich keine Artikel in Ihrem Einkaufswagen</no-items>
+		
+		<your-order>Das ist Ihre Bestellung</your-order>
+		<your-order-eg>Übermitteln Sie uns Ihre persönlichen Daten. Fertig auf einer einzigen Seite!</your-order-eg>
+		<articles>artikel</articles>
+		<edit>bearbeiten</edit>
+		
+		<delivery>Liefern an meiner Adresse</delivery>
+		<delivery-eg>geliefert in ca. 5 Werktagen</delivery-eg>
+		<delivery-text>Unsere Fahrräder werden mit PostNL geliefert. Sie arbeiten mit Ihrer nationalen Post zusammen. Die folgenden Versandmodule werden Ihrer Bestellung hinzugefügt, wenn Sie sich für diese Option entscheiden:</delivery-text>
+		
+		<shop-pickup>Abholung Ihrer Bestellung in unserem Geschäft in Almelo, Holland</shop-pickup>
+		<shop-pickup-eg>Möglich innerhalb einer Stunde nach Ihrer Bestellung</shop-pickup-eg>
+		<shop-pickup-text>Ihre Bestellung wird sofort versandt und ist bereits nach einer Stunde in unserem Geschäft in Almelo (Holland) erhältlich. Wenn es eines oder mehrere Produkte gibt, die nicht auf Lager sind, werden wir Sie so bald wie möglich kontaktieren.</shop-pickup-text>
+		
+		<service-pickup>Abholort %s, Holland</service-pickup>
+		
+		<!-- Heerde -->
+		<service-pickup-eg-heerde>Bereit zur Abholung am nächsten Montag</service-pickup-eg-heerde>
+		<service-pickup-text-heerde>Unsere Abholstellen werden einmal pro Woche mit den verkauften Artikeln beliefert. Am Abholort in Heerde (Holland) wird dies jeden Montagabend sein. Kurz gesagt bedeutet dies, dass Ihre Bestellung am nächsten Montagabend zur Abholung bereitsteht. Es werden €5,- an extra Kosten berechnet.</service-pickup-text-heerde>
+		
+		<!-- Arnhem -->
+		<service-pickup-eg-arnhem>Bereit zur Abholung am nächsten Dienstag</service-pickup-eg-arnhem>
+		<service-pickup-text-arnhem>Unsere Abholstellen werden einmal pro Woche mit den verkauften Artikeln beliefert. Am Abholort in Arnhem (Holland) wird dies jeden Dienstagabend sein. Kurz gesagt bedeutet dies, dass Ihre Bestellung am nächsten Dienstagabend zur Abholung bereitsteht. Es werden €5,- an extra Kosten berechnet.</service-pickup-text-arnhem>
+		
+		<export-fee>Exportzuschlag</export-fee>
+		<export-fee-text>Ihre Bestellung wird außerhalb Hollands versandt. Da der Transport viel größer und weniger vorsichtig ist, müssen wir eine Gebühr berechnen, um Ihr Paket besser verpacken zu können. Neben dieser zusätzlichen Arbeit verlangt uns die Post eine zusätzliche Exportgebühr für größere Kartons. Die gesamten zusätzlichen Kosten für die Bestellung werden</export-fee-text>
+		
+		<stock-status>Lagerbestand</stock-status>
+		<stock-quantity>Anzahl</stock-quantity>
+		<price>Gesamt</price>
+		<sub-total>Zwischensumme</sub-total>
+		<grand-total>Gesamtsumme</grand-total>
+		<shipment-costs>Versandkosten</shipment-costs>
+		
+		<continue>weiter</continue>
+		<continue-payment>weiter mit zahlung</continue-payment>
+		<failed-grand-total>zu geringe gesamtsumme</failed-grand-total>
+		<happy-book-order>Ich bin zufrieden, Ende Bestellung!</happy-book-order>
+		<return-to-shop>zurück zum webshop</return-to-shop>
+		
+		<form-name>Name</form-name>
+		<form-company>Firmenname</form-company>
+		<form-optional>optional</form-optional>
+		<form-address>Adresse</form-address>
+		<form-zipcode>Postleitzahl</form-zipcode>
+		<form-city>Wohnort</form-city>
+		<form-country>Land</form-country>
+		<form-phone>Telefonnummer</form-phone>
+		<form-mobile>Handynummer</form-mobile>
+		<form-email>E-mail Adresse</form-email>
+		<dob>Geburtsdatum</dob>
+		
+		<payment-error-title>Uw betaling is niet geaccepteerd</payment-error-title>
+		<payment-error-text>Er is een fout opgetreden binnen %s en derhalve is uw betaling niet geaccepteerd. Controleer uw opgegeven persoonlijke gegevens. Bent u er zeker van dat u de correcte gegevens heeft ingevuld? Neemt u dan contact met ons op. Onze excuses voor het ongemak.</payment-error-text>
+	</cart>
+	
+	<product-details>
+		<call-me>Fragen zu diesem Produkt? Sobald ein Mitarbeiter verfügbar ist (innerhalb der Geschäftszeiten), möchten wir Sie gerne zurückrufen, um Ihre Fragen zu beantworten. Hinterlassen Sie uns Ihre Telefonnummer!</call-me>
+		<call-me-button>sende uns deine nummer!</call-me-button>
+		<call-me-done>anfrage geschickt</call-me-done>
+		
+		<one>Vor 5 Uhr bestellt, geliefert innerhalb 5 Werktagen! Alle Fahrräder sind zu 90%% montiert!</one>
+		<two>Keine zusätzlichen Kosten, der Preis ist der Preis. Wir halten es transparent und fair.</two>
+		<three>Familienbetrieb seit 1899. Persönlicher und echter Afterservice mit großem Lächeln.</three>
+		<four>Wir vergleichen unsere Preise täglich mit den anderen Online-Shops. Immer der beste Preis!</four>
+		<five></five>
+		<six></six>
+		
+		<seven>Wenn wir unsere Produkte versenden, verwenden wir die Verpackung von unseren Lieferanten.</seven>
+		<eight>Der gesamte übrige Papierabfall wird von einer Recyclingfirma abgeholt. Die Verpackung Ihrer Fahrräder ist später vielleicht Ihr Druckpapier verwendet werden.</eight>
+		<nine>Wir versenden alles auf einmal und nicht Produkt für Produkt. Das bedeutet weniger Abgase, also ist es besser für die Umwelt.</nine>
+		
+		<description>Zusätzliche Informationen</description>
+		<specifications>Spezifizierung</specifications>
+		<reviews>Bewertungen</reviews>
+		<brand>Markenartikel</brand>
+		<article-code>Artikelcode</article-code>
+		<ean-code>EAN Code</ean-code>
+		<supplier-code>Artikelcode Lieferant</supplier-code>
+		
+		<description-only-dutch>Unsere Artikelbeschreibung ist nur auf Niederländisch verfügbar. Alle anderen Teile auf unserer Website sind sorgfältig übersetzt, unsere Beschreibung folgt später. Entschuldigung Sie für die Unannehmlichkeiten.</description-only-dutch>
+		
+		<average>Durchschnittlich</average>
+		<oclock>uhr</oclock>
+	</product-details>
+</language_pack>
