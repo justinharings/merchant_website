@@ -26,7 +26,7 @@
 					<?= strtolower($mb->_translateReturn("footer_menu", "footer-1-4")) ?>
 				</a>
 			</li>
-
+			
 			<li>
 				<a href="/<?= _LANGUAGE_PACK . $mb->_translateReturn("footer_menu", "footer-1-5-url") ?>">
 					<?= strtolower($mb->_translateReturn("footer_menu", "footer-1-5")) ?>
@@ -73,8 +73,7 @@
 				<a href="/<?= _LANGUAGE_PACK . $mb->_translateReturn("footer_menu", "footer-2-3-url") ?>">
 					<?= strtolower($mb->_translateReturn("footer_menu", "footer-2-3")) ?>
 				</a>
-			</li>
-		</ul>
+			</li>		</ul>
 	</li>
 	
 	<li>

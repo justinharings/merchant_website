@@ -442,7 +442,14 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 								<img class="logo" src="/database/<?= _DATABASE_FOLDER ?>/library/media/<?= $mb->_translateReturn("images", "logo") ?>" />
 							</a>
 							
-							<img class="expert" src="/database/<?= _DATABASE_FOLDER ?>/library/media/<?= $mb->_translateReturn("images", "expert") ?>" />
+							<?php
+							if($mb->_translateReturn("images", "expert") != "")
+							{
+								?>
+								<img class="expert" src="/database/<?= _DATABASE_FOLDER ?>/library/media/<?= $mb->_translateReturn("images", "expert") ?>" />
+								<?php
+							}
+							?>
 						</div>
 						
 						<nav>
@@ -550,14 +557,58 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 				<div class="container">
 					<div class="advertisement-blocks">
 						<?php
-						if(file_exists(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/adds/block1.php"))
+						if($mb->_translateReturn("website_text", "add-1-text-1") != "")
 						{
-							require_once(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/adds/block1.php");
+							?>
+							<a href="<?= $mb->_translateReturn("website_text", "add-1-url") ?>">
+								<div class="block first">
+									<div class="split">
+										<img src="<?= $block1['image'] ?>" onclick="<?= ($block1['url'] ? "document.location.href='" . $block1['url'] . "'" : '') ?>" />
+									</div>
+									
+									<div class="split text">
+										<strong>
+											<span style="color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;">
+												<?= $mb->_translateReturn("website_text", "add-1-text-1") ?>
+											</span>
+											
+											<?= $mb->_translateReturn("website_text", "add-1-text-2") ?>
+										</strong>
+										<ul>
+											<li><?= $mb->_translateReturn("website_text", "add-1-item-1") ?></li>
+											<li><?= $mb->_translateReturn("website_text", "add-1-item-2") ?></li>
+											<li><?= $mb->_translateReturn("website_text", "add-1-item-3") ?></li>
+											<li><?= $mb->_translateReturn("website_text", "add-1-item-4") ?></li>
+											<li><?= $mb->_translateReturn("website_text", "add-1-item-5") ?></li>
+										</ul>
+									</div>
+								</div>
+							</a>
+							<?php
 						}
 						
-						if(file_exists(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/adds/block2.php"))
+						if($mb->_translateReturn("website_text", "add-2-text-1") != "")
 						{
-							require_once(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/adds/block2.php");
+							?>
+							<a href="/<?= _LANGUAGE_PACK ?>/service/company-information.html">
+								<div class="block">
+									<div class="split">
+										<img src="<?= $block2['image'] ?>" onclick="<?= ($block2['url'] ? "document.location.href='" . $block2['url'] . "'" : '') ?>" />
+									</div>
+									
+									<div class="split text no-li">
+										<strong>
+											<span style="color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;">
+												<?= $mb->_translateReturn("website_text", "add-2-text-1") ?>
+											</span>
+											
+											<?= $mb->_translateReturn("website_text", "add-2-text-2") ?>
+										</strong>
+										<p><?= $mb->_translateReturn("website_text", "add-2-text") ?></p>
+									</div>
+								</div>
+							</a>
+							<?php
 						}
 						?>
 					</div>

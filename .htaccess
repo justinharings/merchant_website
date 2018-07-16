@@ -18,8 +18,11 @@ RewriteRule ^([^/]*)/$ /?language_pack=$1 [L]
 # Rewrite paylink
 RewriteRule ^paylink/([^/]*)/$ /?paylink=$1 [L]
 
+# Rewrite catalog > Sale
+RewriteRule ^([^/]*)/catalog/sale.html$ /?language_pack=$1&page=sale&module=catalog [L]
+
 # Rewrite catalog
-RewriteRule ^([^/]*)/catalog/([^/]*).html$ /?language_pack=$1&module=catalog&page=$2 [L]
+RewriteRule ^([^/]*)/catalog/([^/]*).html$ /?language_pack=$1&module=catalog&page=catalog&catalog_name=$2 [L]
 
 # Rewrite catalog > View
 RewriteRule ^([^/]*)/catalog/([^/]*)/([^/]*)/filters/([^/]*)/([^/]*).html$ /?language_pack=$1&module=catalog&page=view&categoryID=$3&name=$5&headCategory=$2&filters=$4 [L]
@@ -27,9 +30,6 @@ RewriteRule ^([^/]*)/catalog/([^/]*)/([^/]*)/filters/([^/]*)/([^/]*).html$ /?lan
 # Rewrite catalog > Details
 RewriteRule ^([^/]*)/catalog/details/([^/]*)/([^/]*).html$ /?language_pack=$1&module=catalog&page=details&productID=$2 [L]
 RewriteRule ^([^/]*)/catalog/([^/]*)/([^/]*)/details/([^/]*)/([^/]*).html$ /?language_pack=$1&module=catalog&page=details&productID=$4&categoryID=$2 [L]
-
-# Rewrite catalog > Sale
-RewriteRule ^([^/]*)/catalog/sale.html$ /?language_pack=$1&module=sale [L]
 
 # Rewrite catalog > Search
 RewriteRule ^([^/]*)/search/([^/]*)/$ /?language_pack=$1&module=catalog&page=search&string=$2 [L]

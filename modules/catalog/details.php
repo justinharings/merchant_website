@@ -27,14 +27,16 @@ if($details['deleted'] == 1)
 	<li><a href="/<?= _LANGUAGE_PACK ?>/">home</a></li>
 	
 	<?php
-	if(isset($_GET['categoryID']))
+	$headName = strtolower($headCategory[(_LANGUAGE_PACK != "nl" ? strtoupper(_LANGUAGE_PACK) . "_" : "") . 'name']);
+	
+	if(isset($_GET['categoryID']) && $headName != "")
 	{
 		?>
 		<li class="spacer">-</li>
 		
 		<li>
 			<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>.html">
-				<?= strtolower($headCategory[(_LANGUAGE_PACK != "nl" ? strtoupper(_LANGUAGE_PACK) . "_" : "") . 'name']) ?>
+				<?= $headName ?>
 			</a>
 		</li>
 		<?php
@@ -234,35 +236,42 @@ if($details['deleted'] == 1)
 			?>
 		</div>
 	
-		<div class="call-me">
-			<?= $mb->_translateReturn("product-details", "call-me") ?>
-			
-			<?php
-			if(!isset($_SESSION['callback']))
-			{
-				?>
-				<form id="callback" method="post" action="/library/php/posts/callback.php">
-					<input type="text" name="phone_number" id="phone_number" value="" autocomplete="off" />
-					
-					<input type="hidden" name="productID" id="productID" value="<?= $details['productID'] ?>" />
-					<input type="hidden" name="returnURL" id="returnURL" value="<?= $actual_link ?>" />
-					
-					<div class="button" onclick="submitCallme();">
-						<?= $mb->_translateReturn("product-details", "call-me-button") ?>
-					</div>
-				</form>
-				<?php
-			}
-			else
-			{
-				?>
-				<div class="button disabled">
-					<?= $mb->_translateReturn("product-details", "call-me-done") ?>
-				</div>
-				<?php
-			}
+		<?php
+		if($mb->_translateReturn("product-details", "call-me-button") != "")
+		{
 			?>
-		</div>	
+			<div class="call-me">
+				<?= $mb->_translateReturn("product-details", "call-me") ?>
+				
+				<?php
+				if(!isset($_SESSION['callback']))
+				{
+					?>
+					<form id="callback" method="post" action="/library/php/posts/callback.php">
+						<input type="text" name="phone_number" id="phone_number" value="" autocomplete="off" />
+						
+						<input type="hidden" name="productID" id="productID" value="<?= $details['productID'] ?>" />
+						<input type="hidden" name="returnURL" id="returnURL" value="<?= $actual_link ?>" />
+						
+						<div class="button" onclick="submitCallme();">
+							<?= $mb->_translateReturn("product-details", "call-me-button") ?>
+						</div>
+					</form>
+					<?php
+				}
+				else
+				{
+					?>
+					<div class="button disabled">
+						<?= $mb->_translateReturn("product-details", "call-me-done") ?>
+					</div>
+					<?php
+				}
+				?>
+			</div>	
+			<?php
+		}
+		?>
 	
 		<div class="order-info">
 			<ul>

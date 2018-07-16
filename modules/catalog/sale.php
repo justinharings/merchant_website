@@ -3,13 +3,13 @@
 	<li class="spacer">-</li>
 	<li>
 		<strong>
-			<a href="/<?= _LANGUAGE_PACK ?>/catalog/sale.html"><?= $mb->_translateReturn("main_menu", "sale") ?></a>
+			<a href="/<?= _LANGUAGE_PACK ?>/catalog/sale.html"><?= $mb->_translateReturn("website_text", "sale") ?></a>
 		</strong>
 	</li>
 </ul>
 
 <div class="page-menu">
-	<? require_once($_SERVER['DOCUMENT_ROOT'] . "/library/menus/side_menu.php") ?>
+	<? require_once($_SERVER['DOCUMENT_ROOT'] . "/database/" . _DATABASE_FOLDER . "/library/menus/side_menu.php") ?>
 </div>
 
 <div class="page-content">

@@ -42,7 +42,7 @@
 							
 							?>
 							<li>
-								<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= $_GET['page'] ?>/<?= $second['categoryID'] ?>/filters/none/<?= _createCategoryURL($second['EN_name']) ?>.html">
+								<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= $_GET['catalog_name'] ?>/<?= $second['categoryID'] ?>/filters/none/<?= _createCategoryURL($second['EN_name']) ?>.html">
 									<?= $name ?>
 								</a>
 							</li>
@@ -55,7 +55,7 @@
 				?>
 			</li>
 			<?php
-		}	
+		}
 		?>
 	</ul>
 </div>
@@ -74,8 +74,15 @@
 			<img src="<?= $banner_tile_1_3['image'] ?>?rand=<?= rand(0,99999) ?>" onclick="<?= ($banner_tile_1_3['url'] ? "document.location.href='" . $banner_tile_1_3['url'] . "'" : '') ?>" />
 		</div>
 		
-		<div class="tile-4">
-			<img src="<?= $banner_tile_1_4['image'] ?>?rand=<?= rand(0,99999) ?>" onclick="<?= ($banner_tile_1_4['url'] ? "document.location.href='" . $banner_tile_1_4['url'] . "'" : '') ?>" />
-		</div>
+		<?php
+		if($banner_tile_1_4['image'] != "")
+		{
+			?>
+			<div class="tile-4">
+				<img src="<?= $banner_tile_1_4['image'] ?>?rand=<?= rand(0,99999) ?>" onclick="<?= ($banner_tile_1_4['url'] ? "document.location.href='" . $banner_tile_1_4['url'] . "'" : '') ?>" />
+			</div>
+			<?php
+		}
+		?>
 	</div>
 </div>

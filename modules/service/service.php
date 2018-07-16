@@ -18,7 +18,7 @@ $content = $mb->_runFunction("content", "load", array(_LANGUAGE_PACK, $_GET['fil
 </ul>
 
 <div class="page-menu">
-	<? require_once($_SERVER['DOCUMENT_ROOT'] . "/library/menus/side_menu.php") ?>
+	<? require_once($_SERVER['DOCUMENT_ROOT'] . "/database/" . _DATABASE_FOLDER . "/library/menus/side_menu.php") ?>
 </div>
 
 <div class="page-content">

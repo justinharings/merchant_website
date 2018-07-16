@@ -16,6 +16,22 @@ switch($_GET['headCategory'])
 	case "webshop":
 		$headCategory = 68;
 	break;
+	
+	case "decoration":
+		$headCategory = 85;
+	break;
+	
+	case "furniture":
+		$headCategory = 86;
+	break;
+	
+	case "lights":
+		$headCategory = 87;
+	break;
+	
+	case "clothes":
+		$headCategory = 88;
+	break;
 }
 
 $headCategory = $mb->_runFunction("catalog", "loadCatalog", array(intval($headCategory)));
@@ -80,51 +96,66 @@ if($_GET['filters'] != "none")
 	<li><a href="/<?= _LANGUAGE_PACK ?>/">home</a></li>
 	<li class="spacer">-</li>
 	<li><a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>.html"><?= strtolower($head_name) ?></a></li>
-	<li class="spacer">-</li>
-	<li>
-		<strong>
-			<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $category['categoryID'] ?>/filters/none/<?= _createCategoryURL($category['EN_name']) ?>.html"><?= strtolower($category_name) ?></a>
-		</strong>
-	</li>
+	
+	<?php
+	if(strtolower($head_name) != strtolower($category_name))
+	{
+		?>
+		<li class="spacer">-</li>
+		<li>
+			<strong>
+				<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $category['categoryID'] ?>/filters/none/<?= _createCategoryURL($category['EN_name']) ?>.html"><?= strtolower($category_name) ?></a>
+			</strong>
+		</li>
+		<?php
+	}
+	?>
 </ul>
 
 <div class="page-menu">
-	<ul class="head catalog">
-		<li>
-			<strong><?= $parent_name ?></strong>
-			
-			<?php
-			$sub = $mb->_runFunction("catalog", "loadCatalogTree", array($parent['categoryID']));
+	<?php
+	if(strtolower($head_name) != strtolower($category_name))
+	{
+		?>
+		<ul class="head catalog">
+			<li>
+				<strong><?= $parent_name ?></strong>
 				
-			if($sub)
-			{
-				?>
-				<ul>
-					<?php
-					foreach($sub AS $key => $second)
-					{
-						$name = $second['name'];
-			
-						if($second[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
-						{
-							$name = $second[strtoupper(_LANGUAGE_PACK) . '_name'];
-						}
-						
-						?>
-						<li>
-							<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $second['categoryID'] ?>/filters/none/<?= _createCategoryURL($second['EN_name']) ?>.html" class="<?= $second['categoryID'] == $category['categoryID'] ? "active": "" ?>">
-								<?= $name ?>
-							</a>
-						</li>
-						<?php
-					}
-					?>
-				</ul>
 				<?php
-			}
-			?>
-		</li>
-	</ul>
+				$sub = $mb->_runFunction("catalog", "loadCatalogTree", array($parent['categoryID']));
+					
+				if($sub)
+				{
+					?>
+					<ul>
+						<?php
+						foreach($sub AS $key => $second)
+						{
+							$name = $second['name'];
+				
+							if($second[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
+							{
+								$name = $second[strtoupper(_LANGUAGE_PACK) . '_name'];
+							}
+							
+							?>
+							<li>
+								<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $second['categoryID'] ?>/filters/none/<?= _createCategoryURL($second['EN_name']) ?>.html" class="<?= $second['categoryID'] == $category['categoryID'] ? "active": "" ?>">
+									<?= $name ?>
+								</a>
+							</li>
+							<?php
+						}
+						?>
+					</ul>
+					<?php
+				}
+				?>
+			</li>
+		</ul>
+		<?php
+	}
+	?>
 	
 	<div class="filters">
 		<strong>filters</strong>
