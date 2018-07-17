@@ -8,6 +8,8 @@ if(!isset($_SESSION))
 
 define("_DEVELOPMENT_ENVIRONMENT", true);
 define("_LANGUAGE_PACK", "nl");
+define("_DATABASE_FOLDER", $_SESSION['_DATABASE_FOLDER']);
+
 
 /*
 **	Functions are added here. Used for quick access to all

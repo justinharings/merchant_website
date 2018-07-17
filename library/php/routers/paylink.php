@@ -25,6 +25,7 @@ if(isset($_GET['paylink']))
 		$data = $paylinks->getData(array($_GET['paylink']));
 		
 		define("_MERCHANT_ID", $data[0]);
+		
 		switch(strtolower($data[1]))
 		{
 			default:
@@ -48,7 +49,7 @@ if(isset($_GET['paylink']))
 	}
 	else
 	{
-		//header("location: /");
+		header("location: /");
 	}
 	
 	exit;

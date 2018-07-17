@@ -26,11 +26,18 @@ $_SESSION['orderID'] = $orderData['orderID'];
 
 	<body>
 		<div class="paylink">
-			<a href="/<?= _LANGUAGE_PACK ?>/">
-				<img class="logo" src="/library/media/<?= $mb->_translateReturn("images", "logo") ?>" />
+			<a class="logo" href="/<?= _LANGUAGE_PACK ?>/">
+				<img class="logo" src="/database/<?= _DATABASE_FOLDER ?>/library/media/<?= $mb->_translateReturn("images", "logo") ?>" />
 			</a>
 			
-			<img class="expert" src="/library/media/<?= $mb->_translateReturn("images", "expert") ?>" />
+			<?php
+			if($mb->_translateReturn("images", "expert") != "")
+			{
+				?>
+				<img class="expert" src="/database/<?= _DATABASE_FOLDER ?>/library/media/<?= $mb->_translateReturn("images", "expert") ?>" />
+				<?php
+			}
+			?>
 
 			<form id="book" method="post" action="/library/php/posts/book.php">
 				<input type="hidden" name="paylink" id="paylink" value="1" />

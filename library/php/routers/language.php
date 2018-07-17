@@ -37,6 +37,7 @@ switch($_actual_link)
 }
 
 define("_DATABASE_FOLDER", str_replace("https://", "", $_actual_link));
+$_SESSION['_DATABASE_FOLDER'] = _DATABASE_FOLDER;
 
 
 
@@ -136,77 +137,20 @@ $_currencies_symbols = array(
 
 
 
-if(!isset($_GET['language_pack']))
+if(!isset($_GET['paylink']))
 {
-	if(count($_found_languages) == 1)
+	if(!isset($_GET['language_pack']))
 	{
-		header("location: /" . strtolower($_found_languages[0]) . "/");
-		exit;
-	}
-	
-	/*
-	**	No language is set. Go to the map
-	**	view. The visitor can choose a country
-	**	from the map.
-	*/
-	
-	if(isset($_SESSION['currency']))
-	{
-		unset($_SESSION['currency']);
-	}
-	
-	require_once($_SERVER['DOCUMENT_ROOT'] . "/modules/language/map.php");
-	exit;
-}
-else
-{
-	if(in_array(strtolower($_GET['language_pack']), $_language_keys))
-	{
-		/*
-		**	The language is found. Load the language
-		**	pack and set some information in order
-		**	for Google to index the right information.
-		*/
-		
-		define("_LANGUAGE_PACK", strtolower($_GET['language_pack']));
-		$_SESSION['_LANGUAGE_PACK'] = _LANGUAGE_PACK;
-		
-		
-		/*
-		**	When there is no currency set in the
-		**	session $_SESSION['currency'], use the
-		**	default currency for the used language.
-		**	If the session is set, use that one instead.
-		*/
-		
-		if(!isset($_SESSION['currency']))
+		if(count($_found_languages) == 1)
 		{
-			$_currency = $_default_currency[strtolower($_GET['language_pack'])];
-			$_SESSION['currency'] = $_currency;
-		}
-		else
-		{
-			if(!in_array($_SESSION['currency'], $_recognized_currencies))
-			{
-				$_currency = $_default_currency[strtolower($_GET['language_pack'])];
-				unset($_SESSION['currency']);
-			}
-			else
-			{
-				$_currency = $_SESSION['currency'];
-			}
+			header("location: /" . strtolower($_found_languages[0]) . "/");
+			exit;
 		}
 		
-		define("_CURRENCY", $_currency);
-		define("_CURRENCY_SIGN", $_currencies_symbols[$_currency]);
-	}
-	else
-	{
 		/*
-		**	The requested language pack is not
-		**	available. Useally the visitor is
-		**	typing the language himself in this
-		**	case. Redirect to the map.
+		**	No language is set. Go to the map
+		**	view. The visitor can choose a country
+		**	from the map.
 		*/
 		
 		if(isset($_SESSION['currency']))
@@ -216,6 +160,66 @@ else
 		
 		require_once($_SERVER['DOCUMENT_ROOT'] . "/modules/language/map.php");
 		exit;
+	}
+	else
+	{
+		if(in_array(strtolower($_GET['language_pack']), $_language_keys))
+		{
+			/*
+			**	The language is found. Load the language
+			**	pack and set some information in order
+			**	for Google to index the right information.
+			*/
+			
+			define("_LANGUAGE_PACK", strtolower($_GET['language_pack']));
+			$_SESSION['_LANGUAGE_PACK'] = _LANGUAGE_PACK;
+			
+			
+			/*
+			**	When there is no currency set in the
+			**	session $_SESSION['currency'], use the
+			**	default currency for the used language.
+			**	If the session is set, use that one instead.
+			*/
+			
+			if(!isset($_SESSION['currency']))
+			{
+				$_currency = $_default_currency[strtolower($_GET['language_pack'])];
+				$_SESSION['currency'] = $_currency;
+			}
+			else
+			{
+				if(!in_array($_SESSION['currency'], $_recognized_currencies))
+				{
+					$_currency = $_default_currency[strtolower($_GET['language_pack'])];
+					unset($_SESSION['currency']);
+				}
+				else
+				{
+					$_currency = $_SESSION['currency'];
+				}
+			}
+			
+			define("_CURRENCY", $_currency);
+			define("_CURRENCY_SIGN", $_currencies_symbols[$_currency]);
+		}
+		else
+		{
+			/*
+			**	The requested language pack is not
+			**	available. Useally the visitor is
+			**	typing the language himself in this
+			**	case. Redirect to the map.
+			*/
+			
+			if(isset($_SESSION['currency']))
+			{
+				unset($_SESSION['currency']);
+			}
+			
+			require_once($_SERVER['DOCUMENT_ROOT'] . "/modules/language/map.php");
+			exit;
+		}
 	}
 }
 ?>
