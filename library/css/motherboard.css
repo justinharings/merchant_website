@@ -712,7 +712,7 @@ body div.header
 		}
 		body div.header div.header-content ul.header-menu.pull-left
 		{
-			left: 390px !important;
+			left: 390px;
 		}
 		
 			body div.header div.header-content ul.header-menu li
