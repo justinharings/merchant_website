@@ -5,6 +5,7 @@ if(!isset($_SESSION))
 }
 	
 define("_LANGUAGE_PACK", $_SESSION['_LANGUAGE_PACK']);
+define("_DATABASE_FOLDER", $_SESSION['_DATABASE_FOLDER']);
 	
 require_once($_SERVER['DOCUMENT_ROOT'] . "/library/php/classes/motherboard.php");
 

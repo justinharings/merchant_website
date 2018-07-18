@@ -5,6 +5,7 @@ if(!isset($_SESSION))
 }
 
 define("_LANGUAGE_PACK", "nl");
+define("_DATABASE_FOLDER", $_SESSION['_DATABASE_FOLDER']);
 define("_DEVELOPMENT_ENVIRONMENT", true);
 
 if(isset($_POST['stars']) && isset($_POST['description']))
