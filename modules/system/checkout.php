@@ -154,16 +154,11 @@ else
 				
 				<hr/>
 				
-				<?php
-				if(_MERCHANT_ID == 1)
-				{
-					?>
-					<ul class="checkout-choices" inputname="locationID">
-						<!--
-						'Bij mij laten bezorgen' optie.
-							> Toont alle verzendopties die verplicht zijn inclusief de bijbehorende prijzen.
-						-->
-						
+				<ul class="checkout-choices" inputname="shipmentID">
+					<?php
+					if(count($_SESSION['shipment_array']) > 0)
+					{
+						?>
 						<li id="0" class="first">
 							<div class="choice">
 								<span class="fa <?= !isset($_SESSION['shipment']) || $_SESSION['shipment'] == 0 ? "fa-check active" : "fa-circle" ?>"></span>
@@ -216,92 +211,41 @@ else
 							<strong><?= $mb->_translateReturn("cart", "export-fee") ?></strong><br/>
 							<?= $mb->_translateReturn("cart", "export-fee-text") ?> <strong><span class="amount"></span></strong>.
 						</li>
-				
-						<?php	
-						$locations = $mb->_runFunction("cart", "pickupLocations", array());	
-						
-						foreach($locations AS $location)
-						{
-							if($location['webshop'] == 1)
-							{
-								?>
-								<li id="<?= $location['locationID'] ?>">
-									<div class="choice">
-										<span class="fa <?= isset($_SESSION['shipment']) && $_SESSION['shipment'] == $location['locationID'] ? "fa-check active" : "fa-circle" ?>"></span>
-									</div>
-									
-									<div class="data">
-										<strong><?= $mb->_translateReturn("cart", "shop-pickup") ?>&nbsp;</strong>
-										<small><?= $mb->_translateReturn("cart", "shop-pickup-eg") ?></small><br/>
-										<br/>
-										<?= $mb->_translateReturn("cart", "shop-pickup-text") ?>
-									</div>
-								</li>
-								<?php
-									
-								continue;
-							}
-							?>
-							
-							<li id="<?= $location['locationID'] ?>">
-								<div class="choice">
-									<span class="fa <?= isset($_SESSION['shipment']) && $_SESSION['shipment'] == $location['locationID'] ? "fa-check active" : "fa-circle" ?>"></span>
-								</div>
-								
-								<div class="data">
-									<strong><?= $mb->_translateReturn("cart", "service-pickup", array($location['name'])) ?>&nbsp;</strong>
-									<small><?= $mb->_translateReturn("cart", "service-pickup-eg-" . strtolower($location['name'])) ?></small><br/>
-									<br/>
-									<?= $mb->_translateReturn("cart", "service-pickup-text-" . strtolower($location['name']), array($location['name'])) ?>
-								</div>
-							</li>
-							
-							<?php
-						}
-						?>
-					</ul>
-					<?php
-				}
-				else
-				{
-					?>
-					<ul class="checkout-choices" inputname="shipmentID">
 						<?php
-						$shipments = $mb->_runFunction("cart", "shipmentMethods", array());	
-						$num = 0;
-						
-						foreach($shipments AS $shipment)
-						{
-							if	(
-									(
-										$shipment['maximum'] > 0 
-										&& ($shipment['used'] >= $shipment['maximum'])
-									)
-									|| $shipment['free_choice'] == 0
+					}
+
+					$shipments = $mb->_runFunction("cart", "shipmentMethods", array());	
+					$num = 0;
+					
+					foreach($shipments AS $shipment)
+					{
+						if	(
+								(
+									$shipment['maximum'] > 0 
+									&& ($shipment['used'] >= $shipment['maximum'])
 								)
-							{
-								continue;
-							}
-							
-							?>
-							<li id="<?= $shipment['shipmentID'] ?>" <?= (!isset($_SESSION['shipment']) && $num == 0) ? 'class="first"' : '' ?>>
-								<div class="choice">
-									<span class="fa fa-<?= (!isset($_SESSION['shipment']) && $num == 0) || (isset($_SESSION['shipment']) && $shipment['shipmentID'] == $_SESSION['shipment']) ? "check active" : "circle" ?>"></span>
-								</div>
-								
-								<div class="data">
-									<strong><?= $shipment['name'] ?></strong>
-								</div>
-							</li>
-							<?php
-								
-							$num++;
+								|| $shipment['free_choice'] == 0
+							)
+						{
+							continue;
 						}
+						
 						?>
-					</ul>
-					<?php
-				}
-				?>
+						<li id="<?= $shipment['shipmentID'] ?>" <?= count($_SESSION['shipment_array']) > 0 ? '' : 'class="first"' ?>>
+							<div class="choice">
+								<span class="fa fa-<?= (!isset($_SESSION['shipment']) && count($_SESSION['shipment_array']) == 0) || (isset($_SESSION['shipment']) && $shipment['shipmentID'] == $_SESSION['shipment']) ? "check active" : "circle" ?>"></span>
+							</div>
+							
+							<div class="data">
+								<strong><?= $shipment['name'] ?></strong>
+							</div>
+						</li>
+						<?php
+							
+						$num++;
+					}
+					?>
+				</ul>
 				
 				<hr/>
 				
@@ -382,7 +326,7 @@ else
 				<a href="/<?= _LANGUAGE_PACK ?>/service/terms-and-conditions.html"><?= $mb->_translateReturn("cart", "conditions-check") ?></a>
 			</div>
 			
-			<input type="submit" name="book_order" id="book_order" value="<?= $mb->_translateReturn("cart", "happy-book-order") ?>" class="right" />
+			<input type="submit" name="book_order" id="book_order" value="<?= $mb->_translateReturn("cart", "happy-book-order") ?>" class="right" style="background-color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;" />
 			<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "return-to-shop") ?>" class="right white mobile-return" click="/<?= _LANGUAGE_PACK ?>/" />
 		</form>
 	</div>

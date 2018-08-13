@@ -236,6 +236,12 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			{
 				color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;
 			}
+			
+			body div.page-content div.order-info.first li:before,
+			body div.page-content ul.checkout-choices li div.choice span.active
+			{
+				color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;
+			}
 		</style>
 	</head>
 
@@ -465,12 +471,12 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 								<span class="lnr lnr-cart" click="/<?= _LANGUAGE_PACK ?>/system/cart.html"></span>
 								<div class="cart-count" style="background-color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;" click="/<?= _LANGUAGE_PACK ?>/system/cart.html"><?= $mb->_runFunction("cart", "countCartItems") ?></div>
 								
-								<div class="cart-notification">
+								<div class="cart-notification" style="background-color: <?= $mb->_translateReturn("colors", "secundary_color") ?> !important;">
 									<span class="fa fa-caret-up"></span>
 									
 									<strong><?= $mb->_translateReturn("cart", "added-cart") ?></strong>
 									
-									<div class="button" click="/<?= _LANGUAGE_PACK ?>/system/cart.html">
+									<div class="button" click="/<?= _LANGUAGE_PACK ?>/system/cart.html" style="background-color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;">
 										<?= $mb->_translateReturn("cart", "button-goto-cart") ?>
 									</div>
 									

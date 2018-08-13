@@ -50,7 +50,17 @@
 			
 			$total += $mb->replaceCurrency(($item['quantity']*$product['price']), $_SESSION['currency']);
 			
-			$shipment_data[] = $product['shipments'];
+			$loop = $item['quantity'];
+			
+			if($product['shipments']['pay_once'] == 1)
+			{
+				$loop = 1;
+			}
+			
+			for($i = 0; $i < $loop; $i++)
+			{
+				$shipment_data[] = $product['shipments'];
+			}
 			
 			foreach($product['images'] AS $media)
 			{
@@ -116,32 +126,22 @@
 			<?php
 		}
 		
-		$shipment_costs = 0;
-		$payed = array();
+		$methods = array();
 		$shipmentArray = array();
 		
 		foreach($shipment_data AS $key => $shipment)
 		{
-			if($shipment['combine'] == 1 && count($shipment_data) > 1)
+			if(!in_array($shipment['shipmentID'], $methods))
+			{
+				$methods[] = $shipment['shipmentID'];
+			}
+		}
+		
+		foreach($shipment_data AS $key => $shipment)
+		{
+			if($shipment['combine'] == 1 && count($methods) > 1)
 			{
 				unset($shipment_data[$key]);
-			}
-			else
-			{
-				if($shipment['pay_once'] == 1 && isset($payed[$key]))
-				{
-					unset($shipment_data[$key]);
-				}
-				else
-				{
-					if($shipment[strtoupper(_LANGUAGE_PACK) . '_price'] > 0)
-					{
-						$shipment['price'] = $shipment[strtoupper(_LANGUAGE_PACK) . '_price'];
-					}
-					
-					$shipment_costs += $mb->replaceCurrency($shipment['price'], $_SESSION['currency']);
-					$payed[$key] = 1;
-				}
 			}
 		}
 		
@@ -150,13 +150,13 @@
 			$shipmentArray[] = $shipment['shipmentID'];
 		}
 		
-		$_SESSION['shipment_costs'] = $shipment_costs;
+		// print_r($shipmentArray);
 		
 		$_SESSION['grand_total'] = ($total + $shipment_costs);
 		$_SESSION['shipment_array'] = $shipmentArray;
 		?>
 		
-		<div class="totals">
+		<div class="totals" style="background-color: <?= $mb->_translateReturn("colors", "secundary_color") ?> !important;">
 			<table>
 				<tr>
 					<td width="66%">&nbsp;</td>
@@ -182,7 +182,7 @@
 		if($settings['minimum_order_amount'] == 0 || $total > $settings['minimum_order_amount'])
 		{
 			?>
-			<input type="button" name="continue" id="continue" value="<?= $mb->_translateReturn("cart", "continue") ?>" class="right" click="/<?= _LANGUAGE_PACK ?>/system/checkout.html" />
+			<input type="button" name="continue" id="continue" value="<?= $mb->_translateReturn("cart", "continue") ?>" class="right" click="/<?= _LANGUAGE_PACK ?>/system/checkout.html" style="background-color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;" />
 			<?php
 		}
 		else

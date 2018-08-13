@@ -117,44 +117,16 @@ if((is_array($_status) && count($_status) == 0) || !$_status)
 
 if(!isset($_POST['paylink']))
 {
-	if($_POST['merchantID'] == 1)
+	if($_POST['shipmentID'] == 0)
 	{
-		$shipmentArray = array();
-		
-		switch($_POST['locationID'])
-		{
-			case 0:
-				// Internet bestelling. Verzending berekent in de winkelwagen.
-				$shipment = $_SESSION['shipment_array'];
-				$employeeID = 0;
-			break;
-			
-			default:
-			case 3:
-				// Fixed ID, afhalen in de winkel.
-				$shipment = 4;
-				$employeeID = 0;
-			break;
-			
-			case 15:
-				$shipment = 76;
-				$employeeID = 0;
-			break;
-			
-			case 18:
-				$shipment = 111;
-				$employeeID = 0;
-			break;
-		}
-		
-		$_shipment = $shipment;
-		$_SESSION['shipment'] = $_POST['locationID'];
+		$_shipment = $_SESSION['shipment_array'];
 	}
 	else
 	{
 		$_shipment = $_POST['shipmentID'];
-		$_SESSION['shipment'] = $_shipment;
 	}
+	
+	$_SESSION['shipment'] = $_shipment;
 }
 else
 {

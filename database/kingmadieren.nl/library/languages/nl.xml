@@ -233,7 +233,7 @@
 		
 		<delivery>Bij mij laten bezorgen</delivery>
 		<delivery-eg>binnen twee werkdagen in huis</delivery-eg>
-		<delivery-text>Onze fietsen vanaf 22 inch worden bezorgd door een koerier gespecialiseerd in fietsvervoer. Kleinere fietsen en pakketten met PostNL. De totale berekening van uw verzendkosten is als volgt:</delivery-text>
+		<delivery-text>Wij verzenden alle pakketten met PostNL. Kleinere producten zullen worden samengevoegd met de grotere dozen om verzendkosten te besparen. Indien samenvoegen niet mogelijk is betaald u tweemaal de verzendkosten. De totale berekening is als volgt:</delivery-text>
 		
 		<shop-pickup>Afhalen in de winkel te Almelo</shop-pickup>
 		<shop-pickup-eg>Mogelijk binnen een uur na bestelling</shop-pickup-eg>
@@ -286,15 +286,14 @@
 		<call-me-button></call-me-button>
 		<call-me-done></call-me-done>
 		
-		<one>Voor 17:00 uur besteld, binnen 2 werkdagen in huis! En natuurlijk gratis thuisbezorgd.</one>
-		<two>Verrassende nieuwe artikelen, je raakt nooit uitgeshopt op Decomarkt.nl!</two>
-		<three>Familiebedrijf sinds 1990. Persoonlijke en échte afterservice met een glimlach.</three>
-		<four>Altijd scherp geprijst en altijd kwaliteit. Onze artikelen zijn voor u gemaakt.</four>
-		<five>Met een échte (offline) winkel in Almelo! Kom lekker neuzen tussen onze artikelen.</five>
+		<one>Voor 17:00 uur besteld, binnen 2 werkdagen in huis! Of natuurlijk gratis afhalen in Almelo.</one>
+		<two>Alle artikelen zijn grondig gereinigd/ontsmet. Ze kunnen nog een gezonde ronde mee!</two>
+		<three>Kennis van alle soorten huisdieren, we helpen u graag met advies en diensten.</three>
+		<four>Alle artikelen scherp geprijsd. De moeite waard om iets een tweedekans te geven!</four>
+		<five>Andere dieren spullen over? We halen ze graag bij u op en helpen u opruimen!</five>
 		<six></six>
 		
-		<seven>Voor verzending hergebruiken we de verpakking van onze leveranciers. Zo besparen we flink wat bomen.</seven>
-		<eight>Het overige karton wordt opgehaald door een recycle bedrijf. De verpakking ligt straks misschien wel in uw printer.</eight>
+		<seven>Voor verzending hergebruiken we verpakkingen. Zo besparen we flink wat bomen, goed voor het milieu!</seven>
 		<nine>We verzenden alles in één keer en niet in losse verzendingen. Dat betekent minder uitlaatgassen, dus beter voor het milieu.</nine>
 		
 		<description>Extra informatie</description>

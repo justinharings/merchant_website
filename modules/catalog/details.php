@@ -228,7 +228,7 @@ if($details['deleted'] == 1)
 			if($details['status'] < 3)
 			{
 				?>
-				<div class="button" productid="<?= $details['productID'] ?>">
+				<div class="button" productid="<?= $details['productID'] ?>" style="background-color: <?= $mb->_translateReturn("colors", "main_color") ?>;">
 					<?= $mb->_translateReturn("cart", "add-cart-button") ?>
 				</div>
 				<?php
@@ -273,7 +273,7 @@ if($details['deleted'] == 1)
 		}
 		?>
 	
-		<div class="order-info">
+		<div class="order-info first" style="background-color: <?= $mb->_translateReturn("colors", "secundary_color") ?>;">
 			<ul>
 				<?php
 				if($mb->_translateReturn("product-details", "one"))
