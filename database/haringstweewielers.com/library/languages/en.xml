@@ -87,18 +87,25 @@
 	</homepage>
 	
 	<website_text>
-		<mijn_tweewielers_1>my</mijn_tweewielers_1>
-		<mijn_tweewielers_2>bicycles</mijn_tweewielers_2>
+		<sale>sale</sale>
 		
-		<always_free_maintenance>Always free maintenance</always_free_maintenance>
-		<save_for_cool_gifts>Save for cool gifts</save_for_cool_gifts>
-		<online_maintenance>Online maintenance reports</online_maintenance>
-		<everything_in_one_place>All your invoices in one place</everything_in_one_place>
-		<just_cool_to_have>Just cool to have!</just_cool_to_have>
+		<add-1-url>https://www.mijntweewielers.nl/</add-1-url>
 		
-		<history>history</history>
-		<since_1899>since 1899</since_1899>
-		<history_text>More than a 100 years of experience in bicycles! We're the oldest bicycle store in Holland, we've been here for four generations! Curious about our rich history?</history_text>
+		<add-1-text-1>my</add-1-text-1>
+		<add-1-text-2>bicycles</add-1-text-2>
+		
+		<add-1-item-1>Always free maintenance</add-1-item-1>
+		<add-1-item-2>Save for cool gifts</add-1-item-2>
+		<add-1-item-3>Online maintenance reports</add-1-item-3>
+		<add-1-item-4>All your invoices in one place</add-1-item-4>
+		<add-1-item-5>Just cool to have!</add-1-item-5>
+		
+		<add-2-url>/service/company-information.html</add-2-url>
+		
+		<add-2-text-1>history</add-2-text-1>
+		<add-2-text-2>since 1899</add-2-text-2>
+		
+		<add-2-text>More than a 100 years of experience in bicycles! We're the oldest bicycle store in Holland, we've been here for four generations! Curious about our rich history?</add-2-text>
 		
 		<sale_results>Articles in sale!</sale_results>
 		

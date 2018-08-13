@@ -46,27 +46,35 @@
 		}
 		?>
 		
+		<br/>
 		<strong><?= strip_tags($name) ?></strong>
 		
-		<div class="stars">
-			<?php
-			if($product['review_stars'] > 0)
-			{
-				for($i = 1; $i <= 5; $i++)
+		<?php
+		if($settings['hide_reviews'] == 0)
+		{
+			?>
+			<div class="stars">
+				<?php
+				if($product['review_stars'] > 0)
+				{
+					for($i = 1; $i <= 5; $i++)
+					{
+						?>
+						<span class="fa fa-<?= $product['review_stars'] >= $i ? "circle" : "circle-thin" ?>"></span>
+						<?php
+					}
+				}
+				else
 				{
 					?>
-					<span class="fa fa-<?= $product['review_stars'] >= $i ? "circle" : "circle-thin" ?>"></span>
+					<span class="fa"></span>
 					<?php
 				}
-			}
-			else
-			{
 				?>
-				<span class="fa"></span>
-				<?php
-			}
-			?>
-		</div>
+			</div>
+			<?php
+		}
+		?>
 		
 		<span class="price">
 			<?php

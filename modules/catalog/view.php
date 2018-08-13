@@ -32,6 +32,10 @@ switch($_GET['headCategory'])
 	case "clothes":
 		$headCategory = 88;
 	break;
+	
+	case "dierenwinkel":
+		$headCategory = 101;
+	break;
 }
 
 $headCategory = $mb->_runFunction("catalog", "loadCatalog", array(intval($headCategory)));

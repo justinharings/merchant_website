@@ -28,9 +28,9 @@ foreach($_SESSION AS $key => $session)
 **	PHP exception for the developer.
 */
 
-$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$clean_url = "http://$_SERVER[HTTP_HOST]";
-define("_DEVELOPMENT_ENVIRONMENT", (strpos($actual_link, "websites.") !== false ? true : false));
+$_real_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$_clean_url = "http://$_SERVER[HTTP_HOST]";
+define("_DEVELOPMENT_ENVIRONMENT", (strpos($_real_url, "websites.") !== false ? true : false));
 
 
 
@@ -298,8 +298,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 											{
 												$name = $_recognized_languages[$abbreviation];
 												
-												$url = $_actual_link . $_SERVER['REQUEST_URI'];
-												$url = str_replace("/"._LANGUAGE_PACK."/", "/".$abbreviation."/", $url);
+												$url = str_replace("/"._LANGUAGE_PACK."/", "/".$abbreviation."/", $_real_url);
 												?>
 												
 												<li>
@@ -559,11 +558,17 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						<?php
 						if($mb->_translateReturn("website_text", "add-1-text-1") != "")
 						{
+							if($mb->_translateReturn("website_text", "add-1-url") != "")
+							{
 							?>
-							<a href="<?= $mb->_translateReturn("website_text", "add-1-url") ?>">
+								<a href="/<?= _LANGUAGE_PACK . $mb->_translateReturn("website_text", "add-1-url") ?>">
+								<?php
+							}
+							?>
+							
 								<div class="block first">
 									<div class="split">
-										<img src="<?= $block1['image'] ?>" onclick="<?= ($block1['url'] ? "document.location.href='" . $block1['url'] . "'" : '') ?>" />
+										<img src="<?= $block1['image'] ?>" />
 									</div>
 									
 									<div class="split text">
@@ -583,17 +588,27 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 										</ul>
 									</div>
 								</div>
-							</a>
 							<?php
+							if($mb->_translateReturn("website_text", "add-1-url") != "")
+							{
+							?>
+								</a>
+								<?php
+							}
 						}
 						
 						if($mb->_translateReturn("website_text", "add-2-text-1") != "")
 						{
+							if($mb->_translateReturn("website_text", "add-2-url") != "")
+							{
 							?>
-							<a href="/<?= _LANGUAGE_PACK ?>/service/company-information.html">
+								<a href="/<?= _LANGUAGE_PACK . $mb->_translateReturn("website_text", "add-2-url") ?>">
+								<?php
+							}
+							?>
 								<div class="block">
 									<div class="split">
-										<img src="<?= $block2['image'] ?>" onclick="<?= ($block2['url'] ? "document.location.href='" . $block2['url'] . "'" : '') ?>" />
+										<img src="<?= $block2['image'] ?>" />
 									</div>
 									
 									<div class="split text no-li">
@@ -607,8 +622,13 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 										<p><?= $mb->_translateReturn("website_text", "add-2-text") ?></p>
 									</div>
 								</div>
-							</a>
 							<?php
+							if($mb->_translateReturn("website_text", "add-2-url") != "")
+							{
+							?>
+								</a>
+								<?php
+							}
 						}
 						?>
 					</div>

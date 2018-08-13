@@ -17,7 +17,6 @@ switch($_actual_link)
 	break;
 	
 	// Harings Tweewielers
-	case "https://websites.justinharings.nl":
 	case "https://haringstweewielers.com":
 		$_actual_link = "https://haringstweewielers.com";
 		define("_MERCHANT_ID", 1);
@@ -33,6 +32,13 @@ switch($_actual_link)
 	case "https://decomarkt.nl":
 		$_actual_link = "https://decomarkt.nl";
 		define("_MERCHANT_ID", 13);
+	break;
+	
+	// Kingma Dierverzorging
+	case "https://kingmadieren.nl":
+	case "https://websites.justinharings.nl":
+		$_actual_link = "https://kingmadieren.nl";
+		define("_MERCHANT_ID", 4);
 	break;
 }
 

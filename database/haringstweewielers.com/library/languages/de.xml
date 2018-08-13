@@ -87,18 +87,25 @@
 	</homepage>
 	
 	<website_text>
-		<mijn_tweewielers_1>meine</mijn_tweewielers_1>
-		<mijn_tweewielers_2>fahrräder</mijn_tweewielers_2>
+		<sale>ausverkauf</sale>
 		
-		<always_free_maintenance>Immer kostenlose Wartung</always_free_maintenance>
-		<save_for_cool_gifts>Sparen Sie für Geschenke</save_for_cool_gifts>
-		<online_maintenance>Online Wartungsberichte</online_maintenance>
-		<everything_in_one_place>Alle Ihre Rechnungen an einer Stelle</everything_in_one_place>
-		<just_cool_to_have>Einfach cool zu haben!</just_cool_to_have>
+		<add-1-url>https://www.mijntweewielers.nl/</add-1-url>
 		
-		<history>geschichte</history>
-		<since_1899>seit 1899</since_1899>
-		<history_text>Mehr als 100 Jahre Erfahrung mit Fahrrädern! Wir sind der älteste Fahrradgeschäft in Holland, wir sind seit vier Generationen hier! Neugierig auf unsere reiche Geschichte?</history_text>
+		<add-1-text-1>meine</add-1-text-1>
+		<add-1-text-2>fahrräder</add-1-text-2>
+		
+		<add-1-item-1>Immer kostenlose Wartung</add-1-item-1>
+		<add-1-item-2>Sparen Sie für Geschenke</add-1-item-2>
+		<add-1-item-3>Online Wartungsberichte</add-1-item-3>
+		<add-1-item-4>Alle Ihre Rechnungen an einer Stelle</add-1-item-4>
+		<add-1-item-5>Einfach cool zu haben!</add-1-item-5>
+		
+		<add-2-url>/service/company-information.html</add-2-url>
+		
+		<add-2-text-1>geschichte</add-2-text-1>
+		<add-2-text-2>seit 1899</add-2-text-2>
+		
+		<add-2-text>Mehr als 100 Jahre Erfahrung mit Fahrrädern! Wir sind der älteste Fahrradgeschäft in Holland, wir sind seit vier Generationen hier! Neugierig auf unsere reiche Geschichte?</add-2-text>
 		
 		<sale_results>Artikel im ausverkauf!</sale_results>
 		

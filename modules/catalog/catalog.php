@@ -41,6 +41,11 @@ switch($_GET['catalog_name'])
 		$banner_prefix = "kleden";
 	break;
 	
+	case "dierenwinkel":
+		$categoryID = 101;
+		$banner_prefix = "dierenwinkel";
+	break;
+	
 	default:
 		?>
 		<script type="text/javascript">

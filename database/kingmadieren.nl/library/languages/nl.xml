@@ -23,11 +23,11 @@
 	</reviews>
 	
 	<html_head>
-	    <default_title>Harings Tweewielers</default_title>
-	    <default_description>Verstand van fietsen sinds 1899, al vier generaties lang! Thuis op het gebied van iedere soort fiets. Wereldwijde verkoop van Nederlandse merken!</default_description>
-	    <default_keywords>fietsenwinkel, online, almelo, tweewielers, batavus, sparta, popal, vogue</default_keywords>
+	    <default_title>Kingma Dierverzorging</default_title>
+	    <default_description>Uw huisdieren vriend van Almelo en omstreken! Uitlaatservice, petsitting, klein pension, tweedehands dierenartikelen en veel meer!</default_description>
+	    <default_keywords>Almelo, Twente, Uitlaten, Hondenpension, Tweedehands dieren</default_keywords>
 	    
-	    <phone>+31546816232</phone>
+	    <phone></phone>
 	    
 	    <product_description_brand>Dit product van %s is bij ons voordelig te krijgen!</product_description_brand>
 	    <product_description_sale>We hebben altijd koopjes voor jou om op te jagen! Bekijk onze sale pagina en wees er snel bij, want op is écht op!</product_description_sale>
@@ -35,7 +35,7 @@
 	    <product_description_category>Bekijk alle producten uit de categorie %s. Op een specifieke zoektocht? Gebruik dan onze uitgebreide filters om het overzicht met resultaten te verkleinen.</product_description_category>
 	    <product_description_headcategory>Blader door onze complete catalogus met %s en ontdek hoe ontzettend groot ons aanbod is! Kies uit de subcategorieën in het menu om de producten te bekijken.</product_description_headcategory>
 	    
-	    <google-site-verification>B39UOVeOwQd0ZBlZrfm-NSmb10n3XQUM6wEGC647JH0</google-site-verification>
+	    <google-site-verification></google-site-verification>
 	</html_head>
 	
 	<language_page>
@@ -44,20 +44,20 @@
 	</language_page>
 	
 	<colors>
-		<main_color>#d00000</main_color>
-		<secundary_color>#f5ecec</secundary_color>
+		<main_color>#2e2e2e</main_color>
+		<secundary_color>#e3eaf3</secundary_color>
 	</colors>
 	
 	<images>
-		<logo>haringstweewielers.png</logo>
-		<expert>experts_nl.png</expert>
+		<logo>kingmadieren.png</logo>
+		<expert>experts.png</expert>
 		<favicon>favicon.png</favicon>
 	</images>
 	
 	<urls>
-		<facebook>harings2wielers</facebook>
-		<twitter>harings2wielers</twitter>
-		<instagram>harings2wielers</instagram>
+		<facebook>kingmadieren</facebook>
+		<twitter></twitter>
+		<instagram>kingmadieren</instagram>
 		
 		<kayako></kayako>
 		<kayako-name>Harings Tweewielers</kayako-name>
@@ -66,24 +66,24 @@
 	</urls>
 	
 	<main_menu>
-		<item_1>Fietsen</item_1>
-		<item_1_url>/catalog/bicycles.html</item_1_url>
+		<item_1>Dierenwinkel</item_1>
+		<item_1_url>/catalog/dierenwinkel.html</item_1_url>
 		<item_1_colored>0</item_1_colored>
 		
-		<item_2>Accessoires</item_2>
-		<item_2_url>/catalog/accessories.html</item_2_url>
+		<item_2>Uitlaten</item_2>
+		<item_2_url>/service/uitlaatservice.html</item_2_url>
 		<item_2_colored>0</item_2_colored>
 		
-		<item_3>Onderdelen</item_3>
-		<item_3_url>/catalog/parts.html</item_3_url>
+		<item_3>Petsitting</item_3>
+		<item_3_url>/service/petsitting.html</item_3_url>
 		<item_3_colored>0</item_3_colored>
 		
-		<item_4>Opruiming!</item_4>
-		<item_4_url>/catalog/sale.html</item_4_url>
-		<item_4_colored>1</item_4_colored>
+		<item_4>Klein pension</item_4>
+		<item_4_url>/service/pension.html</item_4_url>
+		<item_4_colored>0</item_4_colored>
 		
-		<item_5>Contact</item_5>
-		<item_5_url>/service/service-and-contact.html</item_5_url>
+		<item_5>Daycare</item_5>
+		<item_5_url>/service/daycare.html</item_5_url>
 		<item_5_colored>0</item_5_colored>
 	</main_menu>
 	
@@ -101,23 +101,23 @@
 	<website_text>
 		<sale>opruiming</sale>
 		
-		<add-1-url>https://www.mijntweewielers.nl/</add-1-url>
+		<add-1-url></add-1-url>
 		
-		<add-1-text-1>mijn</add-1-text-1>
-		<add-1-text-2>tweewielers</add-1-text-2>
+		<add-1-text-1>Onze</add-1-text-1>
+		<add-1-text-2>standpunten</add-1-text-2>
 		
-		<add-1-item-1>Altijd gratis onderhoud</add-1-item-1>
-		<add-1-item-2>Sparen voor leuke cadeaus</add-1-item-2>
-		<add-1-item-3>Onderhoudshistorie online</add-1-item-3>
-		<add-1-item-4>Alle aankopen op één plek</add-1-item-4>
-		<add-1-item-5>Gewoon gaaf om te hebben!</add-1-item-5>
+		<add-1-item-1>Geen kennels, huiskamers!</add-1-item-1>
+		<add-1-item-2>Wandelen doe je 1 op 1!</add-1-item-2>
+		<add-1-item-3>Uitgebreid speelplezier!</add-1-item-3>
+		<add-1-item-4>Kennis van alle dieren!</add-1-item-4>
+		<add-1-item-5>Tweedehands, tweedekans!</add-1-item-5>
 		
-		<add-2-url>/service/company-information.html</add-2-url>
+		<add-2-url>/service/bedrijfsinformatie.html</add-2-url>
 		
-		<add-2-text-1>historie</add-2-text-1>
-		<add-2-text-2>sinds 1899</add-2-text-2>
+		<add-2-text-1>Kennis</add-2-text-1>
+		<add-2-text-2>sinds 2016</add-2-text-2>
 		
-		<add-2-text>Al meer dan 100 jaar ervaring op het gebied van fietsen! Wij zijn de oudste fietsenwinkel van Nederland, al vier generaties lang. Benieuwd naar onze rijke geschiedenis?</add-2-text>
+		<add-2-text>Hello! Ik ben Riëtte Harings-Kingma, oprichter van Kingma Dierverzorging in Almelo! En deze twee knapperds op de foto hier boven? Dat zijn mijn honden Chef en Layka! Oh ...</add-2-text>
 		
 		<sale_results>Artikelen in de opruiming!</sale_results>
 		
@@ -130,33 +130,35 @@
 	<footer>
 		<follow_us>volg ons</follow_us>
 		<customer_service>klantenservice</customer_service>
+		<customer_service_url>/service/service-and-contact.html</customer_service_url>
 		<easy_payment>makkelijk betalen</easy_payment>
+		<easy_payment_url>/service/payment-methods.html</easy_payment_url>
 		<search_shop>zoeken in onze webwinkel</search_shop>
 	</footer>
 	
 	<footer_menu>
 		<footer-1>service</footer-1>
 		
-		<footer-1-1>klantenservice</footer-1-1>
-		<footer-1-1-url>/service/customer-service.html</footer-1-1-url>
+		<footer-1-1>service en contact</footer-1-1>
+		<footer-1-1-url>/service/service-and-contact.html</footer-1-1-url>
 		
-		<footer-1-2>service en contact</footer-1-2>
-		<footer-1-2-url>/service/service-and-contact.html</footer-1-2-url>
+		<footer-1-2>bezorgen en afhalen</footer-1-2>
+		<footer-1-2-url>/service/delivery-and-pickup.html</footer-1-2-url>
 		
-		<footer-1-3>bezorgen en afhalen</footer-1-3>
-		<footer-1-3-url>/service/delivery-and-pickup.html</footer-1-3-url>
+		<footer-1-3>betalingsmethoden</footer-1-3>
+		<footer-1-3-url>/service/payment-methods.html</footer-1-3-url>
 		
-		<footer-1-4>afhaal- en servicepunten</footer-1-4>
-		<footer-1-4-url>/service/pickup-locations.html</footer-1-4-url>
+		<footer-1-4>uitlaatservice</footer-1-4>
+		<footer-1-4-url>/service/uitlaatservice.html</footer-1-4-url>
 		
-		<footer-1-5>onze matentabel</footer-1-5>
-		<footer-1-5-url>/service/size-chart.html</footer-1-5-url>
+		<footer-1-5>petsitting</footer-1-5>
+		<footer-1-5-url>/service/petsitting.html</footer-1-5-url>
 		
-		<footer-1-6>betalingsmethoden</footer-1-6>
-		<footer-1-6-url>/service/payment-methods.html</footer-1-6-url>
+		<footer-1-6>klein pension</footer-1-6>
+		<footer-1-6-url>/service/pension.html</footer-1-6-url>
 		
-		<footer-1-7>reparaties en onderhoud</footer-1-7>
-		<footer-1-7-url>/service/repair-service.html</footer-1-7-url>
+		<footer-1-7>daycare</footer-1-7>
+		<footer-1-7-url>/service/daycare.html</footer-1-7-url>
 		
 		<footer-1-8></footer-1-8>
 		<footer-1-8-url></footer-1-8-url>
@@ -164,13 +166,13 @@
 		<footer-2>bedrijf</footer-2>
 		
 		<footer-2-1>bedrijfsinformatie</footer-2-1>
-		<footer-2-1-url>/service/company-information.html</footer-2-1-url>
+		<footer-2-1-url>/service/bedrijfsinformatie.html</footer-2-1-url>
 		
-		<footer-2-2>openingstijden</footer-2-2>
-		<footer-2-2-url>/service/opening-hours.html</footer-2-2-url>
+		<footer-2-2>dierenvrienden</footer-2-2>
+		<footer-2-2-url>/service/dierenvrienden.html</footer-2-2-url>
 		
-		<footer-2-3>werken bij Harings</footer-2-3>
-		<footer-2-3-url>/service/job-offers.html</footer-2-3-url>
+		<footer-2-3>klantrecensies</footer-2-3>
+		<footer-2-3-url>/service/recensies.html</footer-2-3-url>
 		
 		<footer-3>deze website</footer-3>
 		
@@ -280,19 +282,19 @@
 	</cart>
 	
 	<product-details>
-		<call-me>Heeft u vragen over dit product? Zodra er een medewerker beschikbaar is (binnen openingstijden) bellen wij u terug met persoonlijk advies. Laat uw telefoonnummer achter!</call-me>
-		<call-me-button>telefoonnummer achterlaten</call-me-button>
-		<call-me-done>verzoek ingediend</call-me-done>
+		<call-me></call-me>
+		<call-me-button></call-me-button>
+		<call-me-done></call-me-done>
 		
-		<one>Voor 17:00 uur besteld, binnen 2 werkdagen in huis! Alle fietsen voor 95%% afgemonteerd.</one>
-		<two>Geen afleverkosten, prijs is prijs. Wij houden het transparant en eerlijk. Er komen (eventueel) alleen verzendkosten bij.</two>
-		<three>Familiebedrijf sinds 1899. Persoonlijke en échte afterservice met een glimlach.</three>
-		<four>Dagelijks vergelijken we alle prijzen met die van onze concurent. Altijd de scherpste prijs!</four>
-		<five>Afhaallocaties in Arnhem, Heerde en natuurlijk in onze winkel te Almelo. Afhalen is gratis!</five>
-		<six>Wij doen niet aan dozen schuiven. Afgemonteerd en afgesteld door de vakman!</six>
+		<one>Voor 17:00 uur besteld, binnen 2 werkdagen in huis! En natuurlijk gratis thuisbezorgd.</one>
+		<two>Verrassende nieuwe artikelen, je raakt nooit uitgeshopt op Decomarkt.nl!</two>
+		<three>Familiebedrijf sinds 1990. Persoonlijke en échte afterservice met een glimlach.</three>
+		<four>Altijd scherp geprijst en altijd kwaliteit. Onze artikelen zijn voor u gemaakt.</four>
+		<five>Met een échte (offline) winkel in Almelo! Kom lekker neuzen tussen onze artikelen.</five>
+		<six></six>
 		
 		<seven>Voor verzending hergebruiken we de verpakking van onze leveranciers. Zo besparen we flink wat bomen.</seven>
-		<eight>Het overige karton wordt opgehaald door een recycle bedrijf. De verpakking van uw fiets ligt straks misschien wel in uw printer.</eight>
+		<eight>Het overige karton wordt opgehaald door een recycle bedrijf. De verpakking ligt straks misschien wel in uw printer.</eight>
 		<nine>We verzenden alles in één keer en niet in losse verzendingen. Dat betekent minder uitlaatgassen, dus beter voor het milieu.</nine>
 		
 		<description>Extra informatie</description>

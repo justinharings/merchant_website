@@ -2049,7 +2049,7 @@ body div.content
 		{
 			width: 100%;
 			
-			margin: 20px 0px 5px 0px;
+			margin: 12px 0px 5px 0px;
 			float: left;
 			
 			font-family: 'Raleway', 'Tahoma';
@@ -2225,8 +2225,6 @@ body div.advertisement
 	
 		div.advertisement div.logo-cloud img
 		{
-			height: 30px;
-			
 			margin: 0px 30px 20px 0px;
 		}
 
