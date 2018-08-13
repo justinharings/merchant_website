@@ -560,8 +560,14 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						{
 							if($mb->_translateReturn("website_text", "add-1-url") != "")
 							{
+								$url = $mb->_translateReturn("website_text", "add-1-url");
+								
+								if(strpos($mb->_translateReturn("website_text", "add-1-url"), "http") === false)
+								{
+									$url = "/" .  _LANGUAGE_PACK . $mb->_translateReturn("website_text", "add-1-url");
+								}
 							?>
-								<a href="/<?= _LANGUAGE_PACK . $mb->_translateReturn("website_text", "add-1-url") ?>">
+								<a href="<?= $url ?>">
 								<?php
 							}
 							?>
@@ -601,8 +607,15 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						{
 							if($mb->_translateReturn("website_text", "add-2-url") != "")
 							{
+								$url = $mb->_translateReturn("website_text", "add-2-url");
+								
+								if(strpos($mb->_translateReturn("website_text", "add-2-url"), "http") === false)
+								{
+									$url = "/" .  _LANGUAGE_PACK . $mb->_translateReturn("website_text", "add-2-url");
+								}
+								
 							?>
-								<a href="/<?= _LANGUAGE_PACK . $mb->_translateReturn("website_text", "add-2-url") ?>">
+								<a href="<?= $url ?>">
 								<?php
 							}
 							?>
