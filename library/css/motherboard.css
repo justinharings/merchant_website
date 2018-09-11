@@ -177,7 +177,7 @@ body
 		
 		position: absolute;
 		top: 60px;
-		left: 100px;
+		left: 85px;
 		z-index: 990;
 	}
 	
@@ -197,18 +197,19 @@ body
 	
 	body div.notification
 	{
-		width: calc(100% - 30px);
+		width: calc(100% - 34px);
 		height: 10px;
 		
 		margin: 0px 0px 20px 0px;
 		padding: 15px;
 		display: table;
 		
-		background-color: #d00000;
+		background-color: #eff1f4;
+		border: 2px solid #3e3e3e;
 		
 		font-family: 'Raleway', 'Tahoma';	
 		font-size: 14px;
-		color: #fff;
+		color: #3e3e3e;
 	}
 	
 	body hr
@@ -526,41 +527,46 @@ body
 body div.top
 {
 	width: 100%;
-	height: 41px;
+	height: 37px;
 	
-	background-color: #fff;
-	
-	border-top: 2px solid #d00000;
-	border-bottom: 1px solid #ccc;
-	
-	-webkit-box-shadow: 0px 9px 25px -13px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 9px 25px -13px rgba(0,0,0,0.75);
-	box-shadow: 0px 9px 25px -13px rgba(0,0,0,0.75);
+	background-color: #eff1f4;
 }
 
 	body div.top div.top-left,
 	body div.top div.top-right
 	{
 		width: auto;
-		height: 41px;
+		height: 37px;
 		
 		float: left;
 	}
 	
+		body div.top div.top-left div.line-spacer
+		{
+			width: 1px;
+			height: calc(100% - 20px);
+			
+			margin: 10px 20px 0px 20px;
+			float: left;
+			
+			background-color: #dddddd;
+		}
+		
 		body div.top div.top-left div.top-item,
 		body div.top div.top-right div.top-item
 		{
 			width: auto;
-			height: 28px;
+			height: 24px;
 			
 			position: relative;
 			
-			margin: 0px 0px 0px 20px;
-			padding: 13px 0px 0px 0px;
+			margin: 0px;
+			padding: 12px 0px 0px 0px;
 			float: left;
 			
 			font-family: 'Raleway', 'Tahoma';
-			color: #aaa;
+			font-size: 13px;
+			color: #3e3e3e;
 		} /* -------- */
 		body div.top div.top-left div.top-item:first-child,
 		body div.top div.top-right div.top-item:first-child
@@ -584,7 +590,7 @@ body div.top
 				margin: 4px 0px 0px 5px;
 				float: right;
 				
-				font-size: 10px;
+				font-size: 8px;
 			} /* -------- */
 			body div.top div.top-left div.top-item span.lnr.large,
 			body div.top div.top-left div.top-item span.fa
@@ -592,7 +598,7 @@ body div.top
 				margin: 0px 5px 0px 0px;
 				float: left;
 				
-				font-size: 17px;
+				font-size: 15px;
 			}
 			
 	body div.top div.top-right
@@ -613,22 +619,14 @@ body div.top
 				height: 10px;
 				
 				position: absolute;
-				top: 41px;
-				left: 0px;
+				top: 35px;
+				left: -10px;
 				z-index: 990;
 				
-				padding: 5px 10px 10px 10px;
+				padding: 5px 10px 4px 10px;
 				display: none;
 				
-				background-color: #fff;
-				
-				border: 1px solid #ccc;
-				border-top: none;
-				
-				-moz-border-radius: 0px 0px 4px 4px;
-				-webkit-border-radius: 0px 0px 4px 4px;
-				-khtml-border-radius: 0px 0px 4px 4px;
-				border-radius: 0px 0px 4px 4px;
+				background-color: #eff1f4;
 			}
 			
 				body div.top div.top-left div.top-item div.top-item-submenu ul,
@@ -647,10 +645,15 @@ body div.top
 						list-style-type: none;
 					}
 					
+						body div.top div.top-left div.top-item div.top-item-submenu ul li a,
+						body div.top div.top-right div.top-item div.top-item-submenu ul li a
+						{
+							color: #999;
+						}
 						body div.top div.top-left div.top-item div.top-item-submenu ul li a:hover,
 						body div.top div.top-right div.top-item div.top-item-submenu ul li a:hover
 						{
-							color: #000;
+							color: #3e3e3e;
 						}
 						
 						
@@ -664,6 +667,8 @@ body div.header
 {
 	width: 100%;
 	height: 110px;
+	
+	background-color: #fff;
 }
 
 	body div.header div.header-content
@@ -671,8 +676,6 @@ body div.header
 		height: 110px;
 		
 		position: relative;
-		
-		border-bottom: 1px solid #e5e5e5;
 	}
 	
 		body div.header div.header-content img.logo,
@@ -680,7 +683,7 @@ body div.header
 		{
 			height: 60px;
 			
-			margin: 30px 0px 0px 0px;
+			margin: 27px 0px 0px 0px;
 			float: left;
 		}
 		
@@ -697,44 +700,49 @@ body div.header
 		{
 			height: 60px;
 			
-			margin: 33px 0px 0px 0px;
+			margin: 30px 0px 0px 0px;
 			float: left;
 		}
 		
-		body div.header div.header-content ul.header-menu
+		body div.header div.header-content div.search
 		{
-			position: absolute;
-			top: 48px;
-			left: 420px;
+			width: 500px;
+			height: 50px;
 			
-			margin: 0px;
-			padding: 0px;
-		}
-		body div.header div.header-content ul.header-menu.pull-left
-		{
-			left: 390px;
+			position: absolute;
+			top: 31px;
+			right: 225px;
 		}
 		
-			body div.header div.header-content ul.header-menu li
+			body div.header div.header-content div.search span.lnr
 			{
-				margin: 0px 35px 0px 0px;
-				float: left;
+				position: absolute;
+				top: 15px;
+				right: 15px;
 				
-				list-style-type: none;
-				
-				font-family: 'Raleway', 'Tahoma';
-				font-size: 20px;
+				font-size: 25px;
 			}
-			
-				body div.header div.header-content ul.header-menu li a:hover,
-				body div.header div.header-content ul.header-menu li a.red
-				{
-					color: #d00000;
-				}
+		
+			body div.header div.header-content div.search input
+			{
+				width: calc(100% - 85px);
+				height: 46px;
+				
+				padding: 4px 60px 0px 25px;
+				
+				border: 1px solid #d6d7d9;
+				
+				font-family: 'Raleway';
+				
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+				-khtml-border-radius: 20px;
+				border-radius: 20px;
+			}
 		
 		body div.header div.header-content ul.header-icons
 		{
-			margin: 45px 0px 0px 0px;
+			margin: 32px 0px 0px 0px;
 			padding: 0px;
 			float: right;
 		}
@@ -759,10 +767,14 @@ body div.header
 				
 				cursor: pointer;
 			}
+			body div.header div.header-content ul.header-icons li.more-margin
+			{
+				margin-right: 5px;
+			}
 			
 				body div.header div.header-content ul.header-icons li span.lnr
 				{
-					font-size: inherit;
+					font-size: 45px;
 				} /* -------- */
 				body div.header div.header-content ul.header-icons li span.lnr.lnr-cart
 				{
@@ -816,8 +828,8 @@ body div.header
 				
 				body div.header div.header-content ul.header-icons li div.cart-count
 				{
-					width: 20px !important;
-					height: 18px !important;
+					width: 30px !important;
+					height: 28px !important;
 					
 					position: absolute;
 					top: 0px;
@@ -833,7 +845,7 @@ body div.header
 					border-radius: 20px;
 					
 					font-family: 'Raleway', 'Tahoma';
-					font-size: 12px;
+					font-size: 20px;
 					color: #fff;
 					text-align: center;
 				}
@@ -845,16 +857,15 @@ body div.header
 					height: 30px;
 					
 					position: absolute;
-					top: 40px;
-					right: 0px;
+					top: 60px;
+					right: 5px;
 					z-index: 990;
 					
 					padding: 10px;
 					display: none;
 					
-					background-color: #f5ecec;
-					border: 1px solid #eee;
-					border-bottom: 3px solid #eee;
+					background-color: #eff1f4;
+					border: 1px solid #eff1f4;
 					
 					color: #000 !important;
 					
@@ -878,7 +889,7 @@ body div.header
 						right: 20px;
 						
 						font-size: 20px;
-						color: #f5ecec;
+						color: #eff1f4;
 					}
 					
 					body div.header div.header-content ul.header-icons li div.search-field span.fa-caret-up
@@ -942,19 +953,59 @@ body div.header
 			
 						cursor: pointer;
 					}
-					body div.header div.header-content ul.header-icons li div.cart-notification div.button.light,
-					body div.header div.header-content ul.header-icons li div.search-field div.button.light
+					body div.header div.header-content ul.header-icons li div.cart-notification div.button.dark,
+					body div.header div.header-content ul.header-icons li div.search-field div.button.dark
 					{
 						margin: 5px 0px 0px 0px;
 						
-						background-color: #fff;
+						background-color: #3e3e3e;
 						
-						color: inherit !important;
+						color: #fff !important;
 					}
 					body div.header div.header-content ul.header-icons li div.cart-notification div.button.light:hover,
 					body div.header div.header-content ul.header-icons li div.search-field div.button.light:hover
 					{
 						background-color: #ebc4c4;
+					}
+	
+	body div.header-menu
+	{
+		width: 100%;
+		height: 10px;
+		
+		display: table;
+		
+		background-color: #3e3e3e;
+	}
+	
+		body div.header-menu div.header-content
+		{
+			height: 10px;
+			
+			display: table;
+		}
+					
+			body div.header-menu div.header-content ul.header-menu
+			{
+				margin: 0px;
+				padding: 0px;
+			}
+			
+				body div.header-menu div.header-content ul.header-menu li
+				{
+					margin: 15px 30px 15px 0px;
+					float: left;
+					
+					list-style-type: none;
+					
+					font-family: 'Raleway', 'Tahoma';
+					font-size: 20px;
+					color: #e0dede;
+				}
+				
+					body div.header-menu div.header-content ul.header-menu li a:hover
+					{
+						color: #fff;
 					}
 				
 				
@@ -1328,6 +1379,7 @@ body div.content
 			body div.page-content div.checkout-form select
 			{
 				width: 218px;
+				height: 32px;
 			}
 	
 		body div.page-content ul.checkout-choices
@@ -1406,7 +1458,7 @@ body div.content
 					}
 					body div.page-content ul.checkout-choices li div.choice span.active
 					{
-						color: #d00000 !important;
+						color: #3e3e3e !important;
 					}
 					
 				body div.page-content ul.checkout-choices li div.data
@@ -1778,7 +1830,7 @@ body div.content
 				display: inline-block;
 				
 				font-family: FontAwesome;
-				color: #d00000;
+				color: #3e3e3e;
 			}
 			body div.page-content div.order-info.eco ul li:before
 			{
@@ -1916,19 +1968,22 @@ body div.content
 					font-weight: bold;
 				}
 		
-	body div.page-content div.no-results
+	body div.page-content div.no-results,
+	body div.container div.no-results
 	{
 		width: 300px;
-		height: 300px;
+		height: 10px;
 		
-		margin: 40px auto 0px auto;
+		margin: 40px auto 20px auto;
+		display: table;
 		
 		font-family: 'Raleway', 'Tahoma';
 		font-size: 25px;
 		text-align: center;
 	}
 	
-		body div.page-content div.no-results span
+		body div.page-content div.no-results span,
+		body div.container div.no-results span
 		{
 			width: 100%;
 			
@@ -2217,14 +2272,20 @@ body div.advertisement
 		height: 1px;
 		
 		margin: 60px 0px 0px 0px;
+		padding: 50px 0px 35px 0px;
 		
 		display: table;
 		
 		text-align: center;
+		
+		background-color: #f1f1f1;
 	}
 	
 		div.advertisement div.logo-cloud img
 		{
+			width: auto;
+			height: 25px;
+			
 			margin: 0px 30px 20px 0px;
 		}
 
@@ -2232,10 +2293,10 @@ body div.footer
 {
 	width: 100%;
 	
-	margin: 40px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 	padding: 30px 0px;
 	
-	background-color: #d00000;
+	background-color: #3e3e3e;
 }
 
 	body div.footer div.block

@@ -56,10 +56,8 @@ RewriteRule ^([^/]*)/errors/([^/]*)\.html$ /modules/errors/$2.php?language_pack=
 RewriteRule ^([^/]*)/currency/([^/]*)/$ /?language_pack=$1&currency=$2 [L]
 
 
-<FilesMatch "\.(?i:gif|jpe?g|png|ico|css|js|swf)$">
-
-  <IfModule mod_headers.c>
-    Header set Cache-Control "max-age=172800, public, must-revalidate"
-  </IfModule>
-
-</FilesMatch>
+<IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</IfModule>

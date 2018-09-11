@@ -134,7 +134,7 @@ if($details['deleted'] == 1)
 	
 	<div class="follow-scroll">
 		<div class="cart-info">
-			<?= $details['brand'] ?><br/>
+			<?= $details['brand'] != "" ? $details['brand'] . "<br/>" : "" ?>
 			<strong class="name">
 				<span itemprop="name">
 					<?= $name ?>
@@ -248,7 +248,7 @@ if($details['deleted'] == 1)
 				{
 					?>
 					<form id="callback" method="post" action="/library/php/posts/callback.php">
-						<input type="text" name="phone_number" id="phone_number" value="" autocomplete="off" />
+						<input type="text" name="phone_number" id="phone_number" value="" placeholder="<?= $mb->_translateReturn("product-details", "call-me-text") ?>" autocomplete="off" />
 						
 						<input type="hidden" name="productID" id="productID" value="<?= $details['productID'] ?>" />
 						<input type="hidden" name="returnURL" id="returnURL" value="<?= $actual_link ?>" />

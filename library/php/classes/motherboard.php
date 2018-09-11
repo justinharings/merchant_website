@@ -276,6 +276,58 @@ class main_board
 					return (($amount * $target));
 				}
 			break;
+			
+			case "USD":
+				$target = $mb->replaceCurrency("USD");
+				
+				if($target == 0)
+				{
+					return ($amount);
+				}
+				else
+				{
+					return (($amount * $target));
+				}
+			break;
+			
+			case "DKK":
+				$target = $mb->replaceCurrency("DKK");
+				
+				if($target == 0)
+				{
+					return ($amount);
+				}
+				else
+				{
+					return (($amount * $target));
+				}
+			break;
+			
+			case "NOK":
+				$target = $mb->replaceCurrency("NOK");
+				
+				if($target == 0)
+				{
+					return ($amount);
+				}
+				else
+				{
+					return (($amount * $target));
+				}
+			break;
+			
+			case "CHF":
+				$target = $mb->replaceCurrency("CHF");
+				
+				if($target == 0)
+				{
+					return ($amount);
+				}
+				else
+				{
+					return (($amount * $target));
+				}
+			break;
 		}
 	}
 }

@@ -238,6 +238,7 @@ else
 							
 							<div class="data">
 								<strong><?= $shipment['name'] ?></strong>
+								 - <small><?= $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($shipment['price'], $_SESSION['currency']), $_SESSION['currency']) ?></small>
 							</div>
 						</li>
 						<?php

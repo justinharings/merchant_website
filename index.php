@@ -30,7 +30,8 @@ foreach($_SESSION AS $key => $session)
 
 $_real_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $_clean_url = "http://$_SERVER[HTTP_HOST]";
-define("_DEVELOPMENT_ENVIRONMENT", (strpos($_real_url, "websites.") !== false ? true : false));
+// define("_DEVELOPMENT_ENVIRONMENT", (strpos($_real_url, "websites.") !== false ? true : false));
+define("_DEVELOPMENT_ENVIRONMENT", true);
 
 
 
@@ -40,9 +41,9 @@ define("_DEVELOPMENT_ENVIRONMENT", (strpos($_real_url, "websites.") !== false ? 
 **	some settings before redirecting.
 */
 
+require_once(__DIR__ . "/library/php/routers/currency.php");
 require_once(__DIR__ . "/library/php/routers/language.php");
 require_once(__DIR__ . "/library/php/routers/paylink.php");
-require_once(__DIR__ . "/library/php/routers/currency.php");
 require_once(__DIR__ . "/library/php/routers/countries.php");
 
 
@@ -212,7 +213,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		<link type="image/x-icon" rel="shortcut icon" href="/database/<?= _DATABASE_FOLDER ?>/library/media/<?= $mb->_translateReturn("images", "favicon") ?>" />
 		
 		<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
-		<link rel="stylesheet" type="text/css" href="/library/css/motherboard.minified.css?vers=<?= filemtime(str_replace(" ", "-", $_SERVER['DOCUMENT_ROOT'] . "/library/css/motherboard.minified.css")) ?>" />
+		<link rel="stylesheet" type="text/css" href="/library/css/motherboard.minified.css?vers=<?= base64_encode(filemtime(str_replace(" ", "-", $_SERVER['DOCUMENT_ROOT'] . "/library/css/motherboard.minified.css"))) ?>" />
 
 		<?php
 		if($open && $mb->_translateReturn("urls", "kayako") != "")
@@ -224,7 +225,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		?>
 
 		<script type="text/javascript" src="//code.jquery.com/jquery-latest.js"></script>
-		<script type="text/javascript" src="/library/js/motherboard.minified.js?vers=<?= filemtime(str_replace(" ", "-", $_SERVER['DOCUMENT_ROOT'] . "/library/js/motherboard.minified.js")) ?>"></script>
+		<script type="text/javascript" src="/library/js/motherboard.minified.js?vers=<?= base64_encode(filemtime(str_replace(" ", "-", $_SERVER['DOCUMENT_ROOT'] . "/library/js/motherboard.minified.js"))) ?>"></script>
 		
 		<style type="text/css">
 			p a
@@ -269,7 +270,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		}
 		?>
 		
-		<div class="top" style="border-top: 2px solid <?= $mb->_translateReturn("colors", "main_color") ?> !important;">
+		<div class="top">
 			<div class="container">
 				<div class="top-left">
 					<div class="top-item submenu-active">
@@ -323,6 +324,8 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						</a>
 					</div>
 					
+					<div class="line-spacer"></div>
+					
 					<div class="top-item submenu-active">
 						<?= _CURRENCY ?> (<?= _CURRENCY_SIGN ?>)
 						
@@ -365,6 +368,8 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 					if($mb->_translateReturn("urls", "kayako") != "")
 					{
 						?>
+						<div class="line-spacer"></div>
+						
 						<div class="hide-mobile top-item text-<?= $open ? "green open-kayako" : "" ?>">
 							<span class="lnr lnr-bubble large"></span>
 							<?= $open ? $mb->_translateReturn("others", "chat_online") : $mb->_translateReturn("others", "chat_offline") ?>
@@ -383,7 +388,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 					{
 						?>
 						<div class="top-item">
-							<a href="https://www.instagram.com/<?= $mb->_translateReturn("urls", "instagram") ?>/" target="_blank" class="text-color-instagram">
+							<a href="https://www.instagram.com/<?= $mb->_translateReturn("urls", "instagram") ?>/" target="_blank">
 								<span class="fa fa-instagram"></span>
 								
 								<?= $mb->_returnTXT("instagram_" . $mb->_translateReturn("urls", "instagram")) ?>
@@ -400,7 +405,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 					{
 						?>
 						<div class="hide-mobile top-item">
-							<a href="https://www.twitter.com/<?= $mb->_translateReturn("urls", "twitter") ?>/" target="_blank" class="text-color-twitter">
+							<a href="https://www.twitter.com/<?= $mb->_translateReturn("urls", "twitter") ?>/" target="_blank">
 								<span class="fa fa-twitter"></span>
 								
 								<?= $mb->_returnTXT("twitter_" . $mb->_translateReturn("urls", "twitter")) ?>
@@ -417,7 +422,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 					{
 						?>
 						<div class="top-item">
-							<a href="https://www.facebook.com/<?= $mb->_translateReturn("urls", "facebook") ?>/" target="_blank" class="text-color-facebook">
+							<a href="https://www.facebook.com/<?= $mb->_translateReturn("urls", "facebook") ?>/" target="_blank">
 								<span class="fa fa-facebook-square"></span>
 								
 								<?= $mb->_returnTXT("facebook_" . $mb->_translateReturn("urls", "facebook")) ?>
@@ -457,21 +462,20 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 							?>
 						</div>
 						
-						<nav>
-							<?php
-							if(file_exists(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/menus/main_menu.php"))
-							{
-								require_once(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/menus/main_menu.php");
-							}
-							?>
-						</nav>
+						<div class="search">
+							<form method="post" onsubmit="window.location.href = '/<?= _LANGUAGE_PACK ?>/search/' + search.value; return false;">
+								<input type="text" name="search" id="search" value="" autocomplete="off" placeholder="<?= $mb->_translateReturn("website_text", "search") ?>" />
+							</form>
+							
+							<span class="lnr lnr-magnifier"></span>
+						</div>
 						
 						<ul class="header-icons">
 							<li>
 								<span class="lnr lnr-cart" click="/<?= _LANGUAGE_PACK ?>/system/cart.html"></span>
 								<div class="cart-count" style="background-color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;" click="/<?= _LANGUAGE_PACK ?>/system/cart.html"><?= $mb->_runFunction("cart", "countCartItems") ?></div>
 								
-								<div class="cart-notification" style="background-color: <?= $mb->_translateReturn("colors", "secundary_color") ?> !important;">
+								<div class="cart-notification">
 									<span class="fa fa-caret-up"></span>
 									
 									<strong><?= $mb->_translateReturn("cart", "added-cart") ?></strong>
@@ -480,16 +484,16 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 										<?= $mb->_translateReturn("cart", "button-goto-cart") ?>
 									</div>
 									
-									<div class="button light">
+									<div class="button dark">
 										<?= $mb->_translateReturn("cart", "button-continue-shopping") ?>
 									</div>
 								</div>
 							</li>
 							
-							<li>
+							<li class="show-mobile">
 								<span class="lnr lnr-magnifier open-search"></span>
 								
-								<div class="search-field" style="background-color: <?= $mb->_translateReturn("colors", "secundary_color") ?> !important;">
+								<div class="search-field">
 									<span class="fa fa-caret-up"></span>
 									
 									<strong><?= $mb->_translateReturn("website_text", "search") ?></strong>
@@ -500,14 +504,35 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 								</div>
 							</li>
 							
-							<li class="show-mobile">
+							<li>
 								<span class="lnr lnr-phone-handset" lang="<?= _LANGUAGE_PACK ?>"></span>
 							</li>
 							
-							<li class="show-mobile">
-								<span class="lnr lnr-map-marker" lang="<?= _LANGUAGE_PACK ?>"></span>
+							<li class="more-margin">
+								<span class="lnr lnr-map more-margin" lang="<?= _LANGUAGE_PACK ?>"></span>
 							</li>
 						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="header-menu">
+				<div class="container">
+					<div class="header-content">
+						<nav>
+							<ul class="header-menu">
+								<li>
+									<a href="/<?= _LANGUAGE_PACK ?>/">Home</a>
+								</li>
+								
+								<?php
+								if(file_exists(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/menus/main_menu.php"))
+								{
+									require_once(__DIR__ . "/database/" . _DATABASE_FOLDER . "/library/menus/main_menu.php");
+								}
+								?>
+							</ul>
+						</nav>
 					</div>
 				</div>
 			</div>
@@ -517,7 +542,7 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			<div class="content">
 				<div class="container">
 					<?php
-					if($settings['note_content'])
+					if($settings['note_content'] && ($_GET['module'] != "system"))
 					{
 						?>
 						<div class="notification">
@@ -651,21 +676,30 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						}
 						?>
 					</div>
-					
-					<div class="logo-cloud">
-						<?php
-						foreach($logos AS $logo)
-						{
-							?>
-							<img src="<?= $logo['image'] ?>" click="<?= $logo['url'] ?>" />
-							<?php
-						}
-						?>
-					</div>
 				</div>
+				
+				<?php
+				if(count($logos) > 0)
+				{
+					?>
+					<div class="logo-cloud">
+						<div class="container">
+							<?php
+							foreach($logos AS $logo)
+							{
+								?>
+								<img src="<?= $logo['image'] ?>" click="<?= $logo['url'] ?>" />
+								<?php
+							}
+							?>
+						</div>
+					</div>
+					<?php
+				}
+				?>
 			</div>
 			
-			<div class="footer" style="background-color: <?= $mb->_translateReturn("colors", "main_color") ?> !important;">
+			<div class="footer">
 				<div class="container">
 					<div class="block hide-portrait">
 						<strong><?= $mb->_translateReturn("footer", "follow_us") ?></strong>
@@ -773,14 +807,43 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			</div>
 		</footer>
 		
-		<script>
-			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		<input type="hidden" name="mobile" id="mobile" value="0" />
+		<input id="reloadValue" type="hidden" name="reloadValue" value="" />
 		
-			  ga('create', 'UA-100999595-1', 'auto');
-			  ga('send', 'pageview');
+		<script type="text/javascript">
+				window.onpageshow = function(event) 
+				{
+				    if (event.persisted) 
+				    {
+				        window.location.reload() 
+				    }
+				};
+				
+				jQuery(document).ready(
+					function()
+					{
+						var d = new Date();
+						d = d.getTime();
+						
+						if(jQuery('#reloadValue').val().length == 0)
+						{
+							jQuery('#reloadValue').val(d);
+							jQuery('body').show();
+						}
+						else
+						{
+							location.reload();
+						}
+					}
+				);
+			
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+				
+				ga('create', 'UA-100999595-1', 'auto');
+				ga('send', 'pageview');
 		</script>
 		
 		<script type="application/ld+json">
@@ -855,7 +918,5 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			}
 
 		</script>
-		
-		<input type="hidden" name="mobile" id="mobile" value="0" />
 	</body>
 </html>

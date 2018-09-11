@@ -12,7 +12,7 @@
 /* Mobile */
 @media only screen 
 	and (min-width : 280px) 
-	and (max-width : 830px)
+	and (max-width : 760px)
 {
 	.hide-landscape,
 	.hide-portrait,
@@ -31,6 +31,11 @@
 		left: 50% !important;
 		
 		margin: 0px 0px 0px -150px !important;
+	}
+	
+	body div.header div.header-content div.search
+	{
+		display: none !important;
 	}
 	
 	div.container-mobile
@@ -52,12 +57,17 @@
 	
 	body div.top-left
 	{
-		margin: 0px 0px 0px 10px;
+		margin: 0px 0px 0px 20px;
 	}
 	
 	body div.top-right
 	{
-		margin: 0px 10px 0px 0px;
+		margin: 0px 20px 0px 0px;
+	}
+	
+	body div.top div.top-left div.line-spacer
+	{
+		margin: 10px 10px 0px 10px !important;
 	}
 	
 	div.header
@@ -65,8 +75,14 @@
 		display: table;
 	}
 	
+	body div.header-menu div.header-content
+	{
+		width: 100% !important;
+	}
+	
 	div.header-content
 	{
+		padding-bottom: 20px;
 		display: table;
 	}
 	
@@ -74,9 +90,11 @@
 	div.sub-header-menu
 	{
 		width: 90%;
+		height: 10px;
 		
 		margin: 20px auto;
 		padding: 10px 0px;
+		display: table;
 		
 		position: relative;
 		
@@ -91,7 +109,7 @@
 	
 	div.main-header-menu
 	{
-		margin: 20px auto 5px auto !important;
+		margin: 20px auto 0px auto !important;
 	}
 	
 	div.sub-header-menu
@@ -114,25 +132,24 @@
 		color: #bbb;
 	}
 	
+	body div.header-menu div.header-content ul.header-menu li
+	{
+		color: #000 !important;
+	}
+	
 	div.sub-header-menu ul.head,
 	div.sub-header-menu div.filterForm
 	{
-		position: absolute;
-		top: 31px !important;
-		right: 0px !important;
-		left: 0px !important;
-		z-index: 990 !important;
-		
 		padding: 10px 0px !important;
 		display: none;
 		
 		background-color: #fff;
-		border: 1px solid #eee;
+		border-top: 1px solid #eee;
 	}
 	
 	div.sub-header-menu div.filterForm
 	{
-		top: 41px !important;
+		margin: 10px 0px 0px 0px;
 	}
 	
 	div.sub-header-menu div.filterForm input[type='button']
@@ -141,6 +158,8 @@
 		
 		margin: 10px 10px 0px 10px;
 		float: left;
+		
+		background-color: #3e3e3e;
 	}
 	
 	div.sub-header-menu ul
@@ -212,6 +231,13 @@
 	body div.homepage div.line-3
 	{
 		display: none !important;
+	}
+	
+	body div.notification
+	{
+		width: calc(90% - 32px) !important;
+		
+		margin: 0px auto 20px auto !important;
 	}
 	
 	body div.homepage div.line-2
@@ -334,15 +360,16 @@
 	
 	ul.header-menu
 	{
-		top: 41px !important;
+		top: 0px !important;
 		right: 0px !important;
 		left: 0px !important;
 		z-index: 990;
 		
-		padding: 10px 0px !important;
+		margin: 10px 0px 0px 0px !important;
+		padding: 10px 0px 0px 0px !important;
 		
 		background-color: #fff;
-		border: 1px solid #eee;
+		border-top: 1px solid #eee;
 	}
 	
 	ul.header-menu li

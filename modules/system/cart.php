@@ -1,8 +1,4 @@
 <div class="container-mobile">
-	<h1><?= $mb->_translateReturn("cart", "shoppingcart") ?></h1>
-	
-	<hr/>
-	
 	<?php
 	if(isset($_GET['error']))
 	{
@@ -35,6 +31,7 @@
 	if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0)
 	{
 		$total = 0;
+		$used = array();
 		
 		foreach($_SESSION['cart'] AS $key => $item)
 		{
@@ -54,12 +51,20 @@
 			
 			if($product['shipments']['pay_once'] == 1)
 			{
-				$loop = 1;
+				if(in_array($product['shipments']['shipmentID'], $used))
+				{
+					$loop = 0;
+				}
+				else
+				{
+					$loop = 1;
+				}
 			}
 			
 			for($i = 0; $i < $loop; $i++)
 			{
 				$shipment_data[] = $product['shipments'];
+				$used[] = $product['shipments']['shipmentID'];
 			}
 			
 			foreach($product['images'] AS $media)
@@ -156,7 +161,7 @@
 		$_SESSION['shipment_array'] = $shipmentArray;
 		?>
 		
-		<div class="totals" style="background-color: <?= $mb->_translateReturn("colors", "secundary_color") ?> !important;">
+		<div class="totals">
 			<table>
 				<tr>
 					<td width="66%">&nbsp;</td>
@@ -195,9 +200,10 @@
 	else
 	{
 		?>
-		<br/>
-		<h2><?= $mb->_translateReturn("cart", "no-items") ?></h2>
-		<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "button-continue-shopping") ?>" class="white" click="/<?= _LANGUAGE_PACK ?>/" />
+		<div class="no-results">
+			<span class="fa fa-shopping-bag"></span><br/><br/>
+			<?= $mb->_translateReturn("cart", "no-items") ?><br/><br/>
+		</div>
 		<?php
 	}
 	?>

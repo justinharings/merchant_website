@@ -66,7 +66,7 @@
 		<item_3_url>/catalog/parts.html</item_3_url>
 		<item_3_colored>0</item_3_colored>
 		
-		<item_4>In sale!</item_4>
+		<item_4>In sale</item_4>
 		<item_4_url>/catalog/sale.html</item_4_url>
 		<item_4_colored>1</item_4_colored>
 		
@@ -269,12 +269,13 @@
 	
 	<product-details>
 		<call-me>Questions about this product? As soon as there's a employee available (within business hours) we'd like to call you back to answer your questions. Leave us your phone number below!</call-me>
+		<call-me-text>Your phone number</call-me-text>
 		<call-me-button>send us your number!</call-me-button>
 		<call-me-done>request sent</call-me-done>
 		
 		<one>Ordered before 5 PM, delivered in 5 business days! All bicycles are 90%% assembled!</one>
 		<two>No extra costs, the price is the price. We keep it transparent and fair. Only the shipment and export fee is optional.</two>
-		<three>Family business since 1899. Personal and real afterservice with a big smile.</three>
+		<three>Family company since 1899. Personal and real after service with a big smile.</three>
 		<four>We compare our prices daily with the other online shops. Always the best price!</four>
 		<five></five>
 		<six></six>

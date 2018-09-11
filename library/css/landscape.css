@@ -1,6 +1,6 @@
 /* Tablet: Landscape */
 @media only screen 
-	and (min-width : 1040px) 
+	and (min-width : 1020px) 
 	and (max-width : 1250px)
 {
 	.hide-landscape
@@ -10,7 +10,12 @@
 	
 	body div.container
 	{
-		width: 1000px !important;
+		width: 980px !important;
+	}
+	
+	body div.header div.header-content div.search
+	{
+		width: 350px !important;
 	}
 	
 	body div.header div.header-content img.expert
@@ -85,7 +90,7 @@
 	
 	body div.page-content div.image
 	{
-		width: 550px !important;
+		width: 500px !important;
 	}
 	
 	body div.page-content div.images
@@ -125,8 +130,9 @@
 		width: 1%;
 	}
 	
-	div.homepage div.line-4 div.item
+	div.footer-menu div.menu-block img
 	{
-		height: 350px !important;
+		width: 175px !important;
+		height: auto !important;
 	}
 }

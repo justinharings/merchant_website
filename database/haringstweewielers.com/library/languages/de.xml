@@ -275,6 +275,7 @@
 	
 	<product-details>
 		<call-me>Fragen zu diesem Produkt? Sobald ein Mitarbeiter verfügbar ist (innerhalb der Geschäftszeiten), möchten wir Sie gerne zurückrufen, um Ihre Fragen zu beantworten. Hinterlassen Sie uns Ihre Telefonnummer!</call-me>
+		<call-me-text>Deine nummer</call-me-text>
 		<call-me-button>sende uns deine nummer!</call-me-button>
 		<call-me-done>anfrage geschickt</call-me-done>
 		

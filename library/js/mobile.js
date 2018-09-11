@@ -8,25 +8,30 @@ $(document).ready(
 			}
 		);
 		
-		$(window).trigger("resize");
+		setTimeout(
+			function()
+			{
+				$(window).trigger("resize");
+			}, 300
+		);
 		
 		setTimeout(
 			function()
 			{
 				$(".mobile-load").css("visibility", "hidden");
-			}, 200
+			}, 500
 		);
 	}
 );
 
 function _mobile()
 {
-	if($(window).width() > 830 && $("input#mobile").val() == 1)
+	if($(window).width() > 760 && $("input#mobile").val() == 1)
 	{
 		$("body").hide();
 		document.location.href = document.location.href;
 	}
-	else if($(window).width() <= 830 && $("input#mobile").val() == 0)
+	else if($(window).width() <= 760 && $("input#mobile").val() == 0)
 	{
 		$("input#mobile").val(1);
 		
@@ -80,13 +85,13 @@ function _mobile()
 				
 				$("div.search-field").hide();
 				
-				if($(this).find("ul.header-menu").css("display") == "block")
+				if($(this).find("ul.header-menu").css("display") == "table")
 				{
 					$(this).find("ul.header-menu").hide();
 				}
 				else
 				{
-					$(this).find("ul.header-menu").show();
+					$(this).find("ul.header-menu").css("display", "table");
 				}
 			}
 		);
@@ -100,14 +105,14 @@ function _mobile()
 			
 				$("div.search-field").hide();
 				
-				if($(this).find("ul.head").css("display") == "block")
+				if($(this).find("ul.head").css("display") == "table")
 				{
 					$(this).find("ul.head").hide();
 					$(this).find("span.fa-caret-up").removeClass("fa-caret-up").addClass("fa-caret-down");
 				}
 				else
 				{
-					$(this).find("ul.head").show();
+					$(this).find("ul.head").css("display", "table");
 					$(this).find("span.fa-caret-down").removeClass("fa-caret-down").addClass("fa-caret-up");
 				}
 			}
@@ -122,14 +127,14 @@ function _mobile()
 			
 				$("div.search-field").hide();
 				
-				if($(this).find("div.filterForm").css("display") == "block")
+				if($(this).find("div.filterForm").css("display") == "table")
 				{
 					$(this).find("div.filterForm").hide();
 					$(this).find("span.fa-caret-up").removeClass("fa-caret-up").addClass("fa-caret-down");
 				}
 				else
 				{
-					$(this).find("div.filterForm").show();
+					$(this).find("div.filterForm").css("display", "table");
 					$(this).find("span.fa-caret-down").removeClass("fa-caret-down").addClass("fa-caret-up");
 				}
 			}

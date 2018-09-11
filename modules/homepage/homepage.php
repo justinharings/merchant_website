@@ -54,26 +54,33 @@ $favorites = $mb->_runFunction("catalog", "viewFavorites", array());
 		<div class="line-4">
 			<div class="title"><?= $mb->_translateReturn("homepage", "most_valued_products") ?></div>
 			
-			<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $favorites[0]['productID'] ?>/<?= _createCategoryURL($favorites[0]['name']) ?>.html">
-				<div class="item first">
-					<img src="<?= $favorites[0]['image'] ?>" /><br/>
-					<?= $_currencies_symbols[$_SESSION['currency']] ?>&nbsp;<?= _frontend_float($mb->replaceCurrency($favorites[0]['price'], $_SESSION['currency']), $_SESSION['currency']) ?>
-				</div>
-			</a>
+			<?php
+			$column = 3;
+			$row = 1;
 			
-			<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $favorites[1]['productID'] ?>/<?= _createCategoryURL($favorites[1]['name']) ?>.html">
-				<div class="item">
-					<img src="<?= $favorites[1]['image'] ?>" /><br/>
-					<?= $_currencies_symbols[$_SESSION['currency']] ?>&nbsp;<?= _frontend_float($mb->replaceCurrency($favorites[1]['price'], $_SESSION['currency']), $_SESSION['currency']) ?>
-				</div>
-			</a>
-			
-			<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $favorites[2]['productID'] ?>/<?= _createCategoryURL($favorites[2]['name']) ?>.html">
-				<div class="item">
-					<img src="<?= $favorites[2]['image'] ?>" /><br/>
-					<?= $_currencies_symbols[$_SESSION['currency']] ?>&nbsp;<?= _frontend_float($mb->replaceCurrency($favorites[2]['price'], $_SESSION['currency']), $_SESSION['currency']) ?>
-				</div>
-			</a>
+			for($i = 0; $i < 9; $i++)
+			{
+				if($favorites[$i]['name'] != "")
+				{
+					?>
+					<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $favorites[$i]['productID'] ?>/<?= _createCategoryURL($favorites[$i]['name']) ?>.html">
+						<div class="item <?= $i == 0 ? "first" : "" ?> <?= $row > 1 ? "top-line" : "" ?>">
+							<img src="<?= $favorites[$i]['image'] ?>" /><br/>
+							<?= $_currencies_symbols[$_SESSION['currency']] ?>&nbsp;<?= _frontend_float($mb->replaceCurrency($favorites[$i]['price'], $_SESSION['currency']), $_SESSION['currency']) ?>
+						</div>
+					</a>
+					<?php
+				
+					$column--;
+				}
+				
+				if($column == 0)
+				{
+					$column = 3;
+					$row++;
+				}
+			}
+			?>
 		</div>
 		<?php
 	}

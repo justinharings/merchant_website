@@ -1,8 +1,9 @@
 /* Tablet: portrait */
 @media only screen 
-	and (min-width : 830px) 
-	and (max-width : 1040px)
+	and (min-width : 760px) 
+	and (max-width : 1020px)
 {
+	
 	.hide-landscape,
 	.hide-portrait
 	{
@@ -11,18 +12,17 @@
 	
 	body div.container
 	{
-		width: 800px !important;
+		width: 740px !important;
 	}
 	
-	body div.header,
-	body div.header div.header-content
+	body div.header div.header-content div.search
 	{
-		height: 90px !important;
+		width: 300px !important;
 	}
 	
-	body div.header div.header-content img.logo
+	body div.header-menu div.header-content ul.header-menu li
 	{
-		height: 50px !important;
+		font-size: 15px !important;
 	}
 	
 	body div.header div.header-content img.expert
@@ -93,23 +93,25 @@
 	
 	body div.page-content div.product-container
 	{
-		width: calc(50% - 30px) !important;
+		width: calc(50% - 35px) !important;
 	}
 	
 	body div.page-content div.product-container div.img-holder
 	{
-		width: 225px !important;
-		height: 225px !important;
+		width: 220px !important;
+		height: 220px !important;
 	}
 	
 	body div.page-content div.images
 	{
-		height: 370px !important;
+		display: none !important;
 	}
 	
 	body div.page-content div.image
 	{
-		width: 370px !important;
+		width: 440px !important;
+		
+		margin: 0px !important;
 	}
 	
 	body div.page-content div.description,
@@ -144,9 +146,22 @@
 		width: 1%;
 	}
 	
-	div.homepage div.line-4 div.item
+	body div.footer div.block input
 	{
-		height: 290px !important;
+		width: 200px !important;
+	}
+	
+	div.footer-menu div.menu-block img
+	{
+		width: 135px !important;
+		height: auto !important;
+	}
+	
+	div.advertisement div.logo-cloud img
+	{
+		height: 18px !important;
+		
+		margin: 0px 25px 15px 0px !important;
 	}
 	
 	div.footer-menu div.menu-block ul li

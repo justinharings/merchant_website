@@ -18,6 +18,7 @@ switch($_actual_link)
 	
 	// Harings Tweewielers
 	case "https://haringstweewielers.com":
+	case "https://websites.justinharings.nl":
 		$_actual_link = "https://haringstweewielers.com";
 		define("_MERCHANT_ID", 1);
 	break;
@@ -36,7 +37,6 @@ switch($_actual_link)
 	
 	// Kingma Dierverzorging
 	case "https://kingmadieren.nl":
-	case "https://websites.justinharings.nl":
 		$_actual_link = "https://kingmadieren.nl";
 		define("_MERCHANT_ID", 4);
 	break;
@@ -120,12 +120,14 @@ $_default_currency = array(
 **
 */
 
-$_recognized_currencies = array();
-
-foreach($_found_languages AS $abbreviation)
-{
-	$_recognized_currencies[] = $_default_currency[strtolower($abbreviation)];
-}
+$_recognized_currencies = array(
+	"EUR",
+	"GBP",
+	"USD",
+	"DKK",
+	"NOK",
+	"CHF"
+);
 
 
 
@@ -138,7 +140,11 @@ foreach($_found_languages AS $abbreviation)
 
 $_currencies_symbols = array(
 	"EUR" => "&euro;",
-	"GBP" => "&pound;"
+	"GBP" => "&pound;",
+	"USD" => "&dollar;",
+	"DKK" => "&#107;&#114;",
+	"NOK" => "&#107;&#114;",
+	"CHF" => "&#67;&#72;&#70;"
 );
 
 
