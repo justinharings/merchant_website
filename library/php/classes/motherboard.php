@@ -328,6 +328,58 @@ class main_board
 					return (($amount * $target));
 				}
 			break;
+			
+			case "AUD":
+				$target = $mb->replaceCurrency("AUD");
+				
+				if($target == 0)
+				{
+					return ($amount);
+				}
+				else
+				{
+					return (($amount * $target));
+				}
+			break;
+			
+			case "CAD":
+				$target = $mb->replaceCurrency("CAD");
+				
+				if($target == 0)
+				{
+					return ($amount);
+				}
+				else
+				{
+					return (($amount * $target));
+				}
+			break;
+			
+			case "SEK":
+				$target = $mb->replaceCurrency("SEK");
+				
+				if($target == 0)
+				{
+					return ($amount);
+				}
+				else
+				{
+					return (($amount * $target));
+				}
+			break;
+			
+			case "BRL":
+				$target = $mb->replaceCurrency("BRL");
+				
+				if($target == 0)
+				{
+					return ($amount);
+				}
+				else
+				{
+					return (($amount * $target));
+				}
+			break;
 		}
 	}
 }

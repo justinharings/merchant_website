@@ -39,20 +39,6 @@ function _mobile()
 		
 		$("div.page-menu").find("div.filters").hide();
 		
-		$("span.lnr-phone-handset").on("click",
-			function()
-			{
-				document.location.href = "/" + $(this).attr("lang") + '/service/service-and-contact.html';
-			}
-		);
-		
-		$("span.lnr-map-marker").on("click",
-			function()
-			{
-				document.location.href = "/" + $(this).attr("lang") + '/service/pickup-locations.html';
-			}
-		);
-		
 		$("ul.header-menu").parent().append('<div class="main-header-menu"><span class="fa fa-bars"></span>&nbsp;&nbsp;menu</div>');
 		
 		if($("div.page-menu").length != 0)

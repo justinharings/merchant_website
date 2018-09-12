@@ -6,9 +6,7 @@ $(document).ready(function($)
 {if($(window).width()>760&&$("input#mobile").val()==1)
 {$("body").hide();document.location.href=document.location.href}
 else if($(window).width()<=760&&$("input#mobile").val()==0)
-{$("input#mobile").val(1);$("ul.header-menu").hide();$("div.page-menu").find("div.filters").hide();$("span.lnr-phone-handset").on("click",function()
-{document.location.href="/"+$(this).attr("lang")+'/service/service-and-contact.html'});$("span.lnr-map-marker").on("click",function()
-{document.location.href="/"+$(this).attr("lang")+'/service/pickup-locations.html'});$("ul.header-menu").parent().append('<div class="main-header-menu"><span class="fa fa-bars"></span>&nbsp;&nbsp;menu</div>');if($("div.page-menu").length!=0)
+{$("input#mobile").val(1);$("ul.header-menu").hide();$("div.page-menu").find("div.filters").hide();$("ul.header-menu").parent().append('<div class="main-header-menu"><span class="fa fa-bars"></span>&nbsp;&nbsp;menu</div>');if($("div.page-menu").length!=0)
 {var text="informatie pagina's";if($("div.page-menu").find("ul.head").hasClass("catalog"))
 {text="bekijk onze catalogus"}
 $("div.main-header-menu").parent().append('<div class="sub-header-menu"><span class="fa fa-caret-down"></span>&nbsp;&nbsp;'+text+'</div>');$("div.page-menu").find("ul.head").appendTo(".sub-header-menu")}

@@ -111,7 +111,8 @@ $_default_currency = array(
 	"be" => "EUR",
 	"de" => "EUR",
 	"en" => "GBP",
-	"it" => "EUR",
+	"dk" => "DKK",
+	"it" => "EUR"
 );
 
 
@@ -126,7 +127,11 @@ $_recognized_currencies = array(
 	"USD",
 	"DKK",
 	"NOK",
-	"CHF"
+	"CHF",
+	"AUD",
+	"CAD",
+	"SEK",
+	"BRL"
 );
 
 
@@ -144,7 +149,11 @@ $_currencies_symbols = array(
 	"USD" => "&dollar;",
 	"DKK" => "&#107;&#114;",
 	"NOK" => "&#107;&#114;",
-	"CHF" => "&#67;&#72;&#70;"
+	"CHF" => "&#8355;",
+	"AUD" => "&dollar;",
+	"CAD" => "&dollar;",
+	"SEK" => "&#107;&#114;",
+	"BRL" => "R&dollar;"
 );
 
 

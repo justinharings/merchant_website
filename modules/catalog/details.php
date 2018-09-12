@@ -87,16 +87,25 @@ if($details['deleted'] == 1)
 		<?php
 		$thumb = 0;
 			
-		foreach($details['images'] AS $media)
+		if(count($details['images']))
 		{
-			if($media['thumb'])
+			foreach($details['images'] AS $media)
 			{
-				$thumb = $media['productMediaID'];
+				if($media['thumb'])
+				{
+					$thumb = $media['productMediaID'];
+				}
+				?>
+				
+				<img src="https://merchant.justinharings.nl/library/media/products/<?= $media['productMediaID'] ?>.png" />
+				
+				<?php
 			}
+		}
+		else
+		{
 			?>
-			
-			<img src="https://merchant.justinharings.nl/library/media/products/<?= $media['productMediaID'] ?>.png" />
-			
+			<img src="/library/media/no-image.png" />
 			<?php
 		}
 		?>
@@ -127,9 +136,18 @@ if($details['deleted'] == 1)
 			</div>
 			<?php
 		}
+		
+		if(!$thumb)
+		{
+			$thumb = "/library/media/no-image.png";
+		}
+		else
+		{
+			$thumb = "https://merchant.justinharings.nl/library/media/products/" . $thumb . ".png";
+		}
 		?>
 		
-		<img itemprop="image" src="https://merchant.justinharings.nl/library/media/products/<?= $thumb ?>.png" />
+		<img itemprop="image" src="<?= $thumb ?>" />
 	</div>
 	
 	<div class="follow-scroll">
