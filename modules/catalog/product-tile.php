@@ -90,7 +90,7 @@
 			?>
 		</span>
 		
-		<span class="stock <?= ($product['stock'] > 0 ? "green" : ($product['status'] > 2 ? "red" : "orange")) ?>">
+		<span class="stock <?= ($product['stock'] > 0 || $product['stock_type'] == 7 ? "green" : ($product['status'] > 2 ? "red" : "orange")) ?>">
 			<?= _createStockText($product['stock'], (isset($_GET['categoryID']) ? intval($_GET['categoryID']) : 0), $product['productID'], _LANGUAGE_PACK, $product['status'], true) ?>
 		</span>
 	</div>

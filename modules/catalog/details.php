@@ -108,6 +108,18 @@ if($details['deleted'] == 1)
 			<img src="/library/media/no-image.png" />
 			<?php
 		}
+		
+		if(count($details['videos']) > 0)
+		{
+			foreach($details['videos'] AS $video)
+			{
+				?>
+				<a href="<?= $video['url'] ?>" data-lity>
+					<img src="/library/media/video-image.png" />
+				</a>
+				<?php
+			}
+		}
 		?>
 	</div>
 	
@@ -368,28 +380,6 @@ if($details['deleted'] == 1)
 	</div>
 	
 	<?php
-	if(count($details['videos']) > 0)
-	{
-		?>
-		<div class="description">
-			<strong>Video's</strong>
-			
-			<?php
-			foreach($details['videos'] AS $video)
-			{
-				?>
-				<a href="<?= $video['url'] ?>" target="_blank">
-					<div class="video-tile">
-						<span class="fa fa-youtube-play"></span>
-					</div>
-				</a>
-				<?php
-			}
-			?>
-		</div>
-		<?php
-	}
-	
 	if($details['description'] != "")
 	{
 		?>
@@ -534,6 +524,10 @@ if($details['deleted'] == 1)
 	?>
 </div>
 
+<link href="/library/third-party/lity/dist/lity.css" rel="stylesheet">
+<script src="/library/third-party/lity/vendor/jquery.js"></script>
+<script src="/library/third-party/lity/dist/lity.js"></script>
+
 <script type="application/ld+json">
 	{
 		"@context": "http://schema.org",
@@ -591,3 +585,4 @@ if($details['deleted'] == 1)
 		]
 	}
 </script>
+

@@ -505,11 +505,11 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 							</li>
 							
 							<li>
-								<span class="lnr lnr-phone-handset" lang="<?= _LANGUAGE_PACK ?>"></span>
+								<span class="lnr lnr-phone-handset" url="<?= $mb->_translateReturn("main_menu", "quick-link-map") ?>" lang="<?= _LANGUAGE_PACK ?>"></span>
 							</li>
 							
 							<li class="more-margin">
-								<span class="lnr lnr-map more-margin" lang="<?= _LANGUAGE_PACK ?>"></span>
+								<span class="lnr lnr-map more-margin" url="<?= $mb->_translateReturn("main_menu", "quick-link-phone") ?>" lang="<?= _LANGUAGE_PACK ?>"></span>
 							</li>
 						</ul>
 					</div>
@@ -695,6 +695,10 @@ $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						</div>
 					</div>
 					<?php
+				}
+				else
+				{
+					print "<br/><br/>";
 				}
 				?>
 			</div>

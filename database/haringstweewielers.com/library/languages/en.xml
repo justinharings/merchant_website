@@ -73,6 +73,9 @@
 		<item_5>Contact</item_5>
 		<item_5_url>/service/service-and-contact.html</item_5_url>
 		<item_5_colored>0</item_5_colored>
+		
+		<quick-link-map>/service/service-and-contact.html</quick-link-map>
+		<quick-link-phone>/service/pickup-locations.html</quick-link-phone>
 	</main_menu>
 	
 	<others>

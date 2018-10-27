@@ -23,11 +23,11 @@
 	</reviews>
 	
 	<html_head>
-	    <default_title>Kingma Dierverzorging</default_title>
-	    <default_description>Uw huisdieren vriend van Almelo en omstreken! Uitlaatservice, petsitting, klein pension, tweedehands dierenartikelen en veel meer!</default_description>
-	    <default_keywords>Almelo, Twente, Uitlaten, Hondenpension, Tweedehands dieren</default_keywords>
+	    <default_title>Harings Fireworks</default_title>
+	    <default_description>Uw vuurwerk experts sinds 1995. De vetste acties in Almelo en omstreken en het beste assortiment!</default_description>
+	    <default_keywords>harings, vuurwerk, almelo, vuurwerkwinkel, vuurwerktotaal, fireworksforall</default_keywords>
 	    
-	    <phone></phone>
+	    <phone>+31546816232</phone>
 	    
 	    <product_description_brand>Dit product van %s is bij ons voordelig te krijgen!</product_description_brand>
 	    <product_description_sale>We hebben altijd koopjes voor jou om op te jagen! Bekijk onze sale pagina en wees er snel bij, want op is écht op!</product_description_sale>
@@ -35,7 +35,7 @@
 	    <product_description_category>Bekijk alle producten uit de categorie %s. Op een specifieke zoektocht? Gebruik dan onze uitgebreide filters om het overzicht met resultaten te verkleinen.</product_description_category>
 	    <product_description_headcategory>Blader door onze complete catalogus met %s en ontdek hoe ontzettend groot ons aanbod is! Kies uit de subcategorieën in het menu om de producten te bekijken.</product_description_headcategory>
 	    
-	    <google-site-verification></google-site-verification>
+	    <google-site-verification>B39UOVeOwQd0ZBlZrfm-NSmb10n3XQUM6wEGC647JH0</google-site-verification>
 	</html_head>
 	
 	<language_page>
@@ -44,20 +44,20 @@
 	</language_page>
 	
 	<colors>
-		<main_color>#2e2e2e</main_color>
-		<secundary_color>#e3eaf3</secundary_color>
+		<main_color>#d00000</main_color>
+		<secundary_color>#f5ecec</secundary_color>
 	</colors>
 	
 	<images>
-		<logo>kingmadieren.png</logo>
-		<expert>experts.png</expert>
+		<logo>cowboyfireworks.png</logo>
+		<expert>haringsfamily.png</expert>
 		<favicon>favicon.png</favicon>
 	</images>
 	
 	<urls>
-		<facebook>kingmadieren</facebook>
-		<twitter></twitter>
-		<instagram>kingmadieren</instagram>
+		<facebook>haringsvuurwerk</facebook>
+		<twitter>haringsvuurwerk</twitter>
+		<instagram>haringsvuurwerk</instagram>
 		
 		<kayako></kayako>
 		<kayako-name>Harings Tweewielers</kayako-name>
@@ -66,28 +66,28 @@
 	</urls>
 	
 	<main_menu>
-		<item_1>Dierenwinkel</item_1>
-		<item_1_url>/catalog/dierenwinkel.html</item_1_url>
+		<item_1>Online bestellen</item_1>
+		<item_1_url>/catalog/webshop.html</item_1_url>
 		<item_1_colored>0</item_1_colored>
 		
-		<item_2>Uitlaten</item_2>
-		<item_2_url>/service/uitlaatservice.html</item_2_url>
+		<item_2>Folder 2018</item_2>
+		<item_2_url>/service/vuurwerkfolder.html</item_2_url>
 		<item_2_colored>0</item_2_colored>
 		
-		<item_3>Petsitting</item_3>
-		<item_3_url>/service/petsitting.html</item_3_url>
+		<item_3>Vuurwerkshow</item_3>
+		<item_3_url>/service/vuurwerkshow.html</item_3_url>
 		<item_3_colored>0</item_3_colored>
 		
-		<item_4>Klein pension</item_4>
-		<item_4_url>/service/pension.html</item_4_url>
-		<item_4_colored>0</item_4_colored>
+		<item_4>Openingstijden</item_4>
+		<item_4_url>/service/openingstijden.html</item_4_url>
+		<item_4_colored>1</item_4_colored>
 		
-		<item_5>Daycare</item_5>
-		<item_5_url>/service/daycare.html</item_5_url>
+		<item_5>Klantenservice</item_5>
+		<item_5_url>/service/klantenservice.html</item_5_url>
 		<item_5_colored>0</item_5_colored>
 		
-		<quick-link-map>/service/service-and-contact.html</quick-link-map>
-		<quick-link-phone>/service/delivery-and-pickup.html</quick-link-phone>
+		<quick-link-map>/service/service-en-contact.html</quick-link-map>
+		<quick-link-phone>/service/bedrijfsinformatie.html</quick-link-phone>
 	</main_menu>
 	
 	<others>
@@ -106,21 +106,21 @@
 		
 		<add-1-url></add-1-url>
 		
-		<add-1-text-1>Onze</add-1-text-1>
-		<add-1-text-2>standpunten</add-1-text-2>
+		<add-1-text-1>harings</add-1-text-1>
+		<add-1-text-2>fireworks</add-1-text-2>
 		
-		<add-1-item-1>Geen kennels, huiskamers!</add-1-item-1>
-		<add-1-item-2>Wandelen doe je 1 op 1!</add-1-item-2>
-		<add-1-item-3>Uitgebreid speelplezier!</add-1-item-3>
-		<add-1-item-4>Kennis van alle dieren!</add-1-item-4>
-		<add-1-item-5>Tweedehands, tweedekans!</add-1-item-5>
+		<add-1-item-1>Meer dan 20 jaar ervaring</add-1-item-1>
+		<add-1-item-2>De beste acties en events</add-1-item-2>
+		<add-1-item-3>Meest flexibele voorverkoop</add-1-item-3>
+		<add-1-item-4>Ieder jaar een vuurwerkshow</add-1-item-4>
+		<add-1-item-5>Top prijs-kwaliteit verhouding</add-1-item-5>
 		
-		<add-2-url>/service/bedrijfsinformatie.html</add-2-url>
+		<add-2-url>/service/company-information.html</add-2-url>
 		
-		<add-2-text-1>Kennis</add-2-text-1>
-		<add-2-text-2>sinds 2016</add-2-text-2>
+		<add-2-text-1>historie</add-2-text-1>
+		<add-2-text-2>sinds 1995</add-2-text-2>
 		
-		<add-2-text>Hello! Ik ben Riëtte Harings-Kingma, oprichter van Kingma Dierverzorging in Almelo! En deze twee knapperds op de foto hier boven? Dat zijn mijn honden Chef en Layka! Oh ...</add-2-text>
+		<add-2-text>Harings Vuurwerk is één van de oudste én grootste vuurwerkwinkels van Almelo en omstreken! We zijn er al meer dan 20 jaar, sinds 1995! Met alweer de tweede gen...</add-2-text>
 		
 		<sale_results>Artikelen in de opruiming!</sale_results>
 		
@@ -133,60 +133,58 @@
 	<footer>
 		<follow_us>volg ons</follow_us>
 		<customer_service>klantenservice</customer_service>
-		<customer_service_url>/service/service-and-contact.html</customer_service_url>
 		<easy_payment>makkelijk betalen</easy_payment>
-		<easy_payment_url>/service/payment-methods.html</easy_payment_url>
 		<search_shop>zoeken in onze webwinkel</search_shop>
 	</footer>
 	
 	<footer_menu>
-		<footer-1>service</footer-1>
+		<footer-1>service en info</footer-1>
 		
-		<footer-1-1>service en contact</footer-1-1>
-		<footer-1-1-url>/service/service-and-contact.html</footer-1-1-url>
+		<footer-1-1>klantenservice</footer-1-1>
+		<footer-1-1-url>/service/klantenservice.html</footer-1-1-url>
 		
-		<footer-1-2>bezorgen en afhalen</footer-1-2>
-		<footer-1-2-url>/service/delivery-and-pickup.html</footer-1-2-url>
+		<footer-1-2>service en contact</footer-1-2>
+		<footer-1-2-url>/service/service-en-contact.html</footer-1-2-url>
 		
-		<footer-1-3>betalingsmethoden</footer-1-3>
-		<footer-1-3-url>/service/payment-methods.html</footer-1-3-url>
+		<footer-1-3>voorverkoop en afhalen</footer-1-3>
+		<footer-1-3-url>/service/voorverkoop-en-afhalen.html</footer-1-3-url>
 		
-		<footer-1-4>uitlaatservice</footer-1-4>
-		<footer-1-4-url>/service/uitlaatservice.html</footer-1-4-url>
+		<footer-1-4>regelgeving vuurwerk</footer-1-4>
+		<footer-1-4-url>/service/regelgeving.html</footer-1-4-url>
 		
-		<footer-1-5>petsitting</footer-1-5>
-		<footer-1-5-url>/service/petsitting.html</footer-1-5-url>
+		<footer-1-5>betalingsmethoden</footer-1-5>
+		<footer-1-5-url>/service/betalingsmethoden.html</footer-1-5-url>
 		
-		<footer-1-6>klein pension</footer-1-6>
-		<footer-1-6-url>/service/pension.html</footer-1-6-url>
+		<footer-1-6>vuurwerkshow</footer-1-6>
+		<footer-1-6-url>/service/vuurwerkshow.html</footer-1-6-url>
 		
-		<footer-1-7>daycare</footer-1-7>
-		<footer-1-7-url>/service/daycare.html</footer-1-7-url>
+		<footer-1-7>happy hours</footer-1-7>
+		<footer-1-7-url>/service/happy-hours.html</footer-1-7-url>
 		
-		<footer-1-8></footer-1-8>
-		<footer-1-8-url></footer-1-8-url>
+		<footer-1-8>vuurwerkfolder</footer-1-8>
+		<footer-1-8-url>/service/vuurwerkfolder.html</footer-1-8-url>
 		
 		<footer-2>bedrijf</footer-2>
 		
 		<footer-2-1>bedrijfsinformatie</footer-2-1>
 		<footer-2-1-url>/service/bedrijfsinformatie.html</footer-2-1-url>
 		
-		<footer-2-2>dierenvrienden</footer-2-2>
-		<footer-2-2-url>/service/dierenvrienden.html</footer-2-2-url>
+		<footer-2-2>openingstijden</footer-2-2>
+		<footer-2-2-url>/service/openingstijden.html</footer-2-2-url>
 		
-		<footer-2-3>klantrecensies</footer-2-3>
-		<footer-2-3-url>/service/recensies.html</footer-2-3-url>
+		<footer-2-3>werken bij Harings</footer-2-3>
+		<footer-2-3-url>/service/vacatures.html</footer-2-3-url>
 		
 		<footer-3>deze website</footer-3>
 		
 		<footer-3-1>website disclaimer</footer-3-1>
 		<footer-3-1-url>/service/website-disclaimer.html</footer-3-1-url>
 		
-		<footer-3-2>algemene voorwaarden</footer-3-2>
-		<footer-3-2-url>/service/terms-and-conditions.html</footer-3-2-url>
+		<footer-3-2>privacy statement</footer-3-2>
+		<footer-3-2-url>/service/privacy-statement.html</footer-3-2-url>
 		
-		<footer-3-3>privacy statement</footer-3-3>
-		<footer-3-3-url>/service/privacy-statement.html</footer-3-3-url>
+		<footer-3-3></footer-3-3>
+		<footer-3-3-url></footer-3-3-url>
 	</footer_menu>
 	
 	<stock-text>
@@ -236,7 +234,7 @@
 		
 		<delivery>Bij mij laten bezorgen</delivery>
 		<delivery-eg>binnen twee werkdagen in huis</delivery-eg>
-		<delivery-text>Wij verzenden alle pakketten met PostNL. Kleinere producten zullen worden samengevoegd met de grotere dozen om verzendkosten te besparen. Indien samenvoegen niet mogelijk is betaald u tweemaal de verzendkosten. De totale berekening is als volgt:</delivery-text>
+		<delivery-text>Onze fietsen vanaf 22 inch worden bezorgd door een koerier gespecialiseerd in fietsvervoer. Kleinere fietsen en pakketten met PostNL. De totale berekening van uw verzendkosten is als volgt:</delivery-text>
 		
 		<shop-pickup>Afhalen in de winkel te Almelo</shop-pickup>
 		<shop-pickup-eg>Mogelijk binnen een uur na bestelling</shop-pickup-eg>
@@ -285,19 +283,21 @@
 	</cart>
 	
 	<product-details>
-		<call-me></call-me>
+		<call-me>Heeft u vragen over dit product? Zodra er een medewerker beschikbaar is (binnen openingstijden) bellen wij u terug met persoonlijk advies. Laat uw telefoonnummer achter!</call-me>
+		<call-me-text>Uw telefoonnummer</call-me-text>
 		<call-me-button></call-me-button>
-		<call-me-done></call-me-done>
+		<call-me-done>verzoek ingediend</call-me-done>
 		
-		<one>Voor 17:00 uur besteld, binnen 2 werkdagen in huis! Of natuurlijk gratis afhalen in Almelo.</one>
-		<two>Alle artikelen zijn grondig gereinigd/ontsmet. Ze kunnen nog een gezonde ronde mee!</two>
-		<three>Kennis van alle soorten huisdieren, we helpen u graag met advies en diensten.</three>
-		<four>Alle artikelen scherp geprijsd. De moeite waard om iets een tweedekans te geven!</four>
-		<five>Andere dieren spullen over? We halen ze graag bij u op en helpen u opruimen!</five>
-		<six></six>
+		<one>Gemakkelijk online bestellen en afrekenen, ook achteraf! Afhalen op een gekozen tijdstip.</one>
+		<two>Altijd de dikste acties en de beste prijzen. Bij Harings bestellen loont!</two>
+		<three>Écht verstand van vuurwerk. Ons team heeft al meer dan 20 jaar ervaring en staat voor je klaar, ook 's avonds!</three>
+		<four>Nieuwsgierig naar uitwerkingen en wil je iets in het echt zien? Bezoek onze jaarlijkse demo!</four>
+		<five>Natuurlijk met een echte (offline) winkel. Je kunt je bestelling gratis afhalen in Almelo!</five>
+		<six>Wij organiseren de dikste events en weggeefacties! Volgs on op Social Media!</six>
 		
-		<seven>Voor verzending hergebruiken we verpakkingen. Zo besparen we flink wat bomen, goed voor het milieu!</seven>
-		<nine>We verzenden alles in één keer en niet in losse verzendingen. Dat betekent minder uitlaatgassen, dus beter voor het milieu.</nine>
+		<seven></seven>
+		<eight></eight>
+		<nine></nine>
 		
 		<description>Extra informatie</description>
 		<specifications>Specificaties</specifications>

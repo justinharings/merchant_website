@@ -4,14 +4,16 @@ $(document).ready(
 		$("span.lnr-phone-handset").on("click",
 			function()
 			{
-				document.location.href = "/" + $(this).attr("lang") + '/service/service-and-contact.html';
+				var url = $(this).attr("url");
+				document.location.href = "/" + $(this).attr("lang") + url;
 			}
 		);
 		
 		$("span.lnr-map").on("click",
 			function()
 			{
-				document.location.href = "/" + $(this).attr("lang") + '/service/pickup-locations.html';
+				var url = $(this).attr("url");
+				document.location.href = "/" + $(this).attr("lang") + url;
 			}
 		);
 		

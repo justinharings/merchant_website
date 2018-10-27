@@ -152,6 +152,11 @@
 		
 		foreach($shipment_data AS $key => $shipment)
 		{
+			if($shipment['shipmentID'] == 0)
+			{
+				continue;
+			}
+			
 			$shipmentArray[] = $shipment['shipmentID'];
 		}
 		

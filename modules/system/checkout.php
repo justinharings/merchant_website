@@ -231,14 +231,22 @@ else
 						}
 						
 						?>
-						<li id="<?= $shipment['shipmentID'] ?>" <?= count($_SESSION['shipment_array']) > 0 ? '' : 'class="first"' ?>>
+						<li id="<?= $shipment['shipmentID'] ?>" <?= count($_SESSION['shipment_array']) > 0 || $num > 0 ? '' : 'class="first"' ?>>
 							<div class="choice">
-								<span class="fa fa-<?= (!isset($_SESSION['shipment']) && count($_SESSION['shipment_array']) == 0) || (isset($_SESSION['shipment']) && $shipment['shipmentID'] == $_SESSION['shipment']) ? "check active" : "circle" ?>"></span>
+								<span class="fa fa-<?= (!isset($_SESSION['shipment']) && count($_SESSION['shipment_array']) == 0 && $num == 0) || (isset($_SESSION['shipment']) && $shipment['shipmentID'] == $_SESSION['shipment']) ? "check active" : "circle" ?>"></span>
 							</div>
 							
 							<div class="data">
 								<strong><?= $shipment['name'] ?></strong>
-								 - <small><?= $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($shipment['price'], $_SESSION['currency']), $_SESSION['currency']) ?></small>
+								
+								<?php
+								if($settings['show_shipment'])
+								{
+									?>
+									- <small><?= $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($shipment['price'], $_SESSION['currency']), $_SESSION['currency']) ?></small>
+									<?php
+								}
+								?>
 							</div>
 						</li>
 						<?php
