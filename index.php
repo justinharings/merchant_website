@@ -1,12 +1,4 @@
 <?php
-if(file_exists(__DIR__ . "/force.php"))
-{
-	require_once(__DIR__ . "/force.php");
-	exit;
-}
-
-
-
 // Start session
 
 if(!isset($_SESSION))
@@ -179,6 +171,12 @@ if(date("G") > 9 && date("G") < 18)
 */
 
 $_SESSION['HTTP_REFERER'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+if(file_exists(__DIR__ . "/force.php"))
+{
+	require_once(__DIR__ . "/force.php");
+	exit;
+}
 ?>
 
 <!DOCTYPE html>
