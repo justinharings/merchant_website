@@ -673,6 +673,7 @@ body div.header
 
 	body div.header div.header-content
 	{
+		width: 100%;
 		height: 110px;
 		
 		position: relative;
