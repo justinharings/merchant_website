@@ -101,7 +101,7 @@
 								
 								<select name="quantity" id="quantity">
 									<?php
-									for($i = 1; $i < 20; $i++)
+									for($i = 1; $i <= ($product['maximum'] > 0 ? $product['maximum'] : 50); $i++)
 									{
 										?>
 										<option <?= $i == $item['quantity'] ? "selected=\"selected\"" : "" ?> value="<?= $i ?>"><?= $i ?></option>

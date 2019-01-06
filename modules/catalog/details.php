@@ -163,6 +163,18 @@ if($details['deleted'] == 1)
 	</div>
 	
 	<div class="follow-scroll">
+		<?php
+		if($details['core_product'])
+		{
+			?>
+			<div class="core-collection">
+				<span class="fa fa-bullseye"></span>
+				<?= $mb->_translateReturn("website_text", "core_product") ?>
+			</div>
+			<?php
+		}
+		?>
+		
 		<div class="cart-info">
 			<?= $details['brand'] != "" ? $details['brand'] . "<br/>" : "" ?>
 			<strong class="name">

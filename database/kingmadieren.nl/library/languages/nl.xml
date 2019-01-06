@@ -70,21 +70,25 @@
 		<item_1_url>/catalog/dierenwinkel.html</item_1_url>
 		<item_1_colored>0</item_1_colored>
 		
-		<item_2>Uitlaten</item_2>
-		<item_2_url>/service/uitlaatservice.html</item_2_url>
+		<item_2>Snoepgoed</item_2>
+		<item_2_url>/catalog/snoepgoed.html</item_2_url>
 		<item_2_colored>0</item_2_colored>
 		
-		<item_3>Petsitting</item_3>
-		<item_3_url>/service/petsitting.html</item_3_url>
+		<item_3>Uitlaten</item_3>
+		<item_3_url>/service/uitlaatservice.html</item_3_url>
 		<item_3_colored>0</item_3_colored>
 		
-		<item_4>Klein pension</item_4>
-		<item_4_url>/service/pension.html</item_4_url>
+		<item_4>Petsitting</item_4>
+		<item_4_url>/service/petsitting.html</item_4_url>
 		<item_4_colored>0</item_4_colored>
 		
-		<item_5>Daycare</item_5>
-		<item_5_url>/service/daycare.html</item_5_url>
+		<item_5>Klein pension</item_5>
+		<item_5_url>/service/pension.html</item_5_url>
 		<item_5_colored>0</item_5_colored>
+		
+		<item_6>Daycare</item_6>
+		<item_6_url>/service/daycare.html</item_6_url>
+		<item_6_colored>0</item_6_colored>
 		
 		<quick-link-map>/service/service-and-contact.html</quick-link-map>
 		<quick-link-phone>/service/delivery-and-pickup.html</quick-link-phone>

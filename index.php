@@ -482,7 +482,7 @@ if(file_exists(__DIR__ . "/force.php"))
 										<?= $mb->_translateReturn("cart", "button-goto-cart") ?>
 									</div>
 									
-									<div class="button dark">
+									<div class="button continue dark">
 										<?= $mb->_translateReturn("cart", "button-continue-shopping") ?>
 									</div>
 								</div>

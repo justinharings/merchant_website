@@ -26,5 +26,12 @@ $(document).ready(
 				}
 			}	
 		);
+		
+		$(".continue").on("click",
+			function()
+			{
+				$("div.cart-notification").fadeOut("fast").css("display", "none");
+			}
+		);
 	}
 );
