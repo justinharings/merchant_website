@@ -37,7 +37,7 @@ switch($_GET['headCategory'])
 		$headCategory = 101;
 	break;
 	
-	case "snoepgoed":
+	case "voeding-en-snacks":
 		$headCategory = 231;
 	break;
 }
@@ -54,6 +54,15 @@ if($headCategory[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
 $category = $mb->_runFunction("catalog", "loadCatalog", array(intval($_GET['categoryID'])));
 
 $category_name = $category['name'];
+
+if($category['active'] == 0)
+{
+	?>
+	<script type="text/javascript">
+		document.location.href = '/';
+	</script>
+	<?php
+}
 
 if($category[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
 {
@@ -103,7 +112,7 @@ if($_GET['filters'] != "none")
 <ul class="breadcrumbs">
 	<li><a href="/<?= _LANGUAGE_PACK ?>/">home</a></li>
 	<li class="spacer">-</li>
-	<li><a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>.html"><?= strtolower($head_name) ?></a></li>
+	<li><a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= str_replace(" ", "-", strtolower($headCategory['EN_name'])) ?>.html"><?= strtolower($head_name) ?></a></li>
 	
 	<?php
 	if(strtolower($head_name) != strtolower($category_name))
@@ -139,6 +148,11 @@ if($_GET['filters'] != "none")
 						<?php
 						foreach($sub AS $key => $second)
 						{
+							if($second['active'] == 0)
+							{
+								continue;
+							}
+							
 							$name = $second['name'];
 				
 							if($second[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
@@ -148,7 +162,7 @@ if($_GET['filters'] != "none")
 							
 							?>
 							<li>
-								<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= strtolower($headCategory['EN_name']) ?>/<?= $second['categoryID'] ?>/filters/none/<?= _createCategoryURL($second['EN_name']) ?>.html" class="<?= $second['categoryID'] == $category['categoryID'] ? "active": "" ?>">
+								<a href="/<?= _LANGUAGE_PACK ?>/catalog/<?= str_replace(" ", "-", strtolower($headCategory['EN_name'])) ?>/<?= $second['categoryID'] ?>/filters/none/<?= _createCategoryURL($second['EN_name']) ?>.html" class="<?= $second['categoryID'] == $category['categoryID'] ? "active": "" ?>">
 									<?= $name ?>
 								</a>
 							</li>
@@ -202,22 +216,30 @@ if($_GET['filters'] != "none")
 					<hr/>
 					<?php
 				}
-				?>
 				
-				<strong class="header">merken</strong>
-	
-				<?php			
-				foreach($brands AS $key => $brand)
+				if(count($brands) > 1)
 				{
 					?>
-					<div class="option">
-						<div class="input-holder">
-							<input <?= isset($selected[0]) && in_array($brand['name'], $selected[0]) ? "checked=\"checked\"" : "" ?> type="checkbox" name="0[]" id="0_<?= $brand['name'] ?>" value="<?= $brand['name'] ?>" data-url="F--<?= base64_encode(0) ?>V--<?= base64_encode($brand['name']) ?>" />
-						</div>
+					<strong class="header">merken</strong>
+		
+					<?php			
+					foreach($brands AS $key => $brand)
+					{
+						if($brand['name'] == "")
+						{
+							continue;
+						}
 						
-						<label for="0_<?= $brand['name'] ?>"><?= $brand['name'] ?></label>
-					</div>
-					<?php
+						?>
+						<div class="option">
+							<div class="input-holder">
+								<input <?= isset($selected[0]) && in_array($brand['name'], $selected[0]) ? "checked=\"checked\"" : "" ?> type="checkbox" name="0[]" id="0_<?= $brand['name'] ?>" value="<?= $brand['name'] ?>" data-url="F--<?= base64_encode(0) ?>V--<?= base64_encode($brand['name']) ?>" />
+							</div>
+							
+							<label for="0_<?= $brand['name'] ?>"><?= $brand['name'] ?></label>
+						</div>
+						<?php
+					}
 				}
 				?>
 				

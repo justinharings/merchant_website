@@ -46,7 +46,7 @@ switch($_GET['catalog_name'])
 		$banner_prefix = "dierenwinkel";
 	break;
 	
-	case "snoepgoed":
+	case "voeding-en-snacks":
 		$categoryID = 231;
 		$banner_prefix = "snoepgoed";
 	break;

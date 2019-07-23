@@ -30,6 +30,7 @@ RewriteRule ^([^/]*)/catalog/([^/]*)/([^/]*)/filters/([^/]*)/([^/]*).html$ /?lan
 # Rewrite catalog > Details
 RewriteRule ^([^/]*)/catalog/details/([^/]*)/([^/]*).html$ /?language_pack=$1&module=catalog&page=details&productID=$2 [L]
 RewriteRule ^([^/]*)/catalog/([^/]*)/([^/]*)/details/([^/]*)/([^/]*).html$ /?language_pack=$1&module=catalog&page=details&productID=$4&categoryID=$2 [L]
+RewriteRule ^tl/([^/]*)/$ /?language_pack=nl&module=catalog&page=details&productID=$1 [L]
 
 # Rewrite catalog > Search
 RewriteRule ^([^/]*)/search/([^/]*)/$ /?language_pack=$1&module=catalog&page=search&string=$2 [L]

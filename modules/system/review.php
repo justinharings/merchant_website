@@ -58,6 +58,11 @@ if(!isset($_SESSION['review_done']))
 		
 		foreach($articles AS $article)
 		{
+			if(count($article['images']) == 0)
+			{
+				continue;
+			}
+			
 			?>
 			<div class="review-block">
 				<input type="hidden" name="productID[]" id="productID" value="<?= $article['productID'] ?>" />
@@ -81,9 +86,9 @@ if(!isset($_SESSION['review_done']))
 				?>
 				
 				<div class="review">
-					<strong><?= $mb->_translateReturn("product-details", "description") ?>:<br/><?= $article['name'] ?></strong><br/><br/>
+					<strong>Product:</strong><br/><?= $article['name'] ?><br/><br/>
 					
-					<?= $mb->_translateReturn("reviews", "review-stars") ?>:<br/>
+					<strong><?= $mb->_translateReturn("reviews", "review-stars") ?>:</strong><br/>
 					<select name="stars[]" id="stars" class="starrating" autocomplete="off">
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -92,7 +97,7 @@ if(!isset($_SESSION['review_done']))
 						<option value="5" selected="selected">5</option>
 					</select>
 					<br/>
-					<?= $mb->_translateReturn("reviews", "review-description") ?>:<br/>
+					<strong>Toevoeging:</strong><br/>
 					<textarea name="description[]" id="description"></textarea>
 				</div>
 			</div>
@@ -103,7 +108,6 @@ if(!isset($_SESSION['review_done']))
 		<hr/>
 						
 		<input type="submit" name="add_reviews" id="add_reviews" value="<?= $mb->_translateReturn("reviews", "add-reviews") ?>" class="right" />
-		<input type="button" name="return" id="return" value="<?= $mb->_translateReturn("cart", "return-to-shop") ?>" class="right white" click="/<?= _LANGUAGE_PACK ?>/" />
 	</form>
 	<?php
 }

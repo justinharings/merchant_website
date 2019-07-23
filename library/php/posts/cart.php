@@ -16,6 +16,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/library/php/classes/motherboard.php")
 
 $mb = new main_board();
 $cart = $mb->_runFunction("cart", "addCartItem", array($_POST['productID'], $_SESSION['cart']));
+$_SESSION['cart'] = $cart;
+
+if($_POST['addonID'] > 0)
+{
+	$cart = $mb->_runFunction("cart", "addCartItem", array($_POST['addonID'], $_SESSION['cart']));
+}
 
 $_SESSION['cart'] = $cart;
 

@@ -10,7 +10,7 @@
 		<review-thank-you>Heel erg bedankt!</review-thank-you>
 		
 		<review-title>Helpt u ons met uw mening?</review-title>
-		<review-text>Alvast bedankt voor het nemen van deze moeite! Uw beoordeling is zeer belangrijk voor ons. U kunt hier links kiezen of u een beoordeling over ons bedrijf wilt schrijven of over de door u gekocht(e) product(en). Wanneer u wat extra tijd heeft is het natuurlijk helemaal geweldig wanneer u ze allebei kunt doen!</review-text>
+		<review-text>Alvast bedankt voor uw genomen tijd! Uw beoordeling is zeer belangrijk voor ons. U kunt hier links kiezen of u een beoordeling over ons bedrijf wilt schrijven of over de door u gekocht(e) product(en). Wanneer u wat extra tijd heeft is het natuurlijk helemaal geweldig wanneer u ze allebei kunt doen!</review-text>
 		
 		<review-url>https://www.google.nl/search?q=harings+tweewielers&amp;oq=harings+tweewielers&amp;aqs=chrome..69i57j69i60l2j0l3.6319j0j9&amp;sourceid=chrome&amp;ie=UTF-8#lrd=0x47b8062ed4437673:0xebcab36259b997,3,,</review-url>
 	
@@ -19,7 +19,7 @@
 		<review-stars>Beoordeling</review-stars>
 		<review-description>Omschrijving</review-description>
 		
-		<add-reviews>ik ben klaar, voeg ze maar toe!</add-reviews>
+		<add-reviews>ik ben klaar, voeg mijn review toe!</add-reviews>
 	</reviews>
 	
 	<html_head>
@@ -78,16 +78,13 @@
 		<item_3_url>/catalog/parts.html</item_3_url>
 		<item_3_colored>0</item_3_colored>
 		
-		<item_4>Opruiming</item_4>
+		<item_4>Opruiming!</item_4>
 		<item_4_url>/catalog/sale.html</item_4_url>
 		<item_4_colored>1</item_4_colored>
 		
 		<item_5>Contact</item_5>
 		<item_5_url>/service/service-and-contact.html</item_5_url>
 		<item_5_colored>0</item_5_colored>
-		
-		<quick-link-map>/service/service-and-contact.html</quick-link-map>
-		<quick-link-phone>/service/pickup-locations.html</quick-link-phone>
 	</main_menu>
 	
 	<others>
@@ -102,27 +99,18 @@
 	</homepage>
 	
 	<website_text>
-		<core_product>Kern collectie</core_product>
+		<mijn_tweewielers_1>mijn</mijn_tweewielers_1>
+		<mijn_tweewielers_2>tweewielers</mijn_tweewielers_2>
 		
-		<sale>opruiming</sale>
+		<always_free_maintenance>Altijd gratis onderhoud</always_free_maintenance>
+		<save_for_cool_gifts>Sparen voor leuke cadeaus</save_for_cool_gifts>
+		<online_maintenance>Onderhoudshistorie online</online_maintenance>
+		<everything_in_one_place>Alle aankopen op één plek</everything_in_one_place>
+		<just_cool_to_have>Gewoon gaaf om te hebben!</just_cool_to_have>
 		
-		<add-1-url>https://www.mijntweewielers.nl/</add-1-url>
-		
-		<add-1-text-1>mijn</add-1-text-1>
-		<add-1-text-2>tweewielers</add-1-text-2>
-		
-		<add-1-item-1>Altijd gratis onderhoud</add-1-item-1>
-		<add-1-item-2>Sparen voor leuke cadeaus</add-1-item-2>
-		<add-1-item-3>Onderhoudshistorie online</add-1-item-3>
-		<add-1-item-4>Alle aankopen op één plek</add-1-item-4>
-		<add-1-item-5>Gewoon gaaf om te hebben!</add-1-item-5>
-		
-		<add-2-url>/service/company-information.html</add-2-url>
-		
-		<add-2-text-1>historie</add-2-text-1>
-		<add-2-text-2>sinds 1899</add-2-text-2>
-		
-		<add-2-text>Al meer dan 100 jaar ervaring op het gebied van fietsen! Wij zijn de oudste fietsenwinkel van Nederland, al vier generaties lang. Benieuwd naar onze rijke geschiedenis?</add-2-text>
+		<history>historie</history>
+		<since_1899>sinds 1899</since_1899>
+		<history_text>Al meer dan 100 jaar ervaring op het gebied van fietsen! Wij zijn de oudste fietsenwinkel van Nederland, al vier generaties lang. Benieuwd naar onze rijke geschiedenis?</history_text>
 		
 		<sale_results>Artikelen in de opruiming!</sale_results>
 		
@@ -260,6 +248,7 @@
 		<price>totaal</price>
 		<sub-total>Subtotaal</sub-total>
 		<grand-total>Totaalbedrag</grand-total>
+		<grand-total-complete>Het totaalbedrag inclusief verzending en toeslagen bedraagt %s.</grand-total-complete>
 		<shipment-costs>Verzendkosten</shipment-costs>
 		
 		<continue>bestellen</continue>
@@ -286,7 +275,6 @@
 	
 	<product-details>
 		<call-me>Heeft u vragen over dit product? Zodra er een medewerker beschikbaar is (binnen openingstijden) bellen wij u terug met persoonlijk advies. Laat uw telefoonnummer achter!</call-me>
-		<call-me-text>Uw telefoonnummer</call-me-text>
 		<call-me-button>telefoonnummer achterlaten</call-me-button>
 		<call-me-done>verzoek ingediend</call-me-done>
 		
@@ -294,7 +282,7 @@
 		<two>Geen afleverkosten, prijs is prijs. Wij houden het transparant en eerlijk. Er komen (eventueel) alleen verzendkosten bij.</two>
 		<three>Familiebedrijf sinds 1899. Persoonlijke en échte afterservice met een glimlach.</three>
 		<four>Dagelijks vergelijken we alle prijzen met die van onze concurent. Altijd de scherpste prijs!</four>
-		<five>Natuurlijk met een echte (offline) winkel. Je kunt je bestelling gratis afhalen in Almelo!</five>
+		<five>Afhaallocaties in Arnhem, Heerde en natuurlijk in onze winkel te Almelo. Afhalen is gratis!</five>
 		<six>Wij doen niet aan dozen schuiven. Afgemonteerd en afgesteld door de vakman!</six>
 		
 		<seven>Voor verzending hergebruiken we de verpakking van onze leveranciers. Zo besparen we flink wat bomen.</seven>

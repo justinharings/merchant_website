@@ -158,6 +158,30 @@ class head extends main_board
 							case "webshop":
 								$categoryID = 68;
 							break;
+							
+							case "decoration":
+								$categoryID = 85;
+							break;
+							
+							case "furniture":
+								$categoryID = 86;
+							break;
+							
+							case "lights":
+								$categoryID = 87;
+							break;
+							
+							case "clothes":
+								$categoryID = 88;
+							break;
+							
+							case "dierenwinkel":
+								$categoryID = 101;
+							break;
+							
+							case "snoepgoed":
+								$categoryID = 231;
+							break;
 						}
 					}
 				
@@ -199,7 +223,7 @@ class head extends main_board
 						$return .= " " ;
 					}
 					
-					$return .= $details['description'];
+					$return .= strip_tags($details['description']);
 				}
 			break;
 			

@@ -13,6 +13,11 @@
 		<?php
 		foreach($first_tree AS $key => $first)
 		{
+			if($first['active'] == 0)
+			{
+				continue;
+			}
+			
 			$sub = $mb->_runFunction("catalog", "loadCatalogTree", array($first['categoryID']));
 			
 			$name = $first['name'];
@@ -33,6 +38,11 @@
 						<?php
 						foreach($sub AS $key => $second)
 						{
+							if($second['active'] == 0)
+							{
+								continue;
+							}
+							
 							$name = $second['name'];
 			
 							if($second[strtoupper(_LANGUAGE_PACK) . '_name'] != "")

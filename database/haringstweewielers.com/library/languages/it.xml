@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language_pack>
+	<info>
+		<full_name>Italiano</full_name>
+	</info>
+	
+	<reviews>
+		<review-company>Recensione compagnia</review-company>
+		<review-products>Controlla I tuoi acquisti</review-products>
+		<review-thank-you>Grazie!</review-thank-you>
+		
+		<review-title>Ci serve la tua opinione per migliorare?</review-title>
+		<review-text>Vi ringraziamo in anticipo per il tempo che dedicherete a recensire il nostro negozio! Il vostro contributo é altamente apprezzato. Con i tasti alla vostra sinistra potrete scegliere se scrivere una recensione, sia del nostro negozio che dei vostri eventuali acquisti. Vi saremmmo grati se riusciste a recensire entrambi!</review-text>
+		
+		<review-url>https://www.google.nl/search?q=harings+tweewielers&amp;oq=harings+tweewielers&amp;aqs=chrome..69i57j69i60l2j0l3.6319j0j9&amp;sourceid=chrome&amp;ie=UTF-8#lrd=0x47b8062ed4437673:0xebcab36259b997,3,,</review-url>
+		
+		<review-products-title>Controlla qua sotto I tuoi acquisti</review-products-title>
+		<review-stars-figure>star(s)</review-stars-figure>
+		<review-stars>La tua recensione</review-stars>
+		<review-description>Descrizione</review-description>
+		
+		<add-reviews>Sono pronto, aggiungili!</add-reviews>
+	</reviews>
+	
+	<html_head>
+	    <default_title>Harings Biciclette</default_title>
+	    <default_description>I tuoi esperti di biciclette Olandesi dal 1899. Al vostro servizio da quattro generazioni!</default_description>
+	    <default_keywords>ciclo, olandese, online, batavus, sparta</default_keywords>
+	    
+	    <product_description_brand>Questo prodotto di %s è disponibile nel nostro negozio online!</product_description_brand>
+	    <product_description_sale>Abbiamo sempre delle occasioni per cacciare! Visita la nostra pagina di vendita e ordina in fretta, perché se n'è andato davvero!</product_description_sale>
+	    <product_description_search>Questi sono i risultati della ricerca per '%s'. Sotto troverai tutto ciò che abbiamo trovato! Inoltre, puoi visualizzare tutte le categorie tramite il menu!</product_description_search>
+	    <product_description_category>Visualizza tutti i prodotti della categoria %s. Su una ricerca specifica? Usa i nostri filtri per restringere la lista dei risultati!</product_description_category>
+	    <product_description_headcategory>Sfoglia il nostro catalogo completo con %s e scopri quanto è grande la nostra collezione! Scegli da una sottocategoria nel menu per visualizzare i prodotti.</product_description_headcategory>
+	    
+	    <google-site-verification>B39UOVeOwQd0ZBlZrfm-NSmb10n3XQUM6wEGC647JH0</google-site-verification>
+	</html_head>
+	
+	<images>
+		<logo>haringsbiciclette.png</logo>
+		<expert>experts_it.png</expert>
+		<favicon>favicon.png</favicon>
+	</images>
+	
+	<urls>
+		<facebook>harings2wielers</facebook>
+		<twitter>harings2wielers</twitter>
+		<instagram>harings2wielers</instagram>
+		
+		<kayako></kayako>
+		<kayako-name>Harings Biciclette</kayako-name>
+		<kayako-title>Ciao! 👋</kayako-title>
+		<kayako-description>Siamo a Vostra disposizione, contattateci in qualsiasi momento!</kayako-description>
+	</urls>
+	
+	<main_menu>
+		<item_1>Biciclette</item_1>
+		<item_1_url>/catalog/bicycles.html</item_1_url>
+		<item_1_colored>0</item_1_colored>
+		
+		<item_2>Accessori</item_2>
+		<item_2_url>/catalog/accessories.html</item_2_url>
+		<item_2_colored>0</item_2_colored>
+		
+		<item_3>Parti di biciclette</item_3>
+		<item_3_url>/catalog/parts.html</item_3_url>
+		<item_3_colored>0</item_3_colored>
+		
+		<item_4>In vendita!</item_4>
+		<item_4_url>/catalog/sale.html</item_4_url>
+		<item_4_colored>1</item_4_colored>
+		
+		<item_5>Contatto</item_5>
+		<item_5_url>/service/service-and-contact.html</item_5_url>
+		<item_5_colored>0</item_5_colored>
+	</main_menu>
+	
+	<others>
+		<chat_online>Siamo a Vostra disposizione, contattateci in qualsiasi momento!</chat_online>
+		<chat_offline>La nostra chat è attualmente offline.</chat_offline>
+		<previous-page>Pagina precedente</previous-page>
+		<view-no-results>nessun risultato</view-no-results>
+	</others>
+	
+	<homepage>
+		<most_valued_products>I prodotti piú apprezzati</most_valued_products>
+	</homepage>
+	
+	<website_text>
+		<mijn_tweewielers_1>le mie</mijn_tweewielers_1>
+		<mijn_tweewielers_2>biciclette</mijn_tweewielers_2>
+		
+		<always_free_maintenance>Assistenza e manutenzione gratuita, sempre</always_free_maintenance>
+		<save_for_cool_gifts>Risparmia per regali imperdibili</save_for_cool_gifts>
+		<online_maintenance>Resoconti manutenzione online</online_maintenance>
+		<everything_in_one_place>Tutte le tue fatture in una</everything_in_one_place>
+		<just_cool_to_have>Imperdibile!</just_cool_to_have>
+		
+		<history>La nostra storia</history>
+		<since_1899>dal 1899</since_1899>
+		<history_text>Piú di 100 anni di esperienza nel campo delle biciclette! Siamo il piú vecchio negozio di biciclette in Olanda, presenti da quattro generazioni! La nostra è una storia affascinante, sei curioso di conoscerla?</history_text>
+		
+		<sale_results>Articoli in vendita!</sale_results>
+		
+		<search>Cerca nel negozio</search>
+		<stop_search>Ferma ricerca</stop_search>
+		<search_results>risultati ricerca per %s</search_results>
+		<no_search_results>nessun risultato per %s...</no_search_results>
+	</website_text>
+	
+	<footer>
+		<follow_us>follow us</follow_us>
+		<customer_service>servizio clienti</customer_service>
+		<easy_payment>pagamento in linea facilitato</easy_payment>
+		<search_shop>cerca nel nostro negozio in linea</search_shop>
+	</footer>
+	
+	<footer_menu>
+		<footer-1>servizi</footer-1>
+		
+		<footer-1-1>assistenza clienti</footer-1-1>
+		<footer-1-1-url>/service/customer-service.html</footer-1-1-url>
+		
+		<footer-1-2>servizi e contatti</footer-1-2>
+		<footer-1-2-url>/service/service-and-contact.html</footer-1-2-url>
+		
+		<footer-1-3>consegne e raccolta</footer-1-3>
+		<footer-1-3-url>/service/delivery-and-pickup.html</footer-1-3-url>
+		
+		<footer-1-4>dove ritirare</footer-1-4>
+		<footer-1-4-url>/service/pickup-locations.html</footer-1-4-url>
+		
+		<footer-1-5>tabella delle taglie</footer-1-5>
+		<footer-1-5-url>/service/size-chart.html</footer-1-5-url>
+		
+		<footer-1-6>metodi di pagamento</footer-1-6>
+		<footer-1-6-url>/service/payment-methods.html</footer-1-6-url>
+		
+		<footer-1-7>riparazioni e manutenzione</footer-1-7>
+		<footer-1-7-url>/service/repair-service.html</footer-1-7-url>
+		
+		<footer-1-8></footer-1-8>
+		<footer-1-8-url></footer-1-8-url>
+		
+		<footer-2>compagnia</footer-2>
+		
+		<footer-2-1>informazioni sulla compagnia</footer-2-1>
+		<footer-2-1-url>/service/company-information.html</footer-2-1-url>
+		
+		<footer-2-2>orari</footer-2-2>
+		<footer-2-2-url>/service/opening-hours.html</footer-2-2-url>
+		
+		<footer-2-3>lavorare per Harings</footer-2-3>
+		<footer-2-3-url>/service/job-offers.html</footer-2-3-url>
+		
+		<footer-3>il nostro sito web</footer-3>
+		
+		<footer-3-1>website disclaimer</footer-3-1>
+		<footer-3-1-url>/service/website-disclaimer.html</footer-3-1-url>
+		
+		<footer-3-2>termini e condizioni d’acquisto</footer-3-2>
+		<footer-3-2-url>/service/terms-and-conditions.html</footer-3-2-url>
+		
+		<footer-3-3>privacy statement</footer-3-3>
+		<footer-3-3-url>/service/privacy-statement.html</footer-3-3-url>
+	</footer_menu>
+	
+	<stock-text>
+		<stock-supplier>Articoli disponibili nell’inventario del fornitore. %s giorni di consegna.</stock-supplier>
+		<stock-supplier-short>Quick delivery</stock-supplier-short>
+		
+		<actual-stock>%s ancora disponibili.</actual-stock>
+		<actual-stock-short>%s ancora disponibili.</actual-stock-short>
+		<actual-stock-empty>Articoli non disponibili</actual-stock-empty>
+		<actual-stock-empty-short>Articoli non disponibili</actual-stock-empty-short>
+		
+		<RG-stock-R>Articoli non disponibili.</RG-stock-R>
+		<RG-stock-R-short>Articoli non disponibili</RG-stock-R-short>
+		<RG-stock-G>Articoli disponibili.</RG-stock-G>
+		<RG-stock-G-short>Articoli disponibili</RG-stock-G-short>
+		
+		<in-stock>Articoli disponibili.</in-stock>
+		<in-stock-short>Articoli disponibili</in-stock-short>
+		<limited-stock-contact>Disponibilità limitata. Per favore contattateci prima di ordinare.</limited-stock-contact>
+		<limited-stock-contact-short>Disponibilità limitata.</limited-stock-contact-short>
+		
+		<text-temp-sold-out>Questo prodotto é temporaneamente non disponibile. Possiamo però aiutarvi a trovare delle alternative.</text-temp-sold-out>
+		<text-temp-sold-out-short>Temporaneamente non disponibile</text-temp-sold-out-short>
+		<text-sold-out>Questo prodotto non disponibile. Possiamo però aiutarvi a trovare delle alternative.</text-sold-out>
+		<text-sold-out>prodotto non disponibile</text-sold-out>
+		
+		<sale>vendi</sale>
+		<temp-sold-out>prodotto temporaneamente non disponibile</temp-sold-out>
+		<sold-out>prodotto non disponibile</sold-out>
+	</stock-text>
+	
+	<cart>
+		<add-cart-button>Articoli nel carrello</add-cart-button>
+		<added-cart>Articoli aggiunti al carrello</added-cart>
+		<button-goto-cart>rivedi gli articoli sin qui aggiunti al carrello</button-goto-cart>
+		<button-continue-shopping>continua con gli acquisti</button-continue-shopping>
+		
+		<conditions-check>essere consapevoli del fatto che accetti automaticamente i nostri termini e condizioni.</conditions-check>
+		
+		<shoppingcart>Il vostro carrello</shoppingcart>
+		<no-items>Il carrello é vuoto</no-items>
+		
+		<your-order>Il vostro ordine</your-order>
+		<your-order-eg>Fornisci i tuoi dati personali. Tutto in una pagina!</your-order-eg>
+		<articles>articolo(i)</articles>
+		<edit>cambia</edit>
+		
+		<delivery>Consegna al mio indirizzo</delivery>
+		<delivery-eg>Consegnato in circa 5 giorni lavorativi</delivery-eg>
+		<delivery-text>Le nostre biciclette sono consegnate con PostNL. Stanno lavorando insieme al tuo ufficio postale nazionale. I seguenti moduli di spedizione vengono aggiunti al tuo ordine se scegli questa opzione:</delivery-text>
+		
+		<shop-pickup>Ritira il tuo ordine al negozio di Almelo</shop-pickup>
+		<shop-pickup-eg>Possibilità di ritirare entro un’ora dall’ordine</shop-pickup-eg>
+		<shop-pickup-text>I’ordine verrà preparato immediatamente e sarà pronto per essere ritirato, al nostro negozio di Almelo, entro un’ora. Se ci fosse/fossero uno o piú prodotti non disponibili, vi contatteremo il prima possibile.</shop-pickup-text>
+		
+		<service-pickup>Dove ritirare %s in Olanda</service-pickup>
+		
+		<!-- Heerde -->
+		<service-pickup-eg-heerde>Ready for pickup on upcoming Monday</service-pickup-eg-heerde>
+		<service-pickup-text-heerde>Our pickup locations are supplied with the sold items once a week. At the pickup location in Heerde (Holland) this will be every Monday evening. In short this means that your order is available for pickup on each Monday evening only. You'll be charged with an extra off 5 euro's an order.</service-pickup-text-heerde>
+		
+		<!-- Arnhem -->
+		<service-pickup-eg-arnhem>Ready for pickup on upcoming Tuesday</service-pickup-eg-arnhem>
+		<service-pickup-text-arnhem>Our pickup locations are supplied with the sold items once a week. At the pickup location in Arnhem (Holland) this will be every Tuesday evening. In short this means that your order is available for pickup on each Tuesday evening. You'll be charged with an extra off 5 euro's an order.</service-pickup-text-arnhem>
+		
+		<export-fee>Tassa di esportazione</export-fee>
+		<export-fee-text>Il tuo ordine viene spedito fuori dall'Olanda. Poiché il trasporto è molto più grande e meno attento, dobbiamo calcolare una tariffa per meglio imballare il pacco. Oltre a questo lavoro extra, l'ufficio postale ci addebita una tassa aggiuntiva per le scatole più grandi. Il costo totale aggiuntivo per l'ordine sarà</export-fee-text>
+		
+		<stock-status>Status inventario</stock-status>
+		<stock-quantity>Quantità</stock-quantity>
+		<price>Totale</price>
+		<sub-total>Subtotale</sub-total>
+		<grand-total>Totale generale</grand-total>
+		<shipment-costs>Costi di spedizione</shipment-costs>
+		
+		<continue>Continua</continue>
+		<continue-payment>Continua il pagamento</continue-payment>
+		<failed-grand-total>il totale generale è troppo basso</failed-grand-total>
+		<happy-book-order>Sono soddisfatto, completa l’ordine!</happy-book-order>
+		<return-to-shop>Torna al negozio</return-to-shop>
+		
+		<form-name>Nome</form-name>
+		<form-company>Nome della ditta</form-company>
+		<form-optional>opzionale</form-optional>
+		<form-address>Indirizzo</form-address>
+		<form-zipcode>Codice postale</form-zipcode>
+		<form-city>Città</form-city>
+		<form-country>Nazione</form-country>
+		<form-phone>Telefono</form-phone>
+		<form-mobile>Cellulare</form-mobile>
+		<form-email>Indirizzo email</form-email>
+		<dob>Data di nascita</dob>
+		
+		<payment-error-title>Il Vostro pagamento è stato rifiutato</payment-error-title>
+		<payment-error-text>Si è verificato un errore durante il vostro pagamento con %s, il pagamento non è stato completato. Per favore controllate che sia le informazioni generali che i vostri dati personali siano stati inseriti correttamente. Vi suggeriamo di contattarci per assicura.</payment-error-text>
+	</cart>
+	
+	<product-details>
+		<call-me>Domande su questo prodotto? Non appena è disponibile un dipendente (entro l'orario lavorativo) vorremmo richiamarti per rispondere alle tue domande. Lasciaci il tuo numero di telefono qui sotto!</call-me>
+		<call-me-button>inviaci il tuo numero!</call-me-button>
+		<call-me-done>richiesta inviata</call-me-done>
+		
+		<one>Se ordinate entro le 17:00, ve le consegniamo entro 5 giorni lavorativi! Le biciclette vengono consegnate assemblate al 90%%.</one>
+		<two>Il prezzo è quello, niente costi aggiuntivi. Ci teniamo ad essere onesti e trasparenti.</two>
+		<three>Siamo una ditta a conduzione familiar sin dal 1899. Servizio personalizzato e sempre col sorriso.</three>
+		<four>Offriamo sempre il migliore prezzo sulla piazza grazie alle nostre analisi di mercato. </four>
+		<five></five>
+		<six></six>
+		
+		<seven>L’imballaggio utilizzato per le spedizione è lo stesso usato dai nostri fornitori, il che ci aiuta a risparmiare sui materiali e a salvare molti alberi.</seven>
+		<eight>Tutto il materiale d’imballaggio avanzato o scartato, viene poi raccolta e riciclato da una società esterna con la quale abbiamo un accordo. La carta che usate è molto probabilmente ricavata dal nostro materiale riciclato.</eight>
+		<nine>Ci piace contribuire ad avere un ambiente piú pulito; combiniamo i piú ordini in una sola spedizione in modo da ridurre emission di Co2.</nine>
+		
+		<description>Descrizione articolo</description>
+		<specifications>Scheda tecnica</specifications>
+		<reviews>Recensioni</reviews>
+		<brand>marche</brand>
+		<article-code>Codice articolo</article-code>
+		<ean-code>EAN Code</ean-code>
+		<supplier-code>Codice articolo fornitore</supplier-code>
+		
+		<description-only-dutch>La descrizione del nostro articolo è disponibile solo in olandese. Il resto del nostro sito web è stato accuratamente tradotto, la descrizione seguirà a breve. Ci scusiamo per il disagio.</description-only-dutch>
+		
+		<average>Media</average>
+		<oclock>Ora esatta</oclock>
+	</product-details>
+</language_pack>

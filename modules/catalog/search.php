@@ -3,6 +3,7 @@ $string = $_GET['string'];
 $string = $mb->real_escape_string($string);
 
 $string = str_replace("-", " ", $string);
+$string = str_replace("%20", " ", $string);
 ?>
 
 <ul class="breadcrumbs">
@@ -22,7 +23,9 @@ $string = str_replace("-", " ", $string);
 <div class="page-content">
 	<?php
 	$products = $mb->_runFunction("catalog", "loadProducts", array(0, $string));
+	
 	$num = 0;
+	$total = 0;
 	
 	if(count($products) > 0)
 	{
@@ -41,10 +44,18 @@ $string = str_replace("-", " ", $string);
 			}
 			
 			$num++;
+			$total++;
 		}
 	}
 	
-	if($num == 0)
+	if($total == 1)
+	{
+		?>
+		<script type="text/javascript">
+			document.location.href = '/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $product['productID'] ?>/<?= _createCategoryURL($product['name'][strtolower(_LANGUAGE_PACK)]) ?>.html';
+		</script>
+		<?php
+	} else if($num == 0)
 	{
 		?>
 		<div class="no-results">

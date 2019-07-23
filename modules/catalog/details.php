@@ -1,6 +1,15 @@
 <?php
 $details = $mb->_runFunction("catalog", "loadProduct", array(intval($_GET['productID'])));
 
+if($details['visibility'] == 1)
+{
+	?>
+	<script type="text/javascript">
+		document.location.href = '/';
+	</script>
+	<?php
+}
+
 $name = $details['name'];
 
 if($details[strtoupper(_LANGUAGE_PACK) . '_name'] != "")
@@ -120,6 +129,15 @@ if($details['deleted'] == 1)
 				<?php
 			}
 		}
+		
+		$banner = $mb->_runFunction("banners", "loadMerchantBanner", array(_LANGUAGE_PACK, "product_details"));
+		
+		if($banner['image'] != "")
+		{
+			?>
+			<img src="<?= $banner['image'] ?>" />
+			<?php
+		}
 		?>
 	</div>
 	
@@ -228,6 +246,23 @@ if($details['deleted'] == 1)
 				print $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($price, $_SESSION['currency']), $_SESSION['currency']);
 				?>
 				
+				<br/>
+				
+				<?php
+				if($details['shipment_costs'] > 0)
+				{
+					?>
+					<small style="text-decoration: none;"><?= $mb->_translateReturn("website_text", "shipment_text", array($_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($details['shipment_costs'], $_SESSION['currency']), $_SESSION['currency']))) ?></small>
+					<?php
+				}
+				else
+				{
+					?>
+					<small style="text-decoration: none;"><?= $mb->_translateReturn("website_text", "shipment_text_free") ?></small>
+					<?php
+				}
+				?>
+				
 				<span itemprop="offers" itemscope itemtype="http://schema.org/Offer" style="display: none;">
 					<meta itemprop="priceCurrency" content="<?= $_SESSION['currency'] ?>" />
 					<span itemprop="price"><?= $mb->replaceCurrency($price, $_SESSION['currency']) ?></span>
@@ -267,10 +302,28 @@ if($details['deleted'] == 1)
 			</strong>
 			
 			<?php
+			if(count($details['addons']) > 0)
+			{
+				?>
+				<select name="addonID" id="addonID" class="addons" onchange="$('.button.add-to-cart').attr('addonid', $(this).val())">
+					<option value=""><?= $mb->_translateReturn("cart", "optional-addons") ?></option>
+					
+					<?php
+					foreach($details['addons'] AS $addon)
+					{
+						?>
+						<option value="<?= $addon['addonID'] ?>"><?= $addon['name'] ?> (+&nbsp;<?= $_currencies_symbols[$_SESSION['currency']] . " " . _frontend_float($mb->replaceCurrency($addon['price'], $_SESSION['currency']), $_SESSION['currency']) ?>)</option>
+						<?php
+					}
+					?>
+				</select>
+				<?php
+			}
+			
 			if($details['status'] < 3)
 			{
 				?>
-				<div class="button" productid="<?= $details['productID'] ?>" style="background-color: <?= $mb->_translateReturn("colors", "main_color") ?>;">
+				<div class="add-to-cart button <?= count($details['addons']) ? "no-margin" : "" ?>" addonid="0" productid="<?= $details['productID'] ?>" style="background-color: <?= $mb->_translateReturn("colors", "main_color") ?>;">
 					<?= $mb->_translateReturn("cart", "add-cart-button") ?>
 				</div>
 				<?php
@@ -293,7 +346,7 @@ if($details['deleted'] == 1)
 						<input type="text" name="phone_number" id="phone_number" value="" placeholder="<?= $mb->_translateReturn("product-details", "call-me-text") ?>" autocomplete="off" />
 						
 						<input type="hidden" name="productID" id="productID" value="<?= $details['productID'] ?>" />
-						<input type="hidden" name="returnURL" id="returnURL" value="<?= $actual_link ?>" />
+						<input type="hidden" name="returnURL" id="returnURL" value="<?= $_real_url ?>" />
 						
 						<div class="button" onclick="submitCallme();">
 							<?= $mb->_translateReturn("product-details", "call-me-button") ?>

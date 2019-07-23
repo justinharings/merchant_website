@@ -84,9 +84,20 @@
 						<td class="second hide-mobile">
 							<small><?= $mb->_translateReturn("product-details", "description") ?></small><br/>
 							
-							<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $product['productID'] ?>/<?= _createCategoryURL($product['name']) ?>.html">
-								<?= strip_tags($name) ?>
-							</a>
+							<?php
+							if($product['visibility'] == 2 || $product['visibility'] == 3)
+							{
+								?>
+								<a href="/<?= _LANGUAGE_PACK ?>/catalog/details/<?= $product['productID'] ?>/<?= _createCategoryURL($product['name']) ?>.html">
+									<?= strip_tags($name) ?>
+								</a>
+								<?php
+							}
+							else
+							{
+								print strip_tags($name);
+							}
+							?>
 						</td>
 						
 						<td class="third hide-mobile">

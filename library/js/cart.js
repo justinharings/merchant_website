@@ -115,7 +115,8 @@ $(document).ready(
 				$.post(
 					"/library/php/posts/cart.php",
 					{
-						productID: elm.attr("productid")
+						productID: elm.attr("productid"),
+						addonID: elm.attr("addonid")
 					}
 				).done(
 					function(data) 

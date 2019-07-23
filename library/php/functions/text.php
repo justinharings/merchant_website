@@ -17,6 +17,7 @@ function _createCategoryURL($name)
 	$name = str_replace(" ", "_", $name);
 	$name = str_replace("/", "_", $name);
 	$name = str_replace("&", "en", $name);
+	$name = str_replace("%", "_procent", $name);
 	
 	return $name;
 }

@@ -92,6 +92,9 @@
 	<website_text>
 		<core_product>Core collection</core_product>
 		
+		<shipment_text>Versand für dieses Produkt kostet %s.</shipment_text>
+		<shipment_text_free>Dieses Produkt wird kostenlos versendet!</shipment_text_free>
+		
 		<sale>ausverkauf</sale>
 		
 		<add-1-url>https://www.mijntweewielers.nl/</add-1-url>
@@ -214,6 +217,7 @@
 	
 	<cart>
 		<add-cart-button>in Einkaufswagen</add-cart-button>
+		<optional-addons>Wählen Sie ein optionales Upgrade aus ...</optional-addons>
 		<added-cart>zufügen in Einkaufswagen</added-cart>
 		<button-goto-cart>zum Einkaufswagen</button-goto-cart>
 		<button-continue-shopping>weiter  mit einkaufen</button-continue-shopping>
@@ -254,6 +258,7 @@
 		<price>Gesamt</price>
 		<sub-total>Zwischensumme</sub-total>
 		<grand-total>Gesamtsumme</grand-total>
+		<grand-total-complete>Die Gesamtsumme inklusive Versand und Gebühren beträgt %s.</grand-total-complete>
 		<shipment-costs>Versandkosten</shipment-costs>
 		
 		<continue>weiter</continue>

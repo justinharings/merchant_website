@@ -14,6 +14,11 @@ class main_board
 	}
 	
 	
+	public function num_rows($result)
+	{
+		return mysqli_num_rows($result);
+	}
+	
 	
 	/*
 	**	Construct the motherboard class. The language pack is

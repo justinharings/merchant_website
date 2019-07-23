@@ -258,6 +258,7 @@ if(file_exists(__DIR__ . "/force.php"))
 		--->
 		
 		<?php
+		/*
 		if(strtoupper($_country_code) != strtoupper(_LANGUAGE_PACK) && !isset($_SESSION['country_selection']))
 		{
 			?>
@@ -266,6 +267,7 @@ if(file_exists(__DIR__ . "/force.php"))
 			
 			<?php
 		}
+		*/
 		?>
 		
 		<div class="top">
@@ -273,6 +275,7 @@ if(file_exists(__DIR__ . "/force.php"))
 				<div class="top-left">
 					<div class="top-item submenu-active">
 						<?php
+						/*
 						if(strtoupper($_country_code) != strtoupper(_LANGUAGE_PACK) && !isset($_SESSION['country_selection']))
 						{
 							$_SESSION['country_selection'] = true;
@@ -284,6 +287,7 @@ if(file_exists(__DIR__ . "/force.php"))
 							
 							<?php
 						}
+						*/
 						?>
 						
 						<a href="/">
