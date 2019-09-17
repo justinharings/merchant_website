@@ -18,13 +18,13 @@ switch($_actual_link)
 	
 	// Harings Tweewielers
 	case "https://haringstweewielers.com":
-	case "https://websites.justinharings.nl":
 		$_actual_link = "https://haringstweewielers.com";
 		define("_MERCHANT_ID", 1);
 	break;
 	
 	// Kingmade
 	case "https://kingmade.nl":
+	case "https://websites.justinharings.nl":
 		$_actual_link = "https://kingmade.nl";
 		define("_MERCHANT_ID", 5);
 	break;

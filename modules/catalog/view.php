@@ -40,6 +40,22 @@ switch($_GET['headCategory'])
 	case "voeding-en-snacks":
 		$headCategory = 231;
 	break;
+	
+	case "pennen":
+		$headCategory = 80;
+	break;
+	
+	case "knuffels":
+		$headCategory = 82;
+	break;
+	
+	case "kleding":
+		$headCategory = 83;
+	break;
+	
+	case "draaiwerk":
+		$headCategory = 81;
+	break;
 }
 
 $headCategory = $mb->_runFunction("catalog", "loadCatalog", array(intval($headCategory)));

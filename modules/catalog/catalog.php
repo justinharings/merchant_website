@@ -2,58 +2,59 @@
 switch($_GET['catalog_name'])
 {
 	case "bicycles":
-		$categoryID = 1;
-		$banner_prefix = "fietsen";
+		$headCategory = 1;
 	break;
 	
 	case "accessories":
-		$categoryID = 4;
-		$banner_prefix = "accessoires";
+		$headCategory = 4;
 	break;
 	
 	case "parts":
-		$categoryID = 44;
-		$banner_prefix = "onderdelen";
-	break;
-	
-	case "pennen":
-		$categoryID = 1;
-		$banner_prefix = "fietsen";
-	break;
-	
-	case "decoration":
-		$categoryID = 85;
-		$banner_prefix = "decoratie";
-	break;
-	
-	case "furniture":
-		$categoryID = 86;
-		$banner_prefix = "meubelen";
-	break;
-	
-	case "lights":
-		$categoryID = 87;
-		$banner_prefix = "verlichting";
-	break;
-	
-	case "clothes":
-		$categoryID = 88;
-		$banner_prefix = "kleden";
-	break;
-	
-	case "dierenwinkel":
-		$categoryID = 101;
-		$banner_prefix = "dierenwinkel";
-	break;
-	
-	case "voeding-en-snacks":
-		$categoryID = 231;
-		$banner_prefix = "snoepgoed";
+		$headCategory = 44;
 	break;
 	
 	case "webshop":
-		$categoryID = 68;
-		$banner_prefix = "webshop";
+		$headCategory = 68;
+	break;
+	
+	case "decoration":
+		$headCategory = 85;
+	break;
+	
+	case "furniture":
+		$headCategory = 86;
+	break;
+	
+	case "lights":
+		$headCategory = 87;
+	break;
+	
+	case "clothes":
+		$headCategory = 88;
+	break;
+	
+	case "dierenwinkel":
+		$headCategory = 101;
+	break;
+	
+	case "voeding-en-snacks":
+		$headCategory = 231;
+	break;
+	
+	case "pennen":
+		$headCategory = 80;
+	break;
+	
+	case "knuffels":
+		$headCategory = 82;
+	break;
+	
+	case "kleding":
+		$headCategory = 83;
+	break;
+	
+	case "draaiwerk":
+		$headCategory = 81;
 	break;
 	
 	default:

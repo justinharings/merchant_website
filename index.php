@@ -764,25 +764,32 @@ if(file_exists(__DIR__ . "/force.php"))
 						</div>
 					</div>
 					
-					<div class="block">
-						<strong><?= $mb->_translateReturn("footer", "easy_payment") ?></strong>
-						
-						<div class="clear">
-							<a href="/<?= _LANGUAGE_PACK . $mb->_translateReturn("footer", "easy_payment_url") ?>">
-								<?php
-								$icons = $mb->_runFunction("banners", "loadMerchantBanner", array("nl", "payment_icons"));
-								
-								foreach($icons AS $icon)
-								{
-									?>
-									<img src="<?= $icon['image'] ?>" />
-									<?php
-								}
-								?>
-							</a>
-						</div>
-					</div>
+					<?php
+					$icons = $mb->_runFunction("banners", "loadMerchantBanner", array("nl", "payment_icons"));
 					
+					if(count($icons) > 0)
+					{
+						?>
+						<div class="block">
+							<strong><?= $mb->_translateReturn("footer", "easy_payment") ?></strong>
+							
+							<div class="clear">
+								<a href="/<?= _LANGUAGE_PACK . $mb->_translateReturn("footer", "easy_payment_url") ?>">
+									<?php
+									foreach($icons AS $icon)
+									{
+										?>
+										<img src="<?= $icon['image'] ?>" />
+										<?php
+									}
+									?>
+								</a>
+							</div>
+						</div>
+						<?php
+					}
+					?>
+						
 					<div class="block last">
 						<strong><?= $mb->_translateReturn("footer", "search_shop") ?></strong>
 						
